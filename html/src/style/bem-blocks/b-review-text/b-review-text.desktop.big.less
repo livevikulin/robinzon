@@ -1,0 +1,54 @@
+/* 1440 + */
+.b-review-text {
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .11);
+    display: block;
+    margin-bottom: 30px;
+    position: relative;
+
+    &__arrow {
+        position: absolute;
+        z-index: 0;
+        bottom: -15px;
+
+        &:after {
+            border: 16px solid transparent;
+            border-left: 12px solid @cl-white;
+            border-right: 0 solid transparent;
+            border-top: 0 solid transparent;
+            bottom: 0;
+            content: '';
+            left: 30px;
+            position: absolute;
+            transform: rotate(4deg);
+        }
+
+        &:before {
+            border: 16px solid transparent;
+            border-left: 12px solid #000;
+            border-right: 1px solid transparent;
+            border-top: 1px solid transparent;
+            bottom: -3px;
+            content: '';
+            filter: blur(2px);
+            left: 30px;
+            opacity: .3;
+            position: absolute;
+            transform: rotate(10deg);
+        }
+    }
+
+    &__content {
+        background-color: @cl-white;
+        border-radius: 3px;
+        padding: 30px;
+        position: relative;
+        z-index: 1;
+    }
+
+    p {
+        color: @text-product-description;
+        font-size: 15px;
+        line-height: 22px;
+        margin: 0;
+    }
+}

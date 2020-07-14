@@ -1,0 +1,49 @@
+/* 768 + */
+.b-recommended-item {
+    width: ~"calc(((100vw - 40px) / 3) + 1px)";
+
+    &--favorite {
+        width: ~"calc((100% / 3) + 1px)";
+    }
+
+    &--size {
+        width: ~"calc((((100vw - 40px) / 3) * 2) + 1px)";
+    }
+
+    &--set {
+        width: ~"calc((100%/3) + 1px)";
+    }
+
+    &--row-list {
+        width: 225px;
+
+        // &:last-child {
+        //     margin-right: 20px;
+        // }
+    }
+
+    &__content {
+        &--hover {
+            .no-touchevents &:hover,
+            .touchevents &:active {
+                transform: none;
+                height: 100%;
+                box-shadow: none;
+                z-index: 10;
+
+                // Иконочки статистики и тд
+                .b-link--recomend-item {
+                    opacity: 0;
+                }
+            }
+
+            // Новый ховер для мода --size
+            .b-recommended-item--size & {
+                .no-touchevents &:hover,
+                .touchevents &:active {
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

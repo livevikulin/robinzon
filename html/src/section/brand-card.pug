@@ -1,0 +1,31 @@
+//- ====================
+//- brand-card
+//- 04-06-2018: sashakasha
+//- --------------------
+//- American Tourister
+//- ====================
+
+mixin brand-card()
+    +b.brand-card
+        +e.wrapper
+            +e.about.js-brand-card-mobile
+                +e.group
+                    +e.logo
+                        img(src='images/content/american-tourister-logo.jpg', alt='American Tourister', title='American Tourister')
+                    +e.info
+                        +e.stats
+                            +b('a').link(href='javascript:void(0)', title='').--underline-dot.--stats
+                                | Товаров 
+                                span в каталоге
+                                |:
+                            +e('span').count &nbsp;284
+                        +e.stats
+                            +b('a').link(href='javascript:void(0)', title='').--underline-dot.--stats
+                                | Коллекций:
+                            +e('span').count &nbsp;75
+                +e.desc.js-brand-card-desc
+                    p American Tourister является одним из&nbsp;ведущих брендов багажа, которому доверяют во&nbsp;всем мире. Сегодня American Tourister предлагает широкий выбор качественных чемоданов по&nbsp;доступной цене&nbsp;&mdash; ярких привлекательных и&nbsp;красочных. Отличаясь высоким качеством, коллекции American Tourister объединяют стиль и&nbsp;практичность, а&nbsp;также широкое разнообразие чемоданов для путешествий, идеально подходящих для Вашей поездки в&nbsp;отпуск.
+
+            +e.banner.js-brand-card-desk
+                include brand-card-slider.pug
+                +brand-card-slider('images/content/american-tourister-card-1.jpg', 'images/content/american-tourister-card-1.jpg', 'images/content/american-tourister-card-1.jpg')

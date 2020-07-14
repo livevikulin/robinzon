@@ -1,0 +1,44 @@
+/* 1440 + */
+.b-filter-color {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0;
+    padding: 0;
+
+    &--map-card,
+    &--buy-cheaper,
+    &--for-one-click {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &--buy-cheaper {
+        margin: 0 0 10px;
+    }
+
+    &__item {
+        height: 32px;
+        list-style-type: none;
+        padding: 4px;
+        width: 50%;
+        white-space: nowrap;
+
+        &--full-width {
+            width: 100%;
+        }
+
+        &--map-card,
+        &--buy-cheaper,
+        &--for-one-click {
+            display: inline-block;
+            height: 38px;
+            width: auto;
+        }
+
+        &--buy-cheaper,
+        &--for-one-click {
+            margin: 0 0 2px;
+        }
+    }
+}

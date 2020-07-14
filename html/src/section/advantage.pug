@@ -1,0 +1,31 @@
+//- ====================
+//- advantage
+//- 30-03-2020
+//- --------------------
+//- Блок преимуществ в карточке товара
+//- ====================
+
+mixin advantage()
+    +b.advantage(class!=attributes.class)
+        +e.item
+            +e.icon
+                include ui-kit/icon.pug
+                +icon('return-warranty')
+            +e.data
+                +e.name Гарантия возврата
+
+                +e.text До 30 дней&nbsp;на&nbsp;возврат, полная&nbsp;гарантия
+        +e.item
+            +e.icon
+                include ui-kit/icon.pug
+                +icon('payment')
+            +e.data
+                +e.name Оплата при&nbsp;получении
+                +e.text Наличными или банковской картой
+        +e.item
+            +e.icon
+                include ui-kit/icon.pug
+                +icon('class')
+            +e.data
+                +e.name Более 25 лет на&nbsp;рынке
+                +e.text Мы — эксперты по&nbsp;чемоданам

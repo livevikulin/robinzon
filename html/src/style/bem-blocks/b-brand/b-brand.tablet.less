@@ -1,0 +1,26 @@
+/* 768 + */
+.b-brand {
+    width: 155px;
+    height: 85px;
+
+    &__figure {
+        height: 53px;
+        line-height: 53px;
+    }
+
+    .no-touchevents &:hover,
+    .touchevents &:active {
+        height: 85px;
+    }
+
+    &--product {
+        width: 110px;
+        height: auto;
+        left: 0;
+        top: 0;
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            height: auto;
+        }
+    }
+}

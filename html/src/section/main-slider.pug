@@ -1,0 +1,23 @@
+//- ====================
+//- Robinzon: main-slider
+//- 18-01-2018: Amedomary
+//- --------------------
+//- main-slider
+//- ====================
+
+mixin main-slider()
+    +b.main-slider( class!=attributes.class )
+        include main-slide.pug
+        +main-slide( 'images/content/slider_pic-2.jpg')(data-color='blue')
+            +main-slide-content('Rimowa', 'Чемоданы премиум класса', 'Смотреть каталог')
+        +main-slide( 'images/content/slider_pic-2.jpg' )(data-color='green')
+            include main-slide-content.pug
+            +main-slide-content('Магазины «Робинзон»', 'Весь багаж находится здесь', 'Выбрать чемодан')
+        //- +main-slide( 'images/content/slide-001-b.png' )(data-color='red')
+        //-     +main-slide-content('Магазины «Робинзон»', 'Весь багаж находится здесь', 'Выбрать чемодан')
+        //- +main-slide( 'images/content/slide-001-b.png', 'images/content/slide-001-m.png', 'images/content/slide-001-s.png' )(data-color='blue')
+        //-     +main-slide-content('Магазины «Робинзон»', 'Весь багаж находится здесь', 'Выбрать чемодан')
+        //- +main-slide( 'images/content/slide-001-b.png', 'images/content/slide-001-m.png', 'images/content/slide-001-s.png' )(data-color='green')
+        //-     +main-slide-content('Магазины «Робинзон»', 'Весь багаж находится здесь', 'Выбрать чемодан')
+        //- +main-slide( 'images/content/slide-001-b.png', 'images/content/slide-001-m.png', 'images/content/slide-001-s.png' )(data-color='red')
+        //-     +main-slide-content('Магазины «Робинзон»', 'Весь багаж находится здесь', 'Выбрать чемодан')

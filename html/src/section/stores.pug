@@ -1,0 +1,116 @@
+//- ====================
+//- Project: stores
+//- 17-01-2018: dimasta
+//- --------------------
+//- Наши магазины в Москве (карта)
+//- ====================
+
+mixin stores(data)
+    include ui-kit/title.pug
+    +title("h1", 'Наши магазины').--stores
+    +b.city-stores
+        include ui-kit/link.pug
+        +e('nav').nav
+            +link--type('', 'a').--stores-tab(class='-active')
+                +e('span').add-text--stores-tab Москва:
+                +e('span').add-text--stores-banner 7
+
+            +link--type('', 'a').--stores-tab
+                +e('span').add-text--stores-tab Санкт-Петербург:
+                +e('span').add-text--stores-banner 1
+        +b("section").stores.--store-item(class='-active')
+            include stores-tile.pug
+            +stores-tile({
+                'items': [{
+                        'class': 'b-pin--yellow',
+                        'name': 'Робинзон на Пролетарской',
+                        'address': 'м. Пролетарская, ТЦ&nbsp;&laquo;Сотый&raquo;',
+                        'classLi': 'js-link-hover',
+                        'dataAttrLi': 'proletarsk'
+                    },{
+                        'class': 'b-pin--blue',
+                        'name': 'Робинзон Premier&nbsp;',
+                        'address': 'м. Смоленская, ТДК &laquo;Смоленский пассаж&raquo;',
+                        'classLi': 'js-link-hover',
+                        'dataAttrLi': 'premier'
+                    },{
+                        'class': 'b-pin--red',
+                        'name': 'Робинзон Фестиваль',
+                        'address': 'м. Юго-Западная, ТРЦ&nbsp;&laquo;Фестиваль&raquo;',
+                        'classLi': 'js-link-hover',
+                        'dataAttrLi': 'festival'
+                    },{
+                        'class': 'b-pin--green',
+                        'name': 'Робинзон Одинцово',
+                        'address': 'г.&nbsp;Одинцово, ТЦ&nbsp;&laquo;Дубрава&raquo;',
+                        'classLi': 'js-link-hover',
+                        'dataAttrLi': 'odincovo'
+                    }
+                ]
+            })
+            +e.banner
+                +e.img-wrap
+                    +e("img").banner-img.--desk.js-image-wrapper.js-image-hover.js-hover-main(data-hover-id="festival" data-def-src="images/content/festival.jpg" src="images/content/festival.jpg", alt="" title="")
+                    +e("img").banner-img.--desk.js-image-wrapper.js-image-hover(data-hover-id="odincovo" src="images/content/odincovo.jpg", alt="" title="" style="display: none;")
+                    +e("img").banner-img.--desk.js-image-wrapper.js-image-hover(data-hover-id="premier" src="images/content/premier.jpg", alt="" title="" style="display: none;")
+                    +e("img").banner-img.--desk.js-image-wrapper.js-image-hover(data-hover-id="proletarsk" src="images/content/proletarsk.jpg", alt="" title="" style="display: none;")
+
+                    +e("img").banner-img.--mobile.js-image-wrapper(src="images/content/stores-img320.png", alt="" title="")
+                    include promo.pug
+                    +promo('Посетите наши магазины в Москве',
+                            'Товары в магазинах',
+                            '30% скидка',
+                            'на аксессуары',
+                            '1 год —',
+                            'дополнительная гарантия',
+                            'на товар от «Робинзона»',
+                            'Можно скорректировать',
+                            'заказ на месте')
+        +b("section").stores.--store-item
+            include stores-tile.pug
+            +stores-tile({
+                'items': [{
+                        'class': 'b-pin--yellow',
+                        'name': 'Робинзон на Пролетарской',
+                        'address': 'м. Пролетарская, ТЦ&nbsp;&laquo;Сотый&raquo;',
+                        'classLi': 'js-link-hover',
+                        'dataAttrLi': 'proletarsk'
+                    },{
+                        'class': 'b-pin--blue',
+                        'name': 'Робинзон Premier&nbsp;',
+                        'address': 'м. Смоленская, ТДК &laquo;Смоленский пассаж&raquo;',
+                        'classLi': 'js-link-hover',
+                        'dataAttrLi': 'premier'
+                    },{
+                        'class': 'b-pin--red',
+                        'name': 'Робинзон Фестиваль',
+                        'address': 'м. Юго-Западная, ТРЦ&nbsp;&laquo;Фестиваль&raquo;',
+                        'classLi': 'js-link-hover',
+                        'dataAttrLi': 'festival'
+                    },{
+                        'class': 'b-pin--green',
+                        'name': 'Робинзон Одинцово',
+                        'address': 'г.&nbsp;Одинцово, ТЦ&nbsp;&laquo;Дубрава&raquo;',
+                        'classLi': 'js-link-hover',
+                        'dataAttrLi': 'odincovo'
+                    }
+                ]
+            })
+            +e.banner
+                +e.img-wrap
+                    +e("img").banner-img.--desk.js-image-wrapper.js-image-hover.js-hover-main(data-hover-id="festival" data-def-src="images/content/festival.jpg" src="images/content/festival.jpg", alt="" title="")
+                    +e("img").banner-img.--desk.js-image-wrapper.js-image-hover(data-hover-id="odincovo" src="images/content/odincovo.jpg", alt="" title="" style="display: none;")
+                    +e("img").banner-img.--desk.js-image-wrapper.js-image-hover(data-hover-id="premier" src="images/content/premier.jpg", alt="" title="" style="display: none;")
+                    +e("img").banner-img.--desk.js-image-wrapper.js-image-hover(data-hover-id="proletarsk" src="images/content/proletarsk.jpg", alt="" title="" style="display: none;")
+
+                    +e("img").banner-img.--mobile.js-image-wrapper(src="images/content/stores-img320.png", alt="" title="")
+                    include promo.pug
+                    +promo('Посетите наши магазины в Москве',
+                            'Товары в магазинах',
+                            '30% скидка',
+                            'на аксессуары',
+                            '1 год —',
+                            'дополнительная гарантия',
+                            'на товар от «Робинзона»',
+                            'Можно скорректировать',
+                            'заказ на месте')

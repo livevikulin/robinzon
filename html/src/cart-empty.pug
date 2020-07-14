@@ -1,0 +1,37 @@
+//- ====================
+//- Project: cart-empty
+//- 07-06-2018: sashakasha
+//- --------------------
+//- Корзина пуста
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'cart-empty'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Моя корзина';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    .b-container
+        include section/ui-kit/title.pug
+        +title('h1', 'Моя корзина').--cart-empty
+
+    +b('section').section.--white.--cart-empty
+        .b-container
+            include section/cart-empty.pug
+            +cart-empty()
+
+    +b('section').section.--gray.--visited
+        .b-container
+            //- Вы смотрели товары
+            +title('h2', 'Вы смотрели товары').--block.--similar
+            include section/list-of-products.pug
+            +list-of-products--popular().js-popular-slider.js-horizontal-scroll

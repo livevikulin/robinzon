@@ -1,0 +1,26 @@
+//- ====================
+//- brand-wrapper-menu
+//- 27-06-2018: Mell.Blimm
+//- --------------------
+//- Бренды - меню
+//- ====================
+
+mixin brand-wrapper-menu()
+    +b.brand-wrapper--menu
+        +e.body
+            include brand-group-list.pug
+            +brand-group-list('A', false, 'American Tourister')
+            +brand-group-list('B', false, 'Bouncie', 'Brics')
+            +brand-group-list('C', false, 'Bouncie', 'Brics')
+            +brand-group-list('D', false, 'Dakine', 'Delsey', 'Deuter', 'Disney', 'Doppler')
+            +brand-group-list('F', false, 'Hartmann', 'Hedgren', 'Herlitz', 'Herschel', 'Heys', 'High Sierra')
+            +brand-group-list('H', false, 'Hartmann', 'Hedgren', 'Herlitz', 'Herschel', 'Heys', 'High Sierra')
+            +brand-group-list('J', false, 'Bouncie', 'Brics')
+            +brand-group-list('K', false, 'Bouncie', 'Brics')
+            +brand-group-list('L', false, 'American Tourister')
+            +brand-group-list('M', false, 'Bouncie', 'Brics')
+            +brand-group-list('P', false, 'Bouncie', 'Brics')
+            +brand-group-list('S', false, 'Dakine', 'Delsey', 'Deuter', 'Disney', 'Doppler')
+            +e('a').close-wrap(href="javascript:void(0);" title="Закрыть")
+                include ui-kit/icon.pug
+                +icon('close').--main-menu

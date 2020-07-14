@@ -1,0 +1,38 @@
+//- ====================
+//- robinzon: obtainment
+//- 31-01-2018: dimasta
+//- --------------------
+//- Блок "Как получить товар"
+//- ====================
+mixin obtainment(data)
+    include ui-kit/title.pug
+    +title('h2', 'Как получить товары').--obtainment
+    +b.obtainment
+        +e('ul').content
+            include obtainment-item.pug
+            +obtainment-item({'items': [{
+                'srclink': 'images/content/01_dostavka-min.jpg',
+                'num': '2',
+                'mark': 'дня',
+                'class': 'delivery b-icon--delivery',
+                'classmark': '--delivery',
+                'description': 'доставка в&nbsp;г.&nbsp;Набережные Челны'
+                },
+                {
+                'srclink': 'images/content/02_samovivoz-min.jpg',
+                'num': '200',
+                'mark': '',
+                'class': 'pickpoint b-icon--pickpoint',
+                'classmark': '--pickpoint',
+                'description': 'пунктов самовывоза',
+                'descriptionlink': 'Посмотреть на карте'
+                },
+                {
+                'srclink': 'images/content/03_vozvrat-min.jpg',
+                'num': '30',
+                'mark': 'дней',
+                'class': 'exchange b-icon--exchange',
+                'classmark': '--exchange',
+                'description': 'обмен-возврат товара'
+                }
+                ]})

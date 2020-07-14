@@ -1,0 +1,17 @@
+//- ====================
+//- Project: stores-tile
+//- 19-01-2018: dimasta
+//- --------------------
+//- Плитки с указанием магазинов в блоке "Наши магазины в Москве"
+//- ====================
+mixin stores-tile(data)
+    +b('ul').stores__location-bunch
+        each item in data.items
+            +b('li').stores-tile(class=(item.classLi)?item.classLi:'' data-hover-target=(item.dataAttrLi)?item.dataAttrLi:'')
+                +e('a').link(href='javascript:void(0);', title="" )
+                    include ui-kit/icon.pug
+                    +icon('geo_ico')(class=item.class)
+                    +e.shop-info
+                        +e('p').name !{item.name}
+                        +e('p').address !{item.address}
+

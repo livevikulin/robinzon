@@ -1,0 +1,44 @@
+//- ====================
+//- Robinzon: registration-popup
+//- 18-01-2018: Amedomary
+//- --------------------
+//- ПопАп registration-popup
+//- ====================
+
+mixin registration-popup()
+    include ../ui-kit/popup.pug
+    include ../ui-kit/title.pug
+    include ../ui-kit/input-label.pug
+    include ../ui-kit/input.pug
+    include ../ui-kit/input-label.pug
+    include ../ui-kit/input-label.pug
+    include ../ui-kit/input.pug
+    include ../ui-kit/button.pug
+    include ../ui-kit/title.pug
+
+    +b.registration-popup
+        //- Крестик
+        +popup_close().--light
+
+        +e.block--half-left
+            +title('h3', 'Регистрация').--login
+            +e('form').form.js-validation-form.js-registration
+                +input-label('Имя', 'id-name-registration')
+                +input('id-name-registration', 'text', 'Введите имя', 'mail-login', '').--login(required="required")
+                    //- +input-label('Недопустимое имя', 'id-name-registration').--error
+
+                +input-label('Электронная почта', 'id-mail-registration')
+                +input('id-mail-registration', 'email', 'Введите почту', 'password-login', '').--login(required="required").js-email
+                    //- +input-label('Не корректная электронная почта', 'id-mail-registration').--error
+
+                //- +e.buttons 
+                //- -disable
+                +button('Зарегистрироваться', '', false).--registration-popup.js-open-popup.js-reg(data-popup="registration-done")
+                +e('p').add-text Нажимая кнопку «Зарегистрироваться», я выражаю свое согласие на получение информации об оформлении и получении заказа, согласие на обработку персональных данных в соответствии с указанным здесь текстом.
+                +title('h4', 'Регистрация через соцсети').--login-social
+                +social--login().--login
+            //- TODO: Удалить ниже (выключить js для формы)
+            +button('Зарегать-тест-временно', '', false).js-open-popup(data-popup="registration-done")
+
+        +e.block--half-right
+            +e('img').background.js-image-wrapper(alt='фон', title='', src='images/content/image-001.jpg')

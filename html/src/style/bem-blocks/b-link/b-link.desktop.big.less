@@ -1,0 +1,445 @@
+/* 1440 + */
+.b-link {
+    display: inline;
+    text-decoration: none;
+    transition: color @animation-time;
+    cursor: pointer;
+
+    &--underline {
+        border-bottom: 1px solid @link-underline;
+
+        .b-goto__best & {
+            .no-touchevents &:hover,
+            .touchevents &:active {
+                border: none;
+                color: @cl-font-orange;
+            }
+        }
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            border: none;
+            color: @cl-font-orange;
+        }
+    }
+
+    // Общие (цвета+ховеры, элементы, поведения)
+    &--underline-dot {
+        // display: inline-block;
+        display: inline; // для работы многострочного
+        position: relative;
+        padding-bottom: 3px;
+        line-height: 1.2;
+        background-image: linear-gradient(to right, @link-border 33%, @advice-border-left 0%);
+        background-position: bottom;
+        background-size: 3px 1px;
+        background-repeat: repeat-x;
+
+        &:hover {
+            background: none;
+        }
+    }
+
+    &--block {
+        display: block;
+    }
+
+    &--dot {
+        background-image: linear-gradient(to right, @link-dot-border 33%, @advice-border-left 0%);
+        background-position: bottom;
+        background-size: 3px 1px;
+        background-repeat: repeat-x;
+
+        &:hover {
+            background: none;
+        }
+    }
+    // Общие end
+
+    &--recomend-item {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        transition: @animation-time;
+    }
+
+    &--recomend-item&--two {
+        right: 40px;
+    }
+
+    &--review-footer {
+        margin-right: 2px;
+    }
+
+    &--comunication {
+        .roboto-bold;
+        font-size: 13px;
+        line-height: 24px;
+        margin-bottom: 19px;
+    }
+
+    &--politic {
+        .roboto-regular;
+        font-size: 13px;
+        color: @cl-font-gray;
+        line-height: 24px;
+    }
+
+    &--bottom {
+        .roboto-regular;
+        font-size: 13px;
+        color:@cl-font-gray;
+        position: relative;
+        padding-left: 29px;
+    }
+
+    &--product-review {
+        flex-shrink: 0;
+        margin-right: 20px;
+        .roboto-regular;
+        font-size: 13px;
+        line-height: 1.2;
+        color: @cl-font-gray;
+    }
+
+    &--city {
+        .roboto-bold;
+        color: @cl-font-main;
+        font-size: 13px;
+        margin-right: 12px;
+        padding: 5px 10px 5px 5px;
+        line-height: 19px;
+    }
+
+    &--city-stores {
+        position: relative;
+        padding-right: 14px;
+        margin-right: 54px;
+        .roboto-regular;
+        font-size: 16px;
+
+        &:after {
+            // content: '';
+            position: absolute;
+            top: 5px;
+            bottom: 5px;
+            right: -25px;
+            border-right: 1px solid @hr-main;
+            pointer-events: none;
+        }
+    }
+
+    &--shop {
+        .roboto-regular;
+        color: @cl-font-main;
+        font-size: 13px;
+        line-height: 19px;
+    }
+    &--shop-hide {
+        display: none;
+    }
+
+    &--top-menu {
+        .roboto-regular;
+        color: @cl-font-main;
+    }
+
+    &--geo {
+        display: inline-flex;
+        align-items: center;
+        .roboto-medium;
+        align-self: start;
+        font-size: 18px;
+        margin-right: -5px;
+        height: 54px;
+        padding: 5px 20px 5px 25px;
+        box-sizing: border-box;
+    }
+
+    &--sale {
+        background: @cl-orange-dark;
+        color: @cl-font-white;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            color: @cl-font-white;
+        }
+    }
+
+    &--subscribe-price {
+        display: inline-block;
+        vertical-align: middle;
+        .roboto-regular;
+        color: @cl-font-main;
+        font-size: 13px;
+        line-height: 15px;
+        // transition: @animation-time;
+        background-image: linear-gradient(to right, @link-price-border 33%, @advice-border-left 0%);
+        background-position: bottom;
+        background-size: 3px 1px;
+        background-repeat: repeat-x;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            background: none;
+        }
+    }
+
+    &--offer-price {
+        display: inline-block;
+        vertical-align: middle;
+        .roboto-regular;
+        color: @cl-font-black;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 18px;
+        border-bottom: 1px dashed @cl-font-black;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            border-bottom-color: transparent;
+        }
+    }
+
+    &--review {
+        display: inline-block;
+        margin-bottom: 30px;
+        font-size: 15px;
+        span {
+            margin-right: 5px;
+        }
+    }
+
+    &--one-click {
+        .roboto-medium;
+        font-size: 13px;
+        color: @cl-font-main;
+    }
+
+    &--geo-point {
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    &--open-filter {
+        display: none;
+        width: auto;
+        position: relative;
+        background-color: @goods-filter-select-bg-mobile;
+        border-radius: 2px;
+        padding: 5px 52px 4px 10px;
+        .roboto-regular;
+        font-size: 13px;
+        color: @cl-font-main;
+
+        &:before {
+            content: '';
+            position: absolute;
+            border-bottom: 2px solid @goods-filter-arrow;
+            border-right: 2px solid @goods-filter-arrow;
+            right: 12px;
+            top: 9px;
+            width: 6px;
+            height: 6px;
+            transform: rotate(45deg);
+        }
+    }
+
+    &--reset,
+    &--reset-recovery {
+        display: inline-block;
+        font-size: 13px;
+        .roboto-regular;
+        line-height: 1;
+    }
+
+    &--basket-popover {
+        margin: 0;
+        font-size: 13px;
+    }
+
+    &--availibility-show-map {
+        display: none;
+    }
+
+    &--compare-delete {
+        .roboto-medium;
+    }
+
+    &--banner {
+        color: @cl-font-white;
+        margin: 0 20px 0 0;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &--add-to-card {
+        font-size: 13px;
+        .roboto-medium;
+    }
+
+    &--brand {
+        font-size: 13px;
+        line-height: 24px;
+    }
+
+    &--brand-recommend {
+        font-size: 15px;
+        line-height: 24px;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            border: none;
+        }
+    }
+
+    &--brand-card {
+        display: block;
+    }
+
+    &--stores-tab {
+        margin-right: 15px;
+    }
+
+    &--menu-cart {
+        font-size: 15px;
+        line-height: 30px;
+
+        .b-menu-cart__item--search & {
+            display: block;
+            text-align: center;
+        }
+
+        & > span {
+            border-bottom: 1px solid @link-underline;
+        }
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            & > span {
+                border: none;
+            }
+        }
+    }
+
+    &--search-wrap {
+        margin: 0 16px 0 0;
+        position: relative;
+        padding: 0 17px 0 0;
+
+        &:after {
+            border-right: 1px solid @hr-main;
+            bottom: 5px;
+            content: '';
+            height: 14px;
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            top: 2px;
+        }
+    }
+
+    &--delivery {
+        display: inline-block;
+        margin: 0 20px 0 0;
+    }
+
+    &--active {
+        color: @cl-font-orange;
+    }
+    
+    &--tv {
+        font-size: 13px;
+        line-height: 24px;
+        font-family:@font-base;
+        color: @cl-font-main;
+        margin-right: 8px;
+    }
+
+    &--date {
+        color: @cl-gray-dark;
+        font-size: 13px;
+        line-height: 24px;
+    }
+
+    &__add-text {
+        &--stores-banner {
+            color: @cl-font-orange;
+            padding-left: 3px;
+        }
+
+        &--banner {
+            border-bottom: 1px solid @stores-banner-border;
+
+            .no-touchevents &:hover,
+            .touchevents &:active {
+                border: none;
+            }
+        }
+
+        &--count {
+            color: @cl-font-orange;
+            padding: 0 0 0 3px;
+        }
+
+        &--stores-tab {
+            .b-link.active & {
+                color: @cl-font-orange;
+            }
+
+            .b-link:not(.active) & {
+                display: inline; // для работы многострочного
+                position: relative;
+                padding-bottom: 3px;
+                line-height: 1.2;
+                background-image: linear-gradient(to right, @link-border 33%, @advice-border-left 0%);
+                background-position: bottom;
+                background-size: 3px 1px;
+                background-repeat: repeat-x;
+
+                &:hover {
+                    background: none;
+                }
+            }
+        }
+
+        &--search {
+            color: @cl-font-black;
+            text-transform: lowercase;
+            .roboto-bold;
+        }
+    }
+
+    &__text-link {
+        font-size: 15px;
+        line-height: 16px;
+        color: @cl-font-main;
+        .roboto-medium;
+        // transition: all @animation-time;
+        background-image: linear-gradient(to right, @link-border 33%, @advice-border-left 0%);
+        background-position: bottom;
+        background-size: 3px 1px;
+        background-repeat: repeat-x;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            color: @cl-font-orange;
+            background: none;
+        }
+    }
+
+    &--payment {
+        font-size: 13px;
+        line-height: 34px;
+    }
+
+    &--change-city {
+        font-size: 12px;
+        line-height: 14px;
+        color: #7D7D7D;
+        margin-left: 6px;
+    }
+}

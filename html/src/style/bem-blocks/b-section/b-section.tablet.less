@@ -1,0 +1,76 @@
+/* 768 + */
+.b-section {
+    &__tablet-scroll {
+        overflow-y: hidden;
+        overflow-x: auto;
+        margin: 0 -20px;
+        padding: 10px 20px;
+        white-space: nowrap;
+
+        &--sale-tag {
+            padding-bottom: 41px;
+        }
+    }
+
+    &__tablet-scroll {
+        &::after {
+            content: '';
+            height: 36px;
+            width: 60px;
+            background-image: linear-gradient(to left,#ffffff -60%,rgba(255,255,255,0.2));
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            margin-top: -1px;
+        }
+    }
+
+    &--incatalog {
+        margin-bottom: 15px;
+    }
+
+    &--recommended,
+    &--stores  {
+        padding-top: 50px;
+    }
+
+    // &--buy-set {
+    //     padding-top: 58px;
+    // }
+
+    &--recommended {
+        padding-bottom: 58px;
+    }
+
+    &--cart-empty {
+        margin: 0 0 27px;
+        padding: 26px 0 31px;
+    }
+
+    &--visited {
+        margin: 0 0 80px;
+        padding: 0;
+    }
+
+    &--store-card {
+        padding-top: 30px;
+    }
+
+    &--corp {
+        margin: 0 0 50px;
+    }
+    
+    &--review-form {
+        padding: 50px 0;
+        margin-bottom: 80px;
+    }
+
+    &--delivery {
+        padding: 25px 0 20px;
+        margin-bottom: 50px;
+    }
+
+    &--whyrobinzon {
+        padding-top: 54px;
+    }
+}

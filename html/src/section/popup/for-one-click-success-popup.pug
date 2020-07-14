@@ -1,0 +1,21 @@
+//- ====================
+//- Robinzon: for-one-click-success-popup
+//- 15-07-2018: sashakasha
+//- --------------------
+//- Всплывающее окно for-one-click-success-popup
+//- ====================
+
+mixin for-one-click-success-popup()
+    +b.for-one-click-popup.--success
+        +popup_close()
+        include ../ui-kit/title.pug
+        +title('h3', 'Заказ оформлен!').--login
+        +e.text.--success
+            p Ваш заказ &#8470;&nbsp;97058 от&nbsp;01.03.2018 13:17:29&nbsp;оформлен.
+            p Наш менеджер свяжется с&nbsp;Вами в&nbsp;течение 30&nbsp;минут (с&nbsp;9&nbsp;до&nbsp;21&nbsp;МСК). Спасибо за&nbsp;покупку!
+        +e.text
+            p Вы&nbsp;можете следить за&nbsp;акциями от&nbsp;Robinzon.ru
+            include ../social.pug
+            +social--login().--for-one-click
+        include ../ui-kit/button.pug
+        +button('Закрыть', '', true).--blue.--for-one-click.--success.js-close-popup

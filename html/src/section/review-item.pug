@@ -1,0 +1,26 @@
+//- ====================
+//- Robinzon: review
+//- 18-01-2018: Dima
+//- --------------------
+//- Отзыв
+//- ====================
+
+//- title
+//- data
+//- content
+
+mixin review-item(review)
+    each item in review.items
+        +b('article').review-item(class!=attributes.class)
+            +e.item-wrapper.js-review-element
+                +e.link-heading
+                    include ui-kit/title.pug
+                    +title('h2', item.title).--review-post
+                +e('span').date(class!=attributes.class) #{item.date}
+                +e.wrapper-text
+                    +e.content(class!=attributes.class).js-content
+                        p.js-text-container #{item.content}
+                    if item.more == true
+                        +e('a').link-more.js-more-text.-close(href="javascript:void(0);" title)
+                            span Ещё
+                +e('span').name(class!=attributes.class) #{item.name}

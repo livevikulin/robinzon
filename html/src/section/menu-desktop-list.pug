@@ -1,0 +1,24 @@
+//- ====================
+//- RBZ: menu-desktop-list
+//- 06-02-2018: VD
+//- --------------------
+//- Список пунктов в выпадающем десктопном меню
+//- ====================
+
+mixin menu-desktop-list(...items)
+    +b('ul').menu-desktop-list
+        - var title = ''
+        each item, index in items
+            if index == 0
+                - var title = '--title'
+            else
+                - var title = ''
+
+            +e.item(class=title)
+                if index == 0
+                    | #{item}
+                if index > 0
+                    +e('a')(href="javascript:void(0);").link #{item}
+        +e('a').close-wrap(href="javascript:void(0);" title="Закрыть")
+            include ui-kit/icon.pug
+            +icon('close-popup').--main-menu

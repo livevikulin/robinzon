@@ -1,0 +1,149 @@
+//- ====================
+//- Project: cart
+//- 00-00-2017:
+//- --------------------
+//- cart
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'cart-step1'
+
+//- Модифицируем head
+block head
+    - var pageTitle = '1. Моя корзина';
+
+//- Выводим попапы
+block popup
+    include section/ui-kit/popup.pug
+    +popup-data({
+        'contentClass': '--full-height-tablet --almost-full-height',
+        'attributes': {
+                'data-popup': 'help-up',
+                'class': '--full-mobile'
+            }
+        }
+        )
+        include section/popup/help-popup.pug
+        +help-popup()
+
+//- Выводим content
+block content
+    include section/ui-kit/title.pug
+    include section/ui-kit/tab.pug
+    include section/cart-list.pug
+    include section/cart-item.pug
+    include section/ui-kit/button.pug
+    include section/ui-kit/hr.pug
+    include section/order-table.pug
+    include section/ui-kit/link.pug
+    include section/list-of-products.pug
+
+    .b-container
+        +title('h1', 'Моя корзина').--cart
+
+    +tab--static({'items': [{
+                'text': '1. Моя корзина'
+            }, {
+                'text': '2. Оформляем заказ'
+            }, {
+                'text': '3. Результат'
+            }
+        ],
+        'linkClass': '--cart',
+        'listClass': '--cart',
+        'wrapperClass': 'js-horizontal-scroll',
+        'numberActiveIndex' : 0
+    }).--cart
+
+    .b-container
+        +b.cart-page.js-permutation-cart-help-state-1-mobile
+            +e.column.--left.js-permutation-cart-help-state-1-desktop
+                +cart-list()
+                    +cart-item({
+                        'heading': 'Чемодан American Tourister AN6*003 Cruze Spinner 80',
+                        'costOld': '7 500',
+                        'costSingle': '6 300',
+                        'costFull': '12 600'
+                    })
+                    +cart-item({
+                        'heading': 'Весы механические Samsonite U23*802 Manual Luggage Scale',
+                        'costOld': '',
+                        'costSingle': '1 590',
+                        'costFull': '1 590'
+                    })
+                    //- +cart-item({
+                    //-     'heading': 'Test Весы механические Samsonite U23*802 Manual Luggage Scale Чемодан American Tourister AN6*003 Cruze Spinner 80 test',
+                    //-     'costOld': '299 091',
+                    //-     'costSingle': '287 590',
+                    //-     'costFull': '892 875'
+                    //- })
+
+                +e.wrapper.--transparent.--cart-help.js-permutation-cart-help-state-1-object
+                    include section/advantage.pug
+                    +advantage
+                +e.wrapper.--transparent.--cart-help.js-permutation-cart-help-state-1-object
+                    +title('h3', 'Нужна помощь?').--cart-help
+                    include section/need-help.pug
+                    +need-help({
+                            'items': [{
+                                'title': 'Условия доставки',
+                                'linkClass': '-js-open-popup',
+                                'dataPopup': 'help-up'
+                            },{
+                                'title': 'Возврат и обмен',
+                                'linkClass': '-js-open-popup',
+                                'dataPopup': 'help-up'
+                            },{
+                                'title': 'Способы оплаты',
+                                'linkClass': '-js-open-popup',
+                                'dataPopup': 'help-up'
+                            },{
+                                'title': 'Гарантийное обслуживание',
+                                'linkClass': '-js-open-popup',
+                                'dataPopup': 'help-up'
+                            },{
+                                'title': 'Как получить промокод?',
+                                'linkClass': '-js-open-popup',
+                                'dataPopup': 'help-up'
+                            }]
+                    })
+
+            +e.column.--right.--step-one-right.js-sticky-block
+                +e.wrapper.--order.--transparent.--basket
+                    +e.order.--basket
+                        +title('h2', 'Итог по заказу').--payment
+                        +order-table({
+                            'items': [{
+                                    'name': 'Стоимость:',
+                                    'attr': '17 150'
+                                },{
+                                    'name': 'Скидка:',
+                                    'attr': '3 560',
+                                    'isDiscount': true
+                                }
+                            ],
+                            'promo': true,
+                            'resultCost': '52 300'
+                        })
+                        +e.group
+                            +button("Оформить заказ", "", true).--orange-buy
+                            +button("Купить в 1 клик", "", true).--white-buy
+                        +e.group
+                            include section/promo-code.pug
+                            +promo-code()
+                    +promo-code-form().--basket
+                +e.wrapper.--way-get.--border
+                    +title('h3', 'Способы получения').--way-get-head
+                    +hr().--none.--way-get
+                    include section/way-get-list.pug
+                    +way-get-list-icons()
+
+    //- BEGIN: Полезные аксессуары
+    //- +b('section').section.-gray(data-anchor="accessorize")
+    //-    .b-container
+    //-        +title('h1', 'Не забудьте купить полезные аксессуары').--block.--similar
+    //-        +list-of-products--cart().--cart.js-similar-slider.js-horizontal-scroll
+    //- END: Полезные аксессуары

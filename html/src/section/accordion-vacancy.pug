@@ -1,0 +1,17 @@
+//- ====================
+//- Robinzon: accordion-vacancy
+//- 13-07-2018: Альберт
+//- --------------------
+//- Аккордион с вакансиями
+//- ====================
+
+mixin accordion-vacancy(title, date)
+    +b.accordion-vacancy.js-accordion-vacancy
+        +e.visible
+            +e('a').link.js-open-vacancy(href="javascript:void(0);" title) 
+                +e.title #{title}
+                +e.date #{date}
+                include ui-kit/icon.pug
+                +icon("arrow_small_ico").--accordion
+        +e.hidden.js-hidden-vacancy
+            block

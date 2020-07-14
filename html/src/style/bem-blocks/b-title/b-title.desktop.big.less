@@ -1,0 +1,508 @@
+/* 1440 + */
+.b-title {
+    display: inline-block;
+    .roboto-regular;
+    font-size: 30px;
+    line-height: normal;
+    letter-spacing: normal;
+    color: @cl-font-main;
+    margin: 0 30px 0 0;
+
+    &__link {
+        color: inherit;
+        display: block;
+        transition: color @animation-time;
+    }
+
+    &__new-line {
+        display: block;
+        margin: 0;
+    }
+
+    // Общие (цвета+ховеры, элементы, поведения)
+    &--block {
+        display: block;
+        margin-right: 0;
+
+    }
+
+    &--in-shop {
+        font-size: 14px;
+        color: rgb(102, 102, 102);
+        text-transform: uppercase;
+        line-height: 1.929;
+        position: relative;
+        margin-bottom: 19px;
+    }
+
+    &--lined {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+            flex-shrink: 0;
+            flex-grow: 0;
+            margin: 0 20px;
+        }
+
+        &:before,
+        &:after {
+            content: "";
+            display: block;
+            background: #c6c6c6;
+            height: 1px;
+            width: 100%;
+        }
+    }
+
+    &--in-shop-main {
+        font-size: 14px;
+        color: rgb(85, 84, 84);
+        text-transform: uppercase;
+        margin-bottom: 19px;
+    }
+    
+
+    &--pickup-point {
+        text-transform: none;
+    }
+
+    &--mobile-show {
+        display: none;
+    }
+    // Общие end
+
+
+    &--stores {
+        margin-bottom: 30px;
+    }
+
+    &--obtainment,
+    &--tag {
+        font-size: 22px;
+        margin-bottom: 22px;
+    }
+
+    &--link-heading {
+        display: inline-block;
+        border-bottom: 1px solid @link-underline;
+        font-size: 22px;
+    }
+
+    &--review {
+        margin-bottom: 30px;
+    }
+
+    &--review-post {
+        color: inherit;
+        transition: @animation-time;
+        margin: 0;
+        font-size: 16px;
+        .roboto-medium;
+        margin-bottom: 20px;
+    }
+
+    &--about-us {
+        margin-bottom: 25px;
+        letter-spacing: 0.1px;
+    }
+
+    &--category {
+        font-size: 16px;
+        margin-bottom: 7px;
+    }
+
+    &--card {
+        font-size: 22px;
+        margin-right: 0;
+        width: 200px;
+    }
+
+    &--recommended {
+        font-size: 22px;
+        line-height: 52px;
+        width: 1641px;
+        margin: 0 auto;
+        text-align: center;
+
+        &__title-link {
+            color: inherit;
+        }
+    }
+
+    &--whyrobinzon {
+        margin-bottom: 35px;
+    }
+
+    &--product-tab {
+        display: block;
+        padding-top: 40px;
+        margin-right: 0px;
+        margin-bottom: 25px;
+        .roboto-regular;
+        font-size: 22px;
+        line-height: 1.4;
+    }
+
+    &--product-tab-big-top {
+        display: block;
+        padding-top: 95px;
+        margin-right: 0px;
+        margin-bottom: 25px;
+        .roboto-regular;
+        font-size: 22px;
+        line-height: 1.4;
+    }
+
+    &--buy-set {
+        margin: 0 auto 40px;
+        text-align: center;
+    }
+
+    &--recommended-bred {
+        display: block;
+        margin: 0px auto 35px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    &--consultation {
+        position: relative;
+        display:block;
+        margin-bottom: 29px;
+        margin-top: 0px;
+        margin-right: 0;
+        .roboto-medium;
+        font-weight: 500;
+        color: #333;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    &--mobile-popup {
+        font-size: 13px;
+        .roboto-regular;
+        margin: 0;
+        flex: 0 0 auto;
+        margin: auto 15px;
+    }
+
+    &--popup-filter {
+        display: none;
+    }
+
+    &--recommended-tab {
+        text-align: center;
+        margin: 0px auto;
+    }
+
+    &--catalog {
+        margin-bottom: 29px;
+    }
+
+    &--login {
+        font-size: 16px;
+        line-height: 1.13;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        .roboto-regular;
+    }
+
+    &--login-social {
+        font-size: 16px;
+        line-height: 1.13;
+        .roboto-regular;
+    }
+
+    &--list-heading {
+        .roboto-medium;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 1.38;
+        margin-bottom: 10px;
+    }
+
+    &--suggested-city {
+        transform: translateY(-10px);
+        font-size: 13px;
+        line-height: 1.1;
+        color: @cl-font-light;
+    }
+
+    &--basket-popover {
+        text-align: left;
+        font-size: 16px;
+        line-height: 1;
+        text-transform: uppercase;
+        display: block;
+        margin: 0 0 15px;
+    }
+
+    &--in-basket {
+        font-size: 16px;
+        margin: 0 0 10px 0;
+        .roboto-regular;
+        font-size: 16px;
+    }
+
+    &--similar {
+        margin-bottom: 30px;
+        .roboto-regular;
+        text-align: left;
+        font-size: 22px;
+        line-height: 1.1;
+    }
+
+    &--page-list {
+        padding-top: 35px;
+        margin-bottom: 25px;
+        font-size: 16px;
+        line-height: 1.3;
+    }
+
+    &--page-head {
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    &--brand {
+        margin: 0 0 22px;
+    }
+
+    &--filter {
+        display: block;
+        font-size: 22px;
+        line-height: 22px;
+        margin: 12px 0 17px;
+    }
+
+    &--order {
+        border-bottom: 1px solid @order-border;
+        display: block;
+        font-size: 22px;
+        line-height: 22px;
+        margin: 0 0 4px;
+        padding: 0 0 15px;
+    }
+
+    &--subtitle {
+        font-size: 16px;
+        line-height: 36px;
+        // margin-bottom: 20px;
+        margin-bottom: 6px;
+    }
+
+    &--noborder {
+        border: none;
+        padding: 0;
+        margin-bottom: 12px;
+    }
+
+    &--personal {
+        margin-bottom: 22px;
+    }
+
+    &--cart {
+        padding-top: 23px;
+        margin-bottom: 0;
+    }
+
+    &--payment {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+
+    &--payment-small {
+        font-size: 16px;
+        margin-bottom: 14px;
+    }
+
+    &--stores-banner {
+        color: @cl-font-white;
+        font-size: 22px;
+        line-height: 36px;
+        margin: 0 0 29px;
+    }
+
+    &--cart-help {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    &--way-get-head {
+        display: block;
+        font-size: 22px;
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    &--way-get {
+        position: relative;
+        display: block;
+        font-size: 15px;
+        line-height: 21px;
+        margin-bottom: 12px;
+        margin-right: 0;
+        padding-top: 20px;
+        padding-right: 78px;
+    }
+
+    &--promo-code {
+        font-size: 22px;
+        line-height: 26px;
+        color: @cl-font-main;
+    }
+
+    &--goto {
+        margin-right: 0;
+        margin-bottom: 38px;
+    }
+
+    &--p404 {
+        font-size: 22px;
+    }
+
+    &--gotham-big {
+        .gotham-bold;
+        color: @cl-font-normal-purple;
+        font-size: 45px;
+        margin-bottom: 35px;
+        margin-right: 0;
+    }
+
+    &--brand-recommend {
+        font-size: 22px;
+        line-height: 16px;
+        margin: 0 0 24px;
+    }
+
+    &--stores-page {
+        margin-bottom: 25px;
+    }
+
+    &--pvz-info {
+        font-size: 22px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid @hr-popup;
+        margin: 20px 0 10px 0;
+    }
+
+    &--pvz-info-small {
+        font-size: 22px;
+        margin: 0 0 17px;
+    }
+
+    &--cart-empty {
+        margin: 0 0 23px;
+        padding: 23px 0 0;
+    }
+
+    &--brand-list {
+        color: @brand-name;
+        font-size: 15px;
+        line-height: 15px;
+        margin: 0 0 17px;
+        cursor: default;
+    }
+
+    &--store-item {
+        .roboto-medium;
+        font-size: 16px;
+        line-height: 18px;
+        margin: 0 0 16px;
+    }
+
+    &--store-text {
+        .roboto-bold;
+        font-size: 13px;
+        line-height: 18px;
+        margin: 0;
+    }
+
+    &--sale-tag {
+        font-size: 15px;
+        line-height: 15px;
+        margin: 0 0 16px;
+        .roboto-medium();
+    }
+
+    &--store-card {
+        .roboto-bold;
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+    &--help-popup {
+        font-size: 22px;
+        line-height: 22px;
+        text-transform: none;
+        margin-bottom: 35px;
+    }
+
+    &--guarantee,
+    &--contacts {
+        font-size: 22px;
+        line-height: 27px;
+        margin: 0 0 18px 0;
+    }
+
+    &--press-article {
+        margin-bottom: 23px;
+    }
+    
+    &--review-form {
+        padding-bottom: 30px;
+        margin-bottom: 25px;
+    }
+
+    &--opinion {
+        font-size: 22px;
+        line-height: 22px;
+        margin-bottom: 35px;
+    }
+
+    &--for-one-click {
+        line-height: 24px;
+        margin-bottom: 10px;
+    }
+
+    &--for-one-click-cart {
+        margin-bottom: 30px;
+        margin-right: 20px;
+    }
+
+    &--add-review {
+        line-height: 28px;
+        font-size: 22px;
+    }
+
+    &--delivery {
+        font-size: 22px;
+        line-height: 27px;
+        margin: 0 0 22px;
+    }
+
+    &--delivery-info {
+        color: @cl-font-light;
+        font-size: 15px;
+        line-height: 27px;
+        margin: 0 0 4px;
+    }
+
+    &--pickup-point {
+        text-transform: none;
+    }
+
+    &--in-basket-popup {
+        font-size: 16px;
+        line-height: 19px;
+        color: #000000;
+        text-transform: uppercase;
+    }
+
+    &--delivery-block {
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+
+    }
+}

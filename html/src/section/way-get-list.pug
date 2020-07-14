@@ -1,0 +1,101 @@
+//- ====================
+//- 31-05-2018: Amedomary
+//- --------------------
+//- way-get-list
+//- ====================
+
+mixin way-get-list(data)
+    include ui-kit/title.pug
+    +b.way-get-list(class!=attributes.class)
+        +title('h6','Доставка курьером в Набережные Челны').--way-get
+        +e('ul').wrapper
+            +way-get-list__line({
+                'items': [{
+                    'name': 'Срок доставки:',
+                    'description': '2 дня.'
+                },{
+                    'name': 'Стоимость доставки:',
+                    'description': '350 руб.'
+                },{
+                    'name': 'При сумме заказа от 4000 руб.',
+                    'description': 'доставка бесплатно.'
+                }
+            ]})
+
+mixin way-get-list-icons(isPayment = false)
+    include ui-kit/title.pug
+    +b.way-get-list(class!=attributes.class)
+        +e.aviability
+            +e.aviability-title
+                +title('h6',`Доставка${isPayment ? ' <b>от 100₽</b>' : ''}`).--way-get
+            +e.aviability-item
+                +e('span').aviability-icon
+                    include ui-kit/icon.pug
+                    +icon('lightning').--lightning
+                +e('span').aviability-text Экспресс доставка (до 3х часов),
+                    |
+                    |
+                    b сегодня
+            +e.aviability-item
+                +e('span').aviability-icon
+                    include ui-kit/icon.pug
+                    +icon('truck').--truck
+                +e('span').aviability-text Доставка курьером
+                    |
+                    |
+                    b завтра
+                    if !isPayment
+                        +e('span').aviability-free (бесплатно)
+            +e.aviability-item
+                +e('span').aviability-icon
+                    include ui-kit/icon.pug
+                    +icon('box').--box
+                +e('span').aviability-text В пункте выдачи,
+                    |
+                    |
+                    b завтра
+                    if !isPayment
+                        +e('span').aviability-free (бесплатно)
+
+        include ui-kit/hr.pug
+        +hr().--none.--way-get
+        +e.location
+            +e('span').location-icon
+                include ui-kit/icon.pug
+                +icon("location-gray-bg")
+            +e('span').location-text
+                +b.link(href="javascript:void(0);" title="Забрать сегодня в % магазинах").--underline-dot
+                    b Забрать сегодня в % магазинах
+
+mixin way-get-list--check-list(data)
+    +b.way-get-list(class!=attributes.class)
+        +e('ul').wrapper.--check-list
+            +way-get-list__line({
+                'items': [{
+                    'name': 'Способ получения:',
+                    'description': 'Доставка курьером'
+                },{
+                    'name': 'Адрес:',
+                    'description': 'г. Москва, ул. Большая Очаковская, д. 23/5 кв. 29'
+                },{
+                    'name': 'Телефон для связи:',
+                    'description': '916 934 53 44'
+                },{
+                    'name': 'Контактное лицо:',
+                    'description': 'Владимир Александрович'
+                }
+            ]})
+        +e('ul').wrapper.--check-list
+            +way-get-list__line({
+                'items': [{
+                    'name': 'Способ оплаты:',
+                    'description': 'Наличными курьеру'
+                }
+            ]})
+
+//- Итем(строка) для списка
+mixin way-get-list__line(data)
+    each item in data.items
+        +e('li').name #{item.name}   
+            +e('span').description #{item.description}   
+

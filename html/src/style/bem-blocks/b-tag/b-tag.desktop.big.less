@@ -1,0 +1,153 @@
+/* 1440 + */
+.b-tag {
+    display: inline-block;
+    font-size: 13px;
+    list-style: none;
+    margin-right: 24px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &--product {
+        margin-bottom: 5px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &--catalog-bred {
+        margin-bottom: 11px;
+    }
+
+    &--show-more {
+        display: block;
+        text-align: center;
+        margin: 0;
+        margin-bottom: 30px;
+    }
+
+    &--brand {
+        margin: 0 6px 10px 0;
+    }
+
+    &--light-theme {
+        margin-bottom: 7px;
+    }
+
+    &__input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 0;
+        width: 0;
+        z-index: 0;
+        opacity: 0;
+    }
+
+    &__link {
+        background: @tag-back;
+        border-radius: 3px;
+        border: 1px solid transparent;
+        color: @cl-font-main;
+        cursor: pointer;
+        display: block;
+        line-height: 28px;
+        padding: 0 10px;
+        transition: border @animation-time;
+        white-space: nowrap;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            color: @cl-font-main;
+            border-color: @tag-border;
+        }
+
+        .b-tag--product & {
+            .roboto-regular;
+            background-color: @cl-section-gray;
+            border: 0;
+            color: @cl-font-main;
+            font-size: 13px;
+            line-height: 15px;
+            padding: 8px 10px;
+        }
+
+        .b-tag--light-theme & {
+            .roboto-regular;
+            background-color: @cl-section-gray;
+            border: 0;
+            color: @cl-font-main;
+            font-size: 13px;
+            line-height: 15px;
+            padding: 8px 10px;
+            border: 1px solid transparent;
+            transition: background-color @animation-time, border-color @animation-time;
+
+            .no-touchevents &:hover,
+            .touchevents &:active {
+                // color: @cl-font-main;
+                border: 1px solid @tag-border;
+                background-color: @tag-back;
+            }
+        }
+
+        .b-tag--show-more & {
+            font-size: 13px;
+            text-transform: uppercase;
+            width: 180px;
+            height: 40px;
+            line-height: 40px;
+            vertical-align: middle;
+            display: inline-block;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            color: @cl-font-main;
+            border-color: @tag-border;
+            transition: color @animation-time;
+
+            .no-touchevents &:hover,
+            .touchevents &:active {
+                color: @tag-border;
+            }
+        }
+
+        .b-tag--brand & {
+            border: 1px solid transparent;
+            padding: 6px 9px;
+
+            .no-touchevents &:hover,
+            .touchevents &:active {
+                background: @tag-back;
+            }
+        }
+
+        .b-tag.active & {
+            background: @tag-back-active;
+            color: @cl-font-white;
+
+            // .no-touchevents &:hover,
+            // .touchevents &:active {
+            //     color: @cl-font-main;
+            // }
+        }
+
+        a {
+            .b-tag.active & {
+                background: @tag-back-active;
+                color: @cl-font-white;
+            }  
+        }
+    }
+    &--wrapper{
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+}

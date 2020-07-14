@@ -1,0 +1,89 @@
+//- ====================
+//- Robinzon: for-one-click-popup
+//- 15-07-2018: sashakasha
+//- --------------------
+//- Всплывающее окно for-one-click-popup
+//- ====================
+
+mixin for-one-click-popup()
+    +b.for-one-click-popup
+        +popup_close()
+        include ../ui-kit/title.pug
+        +title('h3', 'Чемодан Samsonite 39N*904 Askella Spinner S').--login.--for-one-click
+        include ../ui-kit/price.pug
+        +price('2 500', false, '', '.—').--for-one-click
+
+        +e('form').form
+            +e.group
+                include ../ui-kit/input-label.pug
+                +input-label('Имя', 'id-for-one-click-name')
+                include ../ui-kit/input.pug
+                +input('id-for-one-click-name', 'text', '', 'name-for-one-click', '').--login.--for-one-click(required='required')
+            +e.group
+                include ../ui-kit/input-label.pug
+                +input-label('Электронная почта', 'id-for-one-click-email')
+                include ../ui-kit/input.pug
+                +input('id-for-one-click-email', 'email', '', 'email-for-one-click', '').--login.--for-one-click.js-email(required='required')
+            +e.group
+                include ../ui-kit/input-label.pug
+                +input-label('Телефон', 'id-for-one-click-phone')
+                include ../ui-kit/input.pug
+                +input('id-for-one-click-phone', 'tel', '+7 ___ - ___ __ __', 'phone-for-one-click', '').--login.--for-one-click(required='required')
+            +e.group
+                +input-label('Выберите цвет', '')
+                include ../filter-color.pug
+                +filter-color--map({'items':
+                    [{
+                        'name': 'product-filter-color',
+                        'color': 'gold',
+                        'colorname': ''
+                    },{
+                        'name': 'product-filter-color',
+                        'color': 'white',
+                        'colorname': ''
+                    },{
+                        'name': 'product-filter-color',
+                        'color': 'red',
+                        'colorname': ''
+                    },{
+                        'name': 'product-filter-color',
+                        'color': 'purple',
+                        'colorname': ''
+                    },{
+                        'name': 'product-filter-color',
+                        'color': 'gray',
+                        'colorname': ''
+                    },{
+                        'name': 'product-filter-color',
+                        'color': 'blue',
+                        'colorname': ''
+                    },{
+                        'name': 'product-filter-color',
+                        'color': 'lightblue',
+                        'colorname': ''
+                    },{
+                        'name': 'product-filter-color',
+                        'color': 'brown',
+                        'colorname': ''
+                    },{
+                        'name': 'product-filter-color',
+                        'color': 'green',
+                        'colorname': ''
+                    },{
+                        'name': 'product-filter-color',
+                        'color': 'pink',
+                        'colorname': ''
+                    },{
+                        'name': 'product-filter-color',
+                        'color': 'turquoise',
+                        'colorname': ''
+                    },{
+                        'name': 'product-filter-color',
+                        'color': 'black',
+                        'colorname': ''
+                    }
+                ]}).--for-one-click
+            include ../ui-kit/button.pug
+            +button('Купить', '', false).--blue.--for-one-click
+            +e.text.--small
+                p Нажимая кнопку &laquo;Купить&raquo;, я&nbsp;выражаю свое согласие на&nbsp;получение информации об&nbsp;оформлении и&nbsp;получении заказа, согласие на&nbsp;обработку персональных данных в&nbsp;соответствии с&nbsp;указанным здесь текстом.

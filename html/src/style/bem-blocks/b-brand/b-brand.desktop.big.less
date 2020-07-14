@@ -1,0 +1,137 @@
+/* 1440 + */
+.b-brand {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    width: 190px;
+    height: 100px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    padding: 15px 30px;
+    background-color: @product-back;
+    border: 1px solid transparent;
+    transition: border-color @animation-time, height @animation-time;
+
+    .no-touchevents &:hover,
+    .touchevents &:active {
+        height: 124px;
+        border-color: @product-border-hover;
+        color: @cl-font-main;
+
+        .b-brand__figcaption {
+            opacity: 1;
+        }
+    }
+
+    &--product {
+        // position: absolute;
+        // top: 0;
+        // right: 10px;
+        border: 0;
+        height: auto;
+        width: 110px;
+        padding: 0;
+        margin: 0;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            height: auto;
+            color: transparent;
+        }
+
+        & .b-brand__figure {
+            line-height: 0;
+            height: 100%;
+        }
+    }
+
+    &__figure {
+        margin: 0;
+        text-align: center;
+        line-height: 68px;
+        height: 68px;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -24px;
+            margin-left: -19px;
+            width: 50px;
+            height: 50px;
+            pointer-events: none;
+            opacity: 0;
+            background: url(../images/inhtml/chemodan.gif) no-repeat;
+            z-index: 11;
+            background-size: 31px;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 0;
+            background: @cl-white;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 10;
+        }
+
+        &.preload {
+            &:before,
+            &:after {
+                opacity: 1;
+            }
+        }
+
+        a {
+            &:first-child {
+                position: relative;
+                z-index: 11;
+            }
+        }
+    }
+
+    &__image {
+        display: inline-block;
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 100%;
+        vertical-align: middle;
+        object-fit: contain;
+        font-family: 'object-fit: contain;';
+    }
+
+    &__figcaption {
+        position: absolute;
+        top: 85px;
+        left: 0;
+        width: 100%;
+        .roboto-regular;
+        font-size: 13px;
+        line-height: 1.1;
+        text-align: center;
+        opacity: 0;
+        transition: opacity @animation-time;
+    }
+
+    &__brand {
+        display: none;
+    }
+
+    .b-brand-slider--menu-desktop & {
+        border: 1px solid @cl-border-brand-menu-desktop;
+        margin: 0px;
+        margin-right: -1px;
+        position: relative;
+        z-index: 0;
+        transition: border-color @animation-time, z-index @animation-time, height @animation-time;
+
+        &:hover {
+            transition: border-color @animation-time, z-index 0s, height @animation-time;
+            z-index: 1;
+        }
+    }
+}

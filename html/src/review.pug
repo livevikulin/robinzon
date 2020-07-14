@@ -1,0 +1,64 @@
+//- ====================
+//- Project: review
+//- 09-07-2018: Dima
+//- --------------------
+//- Результаты поиска
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'review'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Отзывы';
+
+//- Выводим попапы
+block popup
+    include section/ui-kit/popup.pug
+    include section/popup/review-popup.pug
+
+    +popup()(data-popup='review-popup').--full-mobile
+        +review-popup()
+
+//- Выводим content
+block content
+    .b-container
+        include section/ui-kit/breadcrumbs.pug
+        +breadcrumbs('Главная', 'Отзывы')
+        include section/ui-kit/title.pug
+        +title('h1', 'Отзывы покупателей').--page-head
+        +b('a').link(href='javascript:void(0)', title='', data-anchor-link="my-review").--underline-dot.--review.js-anchor-link Оставить свой отзыв
+
+    include section/ui-kit/hr.pug
+    +hr().--review-page
+
+    .b-container
+        include section/review-wrapper.pug
+        +review-wrapper()
+
+        //- include section/ui-kit/button.pug
+        //- +button('Показать еще', '', true)
+
+    include section/ui-kit/pagination.pug
+    +pagination({'items': [{
+        'number': '1'
+        }, {
+            'number': '2'
+        }, {
+            'number': '3'
+        }, {
+            'number': '4'
+        }, {
+            'number': '5'
+        }]}, {
+        'hidePrev': '-hide',
+        'active': '0'
+    }).--review
+
+    +b.section.--review-form(data-anchor="my-review")
+        .b-container
+            include section/review-form.pug
+            +review-form()

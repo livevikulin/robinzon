@@ -1,0 +1,18 @@
+//- ====================
+//- Robinzon: price-pc
+//- 31-03-2020
+//- --------------------
+//- цена в карточке товара
+//- ====================
+mixin price-pc(price, old, oldprice, text)
+    +b.price-pc(class!=attributes.class, itemprop="offers", itemscope itemtype="http://schema.org/Offer")
+        if  true === old
+            +e.economy-block
+                +e('span').old-price(class!=attributes.class) #{oldprice} ₽
+                +e('span').economy Экономия 1 359 ₽
+        +e.main-block
+            +e.main(class!=attributes.class class!=true === old ? '--sale' : '')
+                +e('span').number(class!=attributes.class, itemprop="price", content=`${price}`) #{price}
+                +e('span').text(class!=attributes.class, itemprop="priceCurrency" content="RUB") #{text}
+            if  true === old
+                +e.sale -20%

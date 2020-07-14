@@ -1,0 +1,118 @@
+//- ====================
+//- 4-04-2018: Amed73
+//- --------------------
+//- Страница Товары со скидками
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'sale'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Товары со скидками';
+
+//- Выводим попапы
+block popup
+
+//- Выводим фикседы
+block preHeader
+
+//- Выводим content
+block content
+    include section/ui-kit/breadcrumbs.pug
+    include section/pick-model.pug
+    include section/brand-slider.pug
+    include section/ui-kit/link.pug
+    include section/tag.pug
+    include section/recommended.pug
+    include section/ui-kit/title.pug
+    include section/tag-bar.pug
+    include section/ui-kit/hr.pug
+
+    .b-container
+        +breadcrumbs('Главная', 'Скидки').--catalog
+        +title('h1', 'Товары со скидками').--page-head.--block
+
+    +b.section.--sale-filter
+        .b-container
+            +link--type('', 'a').--stores-tab
+                +e('span').add-text--stores-tab Чемоданы: 
+                +e('span').add-text--stores-banner 75
+            +link--type('', 'a').--stores-tab
+                +e('span').add-text--stores-tab Рюкзаки: 
+                +e('span').add-text--stores-banner 115 
+            +link--type('', 'a').--stores-tab
+                +e('span').add-text--stores-tab Сумки: 
+                +e('span').add-text--stores-banner 53 
+            +link--type('', 'a').--stores-tab
+                +e('span').add-text--stores-tab Акскссуары: 
+                +e('span').add-text--stores-banner 34 
+
+    +hr().--none
+
+    .b-container
+        +b.pick-model-block.--sale.js-pick-slider
+            +pick-model('images/content/banner-pick.png').--brand.--tablet-hide
+            +pick-model('images/content/banner-pick.png').--brand
+            +pick-model('images/content/banner-pick.png').--brand
+
+        +title-link('h1', 'Распродажа брендов').--block.--link-heading.--about-us
+        //- Слайдер отзывов
+        +brand-slider().--sale.js-brand-slider.js-horizontal-scroll
+        //- +e.link-line
+        //-     +link('Все бренды', '', true).--review-footer
+
+    +b.section.--white.--sale-recommended
+        .b-container
+            +recommended('Чемоданы со скидками').--sale
+
+            // BEGIN: Tag-bar.
+            +title('h4', 'Покупатели часто ищут:').--sale-tag
+            //- +tag-bar().--light-theme
+            +b.section__tablet-scroll.--sale-tag.js-horizontal-scroll
+                +tag('Смешные', 'Детские', 'Огромные чемоданы спиннеры', 'Детские', 'Зимние', 'Огромные чемоданы спиннеры', 'Огнеупорные', 'Огромные чемоданы спиннеры', '4 колеса', 'Зимние', 'Летние', 'Огромные чемоданы спиннеры ', 'Синии', 'Красные', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса', 'Синии', 'Красные', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса' ).--light-theme
+            // END: Tag-bar
+
+    +hr().--none
+
+    +b.section.--white.--sale-recommended
+        .b-container
+            +recommended('Рюкзаки со скидками').--sale
+
+            // BEGIN: Tag-bar.
+            +title('h4', 'Покупатели часто ищут:').--sale-tag
+            //- +tag-bar().--light-theme
+            +b.section__tablet-scroll.--sale-tag.js-horizontal-scroll
+                +tag('Смешные', 'Детские', 'Огромные чемоданы спиннеры', 'Детские', 'Зимние', 'Огромные чемоданы спиннеры', 'Огнеупорные', 'Огромные чемоданы спиннеры', '4 колеса', 'Зимние', 'Летние', 'Огромные чемоданы спиннеры ', 'Синии', 'Красные', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса', 'Синии', 'Красные', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса' ).--light-theme
+            // END: Tag-bar
+
+    +hr().--none
+
+    +b.section.--white.--sale-recommended
+        .b-container
+            +recommended('Сумки со скидками').--sale
+
+            // BEGIN: Tag-bar.
+            +title('h4', 'Покупатели часто ищут:').--sale-tag
+            //- +tag-bar().--light-theme
+            +b.section__tablet-scroll.--sale-tag.js-horizontal-scroll
+                +tag('Смешные', 'Детские', 'Огромные чемоданы спиннеры', 'Детские', 'Зимние', 'Огромные чемоданы спиннеры', 'Огнеупорные', 'Огромные чемоданы спиннеры', '4 колеса', 'Зимние', 'Летние', 'Огромные чемоданы спиннеры ', 'Синии', 'Красные', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса', 'Синии', 'Красные', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса' ).--light-theme
+            // END: Tag-bar
+
+    +hr().--none
+
+    +b.section.--white.--sale-recommended
+        .b-container
+            +recommended('Аксессуары со скидками').--sale
+
+            // BEGIN: Tag-bar.
+            +title('h4', 'Покупатели часто ищут:').--sale-tag
+            //- +tag-bar().--light-theme
+            +b.section__tablet-scroll.--sale-tag.js-horizontal-scroll
+                +tag('Смешные', 'Детские', 'Огромные чемоданы спиннеры', 'Детские', 'Зимние', 'Огромные чемоданы спиннеры', 'Огнеупорные', 'Огромные чемоданы спиннеры', '4 колеса', 'Зимние', 'Летние', 'Огромные чемоданы спиннеры ', 'Синии', 'Красные', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса', 'Синии', 'Красные', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса' ).--light-theme
+            // END: Tag-bar
+
+    +hr().--none.--mobile-show

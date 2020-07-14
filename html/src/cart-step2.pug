@@ -1,0 +1,258 @@
+//- ====================
+//- Project: order
+//- 24-05-2018: Mell.Blimm
+//- --------------------
+//- Оформление заказа - корзина - шаг2 - ВРЕМЕННАЯ СТРАНИЦА
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'cart-step2'
+    - var classFooter = '--margin'    
+
+//- Модифицируем head
+block head
+    - var pageTitle = '2. Оформляем заказ';
+
+//- Выводим попапы
+block popup
+    include section/ui-kit/popup.pug
+    +popup-data({
+        'contentClass': '--full-height-tablet',
+        'attributes': {
+                'data-popup': 'pvz-up',
+                'class': '--full-mobile'
+            }
+        }
+    )
+        include section/popup/pvz-popup.pug
+        +pvz-popup()
+
+        
+    +popup-data({
+        'contentClass': '--full-height-tablet --almost-full-height',
+        'attributes': {
+                'data-popup': 'help-up',
+                'class': '--full-mobile'
+            }
+        }
+        )
+        include section/popup/help-popup.pug
+        +help-popup()
+
+//- Выводим content
+block content
+    include section/ui-kit/tab.pug
+    include section/ui-kit/title.pug
+    include section/ui-kit/input-label.pug
+    include section/ui-kit/input.pug
+    include section/ui-kit/radio.pug
+    include section/ui-kit/textarea.pug
+    include section/payment.pug
+    include section/need-help.pug
+    include section/order-table.pug
+    include section/ui-kit/button.pug
+    include section/ui-kit/link.pug
+    include section/product-basket.pug
+
+    .b-container
+        +title('h1', 'Оформляем заказ').--cart
+
+    // Нужен статичный таб контент.
+    +tab--static({'items': [{
+                'text': '1. Моя корзина'
+            }, {
+                'text': '2. Оформляем заказ',
+            }, {
+                'text': '3. Результат'
+            }
+        ],
+        'linkClass': '--cart',
+        'listClass': '--cart',
+        'wrapperClass': 'js-horizontal-scroll',
+        'numberActiveIndex' : 1
+    }).--cart
+
+    .b-container
+        +b.cart-page
+            +e.column.--left
+                +e('form').form.js-validation-form(data-url="json/pick-city-search.json")
+                    +e.wrapper.--contacts.js-item-height
+                        +title('h3', 'Контактная информация').--order.--personal
+                        +e.group--short
+                            +input-label('Ваше имя', 'id-name-order', true)
+                            +input('id-name-order', 'text', '', 'name-order', '')(required="required", class="js-no-numb")
+                        +e.group--short
+                            +input-label('Телефон для связи', 'id-phone-order', true)
+                            include section/ui-kit/input.pug
+                            +input('id-phone-order', 'tel', '+7 ___ - ___ __ __', 'phone-order', '')(required="required", class="js-phone")
+                        +e.group--short
+                            +input-label('Электронная почта', 'id-email-order')
+                            include section/ui-kit/input.pug
+                            +input('id-email-order', 'email', '', 'email-order', '')(required="required", class="js-no-ru")
+                                //- include section/ui-kit/input-label.pug
+                                //- +input-label('Не корректная электронная почта', 'id-email-order').--error
+
+                    +e.wrapper.js-item-height
+                        +e.city.js-change-city
+                            +e.city-find.js-change-city-open
+                                +title('h2', 'Город доставки Москва').--order.--delivery-block
+                                    +link('(сменить город)', '', true).--change-city
+                            +e.city-search.-hide.js-change-city-search
+                                +title('h2', 'Доставка').--order.--delivery-block
+                                +e.group--short.--city
+                                    +input-label('Город доставки', 'id-city-order')
+                                    +input('id-city-order', 'text', '', 'city-order', '')(required="required")
+                                    +e.autocomplete-wrapper#id-city-order-result
+
+                        div
+                            +title('h2', 'Выберите вариант получения').--order
+                            +e.order-delivery
+                                +radio('Самовывоз из пункта получения <span class="free">(бесплатно)</span>', 'delivery-order', 'id-delivery-order-2', false, '').--order
+                                    +e.description.--pickup-point В Вашем городе есть 3 пункта самовывоза.
+                                +button('Показать', '', true).--white-buy.--pvz-up.js-open-popup(data-popup='pvz-up')
+
+                                +radio('Доставка курьером в город Москва', 'delivery-order', 'id-delivery-order-1', false, '').--order
+                                    +e.description При сумме заказа от 2500р доставка бесплатно.
+                                +e.wrap-form
+                                    +title('h4', 'Ваш адрес:').--subtitle
+
+                                    +e.group--short
+                                        +input-label('Улица', 'id-street-order')
+                                        +input('id-street-order', 'text', '', 'street-order', '')(required="required", autocomplete='off')
+
+                                    +e.group--short.--two-inside
+                                        +e.group--inline
+                                            +input-label('Дом/корпус', 'id-house-order')
+                                            +input('id-house-order', 'text', '', 'house-order', '')
+
+                                        +e.group--inline
+                                            +input-label('Квартира', 'id-apartments-order')
+                                            +input('id-apartments-order', 'text', '', 'apartments-order', '')(class="js-only-numb")
+
+                                    +e.group--short.--comment
+                                        +input-label('Комментарий к заказу', 'id-comment-order')
+                                        +textarea('id-comment-order', 'text', '', 'comment-order', '')
+
+                                    +radio('Экспресс-доставка <span class="cost">700₽</span>', 'delivery-order', 'id-delivery-order-3', false, '').--order
+                                        +e.description.--pickup-point Срок доставки от 1 до 3 часов
+                                            br
+                                            | до 3 часов после подтверждения заказа нашим менеджером. Стоимость доставки 700р
+                                    +e.accordion.js-accordion
+                                        +e('a').accordion-title(href='javascript:void(0)').js-accordion-open
+                                            include section/ui-kit/icon.pug
+                                            +icon('arrow-triangle')
+                                            +e('span').accordion-text Забрать сегодня в 7 магазинах
+                                            |
+                                            +e('span').free (бесплатно)
+                                        +e.accordion-body.js-accordion-body
+                                            +e.accordion-item
+                                                +radio('Робинзон на Пролетарской', 'delivery-shop', 'id-delivery-shop-1', false, '').--order
+                                                    +e.description.--pickup-point м. Пролетарская, ТЦ "Сотый" ежедневно с 10:00 до 22:00
+                                            +e.accordion-item
+                                                +radio('Robinzon Premier', 'delivery-shop', 'id-delivery-shop-2', false, '').--order
+                                                    +e.description.--pickup-point м. Смоленская, ТДК Смоленский Пассаж ежедневно с 10:00 до 22:00
+                                            +e.accordion-item
+                                                +radio('Робинзон Фестиваль', 'delivery-shop', 'id-delivery-shop-3', false, '').--order
+                                                    +e.description.--pickup-point м. Юго-Западная, ТРЦ Фестиваль ежедневно с 10:00 до 22:00
+                                            +e.accordion-item
+                                                +radio('Робинзон Одинцово', 'delivery-shop', 'id-delivery-shop-4', false, '').--order
+                                                    +e.description.--pickup-point г. Одинцово, ТЦ Дубрава ежедневно с 9:00 до 21:00
+                                            +e.accordion-item
+                                                +radio('Робинзон Авиапарк', 'delivery-shop', 'id-delivery-shop-5', false, '').--order
+                                                    +e.description.--pickup-point м. ЦСКА, ТЦ Авиапарк ежедневно с 10:00 до 22:00
+
+                            
+                    +e.wrapper.js-item-height
+                        //- Укажите способ оплаты
+                        +payment()
+
+                    +e.wrapper--transparent.--cart-help.--tablet-hide
+                        +title('h3', 'Нужна помощь?').--cart-help
+                        +need-help({
+                            'items': [{
+                                'title': 'Условия доставки',
+                                'linkClass': 'js-open-popup',
+                                'dataPopup': 'help-up'
+                            },{
+                                'title': 'Возврат и обмен',
+                                'linkClass': 'js-open-popup',
+                                'dataPopup': 'help-up'
+                            },{
+                                'title': 'Способы оплаты',
+                                'linkClass': 'js-open-popup',
+                                'dataPopup': 'help-up'
+                            },{
+                                'title': 'Гарантийное обслуживание',
+                                'linkClass': 'js-open-popup',
+                                'dataPopup': 'help-up'
+                            },{
+                                'title': 'Как получить промокод?',
+                                'linkClass': 'js-open-popup',
+                                'dataPopup': 'help-up'
+                            }]
+                        })
+
+            +e.column.--right.js-sticky-block(data-sticky-type='order')
+                +e.wrapper.--order.--order-step-2
+                    +e.wrap.--order-left
+                        +title('h3', 'Товары в заказе:').--payment-small
+                        +product-basket--in({
+                            'src': 'images/content/recommended-bag-2.jpg',
+                            'name': 'Чехол для чемодана',
+                            'mark': 'Routemark SP240 Hellow Yellow L/XL',
+                            'classCost': '--in-basket',
+                            'quantity': '2',
+                            'costOld': '7500',
+                            'cost': '15 600'
+                        }).--in-basket.--cart-state-2
+                        +product-basket--in({
+                            'src': 'images/content/recommended-bag-2.jpg',
+                            'name': 'Весы-рулетка',
+                            'mark': 'Samsonite U23*801 Digital  Luggage Scale/Torch',
+                            'classCost': '--in-basket',
+                            'quantity': '2',
+                            'costOld': '1 600',
+                            'cost': '5 600'
+                        }).--in-basket.--cart-state-2
+                        +product-basket--in({
+                            'src': 'images/content/recommended-bag-2.jpg',
+                            'name': 'Подушка',
+                            'mark': 'Lipault P59*016 Plume Accessories',
+                            'classCost': '--in-basket',
+                            'quantity': '1',
+                            'costOld': '600',
+                            'cost': '1 490'
+                        }).--in-basket.--cart-state-2
+                    +e.wrap.--order-right
+                        +title('h2', 'Мой заказ').--payment.--payment-step-2
+                        +order-table({
+                            'items': [{
+                                    'name': 'Товаров:',
+                                    'attr': '3',
+                                    'hideRub': true
+                                },{
+                                    'name': 'Стоимость:',
+                                    'attr': '17 150'
+                                },{
+                                    'name': 'Скидка:',
+                                    'attr': '3 560',
+                                    'isDiscount': true
+                                },{
+                                    'name': 'Доставка:',
+                                    'attr': '500'
+                                }
+                            ],
+                            'resultCost': '52 000'
+                        }).--order-step-2
+                        +e.group.--button-order
+                            +button('Отправить заказ', '', true).--orange-full.--block.--order-table
+                        +e.group
+                            include section/promo-code.pug
+                            +promo-code()
+                +promo-code-form().--order
+                +e('p').paragraph--confidential Нажимая на кнопку «Отправить заказ», Вы даете согласие на обработку своих персональных данных и соглашаетесь с&nbsp;
+                    +link('политикой&nbsp;конфиденциальности и условиями договора оферты.', '', true)
+

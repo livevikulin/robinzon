@@ -1,0 +1,361 @@
+//- ====================
+//- Project: brand
+//- 01-06-2018: sashakasha
+//- --------------------
+//- American Tourister
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'brand'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'American Tourister';
+
+//- Выводим попапы
+block popup
+    //- ПопАпчики
+    include section/ui-kit/popup.pug
+    +popup()(data-popup='filter-mobile').--full
+        include section/filter-mobile.pug
+        +filter-mobile()
+
+//- Выводим content
+block content
+    .b-container
+        include section/ui-kit/breadcrumbs.pug
+        +breadcrumbs('Главная', 'Бренды', 'American Tourister').--catalog
+        include section/ui-kit/title.pug
+        +title('h1', 'American Tourister').--brand
+
+
+    +b('section').section.--white.--brand
+        .b-container
+            //- American Tourister
+            include section/brand-card.pug
+            +brand-card()
+
+            include section/ui-kit/hr.pug
+            +hr().--none
+
+            //- Коллекции бренда
+            include section/brand-recommend.pug
+            +brand-recommend()
+
+    .b-container
+        //- Рекомендуем товары бренда
+        +title('h2', 'Рекомендуем товары бренда').--block.--similar
+        include section/list-of-products.pug
+        +list-of-products--popular().--brand.js-popular-slider.js-horizontal-scroll
+
+        //- Все товары American Tourister
+        +b.catalog
+            +title('h2', 'Все товары American Tourister').--block.--similar
+            .b-container.b-container--mobile-hide.js-filter-desk
+                include section/content/filter-catalog.pug
+                +filter-catalog().js-prem-filter
+
+            include section/ui-kit/hr.pug
+            +hr().--filter.--mobile-hide.--tag
+            .b-container
+                +e.wrapper-top--brand
+                    +e.quantity
+                        span Товаров: 284
+
+                    include section/ui-kit/link.pug
+                    +link('Фильтры', '', true).--open-filter.js-open-popup(data-popup='filter-mobile')
+
+                    include section/filter-form.pug
+                    +filter-form({'items': [{
+                              'value': 'hits',
+                              'text': 'Хиты продаж'
+                          },
+                          {
+                              'value': 'min-price',
+                              'text': 'По возрастанию цены'
+                          },
+                          {
+                              'value': 'max-price',
+                              'text': 'По убыванию цены'
+                          },
+                          {
+                              'value': 'new',
+                              'text': 'Новый товар'
+                          },
+                          {
+                              'value': 'sale',
+                              'text': 'По Товар со скидками'
+                          }
+                      ]})
+                +b.product-list--brand
+                    include section/product-item.pug
+                    +product-item('sale25', 'American Tourister Sunset Square Spinner 13G*908', '2 699', 'Огромный чемодан-спиннер (XL)', true, '3 500', 'images/content/american-tourister-1.jpg', "images/inhtml/label/label_exclusive.svg",
+                        [{
+                            'textLabel': 'XL',
+                            'name': 'size-107',
+                            'id': 'size-type-140',
+                            'checked': true
+                        }, {
+                            'textLabel': 'L',
+                            'name': 'size-107',
+                            'id': 'size-type-141'
+                        }, {
+                            'textLabel': 'M',
+                            'name': 'size-107',
+                            'id': 'size-type-142'
+                        }, {
+                            'textLabel': 'S',
+                            'name': 'size-107',
+                            'id': 'size-type-143'
+                        }],
+                        [{
+                            'title': 'Ш х В х Г',
+                            'definition': '40 x 55 x 20/24 см'
+                        },
+                        {
+                            'title': 'Объем',
+                            'definition': '38/43 л'
+                        },
+                        {
+                            'title': 'Масса',
+                            'definition': '2,5 кг'
+                        }], '', '#f3e222', 'transparent', '#926ca7', '#926ca7', '#7fd0af', '#0bb8b2').--brand
+                    +product-item('', 'American Tourister Sunset Square Spinner 13G*908', '15 300', 'Огромный чемодан-спиннер (XL)', '', 'oldprice', 'images/content/american-tourister-2.jpg', "images/inhtml/label/label_hit.svg",
+                        [{
+                            'textLabel': 'XL',
+                            'name': 'size-107',
+                            'id': 'size-type-140',
+                            'checked': true
+                        }, {
+                            'textLabel': 'L',
+                            'name': 'size-107',
+                            'id': 'size-type-141'
+                        }, {
+                            'textLabel': 'M',
+                            'name': 'size-107',
+                            'id': 'size-type-142'
+                        }, {
+                            'textLabel': 'S',
+                            'name': 'size-107',
+                            'id': 'size-type-143'
+                        }],
+                        [{
+                            'title': 'Ш х В х Г',
+                            'definition': '40 x 55 x 20/24 см'
+                        },
+                        {
+                            'title': 'Объем',
+                            'definition': '38/43 л'
+                        },
+                        {
+                            'title': 'Масса',
+                            'definition': '2,5 кг'
+                        }], '', '#f3e222', 'transparent', '#926ca7', '#926ca7', '#7fd0af', '#0bb8b2').--brand
+                    +product-item('', 'American Tourister Sunset Square Spinner 13G*908', '2 699', 'Огромный чемодан-спиннер (XL)', '', 'oldprice', 'images/content/american-tourister-3.jpg', "images/inhtml/label/label_new.svg",
+                        [{
+                            'textLabel': 'XL',
+                            'name': 'size-107',
+                            'id': 'size-type-140',
+                            'checked': true
+                        }, {
+                            'textLabel': 'L',
+                            'name': 'size-107',
+                            'id': 'size-type-141'
+                        }, {
+                            'textLabel': 'M',
+                            'name': 'size-107',
+                            'id': 'size-type-142'
+                        }, {
+                            'textLabel': 'S',
+                            'name': 'size-107',
+                            'id': 'size-type-143'
+                        }],
+                        [{
+                            'title': 'Ш х В х Г',
+                            'definition': '40 x 55 x 20/24 см'
+                        },
+                        {
+                            'title': 'Объем',
+                            'definition': '38/43 л'
+                        },
+                        {
+                            'title': 'Масса',
+                            'definition': '2,5 кг'
+                        }], '#f3e222', '#926ca7').--brand
+                    +product-item('', 'American Tourister Sunset Square Spinner 13G*908', '2 699', 'Огромный чемодан-спиннер (XL)', '', 'oldprice', 'images/content/american-tourister-3.jpg', "images/inhtml/label/label_plus.svg",
+                        [{
+                            'textLabel': 'XL',
+                            'name': 'size-107',
+                            'id': 'size-type-140',
+                            'checked': true
+                        }, {
+                            'textLabel': 'L',
+                            'name': 'size-107',
+                            'id': 'size-type-141'
+                        }, {
+                            'textLabel': 'M',
+                            'name': 'size-107',
+                            'id': 'size-type-142'
+                        }, {
+                            'textLabel': 'S',
+                            'name': 'size-107',
+                            'id': 'size-type-143'
+                        }],
+                        [{
+                            'title': 'Ш х В х Г',
+                            'definition': '40 x 55 x 20/24 см'
+                        },
+                        {
+                            'title': 'Объем',
+                            'definition': '38/43 л'
+                        },
+                        {
+                            'title': 'Масса',
+                            'definition': '2,5 кг'
+                        }], '#f3e222', '#926ca7').--brand
+                    +product-item('sale25', 'American Tourister Sunset Square Spinner 13G*908', '2 699', 'Огромный чемодан-спиннер (XL)', true, '3 500', 'images/content/american-tourister-1.jpg', "images/inhtml/label/label_premium.svg",
+                        [{
+                            'textLabel': 'XL',
+                            'name': 'size-107',
+                            'id': 'size-type-140',
+                            'checked': true
+                        }, {
+                            'textLabel': 'L',
+                            'name': 'size-107',
+                            'id': 'size-type-141'
+                        }, {
+                            'textLabel': 'M',
+                            'name': 'size-107',
+                            'id': 'size-type-142'
+                        }, {
+                            'textLabel': 'S',
+                            'name': 'size-107',
+                            'id': 'size-type-143'
+                        }],
+                        [{
+                            'title': 'Ш х В х Г',
+                            'definition': '40 x 55 x 20/24 см'
+                        },
+                        {
+                            'title': 'Объем',
+                            'definition': '38/43 л'
+                        },
+                        {
+                            'title': 'Масса',
+                            'definition': '2,5 кг'
+                        }], '', '#f3e222', 'transparent', '#926ca7', '#926ca7', '#7fd0af', '#0bb8b2').--brand
+                    +product-item('', 'American Tourister Sunset Square Spinner 13G*908', '15 300', 'Огромный чемодан-спиннер (XL)', '', 'oldprice', 'images/content/american-tourister-2.jpg', "images/inhtml/label/label_promo.svg",
+                        [{
+                            'textLabel': 'XL',
+                            'name': 'size-107',
+                            'id': 'size-type-140',
+                            'checked': true
+                        }, {
+                            'textLabel': 'L',
+                            'name': 'size-107',
+                            'id': 'size-type-141'
+                        }, {
+                            'textLabel': 'M',
+                            'name': 'size-107',
+                            'id': 'size-type-142'
+                        }, {
+                            'textLabel': 'S',
+                            'name': 'size-107',
+                            'id': 'size-type-143'
+                        }],
+                        [{
+                            'title': 'Ш х В х Г',
+                            'definition': '40 x 55 x 20/24 см'
+                        },
+                        {
+                            'title': 'Объем',
+                            'definition': '38/43 л'
+                        },
+                        {
+                            'title': 'Масса',
+                            'definition': '2,5 кг'
+                        }], '', '#f3e222', 'transparent', '#926ca7', '#926ca7', '#7fd0af', '#0bb8b2').--brand
+                    +product-item('', 'American Tourister Sunset Square Spinner 13G*908', '2 699', 'Огромный чемодан-спиннер (XL)', '', 'oldprice', 'images/content/american-tourister-3.jpg', "",
+                        [{
+                            'textLabel': 'XL',
+                            'name': 'size-107',
+                            'id': 'size-type-140',
+                            'checked': true
+                        }, {
+                            'textLabel': 'L',
+                            'name': 'size-107',
+                            'id': 'size-type-141'
+                        }, {
+                            'textLabel': 'M',
+                            'name': 'size-107',
+                            'id': 'size-type-142'
+                        }, {
+                            'textLabel': 'S',
+                            'name': 'size-107',
+                            'id': 'size-type-143'
+                        }],
+                        [{
+                            'title': 'Ш х В х Г',
+                            'definition': '40 x 55 x 20/24 см'
+                        },
+                        {
+                            'title': 'Объем',
+                            'definition': '38/43 л'
+                        },
+                        {
+                            'title': 'Масса',
+                            'definition': '2,5 кг'
+                        }], '#f3e222', '#926ca7').--brand
+                    +product-item('', 'American Tourister Sunset Square Spinner 13G*908', '2 699', 'Огромный чемодан-спиннер (XL)', '', 'oldprice', 'images/content/american-tourister-3.jpg', "",
+                        [{
+                            'textLabel': 'XL',
+                            'name': 'size-107',
+                            'id': 'size-type-140',
+                            'checked': true
+                        }, {
+                            'textLabel': 'L',
+                            'name': 'size-107',
+                            'id': 'size-type-141'
+                        }, {
+                            'textLabel': 'M',
+                            'name': 'size-107',
+                            'id': 'size-type-142'
+                        }, {
+                            'textLabel': 'S',
+                            'name': 'size-107',
+                            'id': 'size-type-143'
+                        }],
+                        [{
+                            'title': 'Ш х В х Г',
+                            'definition': '40 x 55 x 20/24 см'
+                        },
+                        {
+                            'title': 'Объем',
+                            'definition': '38/43 л'
+                        },
+                        {
+                            'title': 'Масса',
+                            'definition': '2,5 кг'
+                        }], '#f3e222', '#926ca7').--brand
+                +e.add-more
+                    include section/ui-kit/button.pug
+                    +button('Показать еще', '', true).--more-item.js-add-product
+
+                include section/ui-kit/pagination.pug
+                +pagination({'items': [{
+                    'number': '1'
+                    }, {
+                        'number': '2'
+                    }, {
+                        'number': '3'
+                    }, {
+                        'number': 'dots'
+                    }, {
+                        'number': '5'
+                    }]}, {
+                    'hidePrev': '-hide',
+                    'active': '0'
+                })

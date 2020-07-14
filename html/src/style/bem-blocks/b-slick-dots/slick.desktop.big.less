@@ -1,0 +1,147 @@
+/* 1440 + */
+.b-slick-dots {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 38px;
+
+    li {
+        position: relative;
+        display: inline-block;
+        list-style: none;
+        background-color: @dot;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+        cursor: pointer;
+        // opacity: 0.4;
+        opacity: 1;
+        margin: 0 10px;
+        transition: @animation-time;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            opacity: 1;
+            // background-color: @dot-hover;
+            cursor: pointer;
+        }
+
+        &.slick-active {
+            opacity: 1;
+            background-color: @dot-active;
+        }
+
+        button {
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            opacity: 0;
+            border: 0;
+            padding: 0;
+            // pointer-events: none;
+            top: -5px;
+            left: -5px;
+        }
+    }
+
+    .b-brand-slider & {
+        height: 0px;
+        bottom: 0px;
+
+        li {
+            width: 9px;
+            height: 9px;
+            background-color: @dot-darker;
+
+            &.slick-active {
+                background-color: @dot-active;
+            }
+        }
+
+        button {
+            width: 19px;
+            height: 19px;
+        }
+    }
+
+    .b-pick-model-block &,
+    .b-brand-recommend__banner &,
+    .b-goto-banner & {
+        height: 0;
+        bottom: -20px;
+    }
+
+    .b-brand-recommend__banner &,
+    .b-goto-banner & {
+        bottom: 20px;
+
+        li {
+            background-color: @dot-darker;
+            &.slick-active {
+                background-color: @dot-active;
+            }
+        }
+    }
+
+    .b-goto-banner & {
+        bottom: 20px;
+    }
+
+    .b-goto-banner--store & {
+        bottom: 8px;
+    }
+
+    .b-goto-banner__wrapper--store & {
+        display: none;
+    }
+
+    &--buy-set {
+        position: static;
+        height: auto;
+
+        li {
+            background-color: @dot-darker;
+        }
+    }
+
+    .b-brand-slider--menu-desktop & {
+        bottom: 0px;
+    }
+
+    .b-product-slider__list--main & {
+        bottom: -52px;
+
+        li {
+            background-color: @cl-gray-darker;
+            margin: 0 7px;
+            width: 10px;
+            height: 10px;
+
+            &.slick-active {
+                background-color: @dot-active;
+            }
+        }
+    }
+
+    .b-brand-card-slider__list & {
+        bottom: -57px;
+
+        li {
+            background: @cl-gray-darker;
+            height: 9px;
+            width: 9px;
+
+            &.slick-active {
+                background: @dot-active;
+            }
+        }
+    }
+
+    .b-list-of-products & {
+        bottom: -30px;
+    }
+}

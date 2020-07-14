@@ -1,0 +1,16 @@
+mixin product-popup()
+    .b-popup(data-popup='product')
+        .b-popup__content.b-popup__content--product
+            .b-product-popup
+                a.b-popup__close.b-popup__close--product.js-close-popup(href='javascript:void(0);')
+                    i.b-icon.b-icon--close-popup.icon-close-popup
+                .b-product-popup__inner
+                    .b-product-popup__preview.js-product-slider
+                        - let n = 0
+                        while n < 7
+                            .b-product-popup__image.preload0.active.color-filter-296985(data-id="4702-23", data-item="296985")
+                                img(src="https://robinzon.ru/upload/iblock/abb/abb66fc732fd87c1c5b619e428f90141.jpg", data-width="1000", data-height="1500", alt="", title="")
+                            - n++
+                    .b-product-popup__view
+                        .b-product-popup__image-view.active.js-zoom-img
+                            img.js-zoom-original(src="https://robinzon.ru/upload/iblock/abb/abb66fc732fd87c1c5b619e428f90141.jpg", data-width="1000", data-height="1500", alt="", title="")

@@ -1,0 +1,16 @@
+//- ====================
+//- Robinzon: header-call
+//- 18-01-2018: Amedomary
+//- --------------------
+//- header-call
+//- ====================
+
+mixin header-call(src, title)
+    +b('dl').header-call( class!=attributes.class )
+        +e('dt').number
+            +e('a').link( href='tel:=74956486688', title='Позвонить' ) 8 495 648-66-88 
+            | / 
+            +e('a').link( href='tel:+78005553285', title='Позвонить' ) 8 800 555-32-85 
+
+        +e('dd').time С 9 до 21, без выходных
+            +e(a).popup(href='#', data-popup='recall').js-open-popup.js-recall Обратный звонок

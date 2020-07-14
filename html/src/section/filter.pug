@@ -1,0 +1,38 @@
+//- ====================
+//- Robinzon: filter
+//- 18-01-2018: Amedomary
+//- --------------------
+//- filter
+//- ====================
+
+//- На Item вешается три состояния:
+//- .-active
+//- .-checked
+
+mixin filter(data)
+    //- +b('aside').filter( class!=attributes.class )
+    //-     +e('ul').list
+
+    each item in data.items
+        //- кнопка ака селект
+        +e('li').item( class=item.classItem )
+            +e('a').link.js-popover( href='javascript:void(0)', title='' )&attributes({'class': item.linkClass, 'data-submenu': item.valueAttr}) #{item.heading}
+            //- попвера контент (пермутентится поповером)
+            +e.popover-content.-webui-popover-content&attributes({'class': item.contClass, 'data-submenu-id': item.valueAttr})
+                if item.headingMobile
+                    include ui-kit/title.pug
+                    +title('h4', item.headingMobile).--popup-filter
+
+                if item.cats
+                    +e('ul').options-list.js-filter-cont
+                        each cat, index in item.cats
+                            +e('li').option( class=item.classOption )
+                                //- radio(textLabel, name, id, checked, js)
+                                include ui-kit/radio.pug
+                                +radio(cat.label, item.name, id=`id-${item.name}-${index}`, false, cat.js).--filter.js-filter-field
+                //- если не нужен второй цикл
+                block
+
+            +e('a').link-delete.js-delete-filter( href='javascript:void(0)', title='' )
+
+    //- +e('a').link-more( href='javascript:void(0)', title='Показать больше' ) Ещё...

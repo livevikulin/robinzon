@@ -1,0 +1,22 @@
+//- ====================
+//- feature
+//- 30-03-2020
+//- ====================
+
+mixin feature()
+    +b.feature(class!=attributes.class)
+        +e.item
+            include ui-kit/icon.pug
+            +icon('info-warranty').--info
+            +e.text Гарантия
+                |
+                |
+                b 10 лет
+        +e.item
+            include ui-kit/icon.pug
+            +icon('info-eco').--info
+            +e.text Экологически чистые материалы
+        +e.item
+            include ui-kit/icon.pug
+            +icon('info-certificate').--info
+            +e.text Все чемоданы проходят обязательную сертификацию

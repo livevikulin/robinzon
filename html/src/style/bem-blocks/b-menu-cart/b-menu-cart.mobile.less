@@ -1,0 +1,41 @@
+/* 320 + */
+.b-menu-cart {
+    margin: 0 -15px;
+    position: relative;
+
+    &:after {
+        background: linear-gradient(to right, @cl-alpha-white-brand-transparent 0%, @cl-alpha-white-brand 50%, @cl-alpha-white-brand 100%);
+        bottom: 0;
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40px;
+    }
+
+    &--search {
+        &:after {
+            display: none;
+        }
+    }
+
+    &__list {
+        padding: 0 15px;
+        overflow-x: auto;
+        white-space: nowrap;
+
+        &.js-horizontal-scroll {
+            overflow: hidden;
+        }
+    }
+
+    &__item {
+        &--search {
+            width: 50%;
+        }
+    }
+
+    &__image {
+        max-height: 120px;
+    }
+}

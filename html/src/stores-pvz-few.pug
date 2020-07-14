@@ -1,0 +1,96 @@
+//- ====================
+//- 29-05-2018:
+//- --------------------
+//- Магазины. Пункты самовывоза - несколько
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'stores-pvz-few'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Пункты самовывоза'
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    +b.stores
+        .b-container
+            include section/ui-kit/breadcrumbs.pug
+            +breadcrumbs('Главная', 'Наши магазины')
+            include section/ui-kit/title.pug
+            +title('h1', 'Наши магазины').--stores-page
+
+        //- БАННЕР
+        include section/stores-banner.pug
+        +stores-banner()
+
+        .b-container
+            //- Лежит в stores-components pug
+            include section/content/stores-components.pug
+            +stores-components__line({
+                'classLinkShop': '',
+                'classLinkPvz': '-active'
+            })
+
+            +b.stores-pvz
+                +e.column.--list
+                    include section/map.pug
+                    // TODO: js Добавляем сюда карту только на Таблетке. (и в общем списке и в одном пункте) 
+                    +map().--stores-pvz-few#id-map-pvz-general.--test-tablet-show
+
+                    include section/pvz.pug
+                    +pvz({
+                        'items': [
+                            {
+                                'heading': 'г. Москва, м Марьина Роща, ул. Трифоновская, 11'
+                            }, {
+                                'heading': 'г. Москва, м Бульвар Рокоссовского, проезд Погонный , 14, к 2'
+                            }, {
+                                'heading': 'г. Москва, м Бабушкинская, Ярославское шоссе, 12, к 1'
+                            }, {
+                                'heading': 'г. Москва, м Пролетарская, проезд Иерусалимский , 4'
+                            }, {
+                                'heading': 'г. Москва, м Нахимовский проспект, Севастопольский проспект, 51, к 2'
+                            }, {
+                                'heading': 'г. Москва, м Бульвар Рокоссовского, Ивантеевская улица, 25А'
+                            }, {
+                                'heading': 'г. Москва, м Речной вокзал, Ангарская улица, 57, к 1'
+                            }, {
+                                'heading': 'г. Москва, м Проспект Мира, улица Щепкина, 60/2'
+                            }, {
+                                'heading': 'г. Москва, м Преображенская площадь, Зельев переулок, 3'
+                            }
+                        ]
+                    })
+
+                    include section/consultation.pug
+                    +consultation({
+                        'title': 'Есть вопросы? Звоните!',
+                        'src': 'images/content/avatar.png',
+                        'name': 'Консультант Анна&#160;Петрова',
+                        'secondary': 'Готов ответить на&nbsp;вопросы и&nbsp;помочь в&nbsp;выборе. Звоните!',
+                        'question': false,
+                        'classAvatar': '--description'
+                    }).--stretch
+
+                +e.column.--info
+                    include section/map.pug
+                    +map().--stores-pvz-few#id-map-pvz-general
+
+
+            //- include section/stores-page.pug
+            //- +stores-page()
+
+        include section/ui-kit/hr.pug
+        +hr().--none
+
+        .b-container
+            //- Выбрать рюкзак или чeмодан
+            include section/pick-model-block.pug
+            +pick-model-block()

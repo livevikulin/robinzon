@@ -1,0 +1,183 @@
+//- ====================
+//- robinzon: product-item
+//- 09-02-2018: drtvader
+//- --------------------
+//- Блок товаров в каталоге и т/д
+//- ====================
+
+mixin product-item(notice, name, price, size, old, oldprice, img, imagelabel, sized, info, ...items)
+    - var id = Math.round(10000*Math.random());
+    +b.product-item(data-id=id, class!=attributes.class)
+        +e.wrapper.sub-price
+            +e.link-product.js-gtags(href="javascript:void(0);", title=name, data-gtag='')
+            +e.compare
+                +e.add.--compare.js-ajax-link(href="javascript:void(0);" data-id='297331', data-action='ADD_TO_COMPARE_RESULT', data-url='/ajax/compare_add.php', title='', data-target='.js-compare-header')
+                    include ui-kit/icon.pug
+                    +icon("compare").--product-item
+            +e.favorites
+                +e.add.--favorites.js-h2o_add_favor(href="javascript:void(0);" title="" data-id='297331')
+                    include ui-kit/icon.pug
+                    +icon("favorites").--product-item
+            +e.label
+                - let isImageArray = imagelabel.constructor == Array
+                if isImageArray
+                    for item in imagelabel
+                        +b.label.--image(class=item.isSuper ? '--is-super' : '')
+                            +e('img').image(src=item.path, alt)
+                else if imagelabel
+                    +b.label.--image
+                        +e('img').image(src=imagelabel, alt)
+                if notice == 'vip'
+                    include ui-kit/label.pug
+                    +label('vip').--vip
+                else if notice == 'hit'
+                    include ui-kit/label.pug
+                    +label('хит').--hit
+                else if notice == 'new'
+                    include ui-kit/label.pug
+                    +label('new').--new
+                else if notice == 'sale'
+                    include ui-kit/label.pug
+                    +label('%').--sale
+                else if notice == 'sale25'
+                    include ui-kit/label.pug
+                    +label('25%').--sale
+            +b.button.--product-quck(href='#', title='Чемодан Roncato 4703 Stellar Cabin Trolley 55') Подробнее
+            +e.image-wrapper.preload0
+                +e.image#297331.js-wrapper-image.origin.lazyload(src=img, data-src=img, alt=name, title=name)
+                +e.image#297331_rnd.js-wrapper-image.copy.lazyload(src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==', data-src=img, alt=name, title=name, style='display:none')
+            +e.info
+                +e.info-text
+                    include select-color.pug
+                    +select-color(...items).--product-item
+                    +e.name.js-gtags(data-gtag='', href='#', title=name) #{name}
+                    +e.size #{size}
+                    include characteristic-info.pug
+                    +characteristic-info(info).--product-item
+                +e.hidden-info
+                    if sized
+                        +e.size-change
+                            include ui-kit/size-list.pug
+                            +size-list(sized).--square.--product-item
+                    a.b-button.b-button--orange-buy.b-product-item__buy.js-analytics-events.js-addToBasket.js-open-popup.js-ajax-link.js-product-add.js_add_to_cart_catalog(title='Купить', data-events='basket_popover', data-action='add2basket', data-url='/ajax/add2basket.php', data-get-product-id-from-attr='Y', data-id='297340', data-mind='297331', data-cost='8 330 ₽', data-sh1h2='Roncato 4703  Stellar Cabin Trolley 55', data-img=img, data-popup='in-basket', data-ssize='Чемодан  в ручную кладь XS', id='', href='javascript:void(0);')
+                        +e.icon
+                            +icon('cart').--basket
+                        | Купить
+                    a.b-button.b-button--orange-buy.js-open-popup.js-subscribe-button.ReportAdmission(data-itemid='297340', href='javascript:void(0);', title='Сообщить о поступлении', style='display: none;', data-popup='item-subscribe') Сообщить о поступлении
+                include ui-kit/price.pug
+                +price(price, old, oldprice, "₽").--product-item
+
+mixin product-item_old(notice, name, price, size, old, oldprice, img, imagelabel, sized, info, ...items)
+    - var id = Math.round(10000*Math.random());
+    +b.product-item(data-id=id, class!=attributes.class)
+        +e.wrapper
+            +e.link-product(href="javascript:void(0);", title=name)
+            +e.compare
+                +e.add.--compare(href="javascript:void(0);" title="")
+                    include ui-kit/icon.pug
+                    +icon("compare").--product-item
+            +e.favorites
+                +e.add.--favorites(href="javascript:void(0);" title="")
+                    include ui-kit/icon.pug
+                    +icon("favorites").--product-item
+            +e.label
+                if imagelabel
+                    +b.label.--image
+                        +e('img').image(src=imagelabel, alt)
+                if notice == 'vip'
+                    include ui-kit/label.pug
+                    +label('vip').--vip
+                else if notice == 'hit'
+                    include ui-kit/label.pug
+                    +label('хит').--hit
+                else if notice == 'new'
+                    include ui-kit/label.pug
+                    +label('new').--new
+                else if notice == 'sale'
+                    include ui-kit/label.pug
+                    +label('%').--sale
+                else if notice == 'sale25'
+                    include ui-kit/label.pug
+                    +label('25%').--sale
+            +b.button.--product-quck.js-qick-view.js-ajax-link(href="javascript:void(0);" title=name data-id=id data-events='open-preview initCarousel' data-url='/json/preview.json' data-target='js-hidden-slider') быстрый просмотр
+            +e.image-wrapper
+                +e.image.js-wrapper-image(src=img, alt=name, title=name)
+            +e.info
+                +e.info-text
+                    include select-color.pug
+                    +select-color(...items).--product-item
+                    +e.name(href="javascript:void(0);" title=name) #{name}
+                    +e.size #{size}
+                    +e(href="javascript:void(0);", title="Купить").buy.--mobile
+                        +icon('cart').--basket
+                        | Купить
+                //- +e.dropdown
+                +e.hidden-info
+                    if sized
+                        +e.size-change
+                            //- include ui-kit/hr.pug
+                            //- //- +hr().--product-item
+                            include ui-kit/size-list.pug
+                            +size-list(sized).--square.--product-item
+                    include characteristic-info.pug
+                    +characteristic-info(info).--product-item
+                    +e(href="javascript:void(0);", title="Купить").buy
+                        +icon('cart').--basket
+                        | Купить
+                include ui-kit/price.pug
+                +price(price, old, oldprice, ".-").--product-item
+
+
+mixin product-item--brand(notice, name, price, size, old, oldprice, img, imagelabel, sized, info, ...items)
+    - var id = Math.round(10000*Math.random());
+    +b.product-item(data-id=id)
+        +e.wrapper
+            +e.compare
+                +e.add.--compare(href="javascript:void(0);" title="")
+                    include ui-kit/icon.pug
+                    +icon("compare").--product-item
+            +e.favorites
+                +e.add.--favorites(href="javascript:void(0);" title="")
+                    include ui-kit/icon.pug
+                    +icon("favorites").--product-item
+            +e.label
+                if imagelabel
+                    +b.label.--image
+                        +e('img').image(src=imagelabel, alt)
+                if notice == 'vip'
+                    include ui-kit/label.pug
+                    +label('vip').--vip
+                else if notice == 'hit'
+                    include ui-kit/label.pug
+                    +label('хит').--hit
+                else if notice == 'new'
+                    include ui-kit/label.pug
+                    +label('new').--new
+                else if notice == 'sale'
+                    include ui-kit/label.pug
+                    +label('%').--sale
+            +b.button.--product-quck.js-qick-view.js-ajax-link(href="javascript:void(0);" title=name data-id=id data-events='open-preview initCarousel' data-url='/json/preview.json' data-target='js-hidden-slider') быстрый просмотр
+            +e.image-wrapper
+                +e.image.js-wrapper-image(src=img, alt=name, title=name)
+            +e.info
+                +e.info-text
+                    include select-color.pug
+                    +select-color--brand(...items).--product-item
+                        //- li.b-select-color__item.b-select-color__item--product-item
+                        //-     a.b-select-color__link.b-select-color__link--add-color(href='javascript:void(0);' title='')
+                        //-         span.b-select-color__add-color
+                    +e.name(href="javascript:void(0);" title=name) #{name}
+                    +e.size #{size}
+                //- +e.dropdown
+                +e.hidden-info
+                    if sized
+                        +e.size-change
+                            //- include ui-kit/hr.pug
+                            //- //- +hr().--product-item
+                            include ui-kit/size-list.pug
+                            +size-list(sized).--square.--product-item
+
+                    include characteristic-info.pug
+                    +characteristic-info(info).--product-item
+                include ui-kit/price.pug
+                +price(price, old, oldprice, ".-").--product-item

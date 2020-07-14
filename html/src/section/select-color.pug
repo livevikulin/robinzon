@@ -1,0 +1,30 @@
+//- ====================
+//- Robinzon: select-color
+//- 25-01-2018: drtvader
+//- --------------------
+//- выбор цвета для слайдера
+//- ====================
+
+//- item что бы задать модификатор пишем его через запятую
+mixin select-color(...items)
+    +b('ul').select-color(class!=attributes.class)
+        each item, index in items
+            +e.item(class!=attributes.class)
+                +e.link(href="javascript:void(0);" title="" class=(index == 0 ? '-active ' : ''))
+                    if index == 0
+                        +e('img').image.js-image-wrapper(src="images/content/product-card-2.png" alt="")
+                    else
+                        +e.color(style=`background-color: ${item}` itemprop="color" content=`${item}`)
+
+mixin select-color--brand(...items)
+    +b('ul').select-color(class!=attributes.class)
+        each item, index in items
+            +e.item(class!=attributes.class)
+                +e.link(href="javascript:void(0);" title="" class=(index == 0 ? '-active ' : ''))
+                    if index == 0
+                        +e('img').image.js-image-wrapper(src="images/content/product-card-2.png" alt="")
+                    else if index == 4
+                        +e('span').add-color
+                    else
+                        +e.color(style=`background-color: ${item}` itemprop="color" content=`${item}`)
+                    

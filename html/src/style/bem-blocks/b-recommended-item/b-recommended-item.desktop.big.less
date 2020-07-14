@@ -1,0 +1,234 @@
+/* 1440 + */
+.b-recommended-item {
+    display: inline-block;
+    vertical-align: top;
+    width: ~"calc((1290px / 5) + 1px)";
+    height: 310px;
+    margin-right: -1px;
+    margin-bottom: -1px;
+
+    &__content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        padding: 0 10px 15px 10px;
+        overflow: hidden;
+        transition: @fast-animation;
+        border: 1px solid @product-recommended-border;
+        background-color: @cl-white;
+        text-align: center;
+        z-index: 10;
+        will-change: height;
+
+        &--hover {
+            .no-touchevents &:hover,
+            .touchevents &:active {
+                transform: translateY(-5px);
+                height: 360px;
+                box-shadow: 0 3px 5px 0 @cl-alpha-black;
+                z-index: 20;
+
+                // // Иконочки статистики и тд
+                // .b-link--recomend-item {
+                //     opacity: .5;
+                // }
+            }
+            // Новый ховер для мода --size
+            .b-recommended-item--size & {
+                .no-touchevents &:hover,
+                .touchevents &:active {
+                    height: 670px;
+                }
+            }
+        }
+
+        &--set {
+            border-color: @product-border-set;
+        }
+    }
+
+    &__image-link {
+        flex: 0 0 auto;
+        display: block;
+        width: auto;
+        height: 160px;
+        margin: 35px 15px 5px;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            margin-top: -20px;
+            margin-left: -13px;
+            pointer-events: none;
+            background: url(../images/inhtml/chemodan.gif) no-repeat;
+            z-index: 11;
+            opacity: 0;
+            background-size: 31px;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: @cl-white;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 10;
+        }
+
+        &.preload {
+            &:before,
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__image {
+        max-height: 100%;
+
+        object-fit: contain;
+        font-family: 'object-fit: contain;';
+        width: 100%;
+        height: 100%;
+    }
+
+    &__description {
+        flex: 0 0 auto;
+        width: 100%;
+        display: block;
+        padding: 0 5px;
+        height: 55px;
+        overflow: hidden;
+        margin-bottom: 3px;
+
+        a {
+            display: block;
+        }
+    }
+
+    &__label {
+        left: 0;
+        position: absolute;
+        top: 0;
+        z-index: 2;
+        text-align: left;
+    }
+
+    &__size {
+        color: @cl-font-gray;
+        text-decoration: none;
+        .roboto-regular;
+        font-size: 13px;
+        margin-bottom: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+
+        &:hover {
+            color: @cl-font-orange;
+            transition: color, @animation-time;
+        }
+    }
+
+    &__name {
+        height: 34px;
+        color: @cl-font-gray;
+        text-decoration: none;
+        .roboto-regular;
+        font-size: 13px;
+        line-height: 17px;
+        margin-bottom: -3px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+
+        &:hover {
+            color: @cl-font-orange;
+            transition: color @animation-time;
+        }
+    }
+
+    &__buy {
+        display: none;
+        width: 88px;
+        height: 38px;
+        font-size: 15px;
+        color: @cl-font-orange;
+        line-height: 35px;
+        .roboto-regular;
+        border: 1px solid @recommended-buy-border;
+        border-radius: 3px;
+        margin-bottom: 15px;
+    }
+
+    &__link-word {
+        background-image: linear-gradient(to right, @advice-border 33%, @advice-border-left 0%);
+        background-position: bottom;
+        background-size: 3px 1px;
+        background-repeat: repeat-x;
+
+        .b-recommended-item__more-text:hover & {
+            background: none;
+        }
+    }
+
+    &__more-text {
+        .roboto-regular;
+        color: @cl-font-main;
+        font-size: 16px;
+        line-height: 1.3;
+        margin: auto;
+        max-width: 40%;
+        text-align: center;
+        text-decoration: none;
+
+        &:hover {
+            color: @cl-font-orange;
+            transition: color, @animation-time;
+        }
+    }
+
+    &--size {
+        height: ~"calc(100% - 1px)";
+        max-height: 620px;
+        width: ~"calc(((1290px / 5) * 2) + 1px)";
+    }
+
+    &--size & {
+        &__image-link {
+            margin: 30px 20px 23px;
+            height: 470px;
+        }
+        &__description {
+            height: 40px;
+        }
+    }
+
+    &--set {
+        width: 280px;
+        margin:-1px 0 0 -1px;
+    }
+
+    &--row-list {
+        width: 225px;
+    }
+
+    &--cart {
+        height: 340px;
+    }
+}

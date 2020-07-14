@@ -1,0 +1,14 @@
+/* 768 + */
+.b-list-check {
+  height: 100%;
+  overflow: hidden;
+}
+.b-list-check__list {
+  height: auto;
+}
+.b-pvz-popup__column--left .b-list-check__list {
+  height: calc(100% - 20px);
+}
+.b-list-check__description-block {
+  padding-right: 170px;
+}

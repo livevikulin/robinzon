@@ -1,0 +1,136 @@
+/* 1440 + */
+.b-recall-popup {
+    position: relative;
+    width: 380px;
+    border-radius: 2px;
+    padding: 40px;
+    background-color: @background-header;
+
+    &--reservation {
+        width: 540px;
+        padding-top: 30px;
+    }
+
+    &--reservation-done {
+        width: 500px;
+        padding-top: 30px;
+    }
+
+    &--in-shop {
+        padding: 0;
+        width: 100%;
+    }
+    
+    &__row {
+        display: flex;
+        flex-flow: row nowrap;
+        
+        &--info {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__row--mobile {
+        display: none;
+    }
+
+    &__column {
+        flex: 1 1 auto;
+
+        &--info {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        &--name {
+            margin-right: 20px;
+        }
+    }
+
+    &__img {
+        display: inline-block;
+        vertical-align: top;
+        width: 125px;
+        height: 135px;
+        flex: 0 0 auto;
+        object-fit: contain;
+        font-family: 'object-fit: contain;';
+    }
+
+    &__name {
+        display: block;
+        .roboto-regular;
+        font-size: 13px;
+        line-height: 1.38;
+        color: @cl-font-gray;
+
+        &--breake {
+            margin-bottom: 10px;
+        }
+
+        &--end {
+            margin-bottom: 20px;
+        }
+
+        b {
+            .roboto-regular;
+            color: @cl-font-main;
+        }
+    }
+
+    &__add-text {
+        .roboto-regular;
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.40;
+        color: @cl-font-light;
+        margin-bottom: 30px;
+
+        &--mobile-show {
+            display: none;
+        }
+
+        &--small {
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+
+        &--center {
+            text-align: center;
+        }
+
+        &--time {
+            margin-bottom: 2px;
+        }
+
+        &--reservation-done {
+            padding-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        &--reservation-popup {
+            width: 50%;
+            display: inline-block;
+            padding-left: 20px;
+        }
+    }
+    
+    &__phone {
+        display: none;
+        .roboto-bold;
+        font-size: 18px;
+        line-height: 1.2;
+        margin-bottom: 7px;
+    }
+
+    &__link-phone {
+        display: none;
+        padding: 5px;
+        margin-left: -5px;
+        .roboto-regular;
+        font-size: 13px;
+        line-height: 1.2;
+        color: @cl-font-blue;
+        margin-bottom: 14px;
+    }
+}

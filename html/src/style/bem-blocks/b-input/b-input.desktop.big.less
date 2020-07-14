@@ -1,0 +1,178 @@
+/* 1440 + */
+.b-input {
+    width: 100%;
+
+    &--subscribe {
+        width: auto;
+        display: inline-block;
+        margin-right: 7px;
+        vertical-align: top;
+    }
+
+    &--login {
+        margin-bottom: 20px;
+    }
+
+    &--recall-popup {
+        margin-bottom: 20px;
+
+        &.last {
+            margin-bottom: 30px;
+        }
+    }
+
+    &--promo-code {
+        margin-right: 13px;
+    }
+
+    &--buy-cheaper,
+    &--for-one-click {
+        margin: 0 0 20px;
+    }
+
+    & label.error {
+        padding-top: 3px;
+        color: @form-error;
+    }
+
+    &__input-field {
+        height: 37px;
+        border-radius: 2px;
+        background-color: @form-back;
+        padding: 0px 40px 0px 18px;
+        border: 1px solid @form-border;
+        transition: border .3s;
+        .roboto-regular;
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 0 15px 0 7px;
+        width: 100%;
+
+        -webkit-appearance: none;
+        -moz-appearance:    none;
+        appearance:         none;
+
+        // Общие (цвета+ховеры, элементы, поведения)
+        &:focus {
+            border: 1px solid @form-ok;
+        }
+
+        // &[disabled] {}
+
+        // &[placeholder]{
+        //     text-overflow:ellipsis;
+        //     font-size: 15px;
+        //     line-height: 26px;
+        //     .roboto-regular;
+        // }
+
+        &[type=search] {
+            box-sizing: border-box;
+            -webkit-appearance: none;
+        }
+
+        // Префиксы
+        &::-webkit-input-placeholder {
+            color: @cl-light-gray;
+            font-size: 15px;
+            line-height: 26px;
+            .roboto-regular;
+        }
+        &:-moz-placeholder {
+            color: @cl-light-gray;
+            font-size: 15px;
+            line-height: 26px;
+            .roboto-regular;
+        }
+        &::-moz-placeholder {
+            padding-top: 5px;
+            color: @cl-light-gray;
+            font-size: 15px;
+            line-height: 26px;
+            .roboto-regular;
+        }
+        &:-ms-input-placeholder {
+            color: @cl-light-gray;
+            font-size: 15px;
+            line-height: 26px;
+            .roboto-regular;
+        }
+
+        &.error {
+            border: 1px solid @form-error;
+            color: @form-error;
+        }
+        // End: Общие
+
+
+        &--price {
+            // width: 110px;
+            max-width: 36%;
+            margin: 0 10px 0 0;
+        }
+
+        &--top-search {
+            .roboto-medium;
+            font-size: 15px;
+            padding: 0 45px 0 13px;
+
+            &:focus {
+                border-radius: 2px 2px 0 0;
+                border: 2px solid @form-ok;
+            }
+        }
+
+        &--login {
+            height: 45px;
+            font-size: 15px;
+            padding: 5px 15px 5px 7px;
+            margin-bottom: 5px;
+        }
+
+        &--recall-popup {
+            height: 45px;
+            font-size: 15px;
+            padding: 5px 15px 5px 7px;
+        }
+
+        &--subscribe {
+            width: 316px;
+            border: 1px solid @subscribe-input-border;
+            font-size: 13px;
+        }
+
+        &--pick-city {
+            padding: 0 10px 0 42px;
+            height: 45px;
+            font-size: 15px;
+            margin-bottom: 10px;
+            transition: border-color .3s;
+            border-radius: 0;
+            -webkit-border-radius: 0;
+            -webkit-appearance: none;
+
+            &:focus {
+                border-radius: 2px 2px 0 0;
+                border-color: @form-ok;
+            }
+        }
+
+        &--buy-cheaper,
+        &--for-one-click {
+            margin: 0;
+        }
+
+        &--reservation-popup {
+            font-size: 14px;
+            height: 30px;
+        }
+    }
+}
+
+.b-input__input-field::-moz-placeholder {
+    padding-top: 5px;
+    color: @cl-light-gray;
+    font-size: 15px;
+    line-height: 37px;
+    .roboto-regular;
+}

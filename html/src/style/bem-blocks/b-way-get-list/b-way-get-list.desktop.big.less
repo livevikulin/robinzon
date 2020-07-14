@@ -1,0 +1,90 @@
+/* 1440 + */
+.b-way-get-list {
+    &__wrapper {
+        padding: 0 78px 0 0;
+        margin-bottom: 4px;
+        font-size: 13px;
+        line-height: 1.5;
+
+        &--check-list {
+            position: relative;
+            padding-left: 32px;
+            font-size: 15px;
+            margin-bottom: 34px;
+
+            &:after {
+                .icon-base-pseudo();
+                .icon-char(checkbox);
+                position: absolute;
+                top: 3px;
+                left: 4px;
+                color: @check-icon;
+                .icon-size(13px);
+            }
+        }
+    }
+
+    &__name {
+        display: block;
+    }
+
+
+    &__aviability {
+        margin-bottom: 24px;
+    }
+
+    &__aviability-item {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__aviability-icon {
+        line-height: 0;
+        width: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__aviability-text {
+        margin-left: 8px;
+        font-size: 13px;
+        line-height: 19px;
+        color: @cl-font-main;
+        width: ~"calc(100% - 40px)";
+        display: flex;
+
+        & b {
+            margin-left: 2px;
+        }
+    }
+
+    &__aviability-free {
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 19px;
+        color: @cl-font-orange-dark;
+        margin-left: auto;
+        padding-left: 5px;
+    }
+
+    &__location {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__location-text {
+        margin-left: 15px;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 21px;
+        color: @cl-font-main;
+    }
+}

@@ -1,0 +1,77 @@
+//- ====================
+//- Robinzon: reservation-popup
+//- 18-01-2018: Amedomary
+//- --------------------
+//- ПопАп reservation
+//- ====================
+
+mixin reservation-popup()
+    include ../ui-kit/input-label.pug
+    include ../ui-kit/input.pug
+    include ../ui-kit/button.pug
+    include ../ui-kit/title.pug
+
+    +b.recall-popup.--reservation.js-reservation-popup
+        +popup_close()
+        +e.row.--info
+            +e('img').img(src='images/content/announcement-3.jpg', alt='Фото Товара', title='').js-image-wrapper
+            +e.column.--info
+                +e('span').name Ручная кладь S
+                +e('span').name--breake Roncato 3132 MODO Sunny 68
+                +e('span').name--end
+                    | Артикул: 
+                    b 85A-31003
+                +filter-color--map({'items':
+                            [{
+                                'name': `map-color-popup-${index}`,
+                                'color': 'black',
+                                'colorname': 'Чёрный'
+                            },{
+                                'name': `map-color-popup-${index}`,
+                                'color': 'blue',
+                                'colorname': 'Синий'
+                            },{
+                                'name': `map-color-popup-${index}`,
+                                'color': 'red',
+                                'colorname': 'Красный'
+                            },{
+                                'name': `map-color-popup-${index}`,
+                                'color': 'green',
+                                'colorname': 'Зеленый'
+                            },{
+                                'name': `map-color-popup-${index}`,
+                                'color': 'yellow',
+                                'colorname': 'Желтый'
+                            },{
+                                'name': `map-color-popup-${index}`,
+                                'color': 'lightblue',
+                                'colorname': 'Голубой'
+                            },{
+                                'name': `map-color-popup-${index}`,
+                                'color': 'beige',
+                                'colorname': 'Бежевый'
+                            },{
+                                'name': `map-color-popup-${index}`,
+                                'color': 'turquoise',
+                                'colorname': 'Бирюзовый'
+                            }
+                        ]}).--map-card
+
+        +e('form').form(data-url='/json/reservation-popup.json' data-target='.js-reservation-popup' data-events='ee update kill').js-ajax-form
+            +e.row.--form
+                +e.column--name
+                    +input-label('Ваше имя', 'id-reservation-name')
+                    +inputEx({id:'id-reservation-name',type:'text',placeholder:'Ваше имя',name:'name-member',required:true}).--reservation-popup
+                        //- +input-label('Не корректная электронная почта', 'id-login-mail').--error
+                +e.column--phone
+                    +input-label('Мобильный телефон', 'id-reservation-phone')
+                    +inputEx({id:'id-reservation-phone',type:'tel',placeholder:'+7 ___ - ___ __ __',name:'password-login',required:true}).--reservation-popup
+                        +input-label('Не корректно введён номер', 'id-reservation-phone').--error
+            +button('Забронировать', '', false).--blue.--reservation-popup
+            +e('p').add-text.--small.--center Я соглашаюсь получать рассылки от Robinzon
+
+    +b.recall-popup.--reservation-done(style='display:none;')
+        +popup_close()
+        +title('h3', 'Спасибо за заказ').--login
+        +e('p').add-text.--reservation-done Ваш заказ №97058 от 01.03.2018 13:17:29 оформлен, Вы можете забрать его по адресу: м. Маяковская, ТЦ Европа. ул. Петровка, д.1, Пн–Вс (09:00-22:00). Срок резерва 3 дня.
+        //- +button('Закрыть', '', true).--blue.--full-block.js-close-popup

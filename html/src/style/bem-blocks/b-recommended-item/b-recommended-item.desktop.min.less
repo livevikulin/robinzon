@@ -1,0 +1,36 @@
+/* 1024 + */
+.b-recommended-item {
+    width: ~"calc((940px / 4) + 1px)";
+
+    &--size {
+        width: ~"calc(((940px / 4) * 2) + 1px)";
+    }
+
+    &--set {
+        // width: ~"calc((100%/3) + 1px)";
+        width:  230px;
+
+        &.b-recommended-item--last {
+            // width: ~"calc((100%/3) + 3px)";
+            margin-right: -5px;
+            // margin-left: -2px;
+
+            .b-recommended-item__content {
+                border-right: none;
+            }
+        }
+    }
+
+    &--row-list {
+        width: 225px;
+    }
+
+    &__content {
+        &--hover {
+            .no-touchevents &:hover,
+            .touchevents &:active {
+                height: 371px;
+            }
+        }
+    }
+}

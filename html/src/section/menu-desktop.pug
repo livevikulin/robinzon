@@ -1,0 +1,47 @@
+//- ====================
+//- Project: menu-desktop
+//- 06-02-2018: VD
+//- --------------------
+//- Выпадающее меню
+//- ====================
+mixin menu-desktop()
+    +b.menu-desktop.js-menu-desktop-aim
+        .b-container
+            //- 1
+            include menu-desktop-list.pug
+            +menu-desktop-list(
+                'Любых размеров',
+                'Ручная кладь',
+                'Средние чемоданы - М',
+                'Большие чемоданы - L/XL',
+                'Детские чемоданы'
+            )
+
+            //- 2
+            include menu-desktop-list.pug
+            +menu-desktop-list(
+                'На все случаи жизни',
+                'Краткосрочная поездка',
+                'Командировка',
+                'Для двоих',
+                'Для семьи'
+            )
+
+            //- 3
+            include menu-desktop-list.pug
+            +menu-desktop-list(
+                'В путешествия берут',
+                'Сумки дорожные',
+                'Сумки на колесах',
+                'Чехлы на чемодан',
+                'Косметички',
+                'Бьюти-кейсы',
+                'Портпледы',
+                'Мобильные офисы'
+            )
+
+            include pick-model.pug
+            +pick-model('images/content/banner-pick.png').--menu-desktop
+
+            include brand-slider.pug
+            +brand-slider().--menu-desktop.js-brand-slider

@@ -1,0 +1,73 @@
+//- ====================
+//- Project: page404
+//- 00-00-2017:
+//- --------------------
+//- Страница не найдена
+//- ====================
+mixin page404()
+    .b-container
+        +b.goto
+            +e.image-block
+                +e('span').header
+                    | 404
+                +e('span').land
+                    +e('img').land-image(src="images/inhtml/land.png" alt="" title="")
+
+            include ui-kit/title.pug
+            +title('h1', 'Страница была удалена или не существовала').--goto
+
+            +e('p').best Но лучшие в мире 
+                span
+                    +link('чемоданы', '', true).--underline
+                    | ,
+                    |
+                    +link('рюкзаки', '', true).--underline
+                    | ,
+                    |
+                    +link('сумки', '', true).--underline
+                    |
+                    | и
+                    |
+                    +link('аксессуары', '', true).--underline
+                |
+                | по-прежнему ждут вас в каталоге.
+
+    include ui-kit/hr.pug
+    +hr()
+
+    .b-container
+        +b.popular-brand--p404
+            +title('h2', 'В каталоге представлены бренды').--block.--about-us.--p404
+
+            //- Слайдер отзывов
+            include brand-slider.pug
+            +brand-slider().js-brand-slider.js-horizontal-scroll
+            +e.link-line
+                include ui-kit/link.pug
+                +link('Показать весь список', '', true).--review-footer
+
+        +b.goto-banner
+            +e.wrapper.js-pick-slider-for-404
+                +e.item.--slider
+                    include pick-model.pug
+                    +pick-model('images/content/banner-pick.png').--stretch
+                +e.item.--slider
+                    include pick-model.pug
+                    +pick-model('images/content/banner-pick.png').--stretch
+                +e.item.--slider
+                    include pick-model.pug
+                    +pick-model('images/content/banner-pick.png').--stretch
+            +e.item--consultation
+                include consultation.pug
+                +consultation({
+                    'title': 'Сложности с выбором?',
+                    'src': 'images/content/avatar.png',
+                    'name': 'Консультант Анна&#160;Петрова',
+                    'secondary': 'Готов ответить на&nbsp;вопросы и&nbsp;помочь в&nbsp;выборе. Звоните!',
+                    'question': false,
+                    'classAvatar': '--description'
+                }).--stretch.--p404
+
+    //- БАННЕР
+    include stores-banner.pug
+    +stores-banner()

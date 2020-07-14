@@ -1,0 +1,62 @@
+//- ====================
+//- Project: search
+//- 12-07-2018: sashakasha
+//- --------------------
+//- Результаты поиска
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'search'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Результаты поиска';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    .b-container
+        include section/ui-kit/title.pug
+        +title('h1', 'Результаты поиска').--cart-empty
+
+    +b('section').section.--white.--cart-empty
+        .b-container
+            include section/search.pug
+            +search()
+
+    .b-container
+        +b.popular-brand--p404
+            +title('h2', 'В каталоге представлены бренды').--block.--about-us.--p404
+            include section/brand-slider.pug
+            +brand-slider().js-brand-slider.js-horizontal-scroll
+            +e.link-line
+                include section/ui-kit/link.pug
+                +link('Показать весь список', '', true).--review-footer
+
+    .b-container
+        +b.goto-banner
+            +e.wrapper.js-pick-slider-404
+                +e.item.--slider
+                    include section/pick-model.pug
+                    +pick-model('images/content/banner-pick.png').--stretch
+                +e.item.--slider
+                    include section/pick-model.pug
+                    +pick-model('images/content/banner-pick.png').--stretch
+                +e.item.--slider
+                    include section/pick-model.pug
+                    +pick-model('images/content/banner-pick.png').--stretch
+            +e.item--consultation
+                include section/consultation.pug
+                +consultation({
+                    'title': 'Сложности с выбором?',
+                    'src': 'images/content/avatar.png',
+                    'name': 'Консультант Анна&#160;Петрова',
+                    'secondary': 'Готов ответить на&nbsp;вопросы и&nbsp;помочь в&nbsp;выборе. Звоните!',
+                    'question': false,
+                    'classAvatar': '--description'
+                }).--stretch.--p404

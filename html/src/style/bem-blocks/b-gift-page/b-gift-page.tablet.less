@@ -1,0 +1,25 @@
+.gift-certificate {
+    &__header {
+        flex-direction: column;
+    }
+
+    &__title {
+        width: 100%;
+        text-align: center;
+    }
+
+    &__features-item {
+        flex-basis: calc(~'50% - 28px');
+        &:last-child {
+            margin-right: auto;
+        }
+    }
+
+    &__docs {
+        margin-top: 20px;
+    }
+
+    &__download-link {
+        width: calc(~'50% - 30px');
+    }
+}

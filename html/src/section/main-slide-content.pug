@@ -1,0 +1,12 @@
+//- ====================
+//- Robinzon: main-slide-content
+//- 18-01-2018: Amedomary
+//- --------------------
+//- main-slide-content
+//- ====================
+
+mixin main-slide-content(heading, sub_heading, title_link)
+    +e.content
+        +e('span').heading #{heading} 
+        +e('span').sub-heading #{sub_heading} 
+        +e('span').title-link #{title_link} 

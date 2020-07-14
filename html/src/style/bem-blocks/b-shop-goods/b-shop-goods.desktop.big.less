@@ -1,0 +1,35 @@
+/* 1440 + */
+.b-shop-goods {
+    display: none;
+    font-size: 0;
+
+    &__link {
+        display: inline-flex;
+        vertical-align: top;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 10px 10px 15px;
+        width: 50%;
+        height: 80px;
+        color: @cl-font-white;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            color: inherit;
+        }
+
+        &--shop {
+            background-color: @cl-main-blue;
+        }
+
+        &--goods {
+            background-color: @cl-sygnal-orange;
+        }
+    }
+
+    &__description {
+        .roboto-regular;
+        font-size: 14px;
+        line-height: 1.14;
+    } 
+}

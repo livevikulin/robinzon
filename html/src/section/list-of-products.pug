@@ -1,0 +1,425 @@
+//- ====================
+//- Robinzon: list-of-products
+//- 29-03-2018: Amed
+//- --------------------
+//- Лист с продуктами скролящиммяси в ряд
+//- ====================
+
+mixin list-of-products()
+    +b('ul').list-of-products(class!=attributes.class)
+        include recommended-item.pug
+        +recommended-item({'items':
+            [{
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/libra.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset Square Spinner 13G*908',
+                'price': '14 590.-'
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/product-card-1.png',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/travelBags.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/recommended-bag-2.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/recommended-bag-2.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/content-sumka-6.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/recommended-bag-2.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }
+        ]})
+
+//- Другой контент
+mixin list-of-products--similar()
+    +b('ul').list-of-products(class!=attributes.class)
+        include recommended-item.pug
+        +recommended-item({'items':
+            [{
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/recommended-bag-2.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset Square Spinner 13G*908',
+                'price': '14 590.-'
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/announcement-1.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/announcement-2.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/recommended-bag-2.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/announcement-4.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/announcement-2.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/announcement-1.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }
+        ]})
+
+//- Слайдер на карзине
+mixin list-of-products--cart()
+    +b.list-of-products(class!=attributes.class)
+        include recommended-item.pug
+        +recommended-item({'items':
+            [{
+                'classBlock': '--row-list --cart',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'classPrice': '--cart',
+                'buttonHide': true,
+                'iconHideCom': true,
+                'iconHideFav': true,
+                'addToCart': 'Добавить в заказ',
+                'srclink': 'images/content/libra.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset Square Spinner 13G*908',
+                'price': '14 590.-'
+            }, {
+                'classBlock': '--row-list --cart',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'classPrice': '--cart',
+                'notice': 'sale',
+                'buttonHide': true,
+                'iconHideCom': true,
+                'iconHideFav': true,
+                'addToCart': 'Добавить в заказ',
+                'srclink': 'images/content/product-card-1.png',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list --cart',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'classPrice': '--cart',
+                'notice': 'sale',
+                'buttonHide': true,
+                'iconHideCom': true,
+                'iconHideFav': true,
+                'addToCart': 'Добавить в заказ',
+                'srclink': 'images/content/travelBags.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list --cart',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'classPrice': '--cart',
+                'notice': 'sale',
+                'buttonHide': true,
+                'iconHideCom': true,
+                'iconHideFav': true,
+                'addToCart': 'Добавить в заказ',
+                'srclink': 'images/content/recommended-bag-2.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list --cart',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'classPrice': '--cart',
+                'notice': 'sale',
+                'buttonHide': true,
+                'iconHideCom': true,
+                'iconHideFav': true,
+                'addToCart': 'Добавить в заказ',
+                'srclink': 'images/content/recommended-bag-2.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list --cart',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'classPrice': '--cart',
+                'notice': 'sale',
+                'buttonHide': true,
+                'iconHideCom': true,
+                'iconHideFav': true,
+                'addToCart': 'Добавить в заказ',
+                'srclink': 'images/content/content-sumka-6.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }, {
+                'classBlock': '--row-list --cart',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'classPrice': '--cart',
+                'notice': 'sale',
+                'buttonHide': true,
+                'iconHideCom': true,
+                'iconHideFav': true,
+                'addToCart': 'Добавить в заказ',
+                'srclink': 'images/content/recommended-bag-2.jpg',
+                'size': 'Чемодан средний M',
+                'name': 'American Tourister Sunset',
+                'price': '12 590.-'
+            }
+        ]})
+
+//- Рекомендуем товары бренда
+mixin list-of-products--popular()
+    +b('ul').list-of-products(class!=attributes.class)
+        include recommended-item.pug
+        +recommended-item({'items':
+            [{
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }, {
+                'classBlock': '--row-list',
+                'classContent': '--row-list',
+                'classImageLink': '--row-list',
+                'buttonHide': true,
+                'srclink': 'images/content/popular-1.jpg',
+                'size': 'Ручная кладь S',
+                'name': 'Roncato 3132 MODO Sunny 68',
+                'price': '9 700.-',
+                'iconHideCom': true,
+                'iconHideFav': true
+            }
+        ]})

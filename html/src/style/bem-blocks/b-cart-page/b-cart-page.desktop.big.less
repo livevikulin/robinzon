@@ -1,0 +1,242 @@
+/* 1440 + */
+.b-cart-page {
+    font-size: 0;
+
+    &__column {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 14px;
+
+        &--left {
+            width: 850px;
+            margin-right: 15px;
+        }
+
+        &--right {
+            width: ~'calc(100% - 880px)';
+            margin-left: 15px;
+        }
+
+        &--step-one-right {
+            padding-top: 31px;
+        }
+
+        &--half {
+            width: 50%;
+        }
+
+        &--info-done {
+            padding-top: 12px;
+        }
+    }
+
+    &__order {
+        background: @background-section;
+        padding: 24px 28px 27px;
+        box-sizing: border-box;
+        margin-bottom: 36px;
+    }
+
+    &__wrapper {
+        background: @background-section;
+        padding: 28px 33px 17px;
+        margin-bottom: 36px;
+
+        & .cost {
+            font-weight: bold;
+            font-size: 13px;
+            line-height: 19px;
+            color: @cl-font-main;
+            margin-left: 15px;
+        }
+
+        &--order {
+            padding: 25px 20px 25px;
+        }
+
+        &--way-get {
+            padding: 24px 24px 23px 31px;
+            box-sizing: border-box;
+        }
+
+        &--transparent {
+            background: transparent;
+            padding: 0;
+        }
+
+        &--border {
+            background: transparent;
+            border: 1px solid #dadada;
+        }
+
+        &--cart-help {
+            margin-top: 36px;
+        }
+
+
+        &--contacts {
+            padding: 24px 24px 23px;
+            margin-bottom: 29px;
+        }
+    }
+
+    &__wrap {
+
+        &--order-left {
+            margin-bottom: 24px;
+        }
+        
+    }
+
+    &__content {
+        align-content: stretch;
+        align-items: stretch;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin: 0 0 15px;
+        padding-top: 20px;
+    }
+
+    &__group {
+        margin-bottom: 24px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &--payment {
+            margin: 0 16px 9px 0;
+            padding: 0;
+            width: ~'calc(50% - 8px)';
+
+            &:nth-child(2n) {
+                margin: 0 0 9px 0;
+            }
+        }
+
+        &--short {
+            padding-right: 160px;
+        }
+
+        &--city {
+            margin-bottom: 58px;
+        }
+
+        &--button-order {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        &--full-width {
+            width: 100%;
+            margin-right: 0;
+        }
+
+        &--inline {
+            width: calc(~"(100% - 25px) / 2");
+        }
+
+        &--two-inside {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &--comment {
+            margin-bottom: 31px;
+        }
+    }
+
+    &__order-delivery {
+        padding-top: 18px;
+        span.js-my-self-pvz {
+            padding-left: 40px;
+            display: block;
+
+            a {
+                color: #f93;
+                margin-left: 5px;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__city {
+
+    }
+
+    &__city-search,
+    &__city-find {
+        margin-bottom: 24px;
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    &__paragraph {
+        margin-top: 0;
+
+        &--done {
+            font-size: 22px;
+            margin-bottom: 25px;
+            line-height: normal;
+            max-width: 450px;
+        }
+
+        &--confidential {
+            font-size: 11px;
+            line-height: 13px;
+            color: @cl-font-main;
+            margin-top: 36px;
+        }
+    }
+
+    &__accordion {
+
+        &-title {
+            display: inline-block;
+            margin-bottom: 24px;
+
+            & .b-icon {
+                transition: transform @double-animation;
+                transform: rotate(-90deg);
+            }
+
+            &.active .b-icon {
+                transform: rotate(0deg);
+            }
+        }
+
+        &-item {
+            margin-bottom: 24px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &-text {
+            margin-left: 18px;
+            font-size: 16px;
+            line-height: 19px;
+            color: #333333;
+        }
+
+        &-body {
+            display: none;
+            padding: 0 0 0 40px;
+        }
+
+    }
+
+    &__free {
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 19px;
+        color: #F58220;
+        margin-left: 10px;
+    }
+}

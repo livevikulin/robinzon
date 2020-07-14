@@ -1,0 +1,83 @@
+//- ====================
+//- RBZ: mobile-nav
+//- 07-02-2018: VD
+//- --------------------
+//- шаблон навигационного списка для мобильного меню
+//- ====================
+
+
+mixin mobile-nav(data)
+    +b('nav').mobile-nav.js-mobile-nav
+        +e.title #{data.title}
+
+        +e('ul').list
+            if (data.itemsWithoutChild)
+                for item in data.itemsWithoutChild
+                    +e.item-simple
+                        +e('a').link-simple !{item.link}
+            if (data.items)
+                for item in data.items
+                    +e.item.js-mobile-nav-item
+                        +e('a').link(href="javascript:void(0);", title="", class=item.child ? 'js-mobile-nav-link' : '')
+                            | !{item.link}
+                            //- Стрелочку показываем только у тех, у которых есть второй уровень
+                            if(item.child)
+                                include ui-kit/icon.pug
+                                +icon('arrow-bold').--mobile-down
+                            else
+                                include ui-kit/icon.pug
+                                +icon('arrow-bold').--mobile-right
+
+                        if (item.child)
+                            +e('div').dropdown.js-mobile-nav-dropdown
+                                +e('div').list-child
+                                    for child in item.child
+                                        +e('a')(href='#').link-child !{child}
+                                if (item.additional)
+                                    for addItem in item.additional
+                                        +e('div').additional
+                                            +e('div').additional-title=addItem.title
+                                            if (addItem.items)
+                                                +e('div').additional-list
+                                                    for link in addItem.items
+                                                        +e('a')(href='#').link-child !{link}
+
+
+
+
+//- data:
+    //- title: заголовок для списка навигации
+    //- items: - цикл в виде массива из объектов
+        //- link: название ссылки
+        //- step: если поставить значение true то выведется иконка стрелочки и можно будет через block добавить след уровень для миксина
+mixin mobile-nav-old(data)
+    +b('nav').mobile-nav
+        +e.title #{data.title}
+
+        +e('ul').list
+            each item, index in data.items
+                +e.item
+
+                    //- добавляем класс js только элементу, у которого есть следующий уровень
+                    //- TODO: передать эту задачу на бэкенд по формированию правильного html
+                    - var js = ''
+                    if (item.step == true)
+                        - var js = 'js-open-step-mobile'
+                    else
+                        - var js = ''
+
+                    +e('a').link(href="javascript:void(0);", title="", class=`${js}`)
+                        if (item.link == "Скидки")
+                            include ui-kit/icon.pug
+                            +icon('sale_ico').--nav-sale
+                        | #{item.link}
+
+                        //- Стрелочку показываем только у тех, у которых есть второй уровень
+                        //- TODO: передать эту задачу на бэкенд по формированию правильного html
+                        if (item.step == true)
+                            include ui-kit/icon.pug
+                            +icon('arrow_small_ico').--mobile-nav.js-icon-mobile-nav
+
+                    //- Второй уровень моб меню
+                    if (item.step == true)
+                        block

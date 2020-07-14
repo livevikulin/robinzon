@@ -1,0 +1,51 @@
+/* 1170 + */
+.b-slider-arrow {
+    &--buy-set {
+        &.next {
+            right: -5px;
+        }
+        &.prev {
+            left: -5px;
+        }
+    }
+
+    // карточка товара слайдер товара
+    &--product&--next,
+    &--product&--prev {
+        // position: static;
+        transform: rotate(0);
+        top: 50%;
+        margin-top: -10px;
+    }
+
+    &--product&--next {
+        left: auto;
+        right: 22px;
+    }
+
+    &--product&--prev {
+        left: 30px;
+        transform: rotate(180deg);
+    }
+
+    &--popup&--next,
+    &--popup&--prev {
+        left: 50%;
+        margin-left: -10px;
+        margin-top: auto;
+        top: auto;
+    }
+
+    &--popup&--prev {
+        left: 50%;
+        top: 0;
+        transform: rotate(-90deg);
+    }
+
+    &--popup&--next {
+        bottom: 0;
+        left: 50%;
+        right: auto;
+        transform: rotate(90deg);
+    }
+}

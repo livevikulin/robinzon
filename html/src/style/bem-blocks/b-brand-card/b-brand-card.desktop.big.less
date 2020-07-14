@@ -1,0 +1,83 @@
+/* 1440 + */
+.b-brand-card {
+    padding: 30px 0;
+    margin-bottom: 47px;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__about {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &__logo {
+        margin: 0 30px 0 0;
+        padding: 20px 0;
+        text-align: center;
+        width: 300px;
+        height: 144px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        & img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    &__group {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 30px 0 0;
+        width: ~'calc(50% - 30px)';
+    }
+
+    &__info {
+        margin: -12px 0 0;
+        width: ~'calc(100% - 293px)';
+    }
+
+    &__stats {
+        font-size: 15px;
+        line-height: 30px;
+    }
+
+    &__count {
+        color: @brand-count;
+    }
+
+    &__desc {
+        width: 50%;
+        & > p {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        &-inner {
+            position: relative;
+
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 50px;
+                background-image: linear-gradient(transparent, #fff);
+            }
+
+            &.active::before {
+                content: none;
+            }
+        }
+    }
+
+    &__banner {
+        width: 554px;
+    }
+}

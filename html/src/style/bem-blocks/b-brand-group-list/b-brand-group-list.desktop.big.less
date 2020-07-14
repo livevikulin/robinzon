@@ -1,0 +1,32 @@
+/* 1440 + */
+.b-brand-group-list {
+    border-top: 1px solid @brand-border;
+    padding: 15px 0 30px;
+    width: ~'calc(25% - 28px)';
+    margin: 0 14px;
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+
+    .b-brand-wrapper--menu & {
+        width: 205px;
+        break-inside: avoid;
+        margin: 0;
+        padding: 15px 0;
+    }
+
+    &__letter {
+        display: block;
+        font-size: 24px;
+        line-height: 24px;
+        width: 48px;
+
+        .b-brand-wrapper--menu & {
+            color: @cl-font-light;
+            text-transform: uppercase;
+            .roboto-regular();
+            line-height: 13px;
+            width: 35px;
+        }
+    }
+}

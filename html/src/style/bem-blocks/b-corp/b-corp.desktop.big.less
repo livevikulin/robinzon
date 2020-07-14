@@ -1,0 +1,50 @@
+/* 1440 + */
+.b-corp {
+    padding: 24px 0 12px;
+
+    &__text {
+        margin: 0 0 46px;
+
+        p {
+            font-size: 15px;
+            line-height: 24px;
+            margin: 0 0 24px;
+        }
+
+        a {
+            .roboto-bold;
+            display: block;
+            font-size: 15px;
+            line-height: 24px;
+        }
+    }
+
+    h2 {
+        font-size: 22px;
+        line-height: 27px;
+        margin: 0 0 16px;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0 0 38px;
+    }
+
+    li {
+        font-size: 15px;
+        line-height: 30px;
+        list-style-type: none;
+        padding: 0 0 0 14px;
+        position: relative;
+
+        &:before {
+            background: @cl-font-main;
+            content: '';
+            height: 1px;
+            left: 0;
+            position: absolute;
+            top: 14px;
+            width: 8px;
+        }
+    }
+}

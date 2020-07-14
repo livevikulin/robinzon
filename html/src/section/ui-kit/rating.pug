@@ -1,0 +1,86 @@
+//- ====================
+//- RBZ: raiting
+//- 01-02-2018: drtvader
+//- --------------------
+//- Шаблон Звезд рейтинга
+//- ====================
+
+
+
+//- RBZ: mixin raiting
+//- 01-02-2018: drtvader
+//- ---------------------
+//- рейтинг
+//- нужно проставить число от 0 до 5 ( Просто добавь воды =)
+mixin rating(rating)
+    +b.rating(class!=attributes.class)
+        - var mod = ''
+        if rating == 0
+            +star-block()
+            +star-block()
+            +star-block()
+            +star-block()
+            +star-block()
+        if rating == 1
+            - mod = '--one'
+            +star-block().--active
+            +star-block()
+            +star-block()
+            +star-block()
+            +star-block()
+        else if rating == 2
+            - mod = '--two'
+            +star-block().--active
+            +star-block().--active
+            +star-block()
+            +star-block()
+            +star-block()
+        else if rating == 3
+            - mod = '--three'
+            +star-block().--active
+            +star-block().--active
+            +star-block().--active
+            +star-block()
+            +star-block()
+        else if rating == 4
+            - mod = '--four'
+            +star-block().--active
+            +star-block().--active
+            +star-block().--active
+            +star-block().--active
+            +star-block()
+        else if rating == 5
+            - mod = '--five'
+            +star-block().--active
+            +star-block().--active
+            +star-block().--active
+            +star-block().--active
+            +star-block().--active
+
+//- миксин статичного рейтинга
+mixin star-block()
+    +e.star-block(class!=attributes.class)
+        include icon.pug
+        +icon("favorites").--star
+
+//- миксин динамического рейтинга
+//- id
+//- name имя общее у всех
+//- value значение
+mixin radio-rating(name)
+    +b.rating(class!=attributes.class)
+        +e.form
+            +e.group
+                +star("radio5", name, "5")
+                +star("radio4", name, "4")
+                +star("radio3", name, "3")
+                +star("radio2", name, "2")
+                +star("radio1", name, "1")
+
+
+mixin star(id, name, value)
+    +e('input').input(type="radio" id=`${id}` name=`${name}` value=`${value}`)
+    +e('label')(for=`${id}`).star
+        include icon.pug
+        +icon("favorites", "13", "12").--main
+        +icon("favorites", "13", "12").--white

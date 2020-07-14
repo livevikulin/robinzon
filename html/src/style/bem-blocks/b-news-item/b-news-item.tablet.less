@@ -1,0 +1,33 @@
+/* 768 + */
+.b-news-item {
+    width: calc(~"(100%/2) - 30px");
+
+    &__wrapper {
+        padding-bottom: 27px;
+    }
+    
+    &__image-wrapper {
+        height: 239px;
+    }
+
+    &__text {
+        font-size: 13px;
+        line-height: 18px;
+        margin-bottom: 20px;
+
+        .b-news-item--big & {
+            -webkit-line-clamp: 18;
+        }
+    }
+
+    &--info & {
+
+        &__title {
+            margin-bottom: 11px;
+        }
+        &__text {
+            -webkit-line-clamp: 3;
+            max-height: 57px;
+        }
+    }
+}

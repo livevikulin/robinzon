@@ -1,0 +1,102 @@
+// 1440+
+.b-delivery-list {
+    .roboto-regular;
+    font-size: 0;
+    padding: 0;
+
+    &__item {
+        position: relative;
+        list-style-type: none;
+        font-size: 14px;
+        // Разница на разрешениях нижнего отступа в 3px+-
+        padding: 28px 20px 25px 50px;
+        margin-bottom: 1px;
+        background-color: @background-section;
+        transition: background-color .3s;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &.active {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        &--not-found {
+            padding-left: 20px;
+
+            .b-button--select {
+                width: 301px;
+            }
+        }
+    }
+
+    &__heading {
+        display: block;
+        font-size: 16px;
+        line-height: 1.2;
+        margin: 0 0 4px 0;
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            margin-left: -24px;
+            margin-top: -12px;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+
+            color: @metro-icon;
+            .icon-base-pseudo;
+            .icon-char(metro);
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        &--not-found {
+            .roboto-medium;
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    &__row {
+        &--adress {
+            margin-bottom: 10px;
+        }
+        &--with-button {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: flex-start;    
+        }
+    }
+
+    &__color-wrapper {
+        margin-top: 10px;
+        margin-right: 20px;
+    }
+
+    &__text {
+        color: @cl-font-light;
+        font-size: 13px;
+        margin-right: 9px;
+
+        &--color {
+            margin-top: 20px;
+            font-family: roboto regular;
+            color: #ff3300;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        &--subheading {
+            display: block;
+            margin-bottom: 17px;
+        }
+    }
+}

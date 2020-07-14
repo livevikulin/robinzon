@@ -1,0 +1,26 @@
+/* 320 + */
+.b-basket {
+    padding: 5px 0 5px 5px;
+    // position: fixed;
+    position: absolute;
+    right: 25px;
+    z-index: 3;
+    transform: translateY(-60px);
+    transition: transform 0.5s;
+    top: 69px;
+
+
+    & > & {
+        position: fixed;
+        transform: translate(0);
+        top: 5px;
+        right: 0;
+    }
+
+    &__number {
+        line-height: 20px;
+        height: 20px;
+        width: 20px;
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,45 @@
+//- ====================
+//- 24-05-2018: Amedomary
+//- --------------------
+//- cart-item
+//- ====================
+
+mixin cart-item(data)
+    +b.cart-item
+        +e.cell--info
+            +e.image-wrapper
+                +e('img').image(src='images/content/layer-175.jpg', alt='', title='').js-image-wrapper
+                include ui-kit/label.pug
+                +label('15%').--sale.--cart-item
+            +e.info-wrapper
+                +e('h5').heading #{data.heading} 
+                +e.description-list
+                    +e.description-line
+                        +e('span').description-term Арт.: 
+                        +e('span').describes-each 3401-01 
+
+                    +e.description-line
+                        +e('span').description-term Размер: 
+                        +e('span').describes-each M — 49 x 69 x 30 см  /  4 колеса 
+
+                    +e.description-line
+                        +e('span').description-term Цвет: 
+                        +e('span').describes-each 
+                            include color.pug
+                            +color()
+
+                +e.row.--cost
+                    if data.costOld
+                        +e.cost.--old #{data.costOld}
+                            span ₽
+                    +e.cost.--single #{data.costSingle} 
+                        span ₽
+                    include plus-minus.pug
+                    +plus-minus().--cart-list
+
+        +e.cell--cost
+            +e('span').cost.--full #{data.costFull} 
+                span ₽
+        +e('a').remove(href='javascript:void(0)', title='')
+            include ui-kit/icon.pug
+            +icon('close-12').--cart-remove

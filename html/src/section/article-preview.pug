@@ -1,0 +1,19 @@
+//- ====================
+//- Robinzon: article-preview
+//- 18-01-2018: Amedomary
+//- --------------------
+//- Статья (ссылка) на пост выбора
+//- ====================
+
+mixin article-preview(src, title, video)
+    +b('li').article-preview( class!=attributes.class )
+        +e('a').link(href='javascript:void(0)' title='')
+            +e('figure').figure
+                +e.image-wrapper
+                    +e('img').image(src=`${src}`, alt='', title='')
+
+                    if ( video == true )
+                        include ui-kit/icon.pug
+                        +icon('sort').--article-preview
+
+                +e('figcaption').figcaption #{title}

@@ -1,0 +1,45 @@
+/* 1440 + */
+.b-brand-info {
+    background: @brand-list-back;
+    border: 1px solid @brand-list-border;
+    box-shadow: 0 5px 10px 0 @cl-alpha-black-brand;
+    display: none;
+    padding: 19px;
+    position: absolute;
+    width: 236px;
+    z-index: 1;
+
+    &--brand-wrapper {
+        left: 63px;
+        top: -16px;
+    }
+
+    .b-brand-list__item:hover & {
+        display: block;
+    }
+
+    &__close {
+        color: @brand-close;
+        display: none;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 2;
+    }
+
+    &__logo {
+        margin: 0 0 14px;
+        text-align: center;
+    }
+
+    &__text {
+        color: @brand-text;
+        font-size: 13px;
+        line-height: 16px;
+        margin: 0 0 14px;
+    }
+
+    &__button {
+        text-align: center;
+    }
+}

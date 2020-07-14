@@ -1,0 +1,28 @@
+//- ====================
+//- 4P: radio
+//- 04-12-2017: VD
+//- --------------------
+//- Радио-баттон
+//- ====================
+
+mixin radio(textLabel, name, id, checked, js)
+    +b.radio(class!=attributes.class)
+        +e('input')(type="radio", name=name, id=id, checked=checked || false).input
+        if textLabel
+            +e('label').label(for=id, class!=attributes.class, class=(js ? js : ''))
+                +e('span').text-label(class!=attributes.class) !{textLabel}
+            block
+        else
+            +e('label').label(for=id, class!=attributes.class, class=(js ? js : ''))
+                block
+
+mixin radio--label(textLabel, name, id, checked, js, title)
+    +b.radio(class!=attributes.class)
+        +e('input')(type="radio", name=name, id=id, checked=checked || false).input
+        if textLabel
+            +e('label').label(for=id, class!=attributes.class, class=(js ? js : ''), title=title)
+                +e.text-label(class!=attributes.class href='#' size=textLabel) #{textLabel}
+            block
+        else
+            +e('label').label(for=id, class!=attributes.class, class=(js ? js : ''), title=title)
+                block

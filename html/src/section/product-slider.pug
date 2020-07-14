@@ -1,0 +1,18 @@
+//- ====================
+//- Robinzon: product-slider
+//- 26-01-2018: drtvader
+//- --------------------
+//- Слайдер в карточке товара
+//- ====================
+
+//- text пишем есть или нет в наличии
+mixin product-slider(src,zoom,src_small)
+    +b.product-slider
+        +e.list.--main.js-product-slider-for
+            +e.item.--big
+                +e.wrapper.--big
+                    +e('img').photo-img.--big.js-image-wrapper(id="zoom_01" src=src  alt='' title='' data-zoom-image=zoom)
+        +e.list.--nav.js-product-slider-nav
+            +e.item.--small
+                +e.wrapper.--small
+                    +e('img').photo-img.--small.js-image-wrapper(src=src alt='' title='')

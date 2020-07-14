@@ -1,0 +1,139 @@
+//- ====================
+//- Robinzon: product-top
+//- 18-01-2018: drtvader
+//- --------------------
+//- Верхняя часть Карточки товара
+//- ====================
+
+mixin product-top(geo)
+    +b.product-top(itemscope itemtype="http://schema.org/Product" class!=attributes.class)
+        .b-container
+            +e.slider
+                +e.label
+                    +b.label.--image
+                        +e('img').image(src="images/inhtml/label/label_exclusive.svg", alt)
+                    include ui-kit/label.pug
+                    +label('vip').--vip.--quick-view
+                //- вводим ссылки на изображения
+                include product-slider.pug
+                +product-slider('images/content/product-card-1.png', 'images/content/product-card-1.png')
+                +e.name(itemprop="name") American Tourister 85A*002 Bon Air Spinner
+                +e.tablet-brand.js-tablet-brand
+                +e.icon-block
+                    +e.slider-link(href="javascript:void(0);" title="")
+                        include ui-kit/icon.pug
+                        +icon('favorites').--product-slider
+                        +e.tooltip Добавить в избранное
+                    +e.slider-link(href="javascript:void(0);" title="")
+                        +icon('compare').--product-slider
+                        +e.tooltip Добавить в сравнение
+                    +e.slider-link(href="javascript:void(0);" title="")
+                        +icon('social').--product-slider
+                    +e.open.js-open-popup(href="javascript:void(0);" data-popup='product')
+                        +icon('zoom')
+            +e.info
+                +e.basic-info
+                    +e.characteristic
+                        //- price вводим цену
+                        //- old если есть старая цена то true
+                        //- oldprice старая цена
+                        include ui-kit/price.pug
+                        +price("2500", true, "3500", ".-").--product-card
+                        +b('a').link.--subscribe-price(href="javascript:void(0);" title="Известить об измении цены") Известить об измении цены
+                    
+                    //- Размер товара и количество колёс
+                    +e.characteristic
+                        +e.title-characteristic Размер / Колеса
+                        //- TODO: изменить js на другой клас поповера
+                        +b('a').button( href="javascript:void(0);" title='' ).--select.js-size-popover M — 49 x 5 x 5 см / 4 колеса
+                        include popover/size-popover.pug
+                        +size-popover()
+
+                    +e.characteristic
+                        +e.title-characteristic Цвет
+                        //- TODO: почему ссылки? (уже есть миксин с радто цветами) Amedomary
+                        include select-color.pug
+                        +select-color("", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2").--product-card
+                    
+                    +e.characteristic
+                        +e.aviability.js-default-aviability
+                            //- впиши название, классом менять стили
+                            include availability-card.pug
+                            +availability-card("В наличии").--available.js-product-aviability
+                        include ui-kit/button.pug
+                        +button("Добавить в корзину", "", true).--add-card.--blue.--fixed-add-card(data-popup='in-basket').js-open-popup
+                        +e.wrapper-center
+                            +b.link.--one-click(href="javascript:void(0);" title="Купить в 1 клик") Купить в 1 клик
+                        +e.info-block
+                            span Дополнительная скидка 5%
+                            | 
+                            | при самовывозе из розничного магазина Робинзон
+                    
+                    if geo == true
+                        +e.characteristic
+                            include geo-point.pug
+                            +geo-point().--product-card
+                            +e.delivery.js-delivery-default
+                                +e('ul').aviability.js-delivery-list-top
+                                    +e.aviability-item
+                                        +e('span').aviability-title Доставка в г. Москва — 
+                                        +e('span').aviability-text 
+                                            span 2 
+                                            | дня
+                                    +e.aviability-item
+                                        +e('span').aviability-title Самовывоз — 
+                                        +e('span').aviability-text 
+                                            span 200 
+                                            | пунктов выдачи
+                                    +e.aviability-item
+                                        +e('span').aviability-title Возврат/обмен — 
+                                        +e('span').aviability-text
+                                            span 30 
+                                            | дней
+                +e.other-info
+                    +e.default-brand.js-brand-default
+                        include brand.pug
+                        +brand('images/content/travelite-logo.jpg', "", "travelite").--product.js-brand-block
+                    +e.vendor-code
+                        +e.code Артикул: 
+                            +e('span').number(itemprop="sku" content="85A-31003") 85A-31003
+                        +e.code Коллекция: 
+                            +e('span').number Bon Air
+                        +e.review-info
+                            +e.wrapper-image
+                                +e(src="images/inhtml/product-info.png" alt="")
+                            +e.review(itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating")
+                                include ui-kit/rating.pug
+                                +rating("4").--product
+                                +e.rating(itemprop="ratingValue") 4,8
+                                +b(href="javascript:void(0);" title="отзывы").link.--subscribe-price.--review
+                                    span(itemprop="reviewCount") 15
+                                    | отзывов
+                        +e.info-sale
+                            +e.sale-number 
+                                span 235 
+                                | шт. продано
+                            +e.sale-number 
+                                span 789 
+                                | шт. отложено
+                    +e.tag
+                        include tag.pug
+                        +tag("Огромный чемодан спиннер", "Для семьи из 3-х человек", "Суперпластик CURV").--product
+                    include characteristic-info.pug
+                    +characteristic-info(
+                        [{
+                            'title': 'Объём',
+                            'definition': '94л'
+                        },
+                        {
+                            'title': 'Вес',
+                            'definition': '4,2кг'
+                        },
+                        {
+                            'title': 'Материал',
+                            'tooltip': 'Компания Bayer — мировой лидер в области производства полимерного пластика, выпустила новый вид поликарбонатных полотен под брендом Мakrolon. Высококачественные листы этой марки обладают устойчивостью к химико-физическим воздействиям, которые сохраняются весь период эксплуатации. Но это далеко не все, чем известен поликарбонат Макролон, как сотовый, так и монолитный вид этого материала.',
+                            'definition': 'Поликарбонат Makrolon'
+                        }
+                    ]).--product
+                    +b('a').link.--subscribe-price(href="javascript:void(0);" title="Подробности о товаре") Подробности о товаре
+                    +e.mobile-delivery.js-mobile-delivery

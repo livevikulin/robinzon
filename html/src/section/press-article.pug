@@ -1,0 +1,33 @@
+//- ====================
+//- press-article
+//- 16-07-2018: sash
+//- --------------------
+//- Пресс статья
+//- ====================
+
+mixin press-article(data)
+    each item in data.items
+        +b.press-article
+            .b-container
+                if item.tv
+                    include ui-kit/link.pug
+                    +e.wrap
+                        +link('', item.tv, true).--tv
+                        +link('', item.date, true).--date
+                +e.picture-wrap
+                    +e('img').picture(src=item.src)
+                +e.wrapper
+                    if item.text
+                        p !{item.text}
+                    if item.secondText
+                        p !{item.secondText}
+                    if item.thirdText
+                        p !{item.thirdText}
+                    if item.fourthText
+                        p !{item.fourthText}
+        .b-container
+            include ui-kit/button.pug
+            +button().--press-article
+                +icon('arrow-small').--press-article
+                +e.add-text(class!=attributes.class) #{item.add_text}
+                include ui-kit/icon.pug

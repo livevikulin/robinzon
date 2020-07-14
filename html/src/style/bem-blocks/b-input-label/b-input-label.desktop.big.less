@@ -1,0 +1,33 @@
+/* 1440 + */
+.b-input-label {
+    font-size: 13px;
+    line-height: 15px;
+    margin-bottom: 10px;
+    color: @cl-font-main;
+
+    &__req {
+        margin-left: 4px;
+        color: @cl-orange-dark;
+    }
+
+    &--error {
+        display: none;
+        // opacity: 0;
+        color: @form-error;
+        transition: @animation-time;
+
+        &.active {
+            // opacity: 1;
+            display: block;
+        }
+    }
+
+    &--review-form {
+        color: @cl-font-main;
+        margin-bottom: 5px;
+    }
+    
+    &--add-review {
+        color: @cl-font-main;
+    }
+}

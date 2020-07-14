@@ -1,0 +1,13 @@
+//- ====================
+//- Robinzon: pick model
+//- 19-01-2018: Amedomary
+//- --------------------
+//- Банер выбора модели
+//- ====================
+
+mixin pick-model(src)
+    +b.pick-model( class!=attributes.class )
+        +e('img').background(src=`${src}`, alt='', title='')
+        //- +e('span').description !{title}
+        //- include ui-kit/button.pug
+        //- +button(text_link, '', true).--pick-model

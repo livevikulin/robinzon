@@ -1,0 +1,30 @@
+//- ====================
+//- search
+//- 12-07-2018: sashakasha
+//- --------------------
+//- Результаты поиска
+//- ====================
+
+mixin search()
+    +b.cart-empty--search
+        +e.text
+            p По&nbsp;заданным условиям ничего не&nbsp;найдено.
+            p Измените значения поиска или выберите один из&nbsp;разделов каталога:
+    include menu-cart.pug
+    +menu-cart--search('js-horizontal-scroll', {
+        'items': [{
+            'name': 'Чемоданы',
+            'src': 'images/content/menu-cart-01.jpg'
+        }, {
+            'name': 'Сумки',
+            'src': 'images/content/menu-cart-02.jpg'
+        }, {
+            'name': 'Рюкзаки',
+            'src': 'images/content/menu-cart-03.jpg'
+        }, {
+            'name': 'Аксессуары',
+            'src': 'images/content/menu-cart-04.jpg'
+        }, {
+            'name': 'Товары со скидками',
+        }
+    ]})

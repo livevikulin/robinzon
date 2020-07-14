@@ -1,0 +1,214 @@
+/* 1440 + */
+.b-announcement {
+    width: 410px;
+    height: 520px;
+    margin: 0px 15px 20px;
+    flex-basis: auto;
+    flex-grow : 0;
+    flex-shrink : 1;
+    overflow:hidden;
+    position: relative;
+
+    &__link {
+        background: @cl-white;
+        display: block;
+        height: 100%;
+        position: relative;
+        z-index: 2;
+        padding: 25px 20px;
+        width: 100%;
+        user-select: none;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            margin-top: -20px;
+            margin-left: -13px;
+            pointer-events: none;
+            background: url(../images/inhtml/chemodan.gif) no-repeat;
+            z-index: 11;
+            opacity: 0;
+            background-size: 31px;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: @cl-white;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 10;
+        }
+
+        &.preload {
+            &:before,
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+
+    // .no-touchevents &__link:hover,
+    // .touchevents &__link:active {
+    //     .b-announcement__img {
+    //         transform: scale(1.1);
+    //     }
+    // }
+
+    &--vertical-middle & {
+        &__link {
+            display:flex;
+            flex-direction:column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items:center;  //default
+        }
+
+        &__text {
+            .roboto-regular;
+        }
+    }
+
+    &--white-font & {
+        &__text {
+            color: @cl-font-white;
+            line-height: 18px;
+        }
+    }
+
+    &--full-image & {
+        &__img {
+            object-fit: cover;
+            font-family: "object-fit: cover";
+            padding: 0;
+        }
+    }
+
+
+    &__text {
+        color:@cl-font-main;
+        position:relative;
+        font-size: 16px;
+        .roboto-medium;
+        margin: 0 0 9px;
+        display: block;
+
+        &--other {
+            color:@cl-font-white;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 17px;
+        }
+
+        &--other-min {
+            font-size: 16px;
+            color: @cl-font-white;
+            width: 194px;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+
+
+    &__img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        // object-fit: contain;
+        // font-family: "object-fit: contain";
+        padding: 20px 0;
+        object-fit: cover;
+        font-family: "object-fit: cover";
+        transition: transform @animation-time;
+    }
+
+    // &--small & {
+    //     &__img {
+    //         // object-fit: cover;
+    //     }
+    // }
+
+
+    &--small {
+        height: 250px;
+        margin: 0px;
+    }
+
+    &__nubmer {
+        color: @cl-font-orange;
+        font-size: 15px;
+        .roboto-regular;
+        padding-left: 5px;
+    }
+
+    &__text-secondary {
+        font-size: 13px;
+        position:relative;
+        margin: 0;
+        line-height: 18px;
+        .roboto-regular;
+        color:@cl-font-light;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        width: 125px;
+    }
+
+    &--length & {
+        &__text-secondary {
+            width: 185px;
+        }
+    }
+
+    &--hollow {
+        padding: 0;
+        background: white;
+    }
+
+    &--bottom-text & {
+        &__link {
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+        }
+    }
+
+}
+
+.b-announcement:before { 
+    animation-name: spin;
+    animation-duration: 2s;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 2s;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

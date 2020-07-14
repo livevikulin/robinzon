@@ -1,0 +1,43 @@
+.b-availability {
+    &--order {
+        height: 100%;
+    }
+
+    &__info-block {
+        width: 300px;
+        height: 100%;
+        padding-top: 29px;
+    }
+
+    &__show-block {
+        width: auto;
+        height: 100%;
+        flex-grow: 1;
+    }
+
+    &__content {
+        &--order {
+            height: 100%;
+        }
+    }
+
+    &__header {
+        display: none;
+        padding: 0 20px;
+
+        &--tablet {
+            display: block;
+            font-size: 24px;
+            .roboto-bold;
+            line-height: 1.13;
+
+            &.active {
+                display: block;
+            }
+        }
+
+        &--popuped {
+            display: none;
+        }
+    }
+}

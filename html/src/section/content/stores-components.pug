@@ -1,0 +1,26 @@
+//- ====================
+//- 00-00-2017:
+//- --------------------
+//- Миксины для страницы магаизнов
+//- ====================
+
+//- Тестовый поисковой миксин
+mixin stores-components()
+    p test components
+
+mixin stores-components__line(data)
+    include ../ui-kit/link.pug
+    include ../ui-kit/icon.pug
+
+    +e.line.--city
+        +link('', '', true)(data-popup='your-city').--city.--city-stores.js-open-popup.js-one-open
+            span.js-text Москва
+            +icon('arrow_open').--city-arrow.js-arrow-down
+        
+        +link--type('', 'a').--stores-tab(class=data.classLinkShop)
+            +e('span').add-text--stores-tab Магазины: 
+            +e('span').add-text--stores-banner 5 
+        
+        +link--type('', 'a').--stores-tab(class=data.classLinkPvz)
+            +e('span').add-text--stores-tab Пункты самовывоза: 
+            +e('span').add-text--stores-banner 115 

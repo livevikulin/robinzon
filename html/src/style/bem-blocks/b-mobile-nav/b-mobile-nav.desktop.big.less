@@ -1,0 +1,102 @@
+/* 1440 + */
+.b-mobile-nav {
+    margin-top: 30px;
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
+
+    &__title {
+        .roboto-bold;
+        font-size: 13px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: @cl-font-main;
+        padding: 12px 8px;
+        border-left: 5px solid @cl-orange-dark;
+    }
+
+    &__list {
+        padding-left: 0px;
+    }
+
+    &__item {
+        list-style-type: none;
+        border-top: 1px solid @mobile-nav-border;
+
+        padding-top: 18px;
+        margin-top: 18px;
+
+        &:first-child {
+            margin-top: 24px;
+        }
+
+        &:last-child {
+            padding-bottom: 18px;
+            border-bottom: 1px solid @mobile-nav-border;
+        }
+    }
+
+    &__link {
+        .roboto-regular;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 15px;
+        color: @cl-font-main;
+
+        &.active {
+            & .b-icon--mobile-down {
+              transform: rotate(270deg);
+            }
+        }
+    }
+
+    &__list-child {
+        margin-top: 24px;
+        margin-left: 10px;
+    }
+
+    &__link-child {
+        display:block;
+        font-size: 13px;
+        line-height: 15px;
+        color: @cl-font-main;
+        margin-bottom: 24px;
+    }
+
+    &__additional {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    &__additional-title {
+        font-size: 13px;
+        line-height: 15px;
+        color: @cl-font-dark-gray;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+    }
+
+    &__additional-list {
+        margin-left: 10px;
+    }
+
+    &__dropdown {
+        display: none;
+    }
+
+    &__item-simple {
+        list-style: none;
+        margin-top: 24px;
+    }
+
+    &__item-simple {
+        font-size: 13px;
+        line-height: 15px;
+        color: @cl-font-main;
+    }
+}

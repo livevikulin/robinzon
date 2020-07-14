@@ -1,0 +1,68 @@
+//- ====================
+//- 13-06-2018: sashakasha
+//- --------------------
+//- Магазины. Адреса магазинов
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'store-list'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Магазины';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    +b.stores
+        .b-container
+            include section/ui-kit/breadcrumbs.pug
+            include section/ui-kit/title.pug
+            +breadcrumbs('Главная', 'Наши магазины')
+            +title('h1', 'Наши магазины').--stores-page
+
+        include section/stores-banner.pug
+        +stores-banner()
+
+        .b-container
+            include section/content/stores-components.pug
+            +stores-components__line({
+                'classLinkShop': '-active',
+                'classLinkPvz': ''
+            })
+
+            +b.stores-pvz.--store-list
+                +e.column.--list
+                    +b.store-list
+                        include section/store-item.pug
+                        +store-item('Робинзон Гагаринский', 'images/content/robinzon-gagarinskij.jpg', 'м. Ленинский проспект, станция МЦК: Площадь Гагарина, ул. Вавилова, дом 3, ТРЦ «Гагаринский», 1 этаж.', 'ежедневно с 10 до 22', '8 (495) 662-99-70', 'м. Ленинский проспект')
+                        +store-item('Робинзон Гагаринский', 'images/content/robinzon-gagarinskij.jpg', 'м. Пролетарская или Крестьянская застава, ул. Воронцовская, д. 49/28, строение 1, 4 этаж.', 'ежедневно с 10 до 22', '8 (495) 662-99-70', 'м. Ленинский проспект').-active
+                        +store-item('Робинзон Премьер', 'images/content/robinzon-gagarinskij.jpg', 'м. Смоленская, Смоленская площадь, 3, ТДК «Смоленский Пассаж», 3 этаж.', 'ежедневно с 10 до 22', '8 (495) 662-99-70', 'м. Ленинский проспект')
+                        +store-item('Робинзон Фестиваль', 'images/content/robinzon-gagarinskij.jpg', 'м. Юго-Западная, Мичуринский пр-т, Олимпийская деревня, д.3, корп.1., ТРЦ «Фестиваль», 1 этаж.', 'ежедневно с 10 до 22', '8 (495) 662-99-70', 'м. Ленинский проспект')
+                        +store-item('Робинзон Одинцово', 'images/content/robinzon-gagarinskij.jpg', 'г. Одинцово, Можайское шоссе, 71, ТЦ "Дубрава", 1 этаж.', 'ежедневно с 10 до 22', '8 (495) 662-99-70', 'м. Ленинский проспект')
+
+                    include section/consultation.pug
+                    +consultation({
+                        'title': 'Есть вопросы? Звоните!',
+                        'src': 'images/content/avatar.png',
+                        'name': 'Консультант Анна&#160;Петрова',
+                        'secondary': 'Готов ответить на&nbsp;вопросы и&nbsp;помочь в&nbsp;выборе. Звоните!',
+                        'question': false,
+                        'classAvatar': '--description'
+                    }).--stretch
+
+                +e.column.--info
+                    include section/map.pug
+                    +map().--stores-pvz-few#id-map-pvz-general
+
+        include section/ui-kit/hr.pug
+        +hr().--none
+
+        .b-container
+            include section/pick-model-block.pug
+            +pick-model-block()

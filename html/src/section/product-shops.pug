@@ -1,0 +1,34 @@
+//- ====================
+//- Robinzon: product-shops
+//- 31-03-2020
+//- --------------------
+//- Список магазинов в карточке товара
+//- ====================
+
+mixin product-shops()
+    +b.product-shops(class!=attributes.class)
+        +e.title Забрать сегодня
+        +e.list
+            +e.item
+                +e.icon
+                    +icon('check-round')
+                +e.data
+                    +e.name='Робинзон на Пролетарской'
+                    +e.address='м. Пролетарская, ТЦ "Сотый"' 
+                    +e.mode='ежедневно с 10:00 до 22:00'
+            +e.item
+                +e.icon
+                    +icon('check-round')
+                +e.data
+                    +e.name='Робинзон Авиапарк' 
+                    +e.address='м. ЦСКА, ТЦ Авиапарк'  
+                    +e.mode='Пн-Чт, Вс 10:00-22:00 | Пт-Сб 10:00-23:00'
+            +e.more
+                +e('span').location
+                    include ui-kit/icon.pug
+                    +icon("location")
+                +e('span').text и еще в
+                    |
+                    |
+                    +b.link(href="javascript:void(0);" title="4 магазинах")
+                        b 4 магазинах

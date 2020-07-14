@@ -1,0 +1,16 @@
+//- ====================
+//- Robinzon: availability
+//- 25-01-2018: drtvader
+//- --------------------
+//- Наличие
+//- ====================
+
+mixin availability-card(isNotAvailable)
+    - let text = !isNotAvailable ? "В наличии" : "Закончился"
+    +b.availability-card(class=isNotAvailable ? '--not-available' : '' class!=attributes.class)
+        include ui-kit/icon.pug
+        if !isNotAvailable
+            +icon("check-round").--aviability
+        else
+            +icon("not-available").--aviability
+        +e('span').text #{text}

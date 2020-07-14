@@ -1,0 +1,20 @@
+//- ====================
+//- brand-info
+//- 08-06-2018: sashakasha
+//- --------------------
+//- Бренды. Список брендов. Всплывающее окно
+//- ====================
+
+mixin brand-info(...items)
+    +b.brand-info(class!=attributes.class)
+        +e('a').close(href='javascript:void(0);', title='Закрыть')
+            include ui-kit/icon.pug
+            +icon('close-12').--brand
+        include ui-kit/title.pug
+        +title('h5', 'American Tourister').--brand-list
+        +e.logo
+            img(src='images/content/american-tourister.png', alt='American Tourister', title='American Tourister')
+        +e.text Американский бренд, чемоданов, сумок и рюкзаков, принадлежащий американской компании Samsonite International S.A. (головной офис которой, однако, находится в Люксембурге, а акции торгуются на гонконгской бирже).
+        +e.button
+            include ui-kit/button.pug
+            +button('Товары бренда', '', true).--transparent.--brand

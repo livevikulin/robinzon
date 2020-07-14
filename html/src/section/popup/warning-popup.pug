@@ -1,0 +1,15 @@
+//- ====================
+//- Robinzon: warning-popup
+//- 30-03-2020
+//- --------------------
+//- ПопАп warning
+//- ====================
+
+mixin warning-popup()
+    include ../ui-kit/button.pug
+
+    +b.warning-popup.js-warning-popup
+        //- +popup_close()
+        +e('img').img(src='images/inhtml/gramophone.png', alt='Фото Товара', title='')
+        +e('p').text Уважаемые клиенты! С 28 марта по 5 апреля 2020 года розничные магазины ROBINZON приостановят работу согласно указу президента РФ от 25 марта. Онлайн-магазин ROBINZON продолжит работать в обычном режиме!
+        +button('Закрыть', '', true).--warning-popap.js-close-popup

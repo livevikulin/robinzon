@@ -1,0 +1,21 @@
+//- ====================
+//- 4P: breadcrumbs
+//- 30-10-2017: Mell.Blimm
+//- --------------------
+//- хлебные крошки
+//- ====================
+
+mixin breadcrumbs(...items)
+    +b('nav').breadcrumbs(class!=attributes.class)
+        +e('ul').list( itemscope='',  itemtype="http://schema.org/BreadcrumbList" )
+            each item, index in items
+                +e('li').item( itemscope='', itemprop="itemListElement", itemtype="http://schema.org/ListItem" )
+                    +e('a').link( itemscope='', itemtype="http://schema.org/Thing", itemprop="item", href="javascript:void(0);", title=item )
+                        span( itemprop="name" ) #{item}
+                    meta(itemprop="position" content=index+1)
+            block
+
+            //- if ((index + 1) < items.length)
+            //-     +e('a').link(href="javascript:void(0);" title=item) #{item}
+            //- else
+            //-     +e('span').link #{item}

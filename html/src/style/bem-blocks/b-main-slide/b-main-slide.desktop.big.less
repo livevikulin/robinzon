@@ -1,0 +1,120 @@
+/* 1440 + */
+.b-main-slide {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    display: inline-block;
+    vertical-align: top;
+
+    &__link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        position: relative;
+        z-index: 11;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -37px;
+            margin-top: -37px;
+            width: 50px;
+            height: 50px;
+            pointer-events: none;
+            opacity: 0;
+            background: url(../images/inhtml/chemodan.gif) no-repeat;
+            z-index: 11;
+            background-size: 31px;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: @cl-white;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 10;
+        }
+
+        &.preload {
+            &:before,
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        object-fit: cover;
+        font-family: 'object-fit: cover;';
+        margin: 0 auto;
+
+        &--tablet,
+        &--mobile {
+            display: none;
+        }
+    }
+
+    &__content {
+        display: block;
+        color: @cl-font-white;
+        line-height: 1.4;
+        position: relative;
+        padding: 70px 20px 20px;
+    }
+
+    &__heading {
+        display: block;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 40px;
+        .roboto-medium;
+    }
+
+    &__sub-heading {
+        display: block;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 40px;
+        .roboto-light;
+        margin-bottom: 50px;
+    }
+
+    &__title-link {
+        display: block;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 16px;
+        .roboto-regular;
+        transition: color @animation-time;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            color: @cl-font-orange;
+        }
+    }
+
+    &[data-color="red"] {
+        background-color: #e74343;
+    }
+    &[data-color="green"] {
+        background-color: #349847;
+    }
+    &[data-color="blue"] {
+        background-color: #72c5f9;
+    }
+    &[data-color="grey"] {
+        background-color: #ededed;
+    }
+}

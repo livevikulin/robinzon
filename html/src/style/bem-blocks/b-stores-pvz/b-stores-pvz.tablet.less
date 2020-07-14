@@ -1,0 +1,34 @@
+/* 768 + */
+.b-stores-pvz {
+    &--store-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__column {
+        width: 100%;
+        padding: 0;
+
+        &--list {
+            .b-stores-pvz--store-list & {
+                order: 2;
+            }
+
+            .b-stores-pvz--store-card & {
+                padding-right: 10px;
+                width: 50%;
+            }
+        }
+
+        &--info {
+            .b-stores-pvz--store-list & {
+                order: 1;
+            }
+
+            .b-stores-pvz--store-card & {
+                padding-left: 10px;
+                width: 50%;
+            }
+        }
+    }
+}

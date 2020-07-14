@@ -1,0 +1,21 @@
+//- ====================
+//- RBZ: select
+//- 14-02-2017: drtvader
+//- --------------------
+//- select
+//- ====================
+
+mixin select(name, ...items)
+    +b.select(class!=attributes.class)
+        +e('select').block(class!=attributes.class name=name)
+            +e('option')(value="" disabled selected) выберите
+            each item, index in items
+                option(value=name + '-' + index) #{item}
+        block
+
+mixin select-default(...items)
+    +b.select(class!=attributes.class)
+        +e('select').block(class!=attributes.class)
+            each item, index in items
+                option(value=name + '-' + index) #{item}
+        block

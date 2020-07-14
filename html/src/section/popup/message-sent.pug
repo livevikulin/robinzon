@@ -1,0 +1,16 @@
+//- ====================
+//- Robinzon: message-sent
+//- 16-07-2018: Альберт Энштейн
+//- --------------------
+//- ПопАп добавить отзыв
+//- ====================
+
+mixin message-sent()
+    +b.add-review-popup
+        +popup_close()
+        +e.message-block
+            include ../ui-kit/icon.pug
+            //- +icon("comment_ico").--comment
+            +e('img').image(src="images/inhtml/comment_ico.svg" alt)
+            +e.text-title.--message
+                p Спасибо! Ваш отзыв принят и будет опубликован в ближайшее время после проверки модератором.

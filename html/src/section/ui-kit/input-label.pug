@@ -1,0 +1,12 @@
+//- ====================
+//- RBZ: input-label
+//- 16.01.2018: Amedomary
+//- --------------------
+//- input-label
+//- ====================
+
+mixin input-label(label, for_id, isRequired)
+    +b('label').input-label( class!=attributes.class, for=for_id ) #{label}
+        if isRequired
+            +e('span').req *
+    block

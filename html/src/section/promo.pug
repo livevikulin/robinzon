@@ -1,0 +1,17 @@
+//- ====================
+//- Project: promo
+//- 22-01-2017: dimasta
+//- --------------------
+//- promo
+//- ====================
+mixin promo(invite, thegoods, sale, accessories, year, garanty, rbzgoods, correct, order)
+    +b.promo(class!=attributes.class)
+        +e('a').bigtext.--button.--bottom.--top.--mobile(href='javascript:void(0);', title='') #{invite}
+        +e('a').bigtext.--button.--bottom.--top.--desk(href='javascript:void(0);', title='') #{thegoods}
+        +e('p').bigtext #{sale}
+        +e('p').smalltext.--bottom #{accessories}
+        +e('p').bigtext #{year}
+        +e('p').bigtext #{garanty}
+        +e('p').smalltext.--bottom #{rbzgoods}
+        +e('p').bigtext #{correct}
+        +e('p').bigtext.--bottom #{order}

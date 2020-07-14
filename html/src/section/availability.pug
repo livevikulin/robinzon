@@ -1,0 +1,151 @@
+//- ====================
+//- 4lapy: tab-availability
+//- 16-11-2017: Mell.Blimm / Amedomary
+//- --------------------
+//- таб наличие в магазинах
+//- ====================
+
+mixin availability()
+    include ui-kit/title.pug
+    include ui-kit/link.pug
+    include filter-color.pug
+    include ui-kit/button.pug
+    include ui-kit/icon.pug
+
+    +title('h2', 'Наличие в 7 магазинах').--product-tab
+
+    +b.availability
+        +b('ul').availability-tab-list
+            +e('li').item.-active
+                +e('a')(href='javascript:void(0)' aria-controls='shipping-list' title='Списком').link.js-product-list Списком
+            +e('li').item
+                +e('a')(href='javascript:void(0)' aria-controls='on-map' title='На карте').link.js-product-map На карте
+        +e.content.-show-map.js-availability-content
+            +tab-delivery-map().--card.js-content-map.-show-map
+            +tab-delivery().js-content-list.js-map-list-scroll
+                +delivery-list().js-delivery-list
+                    +delivery-item({'items': [{
+                            'heading': 'Робинзон Фестиваль',
+                            'addres': 'м. Маяковская, ТЦ Запад. ул. Петровка, д.1, Пн–Вс (09:00-22:00)',
+                            'colorMass': '1',
+                        }, {
+                            'heading': 'Робинзон Premier',
+                            'addres': 'м. Маяковская, ТЦ Звезда. ул. Михайловка, д.1, Вт–Вс (08:00-21:00)',
+                            'colorMass': '2',
+                        }, {
+                            'heading': 'Робинзон Фестиваль',
+                            'addres': 'м. Маяковская, ТЦ Европа, д.1, Пн–Вс (09:00-22:00)',
+                            'colorMass': '1',
+                        }, {
+                            'heading': 'Робинзон Premier',
+                            'addres': 'м. Маяковская, ТЦ Европа. ул. Петровка, д.1, (09:00-22:00)',
+                            'colorMass': '2',
+                        }, {
+                            'heading': 'Робинзон Фестиваль',
+                            'addres': 'м. Маяковская, ТЦ Европа. м. Маяковская, ТЦ Европа. ул. Петровка, д.1, Пн–Вс (09:00-22:00)',
+                            'colorMass': '1',
+                        }
+                    ]})
+                    +delivery-item--not-found()
+
+
+//- шаблон таба Доставка карта
+mixin tab-delivery-map()
+    +b.tab-delivery-map(class!=attributes.class)
+        +e.map(id="map" data-url='json/mapobjects.json' data-center='[55.7673328,37.5979364]')
+            //- script(type='text/javascript', charset='utf-8', async='', src='https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=rH5pPvGT7ZcbW3TqhS6MNIPDOi9sgRXk&lang=ru_RU&sourceType=constructor&scroll=true')
+        +b('a').link--close-baloon.js-product-list(href="javascript:void(0);" title="")
+            +icon('icon-close-baloon', '18', '18').--close-baloon
+
+//- шаблон таба Доставка список
+mixin tab-delivery()
+    +b.tab-delivery(class!=attributes.class)
+        block
+
+//- Сам список для магазинов
+mixin delivery-list()
+    +b('ul').delivery-list(class!=attributes.class)
+        block
+
+//- Элементы списка (магагазины)
+mixin delivery-item(data)
+    //TODO: mapobjects.json Закоментирован
+    - data.items = []
+    each item, index in data.items
+        +e.item.js-shop-link(class=(index == 0 ? "-active" : ""))
+            +e('h5').heading #{item.heading}
+            +e.row--adress
+                +e('span').text--addres #{item.addres}
+                +link('На карте','', true).--availibility-show-map.--underline-dot
+            +e.row--with-button
+                +e.color-wrapper
+                    +e('span').text--color Доступные цвета
+                    //- Выводим два разных вида через условие т.к. не получилось передлать массив черз массив
+                    if item.colorMass == '1'
+                        +filter-color--map({'items':
+                            [{
+                                'name': `map-color-${index}`,
+                                'color': 'black',
+                                'colorname': 'Чёрный'
+                            },{
+                                'name': `map-color-${index}`,
+                                'color': 'blue',
+                                'colorname': 'Синий'
+                            },{
+                                'name': `map-color-${index}`,
+                                'color': 'red',
+                                'colorname': 'Красный'
+                            },{
+                                'name': `map-color-${index}`,
+                                'color': 'green',
+                                'colorname': 'Зеленый'
+                            },{
+                                'name': `map-color-${index}`,
+                                'color': 'yellow',
+                                'colorname': 'Желтый'
+                            },{
+                                'name': `map-color-${index}`,
+                                'color': 'lightblue',
+                                'colorname': 'Голубой'
+                            },{
+                                'name': `map-color-${index}`,
+                                'color': 'beige',
+                                'colorname': 'Бежевый'
+                            },{
+                                'name': `map-color-${index}`,
+                                'color': 'turquoise',
+                                'colorname': 'Бирюзовый'
+                            }
+                        ]}).--map-card
+                    else
+                        +filter-color--map({'items':
+                            [{
+                                'name': `map-color-${index}`,
+                                'color': 'lightblue',
+                                'colorname': 'Голубой'
+                            },{
+                                'name': `map-color-${index}`,
+                                'color': 'black',
+                                'colorname': 'Чёрный'
+                            },{
+                                'name': `map-color-${index}`,
+                                'color': 'red',
+                                'colorname': 'Красный'
+                            },{
+                                'name': `map-color-${index}`,
+                                'color': 'turquoise',
+                                'colorname': 'Бирюзовый'
+                            }
+                        ]}).--map-card
+                if index == 0
+                    +button('Забронировать','', true).--availibility.js-open-popup(data-popup='reservation')
+                else
+                    +button('Забронировать','', true).--availibility.js-open-popup(data-popup='reservation').-disable
+//- Элементы списка (другой магазин)
+mixin delivery-item--not-found()
+    +e.item--not-found
+        +e('span').heading--not-found Не смогли найти в наших магазинах товар в нужном цвете?
+        +e('span').text--subheading Не смогли найти в наших магазинах товар в нужном цвете?
+        include ui-kit/select.pug
+        +select('shop-list', 'M — 49 x 69 x 30 см  /  4 колеса', 'M — 2 x 2 x 2 см  /  1 колесо', 'M — 49 x 69 x 10 см  /  2 колеса').--not-found
+        

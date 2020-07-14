@@ -1,0 +1,75 @@
+// 320px
+.b-breadcrumbs {
+    margin: 0 0 5px;
+
+    &--catalog {
+        position:relative;
+        white-space: nowrap;
+        &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            right: -15px;
+            top: 0;
+            height: 100%;
+            width: 40px;
+            box-shadow: inset -70px 0 35px -35px @cl-gray-very-light;
+        }
+
+    }
+
+    &--press-article {
+        padding-top: 29px;
+    }
+
+    // &__item {
+    //     display: none;
+    //     margin-right: 0;
+
+    //     &:first-child,
+    //     &:last-child {
+    //         display: inline-block;
+
+    //         &:after {
+    //             content: "";
+    //         }
+    //     }
+
+    //     &:last-child {
+    //         padding-left: 2px;
+
+    //         &:before {
+    //             margin-right: 6px;
+    //             content: "/";
+    //         }
+    //     }
+
+    //     &:only-child {
+    //         padding-left: 0px;
+    //         &:before,
+    //         &:after {
+    //             content: none;
+    //         }
+    //     }
+    // }
+
+    &__scroll {
+        overflow: hidden;
+        margin-left: -15px;
+        padding-left: 15px;
+    }
+
+    &__link {
+        display: inline-block;
+        white-space: nowrap;
+        min-width: 0;
+    }
+
+    &__list {
+        // display: flex;
+        display: block;
+        width: auto;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+    }
+}

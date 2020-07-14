@@ -1,0 +1,87 @@
+//- ====================
+//- stores-page
+//- 29-05-2018: Mell.Blimm
+//- --------------------
+//- Наши магазины
+//- ====================
+
+mixin stores-page()
+    include ui-kit/title.pug
+    include ui-kit/link.pug
+    include filter-color.pug
+    include ui-kit/button.pug
+    include ui-kit/icon.pug
+
+
+    +b.availability
+        +e.content.-show-map.js-availability-content
+            +stores-tab-delivery-map().--card.js-content-map.-show-map
+            //- +stores-tab-delivery().js-content-list.js-map-list-scroll
+            +stores-tab-delivery().js-map-list-scroll
+                //- +stores-delivery-list().js-delivery-list
+                +stores-delivery-list()
+                    +stores-delivery-item({'items': [{
+                            'heading': 'Робинзон Фестиваль',
+                            'addres': 'м. Пролетарская или Крестьянская застава, ул. Воронцовская, д. 49/28, строение 1, 4 этаж.',
+                            'time': 'ежедневно с 10 до 22',
+                            'phone': '8 (495) 662-99-70'
+                        }, {
+                            'heading': 'Робинзон Фестиваль',
+                            'addres': 'м. Пролетарская или Крестьянская застава, ул. Воронцовская, д. 49/28, строение 1, 4 этаж.',
+                            'time': 'ежедневно с 10 до 22',
+                            'phone': '8 (495) 662-99-70'
+                        }, {
+                            'heading': 'Робинзон Фестиваль',
+                            'addres': 'м. Пролетарская или Крестьянская застава, ул. Воронцовская, д. 49/28, строение 1, 4 этаж.',
+                            'time': 'ежедневно с 10 до 22',
+                            'phone': '8 (495) 662-99-70'
+                        }, {
+                            'heading': 'Робинзон Фестиваль',
+                            'addres': 'м. Пролетарская или Крестьянская застава, ул. Воронцовская, д. 49/28, строение 1, 4 этаж.',
+                            'time': 'ежедневно с 10 до 22',
+                            'phone': '8 (495) 662-99-70'
+                        }, {
+                            'heading': 'Робинзон Фестиваль',
+                            'addres': 'м. Пролетарская или Крестьянская застава, ул. Воронцовская, д. 49/28, строение 1, 4 этаж.',
+                            'time': 'ежедневно с 10 до 22',
+                            'phone': '8 (495) 662-99-70'
+                        }
+                    ]})
+
+
+//- шаблон таба Доставка карта
+mixin stores-tab-delivery-map()
+    +b.tab-delivery-map(class!=attributes.class)
+        +e.map(id="map" data-url='json/mapobjects.json' data-center='[55.7673328,37.5979364]')
+            //- script(type='text/javascript', charset='utf-8', async='', src='https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=rH5pPvGT7ZcbW3TqhS6MNIPDOi9sgRXk&lang=ru_RU&sourceType=constructor&scroll=true')
+        +b('a').link--close-baloon.js-product-list(href="javascript:void(0);" title="")
+            +icon('icon-close-baloon', '18', '18').--close-baloon
+
+//- шаблон таба Доставка список
+mixin stores-tab-delivery()
+    +b.tab-delivery(class!=attributes.class)
+        block
+
+//- Сам список для магазинов
+mixin stores-delivery-list()
+    +b('ul').delivery-list(class!=attributes.class)
+        block
+
+//- Элементы списка (магагазины)
+mixin stores-delivery-item(data)
+    //TODO: mapobjects.json Закоментирован
+    // - data.items = []
+    each item, index in data.items
+        +e.item.js-shop-link(class=(index == 0 ? "-active" : ""))
+            +e('h5').heading #{item.heading}
+            +e.row--adress
+                +e('h6').subheading Адрес:
+                +e('p').text #{item.addres}
+            +e.wrap
+                +e.row--time
+                    +e('h6').subheading Режим работы:
+                    +e('p').text #{item.time}
+                +e.row--phone
+                    +e('h6').subheading Телефон:
+                    +e('p').text #{item.phone}
+                +button('Подробнее', '', true).--more

@@ -1,0 +1,137 @@
+/* 1440 + */
+.b-pagination {
+    padding-left: 0px;
+    font-size: 0px;
+    line-height: 0px;
+    text-align: center;
+
+    .js-catalog-list & {
+        margin-bottom: 30px;
+    }
+
+    &__item {
+        vertical-align: top;
+        display: inline-block;
+        list-style-type: none;
+        padding: 0px 4px;
+
+        &--prev {
+            padding-right: 5px;
+            padding-left: 0px;
+        }
+
+        &--next {
+            padding-left: 5px;
+            padding-right: 0px;
+        }
+    }
+
+    &__link {
+        .roboto-regular;
+        font-size: 14px;
+        line-height: 36px;
+        display: inline-block;
+        color: @cl-font-main;
+        transition-property: background-color, color;
+        transition-duration: @animation-time;
+        width: 36px;
+        padding-left: 3px;
+        padding-right: 3px;
+        height: 36px;
+        text-align: center;
+        border-radius: 2px;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            background-color:@cl-font-very-light;
+            color: @cl-font-main;
+        }
+
+        &.active {
+            // background-color: @cl-sygnal-orange;
+            background-color: @cl-hover-pagination;
+            color: @cl-font-main;
+            // cursor: default;
+            pointer-events: none;
+
+            .no-touchevents &:hover,
+            .touchevents &:active {
+                color: @cl-font-main;
+                // background-color: @cl-sygnal-orange;
+                background-color: @cl-hover-pagination;
+            }
+        }
+
+        &--dot {
+            .roboto-bold;
+            font-size: 22px;
+            line-height: 25px;
+            touch-action: none;
+            pointer-events: none;
+            cursor: default;
+        }
+
+    }
+
+    &__page-change {
+        display: inline-block;
+        position: relative;
+        width: 36px;
+        height: 36px;
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            top: 13px;
+            border-color: @cl-font-main;
+        }
+
+        &:after {
+            transform: rotate(45deg);
+        }
+
+        &:before {
+            transform: rotate(45deg);
+        }
+
+        &--prev {
+            &:after {
+                right: 11px;
+                top: 14px;
+                border-left: 2px solid;
+            }
+
+            &:before {
+                right: 12px;
+                top: 12px;
+                border-bottom: 2px solid;
+            }
+        }
+
+        &--next {
+            &:after {
+                right: 16px;
+                border-right: 2px solid;
+            }
+
+            &:before {
+                right: 17px;
+                border-top: 2px solid;
+            }
+        }
+
+        &.hide {
+            &:before,
+            &:after {
+                border-color: @cl-gray-dark;
+            }
+        }
+    }
+
+    &--review {
+        margin-bottom: 80px;
+    }
+}

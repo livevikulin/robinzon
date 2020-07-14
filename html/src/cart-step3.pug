@@ -1,0 +1,69 @@
+//- ====================
+//- 24-05-2018: Mell.Blimm
+//- --------------------
+//- Оформление заказа - корзина - шаг 3
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'cart-step3'
+
+//- Модифицируем head
+block head
+    - var pageTitle = '3. Результат';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    include section/ui-kit/title.pug
+    include section/ui-kit/tab.pug
+    include section/ui-kit/hr.pug
+    include section/way-get-list.pug
+
+    .b-container
+        +title('h1', 'Ваш заказ оформлен').--cart
+
+    +tab--static({'items': [{
+                'text': '1. Моя корзина'
+            }, {
+                'text': '2. Оформляем заказ',
+            }, {
+                'text': '3. Результат'
+            }
+        ],
+        'linkClass': '--cart',
+        'listClass': '--cart',
+        'wrapperClass': 'js-horizontal-scroll',
+        'numberActiveIndex' : 2
+    }).--cart
+
+    .b-container
+        +b.cart-page
+            +e.column.--half.--info-done
+                +title('h2', 'Спасибо за покупку!').--gotham-big.--mobile-hide
+                +e('p').paragraph--done Ваш заказ №75358 от&nbsp;09.07.2017 оформлен&nbsp;в&nbsp;12:52.
+                +e('p').paragraph--done Наш менеджер свяжется с&nbsp;Вами в&nbsp;ближайшее время. Или другой текст.
+                
+                +hr().--cart-done
+                
+                +way-get-list--check-list()
+
+            +e.column.--half.--mobile-hide
+                include section/circle-image.pug
+                +circle-image({
+                    'src' : 'images/content/girl.jpg'
+                }).--cart
+
+    +hr().--cart-state-3
+
+    // BEGIN: Полезные аксессуары
+    +b('section').section.-gray(data-anchor="accessorize")
+        .b-container
+            +title('h1', 'В этот заказ еще можно добавить акссессуары со скидкой').--block.--similar
+            include section/list-of-products.pug
+            +list-of-products--cart().--cart.js-similar-slider.js-horizontal-scroll
+    // END: !Полезные аксессуары

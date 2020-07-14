@@ -1,0 +1,70 @@
+//- ====================
+//- Robinzon: city-selection
+//- 18-01-2018: Amedomary
+//- --------------------
+//- ПопАп city-selection
+//- ====================
+
+mixin city-selection()
+    include ui-kit/title.pug
+    include ui-kit/link.pug
+    include ui-kit/icon.pug
+    include ui-kit/input.pug
+    include ui-kit/input-label.pug
+    include ui-kit/button.pug
+    include ui-kit/popup.pug
+
+    +b.city-selection( class!=attributes.class )
+        //- Крестик
+        +popup_close().--mobile-hide
+        +title('h3', 'Выберите ваш город').--login.--mobile-hide
+
+        +e('form').form(action='json/set_my_city.json' data-url="json/pick-city-search.json" method="get").js-autocomplete
+            +button('','',false).--city-search
+                +icon('search').--city-search
+            //- +e('input').search(type='search' autocomplete='autocomplete' name='city-search' placeholder='Найти свой город')
+            +input('id-pick-city-search', 'search', 'Название вашего города для доставки').--pick-city
+            +e.autocomplete-wrapper#id-city-search
+
+            +input-label('К сожалению мы не нашли такого города', 'id-pick-city-search').--error
+
+        +title('h5', 'Предложенные варианты').--suggested-city
+        +e('ul').list
+            //- Создаем список городов 
+            +city-selection_item([
+                {name:'Москва', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Санкт-Петергбург', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Новосибирск', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Нижний Новгород', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Екатеринбург', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Самара', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Омск', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Казань', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Челябинск', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Ростов-на-Дону', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Волгоград', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Пермь', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Красноярск', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Саратов', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Воронеж', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Тольятти', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Краснодар', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Ульяновск', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Ижевск', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Ярославль', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Иркутск', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Владивосток', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Хабаровск', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Новокузнецк', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Оренбург', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Рязань', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Пенза', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Тюмень', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Набережные челны', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+                {name:'Астрахань', code: Math.floor(Math.random() * (15 - 1300) + 1300), url: 'json/set_my_city.json'},
+            ])
+
+mixin city-selection_item(items)
+    each item in items
+        +e('li').item
+            +e('a').city.js-my-city( href='javascript:void(0)', title=item.name, data-code=item.code, data-url=item.url ) #{item.name}

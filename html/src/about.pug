@@ -1,0 +1,47 @@
+//- ====================
+//- Project: about
+//- 03-07-2018: sashakasha
+//- --------------------
+//- О компании
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'about'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'О компании';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    .b-container
+        include section/ui-kit/breadcrumbs.pug
+        +breadcrumbs('Главная', 'О Компании').--catalog
+        include section/ui-kit/title.pug
+        +title('h1', 'О Компании').--brand
+
+    +b('section').section.--white.--brand
+        .b-container
+            include section/about.pug
+            +about()
+
+    +b('section').section.--whyrobinzon
+        .b-container
+            include section/whyrobinzon.pug
+            +whyrobinzon()
+
+    +b('section').section.--gray
+        .b-container
+            +b.popular-brand
+                +title-link('h1', 'В наших магазинах представлены бренды').--block.--link-heading.--about-us
+                include section/brand-slider.pug
+                +brand-slider().js-brand-slider
+                +e.link-line
+                    include section/ui-kit/link.pug
+                    +link('Все бренды', '', true).--review-footer

@@ -1,0 +1,25 @@
+//- ====================
+//- Robinzon: news-item
+//- 16-07-2018: Альберт Энштейн
+//- --------------------
+//- Итем для новости на разводящей
+//- ====================
+
+mixin news-item(image, video, title, who, date, text, more)
+    +b.news-item(class!=attributes.class)
+        +e.wrapper
+            if image
+                +e.image-wrapper
+                    +e(img).image.js-image-wrapper(src=image, alt="alt")
+                    if video == true
+                        +e.play
+            +e.text-wrapper
+                +e.title #{title}
+                if who
+                    +e.info
+                        +e.who #{who},
+                        +e.date #{date}
+                +e.text
+                    p #{text}
+                +e.link
+                    +e.more(href="javascript:void(0);" title="Подробнее") #{more}

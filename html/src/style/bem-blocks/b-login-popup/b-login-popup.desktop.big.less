@@ -1,0 +1,49 @@
+/* 1440 + */
+.b-login-popup {
+    width: 760px;
+    border-radius: 2px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    background-color: @background-header;
+    position: relative;
+
+    &--new {
+        display: block;
+        padding: 40px;
+        width: 380px;
+    }
+
+    &__block {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+        padding: 40px;
+
+        &--half-right {
+            background-color: @cl-gray-very-light;
+        }
+    }
+
+    &__help {
+        margin: 0 0 20px 0;
+        color: @cl-font-orange;
+        font-size: 13px;
+        line-height: 1.46;
+        .roboto-regular;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    &__add-text {
+        .roboto-regular;
+        font-size: 13px;
+        line-height: 1.46;
+        margin: 0 0 20px 0;
+    }
+}

@@ -1,0 +1,27 @@
+require(['./config',], function () {
+    require([
+        'partials/tab',
+        'slick',
+        'partials/product-slider',
+        'partials/popover-tooltip',
+        'partials/popover-size',
+        'partials/permutation-brand',
+        'partials/brand-slider',
+        'partials/similar-slider',
+        'partials/fixed-tab-product',
+        'partials/buy-set-slider',
+        'partials/avaibility/map-2-order',
+        'partials/avaibility/map',
+        'partials/avaibility/ymaps',
+        'partials/avaibility/ymaps-product-card',
+        'partials/ajax',
+        'partials/avaibility/ymaps',
+        'partials/desc-full-text',
+        'partials/anchor-link',
+        'partials/validation',
+        'partials/mask',
+        'partials/basket',
+        'partials/zoom',
+        'partials/accessorize-slider',
+    ]);
+});

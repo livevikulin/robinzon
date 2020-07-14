@@ -1,0 +1,69 @@
+//- ====================
+//- Robinzon: in-basket-popup
+//- 23-03-2018: Amedomary
+//- --------------------
+//- ПопАп in-basket-popup
+//- ====================
+
+mixin in-basket-popup()
+    include ../ui-kit/title.pug
+    include ../ui-kit/price.pug
+    include ../ui-kit/button.pug
+    include ../product-basket.pug
+
+    +b.in-basket-popup
+        //- Крестик
+        +popup_close()
+        +title('h3', 'Товар добавлен в корзину').--block.--login
+
+        +e.product-wrapper
+            +e('img').image(src="images/content/recommended-bag-2.jpg", alt='', title='').js-image-wrapper
+            +e.description
+                +e('span').des-line Чемодан средний M
+                +e('span').des-line American Tourister Sunset Square Spinner 13G*908
+                +price("16 500", true, "", ".-").--in-basket
+
+            +e.button-wrapper
+                +button('Продолжить покупки', '', true).--transparent.--in-basket
+                +button('Перейти в корзину', '', true).--orange-full.--in-basket-last
+
+        +e.column
+            +e.sell--come-handy
+                +title('h5', 'Мы уверены, в путешествии вам пригодится').--in-basket
+                +e('ul').product-list
+                    +product-basket--in({
+                        'src': 'images/content/recommended-bag-2.jpg',
+                        'name': 'Чехол для чемодана',
+                        'mark': 'Routemark SP240 Hellow Yellow L/XL',
+                        'classCost': '--in-basket',
+                        'cost': '15 600'
+                    }).--in-basket
+                    +product-basket--in({
+                        'src': 'images/content/recommended-bag-2.jpg',
+                        'name': 'Весы-рулетка',
+                        'mark': 'Samsonite U23*801 Digital  Luggage Scale/Torch',
+                        'classCost': '--in-basket',
+                        'cost': '5 600'
+                    }).--in-basket
+                    +product-basket--in({
+                        'src': 'images/content/recommended-bag-2.jpg',
+                        'name': 'Подушка',
+                        'mark': 'Lipault P59*016 Plume Accessories',
+                        'classCost': '--in-basket',
+                        'cost': '1 490'
+                    }).--in-basket
+
+            +e.sell--recomend
+                +title('h5', 'Рекомендуем посмотреть и выбрать').--in-basket
+                //- TODO: В отдельный бем. есть где тов др местах?
+                +e('ul').recomend-list
+                    include ../category.pug
+                    +category({
+                        'src': 'images/content/02_samovivoz-min.jpg',
+                        'name_one': 'Аксессуары для&nbsp;путеществия',
+                    })
+                    include ../category.pug
+                    +category({
+                        'src': 'images/inhtml/proсent.svg',
+                        'name_one': 'Товары со&nbsp;скидками',
+                    })

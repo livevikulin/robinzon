@@ -1,0 +1,29 @@
+//- ====================
+//- Robinzon: consultation
+//- 23-01-2018: FedorVinecky
+//- --------------------
+//- Консультация
+//- ====================
+
+mixin consultation(data)
+    include ui-kit/title.pug
+    include ui-kit/icon.pug
+    +b.consultation(class!=attributes.class)
+        if data.title
+            +title("h2", data.title).--consultation
+        
+        +b.avatar(class!=data.classAvatar)
+            +e('img').img(src=data.src, alt='Фото', title='').js-image-wrapper
+        +e.block-text
+            +e('p').text !{data.name}
+            +e('p').text-secondary !{data.secondary}
+            +e('a').phone(href='tel:+78005556988', title='8(800)555-69-88')
+                +icon('smartfon_phone_ico').--smartfon-phone
+                | 8 800 555-69-88
+            if data.title
+                +e('p').text-secondary--phone Звонок бесплатный
+
+        if data.question == true
+            .link-wrapper
+                include ui-kit/link.pug
+                +link('Задать вопрос о товаре', '', true).--underline-dot

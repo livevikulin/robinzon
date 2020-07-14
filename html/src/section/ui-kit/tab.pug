@@ -1,0 +1,39 @@
+//- ====================
+//- RBZ: tab
+//- 16.01.2018: FedorVinecky
+//- --------------------
+//- Табы
+//- ====================
+
+mixin tab(tab)
+    +b.tab(class!=attributes.class).js-tab-block
+        +e.tab-nav-wrapper(class=tab.wrapperClass)
+            +e('ul').tab-nav-list.js-horizontal-scroll(class=tab.listClass)
+                each item, index in tab.items
+                    +e('li').tab-nav-item(class=(index == 0 ? '-active' : ''))
+                        +e('a').link(href="javascript:void(0);", title=item.text, data-anchor-link=item.data, data-tab=item.data, class=tab.linkClass).js-tab-link.js-anchor-link #{item.text}
+                            if item.lightAddTextLink
+                                +e('span').link-additional #{item.lightAddTextLink}
+            +e('div').line-block(class=tab.lineClass)
+                +e('div').line-nav.js-line-nav
+        +e('span').transparent
+        block
+
+mixin tab--static(tab)
+    +b.tab(class!=attributes.class).--static
+        +e.tab-nav-wrapper(class=tab.wrapperClass)
+            +e('ul').tab-nav-list.js-horizontal-scroll(class=tab.listClass)
+                each item, index in tab.items
+                    //- Проверяем индекс элемента и в зависимости от него добавляем 3 вида классов
+                    - varClass = '0'
+                    if index == tab.numberActiveIndex
+                        - varClass = '-active-static'
+                    else if index > tab.numberActiveIndex
+                        - varClass = '-disable'
+                    else if index < tab.numberActiveIndex
+                        - varClass = '-disable-passed-step'
+
+                    +e('li').tab-nav-item(class=varClass)
+                        +e('a').link(href="javascript:void(0);", title=item.text, data-anchor-link=item.data, data-tab=item.data, class=tab.linkClass) #{item.text}
+                            if item.lightAddTextLink
+                                +e('span').link-additional #{item.lightAddTextLink}

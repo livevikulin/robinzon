@@ -1,0 +1,116 @@
+//- ====================
+//- Project: delivery
+//- 23-07-2018: sashakasha
+//- --------------------
+//- Доставка
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'delivery'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Доставка';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    .b-container
+        include section/ui-kit/breadcrumbs.pug
+        +breadcrumbs('Главная', 'Доставка').--catalog
+        include section/ui-kit/title.pug
+        +title('h1', 'Доставка').--brand
+
+        +b.delivery-top
+            +e('span').text Выбранный город: Краснодар
+            +b('a').link(href='javascript:void(0);' title='').--underline-dot.--delivery Выбрать другой
+
+    +b('section').section.--white.--delivery
+        +b.delivery
+            .b-container
+                include section/ui-kit/title.pug
+                +title('h2', 'Доставка в Краснодар').--delivery
+
+                +e.info
+                    +e.column
+                        +title('h3', 'Стоимость доставки').--delivery-info
+                        +e.inner
+                            +e.block
+                                +e('p').text при заказе от 3 000 руб. — бесплатно
+                            +e.block
+                                +e('p').text при заказе до 3 000 руб. — 250 руб.
+
+                    +e.column
+                        +title('h3', 'Срок доставки').--delivery-info
+                        +e.inner
+                            +e.block
+                                +e('p').text 5-7 дней
+
+                +e.desc
+                    p Мы&nbsp;готовы доставить Ваши чемоданы и&nbsp;другие товары из&nbsp;нашего магазина Робинзон по&nbsp;всей России.
+                    p По&nbsp;Москве, Санкт-Петербургу, Екатеринбургу и&nbsp;еще 80&nbsp;городам доставка осуществляется курьером с&nbsp;оплатой при получении заказа или в&nbsp;любую точку России Почтой EMS по&nbsp;предоплате. Максимальное время ожидания курьера с&nbsp;момента прибытия&nbsp;&mdash; 15&nbsp;минут.
+
+        include section/ui-kit/hr.pug
+        +hr().--delivery
+
+        +b.delivery
+            .b-container
+                +b.delivery-top.--info
+                    +b('a').link(href='javascript:void(0);' title='').--delivery.--active Москва
+                    +b('a').link(href='javascript:void(0);' title='').--underline-dot.--delivery Санкт-Петербург
+                    +b('a').link(href='javascript:void(0);' title='').--underline-dot.--delivery Белоруссия,&nbsp;Казахстан
+
+                +title('h2', 'Доставка в Москву и Московскую область до 5 км от МКАД').--delivery
+
+                +e.info
+                    +e.column
+                        +title('h3', 'Стоимость доставки').--delivery-info
+                        +e.inner
+                            +e.block
+                                +e('p').text при заказе от&nbsp;3&nbsp;000&nbsp;руб. &mdash;&nbsp;бесплатно
+                            +e.block
+                                +e('p').text при заказе до&nbsp;3&nbsp;000&nbsp;руб. &mdash;&nbsp;250&nbsp;руб.
+
+                    +e.column
+                        +title('h3', 'Время и срок доставки').--delivery-info
+                        +e.inner
+                            +e.block
+                                +e('p').text с&nbsp;9.00 до&nbsp;18.00, ежедневно;
+                                +e('p').text с&nbsp;15.00 до&nbsp;21.00, в&nbsp;будни в&nbsp;пределах МКАД;
+                                +e('p').text Доставка на&nbsp;следующий рабочий день после оформления заказа
+
+                +title('h2', 'Доставка в Москву и Московскую область свыше 5 км от МКАД').--delivery
+
+                +e.info
+                    +e.column
+                        +title('h3', 'Стоимость доставки').--delivery-info
+                        +e.inner
+                            +e.block
+                                +e('p').text при заказе от&nbsp;3&nbsp;000&nbsp;руб. &mdash;&nbsp;100&nbsp;руб.&nbsp;за&nbsp;каждые 5&nbsp;км
+                            +e.block
+                                +e('p').text при заказе до&nbsp;3&nbsp;000&nbsp;руб. &mdash;&nbsp;250&nbsp;руб. + 100&nbsp;руб.&nbsp;за&nbsp;каждые 5&nbsp;км
+
+                    +e.column
+                        +title('h3', 'Время и срок доставки').--delivery-info
+                        +e.inner
+                            +e.block
+                                +e('p').text с&nbsp;9.00 до&nbsp;18.00, ежедневно;
+                                +e('p').text с&nbsp;15.00 до&nbsp;21.00, в&nbsp;будни в&nbsp;пределах МКАД;
+                                +e('p').text Доставка на&nbsp;следующий рабочий день после оформления заказа
+
+                +e.desc
+                    p
+                        | Открыто направление доставки в&nbsp;СНГ. Подробности уточняйте у&nbsp;менеджеров по&nbsp;тел. 
+                        strong 8-800-555-32-85 
+                        | или email: 
+                        strong order@robinzon.ru
+                    p Возможность доставки в&nbsp;другое удобное для Вас время уточняйте у&nbsp;менеджера&nbsp;&mdash; мы&nbsp;всегда готовы идти навстречу своим клиентам!
+                +e.desc
+                    p
+                        strong Внимание! 
+                        | В&nbsp;случае полного или частичного (при доставке однотипных товаров) отказа от&nbsp;покупки при получении товара без дефектов и&nbsp;в&nbsp;полной комплектации, согласно п.4 ст.497&nbsp;ГК РФ, Вы&nbsp;оплачиваете оказанную курьерскую услугу.

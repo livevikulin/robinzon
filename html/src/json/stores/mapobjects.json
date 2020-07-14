@@ -1,0 +1,119 @@
+{
+	"success": true,
+	"message": "",
+	"data":{
+		"items": [
+			{
+				"id": "1",
+				"adress":     "м. Маяковская, ТЦ Запад. ул. Петровка, д.1",
+				"schedule":     "Пн–Вс (09:00-22:00)",
+				"name":   "Робинзон Фестиваль",
+				"gps_s":"55.7673328",
+				"gps_n":"37.5979364",
+				"colors":[
+					{"name":"Черный", "color":"black"},
+					{"name":"Синий", "color":"blue"},
+					{"name":"Красный", "color":"red"},
+					{"name":"Зеленый", "color":"green"},
+					{"name":"Желтый", "color":"yellow"},
+					{"name":"Голубой", "color":"lightblue"},
+					{"name":"Бежевый", "color":"beige"},
+					{"name":"Бирюзовый", "color":"turquoise"}
+				]
+			}, {
+				"id": "2",
+				"adress":     "м. Маяковская, ТЦ Запад. ул. Петровка, д.1",
+				"schedule":     "Пн–Вс (09:00-22:00)",
+				"name":   "Робинзон Фестиваль",
+				"gps_s":"55.7573328",
+                "gps_n":"37.5979364",
+                "colors":[
+                  {"name":"Черный", "color":"black"},
+                  {"name":"Синий", "color":"blue"},
+                  {"name":"Красный", "color":"red"},
+                  {"name":"Бежевый", "color":"beige"},
+                  {"name":"Бирюзовый", "color":"turquoise"}
+                ]
+			}, {
+				"id": "3",
+				"adress":     "м. Маяковская, ТЦ Запад. ул. Петровка, д.1",
+				"schedule":     "Пн–Вс (09:00-22:00)",
+				"name":   "Робинзон Фестиваль",
+				"gps_s":"55.7473328",
+                "gps_n":"37.5979364",
+                "colors":[
+                  {"name":"Черный", "color":"black"},
+                  {"name":"Зеленый", "color":"green"},
+                  {"name":"Желтый", "color":"yellow"},
+                  {"name":"Голубой", "color":"lightblue"},
+                  {"name":"Бежевый", "color":"beige"},
+                  {"name":"Бирюзовый", "color":"turquoise"}
+                ]
+			}, {
+				"id": "4",
+				"adress":     "м. Маяковская, ТЦ Запад. ул. Петровка, д.1",
+				"schedule":     "Пн–Вс (09:00-22:00)",
+				"name":   "Робинзон Фестиваль",
+				"gps_s":"55.7373328",
+                "gps_n":"37.5979364",
+                "colors":[
+                  {"name":"Черный", "color":"black"},
+                  {"name":"Синий", "color":"blue"},
+                  {"name":"Красный", "color":"red"},
+                  {"name":"Бирюзовый", "color":"turquoise"}
+                ]
+			}, {
+				"id": "5",
+				"adress":     "м. Маяковская, ТЦ Запад. ул. Петровка, д.1",
+				"schedule":     "Пн–Вс (09:00-22:00)",
+				"name":   "Робинзон Фестиваль",
+				"gps_s":"55.7773328",
+                "gps_n":"37.5979364",
+                "colors":[
+                  {"name":"Черный", "color":"black"},
+                  {"name":"Синий", "color":"blue"},
+                  {"name":"Красный", "color":"red"},
+                  {"name":"Зеленый", "color":"green"},
+                  {"name":"Желтый", "color":"yellow"},
+                  {"name":"Голубой", "color":"lightblue"},
+                  {"name":"Бежевый", "color":"beige"},
+                  {"name":"Бирюзовый", "color":"turquoise"}
+                ]
+			}, {
+				"id": "6",
+				"adress":     "м. Маяковская, ТЦ Запад. ул. Петровка, д.1",
+				"schedule":     "Пн–Вс (09:00-22:00)",
+				"name":   "Робинзон Фестиваль",
+				"gps_s":"55.7873328",
+                "gps_n":"37.5979364",
+                "colors":[
+                  {"name":"Черный", "color":"black"},
+                  {"name":"Синий", "color":"blue"},
+                  {"name":"Голубой", "color":"lightblue"},
+                  {"name":"Бежевый", "color":"beige"},
+                  {"name":"Бирюзовый", "color":"turquoise"}
+                ]
+			}, {
+				"id": "7",
+				"adress":     "м. Маяковская, ТЦ Запад. ул. Петровка, д.1",
+				"schedule":     "Пн–Вс (09:00-22:00)",
+				"name":   "Робинзон Фестиваль",
+				"gps_s":"55.7973328",
+                "gps_n":"37.5979364",
+                "colors":[
+                  {"name":"Черный", "color":"black"},
+                  {"name":"Синий", "color":"blue"},
+                  {"name":"Красный", "color":"red"},
+                  {"name":"Зеленый", "color":"green"},
+                  {"name":"Желтый", "color":"yellow"},
+                  {"name":"Бежевый", "color":"beige"},
+                  {"name":"Бирюзовый", "color":"turquoise"}
+                ]
+			}
+		],
+		"center": ["55.754243","37.617298"]
+	},
+	"errors": {
+		"notResult":     "результатов не найдено"
+	}
+}

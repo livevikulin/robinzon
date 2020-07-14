@@ -1,0 +1,291 @@
+//- ====================
+//- Rbz: filter-catalog
+//- 25-01-2017: Amedomary
+//- --------------------
+//- filter-catalog
+//- ====================
+
+mixin filter-catalog()
+    include ../ui-kit/title.pug
+    +b('aside').filter( class!=attributes.class).js-smartfilter
+        +e('ul').list
+            include ../filter.pug
+            //- материал - колёса
+            +filter({'items': [{
+                    'heading': 'Материал',
+                    'name': 'meterial',
+                    'classOption': '--block',
+                    'linkClass': 'js-menu-in-popup-link',
+                    'contClass': 'js-menu-in-popup-submenu',
+                    'valueAttr': 'meterial',
+                    'headingMobile': 'Материал',
+                    'cats': [{
+                        'label': 'Пластик',
+                    },{
+                        'label': 'Ткань',
+                    },{
+                        'label': 'Curv',
+                    },{
+                        'label': 'Алюминий',
+                    }]
+                },{
+                    'heading': 'Колёса',
+                    'name': 'whill',
+                    'classOption': '--block',
+                    'linkClass': 'js-menu-in-popup-link',
+                    'contClass': 'js-menu-in-popup-submenu',
+                    'valueAttr': 'whill',
+                    'headingMobile': 'Колёса',
+                    'cats': [{
+                        'label': '2 колеса',
+                    },{
+                        'label': '4 колеса',
+                    },{
+                        'label': 'Без колёс',
+                    }]
+            }]})
+
+            //- цвета
+            +filter({'items':
+                [{
+                    'heading': 'Цвет',
+                    'name': 'color',
+                    'linkClass': 'js-menu-in-popup-link',
+                    'contClass': 'js-menu-in-popup-submenu',
+                    'valueAttr': 'color',
+                    'headingMobile': 'Цвет',
+            }]})
+                include ../filter-color.pug
+                +filter-color({'items':
+                    [{
+                        'name': 'filter-color',
+                        'color': '@cl-black',
+                        'colorname': 'Чёрный'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-dark-blue',
+                        'colorname': 'Синий'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-red',
+                        'colorname': 'Красный'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-green',
+                        'colorname': 'Зеленый'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-gray',
+                        'colorname': 'Серый'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-pink',
+                        'colorname': 'Розовый'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-brown',
+                        'colorname': 'Коричневый'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-orange',
+                        'colorname': 'Оранжевый'
+                    },{
+                        'name': 'filter-color',
+                        'src': 'images/content/brics-logo.jpg',
+                        'colorname': 'Мультиколор'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-purple',
+                        'colorname': 'Фиолетовый'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-gold',
+                        'colorname': 'Золотой'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-silver',
+                        'colorname': 'Серебристый'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-yellow',
+                        'colorname': 'Желтый'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-lightblue',
+                        'colorname': 'Голубой'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-beige',
+                        'colorname': 'Бежевый'
+                    },{
+                        'name': 'filter-color',
+                        'color': '@cl-turquoise',
+                        'colorname': 'Бирюзовый'
+                    }
+                ]})
+
+            //- бренды, коллекция
+            +filter({'items':
+                [{
+                    'heading': 'Бренд',
+                    'name': 'brand',
+                    'linkClass': 'js-menu-in-popup-link',
+                    'contClass': 'js-menu-in-popup-submenu',
+                    'valueAttr': 'brand',
+                    'headingMobile': 'Бренд',
+                    'cats': [{
+                            'label': 'Samsonite',
+                        },{
+                            'label': 'ALcom',
+                        },{
+                            'label': 'American Tourister',
+                        },{
+                            'label': 'Bolinni',
+                        },{
+                            'label': 'Bouncie',
+                        },{
+                            'label': 'ALcom',
+                        },{
+                            'label': 'American Tourister',
+                        },{
+                            'label': 'Bolinni',
+                        },{
+                            'label': 'Bouncie',
+                        },{
+                            'label': 'March',
+                        },{
+                            'label': 'American Tourister',
+                        },{
+                            'label': 'Bolinni',
+                        },{
+                            'label': 'Bouncie',
+                        },{
+                            'label': 'ALcom',
+                        },{
+                            'label': 'American Tourister',
+                        },{
+                            'label': 'Bolinni',
+                        },{
+                            'label': 'Bouncie',
+                        },{
+                            'label': 'ALcom',
+                        },{
+                            'label': 'American Tourister',
+                        },{
+                            'label': 'Bolinni',
+                        },{
+                            'label': 'Bouncie',
+                        },{
+                            'label': 'March',
+                        },{
+                            'label': 'American Tourister',
+                        },{
+                            'label': 'Bolinni',
+                        },{
+                            'label': 'Bouncie',
+                        },{
+                            'label': 'Samsonite',
+                        },{
+                            'label': 'ALcom',
+                        },{
+                            'label': 'American Tourister',
+                        },{
+                            'label': 'Bolinni',
+                        },{
+                            'label': 'Bouncie',
+                        },{
+                            'label': 'ALcom',
+                        },{
+                            'label': 'American Tourister',
+                        },{
+                            'label': 'Bolinni',
+                        },{
+                            'label': 'Bouncie',
+                        },{
+                            'label': 'March',
+                        },{
+                            'label': 'American Tourister',
+                        },{
+                            'label': 'Bolinni',
+                        }]
+                },{
+                    'heading': 'Коллекция',
+                    'name': 'collection',
+                    'linkClass': 'js-menu-in-popup-link',
+                    'contClass': 'js-menu-in-popup-submenu',
+                    'valueAttr': 'collection',
+                    'headingMobile': 'Коллекция',
+                    'cats': [{
+                            'label': 'AT Business III',
+                        },{
+                            'label': 'Air Force 1',
+                        },{
+                            'label': 'Bon Air',
+                        },{
+                            'label': 'Air Force 1',
+                        },{
+                            'label': 'Palm Valley Star Wars',
+                        },{
+                            'label': 'MWM Summer Fun',
+                        },{
+                            'label': 'Star Wars Legends',
+                        }]
+            }]})
+
+            //- Цена
+            +filter({'items':
+                [{
+                    'heading': 'Цена',
+                    'name': 'cost',
+                    'linkClass': 'js-menu-in-popup-link',
+                    'contClass': 'js-menu-in-popup-submenu',
+                    'valueAttr': 'cost',
+                    'headingMobile': 'Цена'
+            }]})
+                //- попвера контент (пермутентится поповером)
+                include ../ui-kit/range.pug
+                +range().--filter-pop-up.js-filter-input
+                include ../ui-kit/button.pug
+                +button('Применить', '', true).--blue.--filter-accept.js-filter-accept-price
+
+            //- особые
+            +filter({'items':
+                [{
+                    'heading': 'Особые признаки',
+                    'name': 'extra',
+                    'linkClass': 'js-menu-in-popup-link',
+                    'contClass': 'js-menu-in-popup-submenu',
+                    'valueAttr': 'extra',
+            }]})
+                +title('h4', 'Особые').--popup-filter
+                p особые
+
+            //- тест переполнения
+            +filter({'items':
+                [{
+                    'heading': 'Особые признаки',
+                    'name': 'extra1',
+                    'linkClass': 'js-menu-in-popup-link',
+                    'contClass': 'js-menu-in-popup-submenu',
+                    'valueAttr': 'extra1',
+                    'classItem': '-hide'
+            }]})
+                +title('h4', 'Тест').--popup-filter
+                p Тест переизбытка фильтров
+
+            //- тест переполнения
+            +filter({'items':
+                [{
+                    'heading': 'Особые признаки',
+                    'name': 'extra2',
+                    'linkClass': 'js-menu-in-popup-link',
+                    'contClass': 'js-menu-in-popup-submenu',
+                    'valueAttr': 'extra2',
+                    'classItem': '-hide'
+            }]})
+                +title('h4', 'Тест').--popup-filter
+                p Тест переизбытка фильтров
+
+            +e('li').item--more
+                +e('a').link--more.js-filter-show-more.-show( href='javascript:void(0)', title='Показать больше' ) Ещё...
+        +e('a').link--clean.js-filter-clean( href='javascript:void(0)', title='Показать больше' ) Очистить все

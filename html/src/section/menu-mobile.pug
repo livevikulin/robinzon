@@ -1,0 +1,315 @@
+//- ====================
+//- Project: menu-mobile
+//- 07-02-2018: VD
+//- --------------------
+//- мобильное меню
+//- ====================
+
+mixin menu-mobile()
+    +b.menu-mobile.js-menu-mobile.js-step-mobile
+        +e.close.js-close-mobile-menu
+            +icon('close-bold').--mobile-menu
+        +e.item.--mobile-show.--city Город:
+            |
+            |
+            +e('span').name-city.js-name-city-mobile.js-open-step-mobile
+            +b.menu-mobile.--next-step.--half-scroll.js-step-mobile.js-city-selection-move-mobile
+                +e.item
+                    +e('a')(href="javascript:void(0);" title="Назад").back-link.js-back-submenu
+                        include ui-kit/icon.pug
+                        +icon('arrow-small').--mobile-back-step
+                        | Назад
+                //- Выбор города попАп пермутент сюда: 
+
+        +e.item.--mobile-show
+            +e('a')(href="javascript:void(0);" title="Бесплатная доставка").info-place Бесплатная доставка
+        +e.item.--mobile-show
+            +e('a')(href="javascript:void(0);" title="Пункты самовывоза").info-place Пункты самовывоза
+        +e.item.--mobile-show
+            +e('a')(href="javascript:void(0);" title="Магазины").info-place.--shops
+                +icon('pin-shops-mobile').--mobile-menu-shops
+                +e('span') Магазины
+        +e.item.--mobile-show
+            +e('a')(href="javascript:void(0);" title="Скидки до -60%").info-place.--sale
+                +icon('percent-sale-mobile').--mobile-menu-sale
+                +e('span') Скидки до -60%
+
+        //- 1
+        include mobile-nav.pug
+        +mobile-nav({
+            'title': 'Каталог',
+            'items': [{
+                'link': 'Чемоданы',
+                'child': [
+                    'Для ручной клади S/XS',
+                    'Средние M',
+                    'Большие L/XL',
+                    'Детские',
+                    'Пластиковые',
+                    'На 4-х колесах'
+                ],
+                'additional': [
+                    {
+                        'title': 'Популярные',
+                        'items': [
+                            'Новинки',
+                            'Хиты продаж',
+                            'Премиум чемоданы'
+                        ]
+                    },
+                    {
+                        'title': 'По цене',
+                        'items': [
+                            'До 7000 р.',
+                            '7000-15000 р.',
+                            'Свыше 15000 р.'
+                        ]
+                    }
+                ]
+            }, {
+                'link': 'Сумки',
+                'child': [
+                    'Тест',
+                    'Тест 2'
+                ],
+            }, {
+                'link': 'Рюкзаки',
+                'child': [
+                    'Для ручной клади S/XS',
+                    'Средние M',
+                    'Большие L/XL',
+                    'Детские',
+                    'Пластиковые',
+                    'На 4-х колесах'
+                ],
+                'additional': [
+                    {
+                        'title': 'Популярные',
+                        'items': [
+                            'Новинки',
+                            'Хиты продаж',
+                            'Премиум чемоданы'
+                        ]
+                    },
+                    {
+                        'title': 'По цене',
+                        'items': [
+                            'До 7000 р.',
+                            '7000-15000 р.',
+                            'Свыше 15000 р.'
+                        ]
+                    }
+                ]
+            }, {
+                'link': 'Аксессуары',
+                'child': [
+                    'Для ручной клади S/XS',
+                    'Средние M',
+                    'Большие L/XL',
+                    'Детские',
+                    'Пластиковые',
+                    'На 4-х колесах'
+                ]
+            }, {
+                'link': 'Детям',
+                'child': [
+                    'Для ручной клади S/XS',
+                    'Средние M',
+                    'Большие L/XL',
+                    'Детские',
+                    'Пластиковые',
+                    'На 4-х колесах'
+                ],
+                'additional': [
+                    {
+                        'title': 'Популярные',
+                        'items': [
+                            'Новинки',
+                            'Хиты продаж',
+                            'Премиум чемоданы'
+                        ]
+                    },
+                    {
+                        'title': 'По цене',
+                        'items': [
+                            'До 7000 р.',
+                            '7000-15000 р.',
+                            'Свыше 15000 р.'
+                        ]
+                    }
+                ]
+            }, {
+                'link': '<b>Premium</b>'
+            }, {
+                'link': 'Бренды'
+            }]
+        })
+
+        +e.actions
+            +e.item.--mobile-show
+                +e('a')(href='javascript:void(0);' title='Избранное').info-place.--mobile-action Избранное
+                    +e.action
+                        include ui-kit/icon.pug
+                        +icon('favorites').--mobile-action
+                        // По умолчанию должно быть скрыто, если сейчас нет ничего в избранном (style="display: none")
+                        +e.count.js-favorites-mobile-count 7
+            +e.item.--mobile-show.--mobile-action
+                +e('a')(href='javascript:void(0);' title='Сравнение').info-place.--mobile-action Сравнение
+                    +e.action
+                        include ui-kit/icon.pug
+                        +icon('compare').--mobile-action
+                        // По умолчанию должно быть скрыто, если сейчас нет ничего в избранном (style="display: none")
+                        +e.count.js-compare-mobile-count 9
+
+        //- 2
+        include mobile-nav.pug
+        +mobile-nav({
+            'title': 'Информация покупателям',
+            'itemsWithoutChild': [{
+                'link': 'Как выбрать'
+            }, {
+                'link': 'Доставка'
+            }, {
+                'link': 'Оплата'
+            }, {
+                'link': 'Гарантия'
+            }, {
+                'link': 'Оптовые продажи'
+            }, {
+                'link': 'О компании'
+            }, {
+                'link': 'Контакты'
+            }]
+        }, {
+            'js': 'js-step-mobile'
+        })
+
+mixin menu-mobile-old()
+    +b.menu-mobile.js-menu-mobile.js-step-mobile.js-horizontal-scroll
+        // Первое состояние Аккаунта
+        +e.item.--account.--mobile-show
+            +e('a').link-account(href="javascript:void(0);" title="Войти", data-popup='login').js-open-popup.js-close-mobile-menu Войти
+        // Второе состояние Аккаунта
+        +e.item.--account.--mobile-show
+            +e('a').link-account(href="javascript:void(0);" title="").--authorized.js-open-step-mobile Дмитрий
+                    +icon('arrow_small_ico').--mobile-nav.js-icon-mobile-nav
+            //- Второй уровень
+            +b.menu-mobile.--next-step.--half-scroll.js-step-mobile
+                +e.item
+                    +e('a')(href="javascript:void(0);" title="Назад").back-link.js-back-submenu
+                        include ui-kit/icon.pug
+                        +icon('arrow-small').--mobile-back-step
+                        | Назад
+
+                +b('nav').mobile-nav.js-account-popover-move-mobile
+                    +e.title Личный кабинет
+                    // пермутация Поповера пользвателя Сюда
+                    //- include account-popover.pug
+                    //- +account-popover()
+
+        +e.item.--mobile-show Город:
+            +e('span').name-city.js-name-city-mobile.js-open-step-mobile
+            +b.menu-mobile.--next-step.--half-scroll.js-step-mobile.js-city-selection-move-mobile
+                +e.item
+                    +e('a')(href="javascript:void(0);" title="Назад").back-link.js-back-submenu
+                        include ui-kit/icon.pug
+                        +icon('arrow-small').--mobile-back-step
+                        | Назад
+                //- Выбор города попАп пермутент сюда:
+
+        +e.item.--mobile-show
+            +e('a')(href="javascript:void(0);" title="Наши магазины в Москве").info-place Наши магазины в Москве
+
+        +e.item.--mobile-show
+            +e('a')(href='javascript:void(0);' title='Избранное').info-place Избранное
+        +e.item.--mobile-show
+            +e('a')(href='javascript:void(0);' title='Сравнение').info-place Сравнение
+
+        //- 1
+        include mobile-nav.pug
+        +mobile-nav({
+            'title': 'Каталог',
+            'items': [{
+                'link': 'Чемоданы',
+                'step': true
+            }, {
+                'link': 'Рюкзаки',
+                'step': true
+            }, {
+                'link': 'Сумки'
+            }, {
+                'link': 'Аксессуары'
+            }, {
+                'link': 'Скидки'
+            }, {
+                'link': 'Бренды'
+            }]
+        })
+
+            //- контент для второго уровня
+            +b.menu-mobile.--next-step.js-step-mobile
+                +e.item
+                    +e('a')(href="javascript:void(0);" title="Назад").back-link.js-back-submenu
+                        include ui-kit/icon.pug
+                        +icon('arrow-small').--mobile-back-step
+                        | Назад
+
+                include mobile-nav.pug
+                +mobile-nav({
+                    'title': 'Чемоданы',
+                    'items': [{
+                        'link': 'Ручная кладь - S'
+                    }, {
+                        'link': 'Средние чемоданы -  M'
+                    }, {
+                        'link': 'Большие чемоданы - L/XL',
+                        'step': true
+                    }, {
+                        'link': 'Детские чемоданы'
+                    }]
+                })
+
+                    //- контент для третьего уровня
+                    +b.menu-mobile.--next-step.js-step-mobile
+                        +e.item
+                            +e('a')(href="javascript:void(0);" title="Назад").back-link.js-back-submenu
+                                include ui-kit/icon.pug
+                                +icon('arrow-small').--mobile-back-step
+                                | Назад
+
+                        include mobile-nav.pug
+                        +mobile-nav({
+                            'title': 'Чемоданы',
+                            'items': [{
+                                'link': 'Ручная кладь - S'
+                            }, {
+                                'link': 'Средние чемоданы -  M'
+                            }, {
+                                'link': 'Большие чемоданы - L/XL'
+                            }, {
+                                'link': 'Детские чемоданы'
+                            }]
+                        })
+
+        //- 2
+        include mobile-nav.pug
+        +mobile-nav({
+            'title': 'Информация покупателям',
+            'items': [{
+                'link': 'Как выбрать'
+            }, {
+                'link': 'О компании'
+            }, {
+                'link': 'Доставка'
+            }, {
+                'link': 'Пункты самовывоза'
+            }, {
+                'link': 'Оплата'
+            }, {
+                'link': 'Гарантия'
+            }, {
+                'link': 'Ответы на вопросы'
+            }]
+        }, {
+            'js': 'js-step-mobile'
+        })

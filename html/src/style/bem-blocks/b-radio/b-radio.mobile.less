@@ -1,0 +1,69 @@
+/* 320 + */
+.b-radio {
+    &__label{
+        &--filter-color {
+            &:after {
+                width: 26px;
+                height: 26px;
+            }
+        }
+    }
+
+    &__circle {
+        width: 20px;
+        height: 20px;
+
+        &--map-card {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    &__label--filter {
+        padding-left: 23px;
+
+        &:after {
+            content: "";
+            background-color: transparent !important;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: absolute;
+            left: 1px;
+            top: 2px;
+            opacity: 0;
+            transition-property: opacity;
+            transition-duration: @animation-time;
+            display: block;
+            width: 11px;
+            height: 6px;
+            border-bottom: solid 2px #ff7902;
+            border-left: solid 2px #ff7902;
+            transform: rotate(-45deg);
+            border-radius: 0;
+        }
+    }
+
+    &--filter & {
+        .b-radio__input:checked + &__label {
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.b-radio--filter {
+    .b-radio__input:checked + .b-radio__label {
+        &::after {
+            opacity: 1;
+        }
+    }
+}
+
+.b-radio--filter-color {
+    .b-radio__input:checked + .b-radio__label {
+        .b-radio__colorname {
+            color: #ff7902;
+        }
+    }
+}

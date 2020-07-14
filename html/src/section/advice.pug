@@ -1,0 +1,15 @@
+//- ====================
+//- Robinzon: advice
+//- 5-02-2018: Amed
+//- --------------------
+//- advice
+//- ====================
+
+mixin advice(data)
+    +b('a').advice.js-advice-switch.js-ajax-link(href='javascript:void(0)' data-target=".js-advice-content" data-events="ajax.advice" data-id="10" data-url="/json/advice.json" title='Ещё совет')
+        +e('h4').title
+            |  #{data.title}
+        +e('p').content.js-advice-content
+            | #{data.content}
+        +e('span').link
+            |  #{data.link}

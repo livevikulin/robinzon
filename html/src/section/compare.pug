@@ -1,0 +1,143 @@
+//- ====================
+//- compare
+//- 6-4-2018: Amedomary / biyk
+//- --------------------
+//- Сравнение
+//- ====================
+
+mixin compare()
+    +b.compare
+        //- <a href="javascript:void(0);" class="b-slider-arrow b-slider-arrow--main-next slick-arrow" style=""><i class="icon-arrow_big_ico b-icon--arrow-main-slider"></i></a>
+        //- <a href="javascript:void(0);" class="b-slider-arrow b-slider-arrow--main-prev slick-arrow" style=""><i class="icon-arrow_big_ico b-icon--arrow-main-slider"></i></a>
+        +e('a').arrow.--prev(href='javascript:void(0);').js-prev-compare
+            +icon('arrow_big_ico').--arrow-compare
+        +e('a').arrow.--next(href='javascript:void(0);').js-next-compare
+            +icon('arrow_big_ico').--arrow-compare
+
+        .b-container.b-container--compare
+            +compare__heading-row()
+            +compare__standart-row(['9 900.-', '12 200.-', '300.-', '2 146 938.-','9 900.-', '12 200.-', '300.-', '2 146 938.-'],{'heading':'Цена'})
+            +compare__standart-row(['Малый M', 'Большой XL', 'XXL', 'XS','Малый M', 'Большой XL', 'XXL', 'XS'],{'heading':'Размер'})
+            +compare__standart-row(['Samsonite', 'SamsoniteOneMoretrxtTestSamsonite', 'Sams onite', 'Samsonite','Samsonite', 'SamsoniteOneMoretrxtTestSamsonite', 'Sams onite', 'Samsonite'],{'heading':'Бренд'})
+            +compare__standart-row(['Gotthard', 'Gotthard', 'Gotthard', 'Gotthard','Gotthard', 'Gotthard', 'Gotthard', 'Gotthard'],{'heading':'Коллекция','alike':true})
+            +compare__standart-row(['Пластик', 'ABS Пластик', 'ABS Пластик', 'ABS Пластик','Пластик', 'ABS Пластик', 'ABS Пластик', 'ABS Пластик'],{'heading':'Материал'})
+            +compare__standart-row(['4', '2', '4', '-','4', '2', '4', '-'],{'heading':'Количество колёс'})
+            +compare__standart-row(['Малый M', '5,5', '2', '455','Малый M', '5,5', '2', '455'],{'heading':'Вес, кг'})
+            +compare__standart-row(['125', '125', '125', '125','125', '125', '125', '125'],{'heading':'Высота, см'})
+            +compare__standart-row(['28', '28', '28', '28','28', '28', '28', '28'],{'heading':'Глубина, см'})
+            +compare__standart-row(['15', '20', '2541', '1','15', '20', '2541', '1'],{'heading':'Обьём, л'})
+            +compare__standart-row(['3 года', '2 года', '1 год', 'нет','3 года', '2 года', '1 год', 'нет'],{'heading':'Гарантия'})
+            +compare__last-row(['Удалить', 'Удалить', 'Удалить', 'Удалить','Удалить', 'Удалить', 'Удалить', 'Удалить'])
+
+//- Заголовочная строка
+mixin compare__heading-row()
+    - var count = -1
+    +e.row.--heading.js-compare-heading
+        +e.content-row
+            +e.cell.--heading(data-product-id=++count)
+                +compare__slider-count()
+                +compare__close(count)
+                +e('img').image(src='images/content/product-item-image.png', alt='', title='').js-image-wrapper
+                +compare__title('М', 'American Tour')
+            +e.cell.--heading(data-product-id=++count)
+                +compare__slider-count()
+                +compare__close(count)
+                +e('img').image(src='images/content/announcement-2.jpg', alt='', title='').js-image-wrapper
+                +compare__title('Чемодан средний М', 'American Tourister Sunset Square Spinner 13G*908')
+            +e.cell.--heading(data-product-id=++count)
+                +compare__slider-count()
+                +compare__close(count)
+                +e('img').image(src='images/content/product-card-1.png', alt='', title='').js-image-wrapper
+                +compare__title('Чемодан средний М', 'American Tourister Sunset Square Spinner 13G*908 American Tourister Sunset Square Spinner 13G*908')
+            +e.cell.--heading(data-product-id=++count)
+                +compare__slider-count()
+                +compare__close(count)
+                +e('img').image(src='images/content/content-sumka-6.jpg', alt='', title='').js-image-wrapper
+                +compare__title('Чемодан средний М Чемодан средний М 12 48 6666', 'American Tourister Sunset Square Spinner 13G*908')
+            +e.cell.--heading(data-product-id=++count)
+                +compare__slider-count()
+                +compare__close(count)
+                +e('img').image(src='images/content/product-item-image.png', alt='', title='').js-image-wrapper
+                +compare__title('М', 'American Tour')
+            +e.cell.--heading(data-product-id=++count)
+                +compare__slider-count()
+                +compare__close(count)
+                +e('img').image(src='images/content/announcement-2.jpg', alt='', title='').js-image-wrapper
+                +compare__title('Чемодан средний М', 'American Tourister Sunset Square Spinner 13G*908')
+            +e.cell.--heading(data-product-id=++count)
+                +compare__slider-count()
+                +compare__close(count)
+                +e('img').image(src='images/content/product-card-1.png', alt='', title='').js-image-wrapper
+                +compare__title('Чемодан средний М', 'American Tourister Sunset Square Spinner 13G*908 American Tourister Sunset Square Spinner 13G*908')
+            +e.cell.--heading(data-product-id=++count)
+                +compare__slider-count()
+                +compare__close(count)
+                +e('img').image(src='images/content/content-sumka-6.jpg', alt='', title='').js-image-wrapper
+                +compare__title('Чемодан средний М Чемодан средний М 12 48 6666', 'American Tourister Sunset Square Spinner 13G*908')
+
+//- Обычная строка
+mixin compare__standart-row(items, data)
+    +e.row.--hover
+        +e.name-row.js-compate-heading #{data.heading}
+        +e.content-row.js-compate-row
+            each item, count in items
+                +e.cell(data-product-id=count data-value=item) !{item}
+
+//- последняя строка
+mixin compare__last-row(items)
+    +e.row
+        +e.content-row
+            each item, count in items
+                +e.cell.--last(data-product-id=count)
+                    include ui-kit/link.pug
+                    +link(item, '', true).--compare-delete.js-del-compare(data-product-id=count)
+
+//- Крестик
+mixin compare__close(count)
+    +e('a').close(href='javascript:void(0)', title='' data-product-id=count).js-del-compare
+        include ui-kit/icon.pug
+        +icon('close').--compare
+
+//- Название товара
+mixin compare__title(size, name)
+    +e.title
+        +e('a').size(href='javascript:void(0)', title='') !{size}
+        +e('a').name(href='javascript:void(0)', title='') !{name}
+
+//- Миксин появляющегося сверху фикседа
+mixin compare--fixed()
+    +b.compare--fixed.js-compare-fixed
+        .b-container.b-container--compare
+            +e.row
+                +e.content-row
+                    +compare--fixed__cell()
+                    +compare--fixed__cell()
+                    +compare--fixed__cell()
+                    +compare--fixed__cell()
+                    +compare--fixed__cell()
+                    +compare--fixed__cell()
+                    +compare--fixed__cell()
+                    +compare--fixed__cell()
+
+//- Ячейка для фиксированого элемента сверху
+mixin compare--fixed__cell()
+    +e.cell.--fixed
+        +compare__slider-count().--fixed
+        +compare__close()
+        +e('img').image(src='images/content/announcement-2.jpg', alt='', title='').--fixed.js-image-wrapper
+        +e.title.--fixed
+            +e('a').size(href='javascript:void(0)', title='') Чемодан средний М
+            +e('a').name(href='javascript:void(0)', title='') American Tourister Sunset Square Spinner 13G*908
+
+//- Счётчик слайда + dots
+mixin compare__slider-count()
+    +e.slider-count(class!=attributes.class)
+        +e('span').counter-line 2 / 18
+        +e.dot-counter-wrapper
+            +e('i').dot-counter
+            +e('i').dot-counter.-active
+            +e('i').dot-counter
+            +e('i').dot-counter
+            +e('i').dot-counter
+            +e('i').dot-counter
+            +e('i').dot-counter.-show-scroll

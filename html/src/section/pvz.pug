@@ -1,0 +1,19 @@
+//- ====================
+//- 07-06-2018: Amedomary
+//- --------------------
+//- pvz
+//- ====================
+
+mixin pvz(data)
+    +b.pvz(class!=attributes.class)
+        +e('ul').list
+            each item, index in data.items
+                +e('li').item(class=item.classItem)
+                    +e('a').link(href='javascript:void(0)', title='')
+                        span #{item.heading} 
+                    +e.accordion-block
+                        //- TODO: удалить Элементы ниже. Используется для тестирования вёрстки и стилей
+                        if index == 2
+                            //- span контент акордиона со сликом и картой
+                            include pvz-info.pug
+                            +pvz-info()

@@ -1,0 +1,13 @@
+//- ====================
+//- Project: product-card-new-sale
+//- 30-04-2020:
+//- --------------------
+//- Карточка товара Новая со скидкой
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./product-card-base
+
+block product-top
+    include section/product-top-new.pug
+    +product-top-new(true)

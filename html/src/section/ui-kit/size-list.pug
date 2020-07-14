@@ -1,0 +1,11 @@
+//- ====================
+//- Robinzon: size-list
+//- 09-02-2018: drtvader
+//- --------------------
+//- Блок рекомендации выбора
+//- ====================
+mixin size-list(sized)
+    +b('ul').size-list
+            each item, index in sized
+                include radio.pug
+                +radio(item.textLabel, item.name, item.id, item.checked, item.js)(class=(index == 3 ? '--disable' : '') class!=attributes.class  )

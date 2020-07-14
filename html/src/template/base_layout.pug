@@ -1,0 +1,174 @@
+include ../../node_modules/bemto.pug/bemto.pug
+
+//- Используем Project: template footer_main: mixin
+//- Используем Project: Project_layout/header: +header
+
+//- Используем section.pug
+
+
+- set_bemto_settings({ prefix: { '': 'b-', 'js-': true, '-': false }, element: '__', modifier: '--', default_tag: 'div' })
+
+block variables
+- var requireJS = true
+
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui, user-scalable=no")
+        meta(name="skype_toolbar", content="skype_toolbar_parser_compatible")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+        meta(name="google" value="notranslate")
+        meta(name="format-detection" content="telephone=no")
+        meta(name="robots" content="noindex, follow")
+        //- Chrome, Firefox, Opera
+        meta(name="theme-color" content="#2e3192")
+        //- Windows Phone
+        meta(name="msapplication-navbutton-color" content="#2e3192")
+        //- iOS Safari
+        meta(name="apple-mobile-web-app-status-bar-style" content="default")
+        //- Icons
+        link(rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png")
+        link(rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png")
+        link(rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png")
+        link(rel="manifest" href="images/favicon/site.webmanifest")
+        link(rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5")
+        meta(name="msapplication-TileColor" content="#ffffff")
+        meta(name="theme-color" content="#ffffff")
+
+
+        block styles
+            //- link(href="css/normalize/normalize.css" rel="stylesheet")
+            //- link(href="css/" + file_name + ".css" rel="stylesheet")
+            link(href="css/main.css" rel="stylesheet")
+
+        //- jquery подключаем в шапке т.к. какой-то js может быть внутри компонентов
+        block scripts
+        script(src='https://api-maps.yandex.ru/2.1.56/?lang=ru_RU')
+        //- script(src='js/jquery/jquery.min.js')
+
+        block head
+        title= pageTitle || ''
+        meta(name='description' content=pageDescription || '')
+        meta(name='keywords' content=pageKeywords || '')
+
+        <!--[if lte IE 9]>
+        script(src="js/html5shiv/html5shiv.min.js")
+        <![endif]-->
+
+        //- скрипт для подключения логотипа schema.org
+        script(type="application/ld+json").
+            {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "url": "https://robinzon.ru",
+                "logo": "images/logo.svg"
+            }
+
+    body
+        //- +b.page-wrapper.-no-scroll
+        +b.page-wrapper.js-this-scroll#scroll-y
+
+            //- блок перед хедером
+            block preHeader
+
+            //- if ((file_name == 'cart') || (file_name == 'order') || (file_name == 'order-done') || (file_name == 'cart-empty'))
+            //- if ((file_name == 'cart-step1') || (file_name == 'cart-step2') || (file_name == 'cart-step3') || (file_name == 'order') || (file_name == 'order-done') || (file_name == 'cart-empty'))
+
+            include layout/header.pug
+            //- +header-short()
+            //- else
+            //-     include layout/header.pug
+            +header()
+
+            // BEGIN: Мобильное меню
+            include ../section/menu-mobile.pug
+            +menu-mobile()
+            // END: Мобильное меню
+
+            +b('main').main
+                block content
+
+                +b.background-over
+
+            include layout/footer.pug
+            +footer()(class=classFooter)
+
+        //- // BEGIN: блок фикседов
+        //- block fixed
+        //- // END: блок фикседов
+
+        // BEGIN: блок попапов
+        block popup
+        include ../section/ui-kit/popup.pug
+        include ../section/popup/login-popup.pug
+        include ../section/popup/recall-popup.pug
+        include ../section/city-selection.pug
+        include ../section/popup/your-city-popup.pug
+        include ../section/popup/registration-popup.pug
+        include ../section/popup/registration-popup-done.pug
+        include ../section/popup/login-popup-password-recovery.pug
+        include ../section/popup/buy-cheaper-popup.pug
+        include ../section/popup/buy-cheaper-success-popup.pug
+        include ../section/popup/for-one-click-popup.pug
+        include ../section/popup/for-one-click-success-popup.pug
+        include ../section/popup/for-one-click-cart-popup.pug
+        include ../section/popup/product-popup.pug
+        include ../section/popup/warning-popup
+        //- Внимание!
+        +popup()(data-popup='warning')
+            include ../section/popup/warning-popup.pug
+            +warning-popup()
+        //- Вход/регистрация
+        +popup()(data-popup='login')
+            +login-popup()
+        //- Обратный звонок
+        +popup()(data-popup='recall')
+            +recall-popup()
+        //- Это ваш город?
+        +popup()(data-popup='your-city')
+            +your-city-popup()
+        //- Выбор города
+        +popup-data({
+            'contentClass':'js-city-selection-move-desktop',
+            'attributes': {'data-popup': 'city-selection'}
+        }).--mobile-hide
+            +city-selection().js-city-selection-move-element
+        //- Регистрация
+        +popup()(data-popup='registration')
+            +registration-popup()
+        //- Регистрация завершина - спасибо
+        +popup()(data-popup='registration-done')
+            +registration-popup-done()
+        //- Восстановление пароля password recovery
+        +popup()(data-popup='password-recovery')
+            +login-popup-password-recovery()
+        //- Узнать о снижении цены
+        +popup()(data-popup='buy-cheaper')
+            +buy-cheaper-popup()
+        //- Заявка принята!
+        +popup()(data-popup='buy-cheaper-success')
+            +buy-cheaper-success-popup()
+        //- Купить в 1 клик
+        +popup()(data-popup='for-one-click')
+            +for-one-click-popup()
+        //- Купить в 1 клик. Заказ оформлен!
+        +popup()(data-popup='for-one-click-success')
+            +for-one-click-success-popup()
+        //- Купить в 1 клик. Корзина
+        +popup()(data-popup='for-one-click-cart')
+            +for-one-click-cart-popup()
+        //- Продукт
+        +popup()(data-popup='product')
+            +product-popup()
+        // END: блок попапов
+
+        if requireJS == true
+            - var js_filename = 'config'
+            if (typeof(file_name) !== 'undefined')
+                - var js_filename = file_name
+            script(src="js/require.js?" + new Date().getTime() data-main="js/" + js_filename)
+        else
+            script(src="js/external.js")
+            script(src="js/internal.js")

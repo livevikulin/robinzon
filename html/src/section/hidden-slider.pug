@@ -1,0 +1,31 @@
+//- ====================
+//- RBZ: hidden-slider
+//- 05-02-2018: drtvader
+//- --------------------
+//- Скрытый слайдер товара для каталога
+//- ====================
+
+mixin hidden-slider()
+    +b.hidden-slider.js-hidden-slid
+        //-  что бы показать нужно добавить active
+        +e.wrapper-animation
+            +e.triangle.js-preview-arrow
+            .b-container
+                +e.close
+                    +e.close-link(href="javascript:void(0);" title="").js-close-preview
+                        i.icon-close-popup.b-icon--preview
+                +e.wrapper
+                    //- item скрытого товара
+                    a.b-slider-arrow.b-slider-arrow--hidden-slider.prev.slick-arrow.js-ajax-link(href='javascript:void(0);' data-events='getPrev initCarousel' data-url='/json/preview-next.json')
+                        i.icon-arrow_small_ico.b-icon--hidden-slider
+                        span Предыдущий товар
+                    include product-top.pug
+                    +e.wrapper.js-hidden-slider
+                        +product-top().--hidden-slider
+                        +product-top().--hidden-slider
+
+                    a.b-slider-arrow.b-slider-arrow--hidden-slider.next.slick-arrow.js-ajax-link(href='javascript:void(0);' data-events='getNext initCarousel' data-url='/json/preview-next.json')
+                        span Следующий товар
+                        i.icon-arrow_small_ico.b-icon--hidden-slider
+                    include ui-kit/hr.pug
+                +hr().--hidden-slider

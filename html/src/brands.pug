@@ -1,0 +1,37 @@
+//- ====================
+//- Project: brands
+//- 23-05-2018: sashakasha
+//- --------------------
+//- Бренды
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'brands'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Бренды';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    .b-container
+        include section/ui-kit/breadcrumbs.pug
+        +breadcrumbs('Главная', 'Бренды').--catalog
+        include section/ui-kit/title.pug
+        +title('h1', 'Бренды').--brand
+    //- Бренды
+    +b('section').section.--white.--brand
+        .b-container
+            include section/brand-wrapper.pug
+            +brand-wrapper()
+    //- Популярные бренды
+    +b('section').section.--gray
+        .b-container
+            include section/popular-brand.pug
+            +popular-brand--brand-list()

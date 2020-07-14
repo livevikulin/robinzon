@@ -1,0 +1,349 @@
+@cl-border-brand-menu-desktop: #dedede; // НеПравИльныЙ цВеет (перМЕНная)
+@cl-hover-pagination: #fff; // НеПравИльныЙ цВеет (перМЕНная)
+@background-picker: rgba(255, 255, 255, 0);  // НеПравИльныЙ цВеет (перМЕНная)
+@background-popup: rgba(0,0,0,.15); // НеПравИльныЙ цВеет (перМЕНная)
+
+// ========================================= //
+
+// Fonts
+@font-base: "Roboto";
+
+// Animation
+@fast-animation: 0.2s;
+@animation-time: 0.3s;
+@double-animation: 0.6s;
+
+// MediaQ
+@desktop: ~"(max-width: 1439px)";
+@desktop-min: ~"(max-width: 1169px)";
+@tablet: ~"(max-width: 1023px)";
+@mobile: ~"(max-width: 767px)";
+
+// Colors
+@cl-theme-global: @cl-font-main;
+@cl-theme-link: @cl-font-main;
+@cl-theme-link-hover: @cl-font-orange;
+@cl-theme-grey: @cl-gray;
+
+// Добавлять cl-название
+// Цвета текста
+@cl-font-gray: #666;
+@cl-font-normal-purple: #a7a7f4; // Аспидно синий - фиолетовый
+@cl-font-purple: @cl-font-normal-purple;
+@cl-font-white: #fff;
+@cl-font-black: #000;
+@cl-font-main: #333333;
+@cl-font-light:	#999999;
+@cl-font-dark-gray:	#7d7d7d;
+@cl-font-very-light: #cccccc;
+@cl-font-orange: #ff7902;
+@cl-font-orange-dark: #f58220;
+@cl-font-blue: #2e3192;
+@cl-font-gold: #ff9226;
+
+
+/* Добавлять cl-название-цвета по группам
+// @cl-green: #FFFCE9; // цвет */
+
+
+
+
+
+// Белый
+@cl-white: #fff;
+// Чёрный
+@cl-black: #000;
+@cl-some-black: #231f20;
+// Серый
+@cl-gray-darker: @cl-gray; //более тёмно серый
+@cl-gray: #ccc; // серый
+@cl-light-gray: @cl-gray; // светло серый
+@cl-lavender-gray: @cl-gray; // лаванда-серый
+@cl-light-tegraj: @cl-gray; // cветлый-телегрей  //ДУБЛЬ - НЕ ИСПОЛЬЗОВАТЬ!! ДУБЛЬ - НЕ ИСПОЛЬЗОВАТЬ!!!
+
+@cl-gray-very-light: #ededed; //супер светло серый
+@cl-section-gray: @cl-gray-very-light; //серый фоновый
+@cl-gray-menu-desktop-hover: @cl-gray-very-light;
+@cl-gray-product-border: @cl-gray-very-light;
+@cl-smoky-white: @cl-gray-very-light;
+@cl-snow-white: @cl-gray-very-light;
+@cl-slate-gray: @cl-gray-very-light;
+
+@cl-gray-dark: #999;
+@cl-gray-brown: @cl-gray-dark; // Серый коричневый
+@cl-middle-gray: @cl-gray-dark; //средний серый
+@cl-dimgray: @cl-gray-dark;
+@cl-classic-gray: @cl-gray-dark;
+@cl-gray-darkest: #7d7d7d;
+
+// Красный
+@cl-red: #db1602; // красный
+@cl-red-lighter: #ff0101;
+// Зелёный
+@cl-green: #99cc66; //зеленый
+@cl-light-green: @cl-green;
+@cl-soft-green: @cl-green;
+@cl-middle-green: @cl-green;
+@cl-bright-green: #66BC10;
+// Синий
+@cl-main-purple: #2e3192; // основной фиолетовый
+@cl-dark-blue: @cl-main-purple; // Насыщено синий
+@cl-deep-blue: @cl-main-purple; // глубокий синий
+@cl-normal-purple: #a7a7f4; // Аспидно синий - фиолетовый
+@cl-main-blue: @cl-normal-purple; // основной синий
+@cl-blue: #0078BE;
+@cl-violet: #91418c;
+// Желтый
+@cl-main-yellow: #ffdc95; // основной жёлтый
+@cl-main-orange: #ff9933; // основной оранжевый
+@cl-sygnal-orange: @cl-main-orange; //сигнальный оранжевый
+@cl-orange: @cl-main-orange;
+@cl-main-ginger: @cl-main-orange;
+@cl-beige: @cl-main-yellow; // бежевый
+@cl-yellow: #ED9121;
+@cl-orange-dark: #F58220;
+
+// Коричневый
+@cl-dark-brown:#cca352;
+@cl-light-brown:#f2c76f;
+
+// Alpha colors
+// @cl-alpha: rgba(255, 255, 255, .2); // цвет + описание
+@cl-alpha-gray: rgba(221, 221, 221, 0.5); // серый .5
+@cl-alpha-gray-hover: rgba(221, 221, 221, 0.1); //серый .1
+@cl-alpha-black: rgba(0, 0, 0, 0.1); //чёрный .1
+@cl-alpha-gray: rgba(225, 225, 225, 0.5); // белый .5
+@cl-alpha-gray-hover: rgba(225, 225, 225, 0.1); //белый .1
+
+@cl-hover-pagination: #fff;
+@cl-alpha-white: rgba(255, 255, 255, 0);
+
+@background-picker: rgba(255, 255, 255, 0);
+@background-popup: rgba(0,0,0,.15);
+
+@cl-alpha-white-brand-transparent: rgba(255, 255, 255, .5); // белый .5
+@cl-alpha-white-brand: rgba(255, 255, 255, .9); // белый .9
+@cl-alpha-black-brand: rgba(0, 0, 0, .2); // черный .2
+
+/* Добавлять по категориям cl-элемент
+/* @cl-button-bg: @Var */
+
+// Общий док
+@background: @cl-section-gray;
+@background-header: @cl-white;
+@background-section: @cl-white;
+
+// разделитель между секция
+@hr-main: @cl-gray;
+@hr-popup: @cl-gray-darker;
+@hr-light: @cl-section-gray;
+
+// popovers поповеры
+@background-popover: @cl-white;
+@border-popover: @cl-gray-darker;
+
+// разделитель между блоками топ-меню
+@cl-divider:@cl-light-gray;
+
+// Ссылки/кнопки
+@link-underline: @cl-gray-darker;
+@button-disable-back: @cl-section-gray;
+
+// элементы формы (input, textarea, select, etc)
+@form-back: @cl-white;
+@form-border: @cl-gray;
+@form-icon: @cl-gray-darker;
+@form-error: @cl-red-lighter;
+@form-ok: @cl-main-orange;
+
+// элементы формы (checkbox, radio)
+@checkbox-back: @cl-gray;
+@checkbox-back-hover: @cl-gray;
+@checkbox-back-checked: @cl-font-orange;
+@radio-back: @cl-white;
+
+// кнопки с бэком без бордера
+@button-main-back: @cl-main-purple;
+@button-main-hover: @cl-gray;
+@button-main-active: @cl-gray;
+@button-white-back: @cl-white;
+
+// кнопки полупрозрачные
+@button-alfa-back: @cl-alpha-gray;
+@button-alfa-hover: @cl-alpha-gray-hover;
+// @button-main-active: @cl-gray;
+
+// кнопки прозрачные
+@button-transparent-back: transparent;
+@button-transparent-hover: @cl-gray;
+@button-transparent-active: @cl-gray;
+@button-main-border-orange: @cl-main-orange;
+@button-transparent-border: @cl-font-main;
+
+// кнопки купить
+@button-buy-main-orange: @cl-orange-dark;
+
+// значок, наклейка, метка на товаре и тд
+@label-new: @cl-light-green;
+@label-vip: @cl-main-purple;
+@label-hit: @cl-main-orange;
+@label-sale: @cl-main-orange;
+@tag-back: @cl-white;
+@tag-border: @cl-main-orange;
+@tag-back-active: @cl-orange;
+@sign: @cl-soft-green;
+@sticker-free: @cl-sygnal-orange;
+
+//значки геолокаций
+@pin-red: @cl-red;
+@pin-beige: @cl-beige;
+@pin-grey: @cl-middle-gray;
+@pin-green: @cl-green;
+@pin-white: @cl-white;
+
+// Продукт
+@product-back: @cl-white;
+// @product-back-alternate:;
+@product-border: @cl-gray;
+@product-border-hover: @cl-main-orange;
+@product-recommended-border: @cl-section-gray;
+@product-add-card: @cl-main-purple;
+@product-card-top: @cl-font-white;
+@product-list-characteristic: @cl-font-white;
+@product-border-set: @cl-gray-darker;
+@product-separate-border: @cl-smoky-white;
+@product-separate-border-light: @cl-section-gray;
+@product-remove: @cl-gray;
+
+// Наличие
+@aviability-icon-green: @cl-bright-green;
+
+// Продукт - рекомендованные
+@recommended-question: @cl-main-yellow;
+@recommended-more: @cl-white;
+@recommended-buy-border: @cl-font-orange;
+
+// Сравнение
+@compare-border: @cl-section-gray;
+@compare-back: @cl-white;
+@compare-close: @cl-gray-darker;
+@compare-arrow-back: @cl-light-gray;
+
+// Range (выбор цены)
+@range-back: @cl-gray;
+@range-connect: @cl-normal-purple;
+@range-pointer: @cl-normal-purple;
+@range-pointer-hover: @cl-normal-purple;
+
+// слайдер в карточке товара
+@product-slider: #282828;
+
+// Элементы управления
+@check-mark: @cl-white;
+@dark-link: @cl-some-black;
+
+// @arrow:;
+@arrow-border-hover: @cl-alpha-gray;
+@dot: @cl-white;
+@dot-darker: @cl-light-gray;
+@dot-hover: @cl-main-orange;
+@dot-active: @cl-main-orange;
+
+// icons
+@header-icon: @cl-normal-purple;
+@header-icon-active: @cl-dark-blue;
+@mobile-menu-ico: @cl-normal-purple;
+@arrow-down: @cl-gray-dark;
+@arrow-down-active: @cl-white;
+@ico-active-product: @cl-normal-purple;
+@recommend-icon: @cl-lavender-gray;
+@check-icon: @cl-middle-green;
+@metro-icon: @cl-red;
+@mobile-menu-close-icon: @cl-gray-darkest;
+@mobile-nav-arrow-icon: #333333;
+@mobile-nav-border: #C1C1C1;
+
+// Цвета для блока whyrobinzon (Почему багаж покупают в магазинах Робинзон?)
+@whyrobinzon-border: @cl-alpha-black; // цвет для бордеров
+@whyrobinzon-background: @cl-main-yellow; // цвет для фона
+
+// Цвета для текста описаний и контента
+@text-product-description: @cl-font-main; // VD: карточка товара - описание продукта
+
+// tab
+@border-tab:@cl-gray-darker; // цвет бордера табов
+
+// цвет для баннера в карточках товара
+@background-banner-product: #5f5f5f;
+@background-banner-gradient: linear-gradient(to bottom, rgba(98, 98, 98, 0), #171717);
+@catalog-button: #fff;
+
+// goods-filter
+@goods-filter-background: @cl-section-gray;
+@goods-filter-clear: @cl-font-light;
+@goods-filter-arrow: @cl-font-main;
+@goods-filter-select-bg-mobile: @cl-white;
+@goods-filter-select-border: @cl-gray-darker;
+
+@filter-close: @cl-white;
+
+// Цвета footer
+@subscribe-background:@cl-main-yellow;
+@footer-background: @cl-white;
+@subscribe-input-border:@cl-light-brown;
+@subscribe-button-border:@cl-dark-brown;
+@footer-icons: @cl-light-gray;
+@footer-hover-icons:@cl-normal-purple;
+
+// select
+@background-select: rgba(255, 255, 255, 0);
+
+// counter / счётчик / плюс-минус
+// @counter-sign: @cl-gray-darker;
+@counter-sign: @cl-black;
+@counter-sign-disable: #e1e1e1;  // Заглушка
+@counter-border: @cl-gray-darker;
+@counter-back: @cl-white;
+
+// пунктирная линия
+@advice-border-left: @cl-alpha-white;
+@advice-border: @cl-dimgray;
+// @advice-border-hover: @cl-main-orange;
+@link-border: @cl-gray-dark;
+@link-dot-border: @cl-classic-gray;
+@link-price-border: @cl-gray-dark;
+
+@preview-close: @cl-font-light;
+
+@order-text: @cl-font-main;
+@order-radio: @cl-gray-dark;
+@order-radio-checked: @cl-sygnal-orange;
+@order-description: @cl-font-light;
+@order-border: @cl-gray-darker;
+@order-group-border: @cl-section-gray;
+
+@brand-border: @cl-slate-gray;
+@brand-list-back: @cl-white;
+@brand-list-border: @cl-sygnal-orange;
+@brand-name: @cl-font-orange;
+@brand-text: @cl-font-light;
+@button-brand-border: @cl-gray-darker;
+@brand-close: @cl-gray-darker;
+
+// stores banner
+@stores-banner-background: @cl-black;
+@stores-banner-border: @cl-white;
+
+@brand-count: @cl-font-orange;
+@order-logo-border: @cl-section-gray;
+
+@arrow-brand: @cl-white;
+
+@goto-header : @cl-font-purple;
+
+@action-border: @cl-main-orange;
+
+@filter-color-boder: @cl-gray;
+
+// tumb perfect scrollbar
+@tumb-background: @cl-font-gold;

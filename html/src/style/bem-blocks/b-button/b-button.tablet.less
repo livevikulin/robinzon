@@ -1,0 +1,33 @@
+/* 768 + */
+.b-button {
+    &--recomend-item {
+        padding: 10px 17px;
+        opacity: 0;
+        transition: @animation-time;
+
+        .no-touchevents .b-recommended-item__content--hover:hover &,
+        .touchevents .b-recommended-item__content--hover:active & {
+            opacity: 0;
+        }
+    }
+
+    &--in-basket,
+    &--in-basket-last {
+        display: inline-block;
+        width: 190px;
+    }
+
+    &--in-basket {
+        margin-right: 10px;
+    }
+
+    &--cart-list {
+        width: 100%;
+    }
+
+    &--pick-model {
+        .b-pick-model--stretch & {
+            padding: 12px 17px;
+        }
+    }
+}

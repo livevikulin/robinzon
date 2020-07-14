@@ -1,0 +1,15 @@
+//- ====================
+//- 4lapy: title
+//- 30-10-2017: drtvader
+//- --------------------
+//- заголовок
+//- ====================
+
+mixin title(type, title)
+    +b(type).title(class!=attributes.class)!= title
+        block
+
+mixin title-link(type, title)
+    +b(type).title(class!=attributes.class)
+        +e('a').link(href='javascript:void(0)' title='') #{title}
+        block

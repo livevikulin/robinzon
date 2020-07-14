@@ -1,0 +1,81 @@
+/* 1440 + */
+.b-textarea {
+    width: 100%;
+    
+    & label.error {
+        padding-top: 3px;
+        color: @form-error;
+    }
+
+    &__input-field {
+        height: 85px;
+        border-radius: 2px;
+        background-color: @form-back;
+        padding: 0px 40px 0px 18px;
+        border: 1px solid @form-border;
+        transition: border .3s;
+        .roboto-regular;
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 7px 15px 0 7px;
+        width: 100%;
+
+        -webkit-appearance: none;
+        -moz-appearance:    none;
+        appearance:         none;
+
+        // Общие (цвета+ховеры, элементы, поведения)
+        &:focus {
+            border: 1px solid @form-ok;
+        }
+
+        // &[disabled] {}
+
+        &[placeholder]{
+            text-overflow:ellipsis;
+            line-height: 20px;
+        }
+
+        &[type=search] {
+            box-sizing: border-box;
+        }
+
+        // Префиксы
+        &::-webkit-input-placeholder {
+            color: @cl-light-gray;
+            font-size: 15px;
+            line-height: 20px;
+            .roboto-regular;
+        }
+        &:-moz-placeholder {
+            color: @cl-light-gray;
+            font-size: 15px;
+            line-height: 20px;
+            .roboto-regular;
+        }
+        &::-moz-placeholder {
+            color: @cl-light-gray;
+            font-size: 15px;
+            line-height: 20px;
+            .roboto-regular;
+        }
+        &:-ms-input-placeholder {
+            color: @cl-light-gray;
+            font-size: 15px;
+            line-height: 20px;
+            .roboto-regular;
+        }
+
+        &.error {
+            border: 1px solid @form-error;
+            color: @form-error;
+        }
+        // End: Общие
+    }
+
+    &--add-review & {
+        &__input-field {
+            resize: none;
+        }
+    }
+}

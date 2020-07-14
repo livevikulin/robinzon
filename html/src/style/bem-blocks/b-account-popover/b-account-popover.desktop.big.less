@@ -1,0 +1,30 @@
+/* 1440 + */
+.b-account-popover {
+    background-color: @background-popover;
+
+    &__list {
+        padding: 6px 0;
+    }
+
+    &__item {
+        list-style: none;
+        display: block;
+    }
+
+    &__link {
+        display: block;
+        .roboto-regular;
+        font-size: 13px;
+        line-height: 13px;
+        padding: 11px 30px 12px 12px;
+        transition: .3s;
+
+        .no-touchevents &:hover {
+            background-color: @cl-main-purple;
+            color: @cl-font-white;
+        }
+        .touchevents &:active {
+            color: @cl-font-orange;
+        }
+    }
+}

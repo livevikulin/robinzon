@@ -1,0 +1,31 @@
+//- ====================
+//- Robinzon: main-slide
+//- 18-01-2018: Amedomary
+//- --------------------
+//- main-slide
+//- ====================
+
+mixin main-slide( src, src_tablet, src_mobile )
+    +b.main-slide&attributes( attributes )
+        +e('a')(href="javascript:void(0);" title="").link
+            +e('img').background( src=`${src}` )
+
+            //- if src_desktop
+            //-     +e('img').background.--desktop( src=`${src_desktop}` )
+
+            //- if src_min
+            //-     +e('img').background.--min-desktop( src=`${src_min}` )
+
+            if src_tablet
+                +e('img').background.--tablet( src=`${src_tablet}` )
+
+            if src_mobile
+                +e('img').background.--mobile( src=`${src_mobile}` )
+
+            block
+
+mixin main-slide-content(heading, sub_heading, title_link)
+    +e.content
+        +e('span').heading #{heading} 
+        +e('span').sub-heading #{sub_heading} 
+        +e('span').title-link #{title_link} 

@@ -1,0 +1,58 @@
+/* 768 + */
+.b-pvz {
+    background: 0 0;
+    padding: 0;
+
+    &__item {
+        margin: 0;
+    }
+
+    &__link {
+        position: relative;
+        display: block;
+        background: @background-section;
+        padding: 15px 30px 15px;
+        
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            background: @background-section;
+        }
+
+        // Раздилитель сверху
+        &:before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 20px;
+            right: 20px;
+            border-top: 1px solid @hr-light;
+        }
+
+        // Стрелочка вверх
+        &:after {
+            display: none;
+            position: absolute;
+            right: 25px;
+            .icon-base-pseudo();
+            .icon-char(arrow-small);
+            color: @arrow-down;
+            transform: rotate(90deg);
+            transform-origin: center;
+        }
+
+        .b-pvz__item.active & {
+            background: @background-section;
+            color: @cl-theme-link-hover;
+            // margin-bottom: 23px;
+
+            &:after {
+                display: inline-block;
+            }
+        }
+    }
+
+    &__accordion-block {
+        // padding: 20px 0;
+        display: block;
+    }
+}

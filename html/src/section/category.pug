@@ -1,0 +1,16 @@
+//- ====================
+//- Robinzon: category
+//- 25-03-2018: Amed
+//- --------------------
+//- category  img+text
+//- ====================
+
+mixin category(data)
+    +b.category(class!=attributes.class)
+        +e('a').link(href='javascript:void(0)', title='')
+            +e.image-wrapper
+                +e('img').image(src=data.src, alt='', title='').js-image-wrapper
+            +e('p').description
+                span !{data.name_one}
+                if data.name_two
+                    span !{data.name_two}

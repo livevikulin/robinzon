@@ -1,0 +1,29 @@
+/* 320 + */
+.b-main-nav {
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        right: -15px;
+        top: 0;
+        height: 100%;
+        width: 40px;
+        background: linear-gradient(to right,
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0.7),
+                    rgb(255, 255, 255)
+                    );
+    }
+
+    &__list {
+        padding: 0 33px 0 15px;
+    }
+
+    &__item {
+        height: 45px;
+        font-size: 15px;
+        margin: 0;
+    }
+}

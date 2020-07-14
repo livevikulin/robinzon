@@ -1,0 +1,26 @@
+//- ====================
+//- Robinzon: price
+//- 25-01-2018: drtvader
+//- --------------------
+//- цена
+//- ====================
+
+//- price вводим цену
+//- old если есть старая цена то true
+//- oldprice старая цена
+//- label если есть лейбл со скидосом
+mixin price(price, old, oldprice, text)
+
+    +b.price(class!=attributes.class, itemprop="offers", itemscope itemtype="http://schema.org/Offer")
+        if old
+            +e('span').old-price(class!=attributes.class) #{oldprice} #{text}
+        +e.main(class!=attributes.class class=old ? '--is-sale' : '')
+            if old
+                +e('span').sale -20%
+            +e('span').number(class!=attributes.class, itemprop="price", content=`${price}`) #{price}
+            +e('span').text(class!=attributes.class, itemprop="priceCurrency" content="RUB") #{text}
+
+        //- if label
+        //-     include discount-label.pug
+        //-     +discount-label(label)
+            //- link(itemprop='availability', href='http://schema.org/InStock')

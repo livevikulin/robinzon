@@ -1,0 +1,16 @@
+//- ====================
+//- Project: product-card-new
+//- 30-04-2020:
+//- --------------------
+//- Карточка товара Новая
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./product-card-base
+
+block variables
+    - var file_name = 'product-card'
+
+block product-top
+    include section/product-top-new.pug
+    +product-top-new()

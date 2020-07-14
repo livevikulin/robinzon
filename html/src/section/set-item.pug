@@ -1,0 +1,77 @@
+//- ====================
+//- Robinzon: set-item
+//- 01-02-2018: Amedomary
+//- --------------------
+//- "Комплект"
+//- ====================
+
+mixin set-item(data)
+    +b.set-item
+        +e.wrapper
+            include recommended-item.pug
+            +recommended-item({'items':
+                    [{
+                        'classBlock': '--set',
+                        'classContent': '--set',
+                        'classImageLink': '--set',
+                        'classDescription': '--set',
+                        'iconHideFav': true,
+                        'iconHideCom': true,
+                        'buttonHide': true,
+                        'srclink': 'images/content/recommended-bag-2.jpg',
+                        'size': 'Чемодан средний M',
+                        'name': 'American Tourister Sunset Square Spinner 13G*908',
+                        'price': '14 590.-'
+                    }
+                ]})
+            +e('i').sing.--first +
+
+            include recommended-item.pug
+            +recommended-item({'items':
+                    [{
+                        'classBlock': '--set',
+                        'classContent': '--set',
+                        'classImageLink': '--set',
+                        'classDescription': '--set',
+                        'iconHideFav': true,
+                        'iconHideCom': true,
+                        'buttonHide': true,
+                        'srclink': 'images/content/recommended-bag-2.jpg',
+                        'size': 'Чемодан средний M',
+                        'name': 'American Tourister Sunset Square Spinner 13G*908',
+                        'price': '14 590.-'
+                    }
+                ]})
+            +e('i').sing.--second +
+
+            include recommended-item.pug
+            +recommended-item({'items':
+                    [{
+                        'classBlock': '--set --last',
+                        'classContent': '--set',
+                        'classImageLink': '--set',
+                        'classDescription': '--set',
+                        'iconHideFav': true,
+                        'iconHideCom': true,
+                        'buttonHide': true,
+                        'srclink': 'images/content/recommended-bag-2.jpg',
+                        'size': 'Чемодан средний M',
+                        'name': 'American Tourister Sunset Square Spinner 13G*908',
+                        'price': '14 590.-'
+                    }
+                ]})
+            +e('i').sing.--third.--equel =
+
+            +e.equel
+                +e.compare
+                    +e('span').wholesale-price 22 699.-
+                    +e('dl').retail
+                        +e('dt').retail-title По отдельности
+                        +e('dd').retail-price 25 590.-
+
+                include ui-kit/button.pug
+                +button('Купить комплект', '', true).--blue.--block.--set
+
+                +e('a').more-link(href='javascript:void(0)', title='')
+                    +e('img').more-image(alt='', src='images/inhtml/set-link.png')
+                    +e('span').more-text Смотреть другие комплекты

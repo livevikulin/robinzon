@@ -1,0 +1,12 @@
+//- ====================
+//- brand-recommend-list
+//- 04-06-2018: sashakasha
+//- --------------------
+//- Коллекции бренда
+//- ====================
+
+mixin brand-recommend-list(...items)
+    +b('ul').brand-recommend-list
+        each item in items
+            +e('li').item
+                +b('a').link(href='javascript:void(0);', title=item).--underline.--brand-recommend #{item}

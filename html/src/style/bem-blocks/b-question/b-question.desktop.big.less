@@ -1,0 +1,37 @@
+/* 1440 + */
+.b-question {
+    .roboto-regular;
+    font-size: 13px;
+    line-height: 15px;
+    border-radius: 100%;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: @cl-section-gray;
+    border: 1px solid @cl-light-tegraj;
+    color: @cl-font-light;
+
+    .no-touchevents &:hover,
+    .touchevents &:active {
+        color: @cl-font-light;
+    }
+
+    body &--product {
+        margin: 0 5px 0 0;
+        border: none;
+        .icon-hint;
+        background: none;
+        position: relative;
+        width: 14px;
+        height: 14px;
+        font-size: 0;
+        line-height: 0;
+        &:before {
+            font-size: 14px;
+            line-height: 14px;
+            color: @cl-font-main
+        }
+    }
+}

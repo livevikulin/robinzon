@@ -1,0 +1,66 @@
+//- ====================
+//- Robinzon: review-form
+//- 12-07-2018: Dima
+//- --------------------
+//- Отзыв
+//- ====================
+
+//- title
+//- data
+//- content
+include ui-kit/title.pug
+include ui-kit/input-label.pug
+include ui-kit/input.pug
+include ui-kit/textarea.pug
+include ui-kit/button.pug
+
+mixin review-form()
+    +b.review-form(class!=attributes.class)
+        +e.column.--left
+
+            +e.wrapper.--send
+                +title('h3', 'Отзыв отправлен').--order.--review-form
+
+                +e.message
+                    span Спасибо!
+                    span Ваш отзыв принят.
+
+                +b('a').link(href='javascript:void(0)', title='').--underline-dot.--review Написать еще
+
+            +e('form').wrapper.js-validation-form
+                
+                +title('h3', 'Оставьте свой отзыв').--order.--review-form
+                +e.group.--two-inside
+                    +e.group--short
+                        +input-label('Ваше имя', 'id-name-order').--review-form
+                        +input('id-name-order', 'text', '', 'name-order', '')(class="js-no-numb")
+                    +e.group--short
+                        +input-label('Город', 'id-city-order').--review-form
+                        +input('id-city-order', 'text', '', 'city-order', '')(class="js-geo-city")
+
+                +e.group
+                    +input-label('Электронная почта', 'id-email-order').--review-form
+                    +input('id-email-order', 'email', '', 'email-order', '')(required="required", class="js-email js-no-ru")
+
+                +e.group
+                    +input-label('Тема отзыва', 'id-theme-order').--review-form
+                    +input('id-theme-order', 'text', '', 'theme-order', '')
+
+                +e.group.--comment
+                    +input-label('Текст отзыва', 'id-comment-review-order').--review-form
+                    +textarea('id-comment-review-order', 'text', '', 'comment-review-order', '')
+
+                +button('Отправить отзыв', '', true).--blue.--review-form
+
+        +e.column.--right
+            +title('h3', 'Мы ценим ваше мнение').--opinion
+
+            +e('p').contact-head Будем признательны за&nbsp;вопросы, пожелания или предложения по&nbsp;улучшению нашей работы в&nbsp;наших салонах и&nbsp;интернет-магазине Robinson:
+            +e('p').contact
+                span по телефонам 8-800-555-32-85 (по России), +7 (495) 648-66-88 (по Москве)
+                span по электронной почте contact@robinzon.ru
+
+            +b('a').link(href='javascript:void(0)', title='').--underline-dot.--review Посмотреть все отзывы
+
+
+        

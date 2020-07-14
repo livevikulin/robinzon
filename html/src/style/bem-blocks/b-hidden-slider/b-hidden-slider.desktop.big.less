@@ -1,0 +1,83 @@
+/* 1440 + */
+.b-hidden-slider {
+    position: relative;
+
+    //  АНИМАШКА
+    // max-height: 0;
+    // transition: max-height 1.5s;
+    //     &.active-prev {
+    //         max-height: 1000px;
+    //         transition: max-height 1.5s;
+    //     }
+
+
+    &__wrapper-animation {
+        background-color: @product-back;
+        // transform: translateY(-100%);
+        transition: margin-top @animation-time, max-height @animation-time;
+        max-height: 0;
+        margin-top: 0;
+        // box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.12);
+        position: absolute;
+        overflow: hidden;
+
+        &.active {
+            position: relative;
+            max-height: 1000px;
+            // transform: translateY(0);
+            margin-top: 20px;
+            padding-bottom: 54px;
+            margin-bottom: 20px;
+            overflow: visible;
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                width: 100vw;
+                top: 0;
+                bottom: 0;
+                background-color: @product-back;
+            }
+
+            &:before {
+                left: 100%;
+            }
+
+            &:after {
+                right: 100%;
+            }
+        }
+    }
+
+    &__triangle {
+        position: absolute;
+        top: -40px;
+        left: 150px;
+        border: 20px solid transparent;
+        border-bottom: 20px solid @product-back;
+        z-index: 1;
+        transition: left @animation-time;
+    }
+
+    &__close {
+        position: absolute;
+        top: 35px;
+        right: 0;
+        z-index: 1;
+    }
+
+    &__close-link {
+        display: block;
+        height: 100%;
+        position: relative;
+    }
+
+    &__wrapper {
+        position: relative;
+    }
+
+    & .slick-list {
+        overflow: hidden;
+    }
+}

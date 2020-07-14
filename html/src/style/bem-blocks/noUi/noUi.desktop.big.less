@@ -1,0 +1,57 @@
+.noUi {
+    &-base {
+        margin-top: 30px;
+        margin: 20px 12px 0;
+        width: auto;
+    }
+
+    &-horizontal {
+        height: 3px;
+        background-color: @range-back;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+    }
+
+    &-target {
+    }
+
+    &-connect {
+        height: 3px;
+        background: @range-connect;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+    }
+
+    &-horizontal &-handle {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: @range-pointer;
+        border: solid 1px transparent;
+        left: -12px;
+        top: -11px;
+        box-shadow: none;
+        cursor: pointer;
+        transition: background-color @animation-time;
+
+        // .no-touchevents &:hover,
+        // .touchevents &:active {
+        //     background-color: @cl-main-orange;
+        // }
+
+        &:before,
+        &:after {
+            content: none;
+        }
+
+        &-upper {
+            right: -12px!important;
+        }
+
+        &-lower {
+            right: -12px!important;
+        }
+    }
+}

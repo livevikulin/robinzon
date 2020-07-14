@@ -1,0 +1,35 @@
+//- ====================
+//- Robinzon: popular-brand
+//- 18-01-2018: Amedomary
+//- --------------------
+//- Блок для популярных брендов
+//- ====================
+
+mixin popular-brand()
+    +b.popular-brand
+        +title-link('h1', 'Популярные бренды').--block.--link-heading.--about-us
+
+        //- Слайдер отзывов
+        include brand-slider.pug
+        +brand-slider().js-brand-slider.js-horizontal-scroll
+        +e.link-line
+            include ui-kit/link.pug
+            +link('Все бренды', '', true).--review-footer
+
+        //- Выбрать рюкзак или чeмодан
+        include pick-model-block.pug
+        +pick-model-block()
+
+
+mixin popular-brand--brand-list()
+    +b.popular-brand
+        +title-link('h1', 'Популярные бренды').--block.--link-heading.--about-us
+
+        include brand-slider.pug
+        +brand-slider().js-brand-slider.js-horizontal-scroll
+        +e.link-line
+            include ui-kit/link.pug
+            +link('Все бренды', '', true).--review-footer
+
+        include pick-model-block.pug
+        +pick-model-block--brand-list()

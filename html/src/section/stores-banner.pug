@@ -1,0 +1,49 @@
+//- ====================
+//- stores-banner
+//- 29-05-2018: Mell.Blimm
+//- --------------------
+//- Наши магазины - баннер
+//- ====================
+
+mixin stores-banner()
+    +b.stores-banner
+        +e.background
+            +e('img').image(src="images/content/stores-banner.jpg" alt="" title="")
+        .b-container
+            +e.wrapper
+                include ui-kit/title.pug
+                +title('h2', 'Почему совершать покупки в магазинах &laquo;Робинзон&raquo; выгодно?').--stores-banner
+                +e('ul').list
+                    +e.item.--pct
+                        +e('span').text до 
+                        +e('span').text--marked.--pct 30
+                            span % 
+                            //- include ui-kit/icon.pug
+                            //- +icon('banner30').--banner30
+                        +e('span').text скидка на аксессуары
+                    +e.item.--year
+                        +e('span').text--marked.--year
+                            span 1
+                            | год
+                            //- include ui-kit/icon.pug
+                            //- +icon('banner-year').--banner-year
+                        +e('span').text дополнительная гарантия
+                    +e.item
+                        +e('span').text--marked
+                            include ui-kit/icon.pug
+                            +icon('round-arrows').--round-arrows
+                        +e('span').text Можно скорректировать заказ на месте
+                +e('p').go
+                    +e('span').note Посетите фирменные магазины Робинзон в городах: 
+                    include ui-kit/link.pug
+                    +link('', 'Москва', true).--banner
+                        +e.add-text.--count 5
+                    include ui-kit/link.pug
+                    +link('', 'Санкт-Петербург', true).--banner
+                        +e.add-text.--count 2
+                    include ui-kit/link.pug
+                    +link('', 'Воронеж', true).--banner
+                        +e.add-text.--count 3
+                    include ui-kit/link.pug
+                    +link('', 'Смоленск', true).--banner
+                        +e.add-text.--count 1

@@ -1,0 +1,32 @@
+/* 1440 + */
+.b-brand-recommend {
+    margin: 0 0 47px;
+    padding: 40px 0;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__collection {
+        width: ~'calc(100% - 770px)';
+    }
+
+    &__banner {
+        font-size: 0;
+        width: 100%;
+        overflow: visible;
+        position: relative;
+        padding-bottom: 30px;
+        margin: 0 -15px; 
+
+        .slick-list {
+            overflow: hidden;
+        }
+    }
+
+    &__collection + &__banner {
+        width: 770px;
+        overflow: hidden;
+    }
+}

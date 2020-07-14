@@ -1,0 +1,31 @@
+/* 1440 + */
+.b-cart-list {
+    margin-bottom: 15px;
+
+    &__caption {
+        display: flex;
+        flex-flow: row nowrap;
+        margin-bottom: 10px;
+    }
+
+    &__cell {
+        color: @cl-font-light;
+        .roboto-regular;
+        font-size: 13px;
+
+        &--info {
+            width: 100%;
+            flex: 1 1 auto;
+        }
+        &--cost {
+            width: 165px;
+            flex: 0 0 auto;
+        }
+    }
+
+    &__wrapper {
+        background-color: @product-back;
+        padding: 0 35px;
+        margin-bottom: 20px;
+    }
+}

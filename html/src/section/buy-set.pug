@@ -1,0 +1,24 @@
+//- ====================
+//- Robinzon: buy-set
+//- 01-02-2018: VD
+//- --------------------
+//- Слайдер "покупать в комплектее выгодно"
+//- ====================
+
+mixin buy-set()
+    include ui-kit/title.pug
+    +title('h1', 'Покупать в комплекте выгодно').--block.--buy-set
+    +buy-set-slider()
+
+
+mixin buy-set-slider()
+    +b.buy-set-slider.js-buy-set-slider
+        //- 1
+        include set-item.pug
+        +set-item()
+        //- 2
+        include set-item.pug
+        +set-item()
+        //- 3
+        include set-item.pug
+        +set-item()

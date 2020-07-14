@@ -1,0 +1,16 @@
+/* 768 + */
+.b-popup {
+    &__content {
+        &--full-height-tablet {
+            height: 100%;
+            overflow: hidden;
+        }
+    }
+
+    [data-popup="help-up"] &__content {
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: none;
+    }
+}

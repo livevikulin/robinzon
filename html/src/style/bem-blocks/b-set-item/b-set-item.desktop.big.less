@@ -1,0 +1,134 @@
+/* 1440 + */
+.b-set-item {
+    font-size: 0;
+    width: 1040px;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid @product-border-set;;
+    background-color: @cl-white;
+    height: 310px;
+    margin-left: 35px;
+    margin-right: 35px;
+
+    // либо использовать для прозрачности новый контейнер
+    &.slick-slide {
+        pointer-events: none;
+        opacity: .8;
+        transition: opacity 0.5s;
+        background-color: transparent;
+
+        & .b-set-item__wrapper {
+            opacity: 0;
+            transition: opacity 0.5s;
+
+            // Для IE
+            & .b-set-item__sing {
+                opacity: 0;
+            }
+        }
+    }
+
+    &.slick-current {
+        pointer-events: auto;
+        opacity: 1;
+        background-color: @cl-white;
+
+        & .b-set-item__wrapper {
+            opacity: 1;
+
+            & .b-set-item__sing {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__sing {
+        position: absolute;
+        top: 50%;
+        margin-top: -23px;
+        margin-left: -23px;
+
+        width: 46px;
+        height: 46px;
+        border-radius: 100%;
+        background-color: @sign;
+
+        color: @cl-font-white;
+        font-style: normal;
+        font-size: 40px;
+        line-height: 46px;
+        font-weight: 400;
+        z-index: 46;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    &__equel {
+        width: 380px;
+        height: 100%;
+        padding: 75px 55px 25px 55px;
+        display: inline-block;
+        vertical-align: top;
+        .roboto-regular;
+        font-size: 13px;
+    }
+
+    &__compare {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: stretch;
+        margin-bottom: 15px;
+    }
+
+    &__wholesale-price {
+        display:inline-block;
+        vertical-align: middle;
+        width: 50%;
+        border-right: 1px solid @product-recommended-border;
+        padding-right: 5px;
+        font-size: 28px;
+        line-height: 42px;
+    }
+
+    &__retail {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 0 0 auto;
+        padding-left: 5px;
+    }
+
+    &__retail-title {
+        .roboto-regular;
+        font-size: 13px;
+        margin: 0;
+    }
+
+    &__retail-price {
+        .roboto-medium;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    &__more-link {
+        display: flex;
+        width: auto;
+        margin: 0 10px;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__more-image {
+        display: inline-block;
+        margin-right: 10px;
+        width: 85px;
+        height: 85px;
+    }
+
+    &__more-text {
+        display: inline-block;
+        line-height: 18px;
+        width: 113px;
+    }
+}

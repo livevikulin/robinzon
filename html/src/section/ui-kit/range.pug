@@ -1,0 +1,16 @@
+//- ====================
+//- 4P: range
+//- 31-10-2017: Mell.Blimm
+//- --------------------
+//- Ползунок для цены
+//- ====================
+
+mixin range()
+    +b.range(class!=attributes.class)
+        +e.price-block
+            +e('span').line-input от
+            +b('input').input__input-field--price.--min.js-price-min.js-ajax-custom(type="text" data-min="0" value="1000" name="price-min")
+            +e('span').line-input до
+            +b('input').input__input-field--price.--max.js-price-max.js-ajax-custom(type="text" data-max="10000" value="8569"  name="price-max")
+            +e('span').line-input Руб.
+        +e.line.js-slider-range

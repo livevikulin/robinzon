@@ -1,0 +1,42 @@
+/* 1440 + */
+.b-page-wrapper {
+    position: relative;
+    // z-index: 5;
+    // display: flex;
+    // min-width: 320px;
+    // flex-direction: column;
+    // justify-content: space-between;
+    
+    // -webkit-overflow-scrolling: touch;
+    
+    
+    overflow-x: hidden;
+    height: 100% !important;
+    // overscroll-behavior: none;
+
+    
+
+    &.no-scroll {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow-x: hidden !important;
+        
+        height: 100vh !important;
+    }
+
+    &.no-touch {
+        pointer-events: none;
+        touch-action: none;
+    }
+
+    // fix scroll block when open popup
+    // need only for windows
+    // and only desktop
+    // and have scroll
+    .no-touchevents &.no-scroll&.windows {
+        padding-right: 17px;
+    }
+}

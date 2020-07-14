@@ -1,0 +1,116 @@
+//- ====================
+//- Project: product-card
+//- 25-01-2018:
+//- --------------------
+//- Карточка товара
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'product-card'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Карточка товара';
+
+//- Выводим попапы
+block popup
+    include section/ui-kit/popup.pug
+    include section/popup/material-popup.pug
+    include section/popup/reservation-popup.pug
+    include section/popup/in-basket-popup.pug
+
+    +popup()(data-popup='material')
+        +material-popup()
+    +popup()(data-popup='reservation')
+        +reservation-popup()
+    +popup()(data-popup='in-basket').--full-mobile
+        +in-basket-popup()
+    
+
+//- Выводим фикседы
+block preHeader
+    include section/fixed-tab-product.pug
+    +fixed-tab-product().js-fixed-tab-product
+
+//- Выводим content
+block content
+    +b.product-card
+        .b-container
+            include section/ui-kit/breadcrumbs.pug
+            +breadcrumbs('Главная', 'Чемоданы', 'Большие чемоданы')
+            include section/ui-kit/title.pug
+            +title('h1', 'Чемодан American Tourister 85A*002 Bon Air Spinner')
+        include section/product-top.pug
+        +product-top(true)
+
+        // BEGIN: card-tabs
+        include section/ui-kit/tab.pug
+        +tab({'items': 
+            [{
+                'text': 'Описание',
+                'data': 'description'
+            }, {
+                'text': 'Отзывы ',
+                'data': 'review',
+                'lightAddTextLink': '15'
+            }, {
+                'text': 'Наличие в 7 магазинах',
+                'data': 'avaibility-shop'
+            }, {
+                'text': 'Аксессуары',
+                'data': 'accessorize'
+            }, {
+                'text': 'Комплекты',
+                'data': 'set'
+            }],
+            'wrapperClass': 'js-tab-card-wrapper js-horizontal-scroll',
+            'listClass': '--card',
+            'lineClass': '--underline'}
+        ).--product-card.js-tab-fixed-block.js-horizontal-scroll
+
+            +e.content.js-tab-content.-active(data-tab-content="description")
+                .b-container
+                    include section/product-description.pug
+                    +product-description()
+            //- +e.content.js-tab-content(data-tab-content="review", data-anchor="review")
+                p Test tab 2
+            +e.content.js-tab-content(data-tab-content="avaibility-shop")
+                .b-container
+                    include section/availability.pug
+                    +availability()
+            //- +e.content.js-tab-content(data-tab-content="accessorize")
+                p Test tab 4
+            //- +e.content.js-tab-content(data-tab-content="set")
+                p Test tab 5
+        // END: card-tabs
+
+        // BEGIN: Полезные аксессуары
+        include section/buy-set.pug
+        +b('section').section.-gray(data-anchor="accessorize")
+            .b-container
+                +title('h1', 'Полезные аксессуары').--block.--similar
+                include section/list-of-products.pug
+                +list-of-products().js-similar-slider
+        // END: Полезные аксессуары
+
+        // BEGIN: Покупать в комплетке выгодно
+        include section/buy-set.pug
+        +b('section').section.-gray(data-anchor="set")
+            .b-container
+                +buy-set()
+        // END: Покупать в комплетке выгодно
+
+        include section/ui-kit/hr.pug
+        +hr().--none
+
+        // BEGIN: Похожие товары
+        include section/buy-set.pug
+        +b('section').section.-gray
+            .b-container
+                +title('h1', 'Похожие товары').--block.--similar
+                include section/list-of-products.pug
+                +list-of-products--similar().js-similar-slider
+        // END: Похожие товары

@@ -1,0 +1,133 @@
+/* 1440 + */
+.b-label {
+    display: inline-block;
+    height: 40px;
+    left: 10px;
+    position: absolute;
+    top: 10px;
+    margin: 10px;
+    width: 40px;
+    z-index: 2;
+    .roboto-light;
+    color: @cl-font-white;
+    font-size: 13px;
+    line-height: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 50%;
+
+    &--new {
+        background: @label-new;
+    }
+
+    &--vip {
+        background: @label-hit;
+    }
+
+    &--hit {
+        background: @label-hit;
+    }
+
+    &--sale {
+        .roboto-regular;
+        background: @label-sale;
+        font-size: 13px;
+
+        /* promo styles
+
+        background: url('../images/inhtml/redball.svg') no-repeat 50% 50% !important;
+        border-radius: 0 !important;
+        line-height: 50px;
+        margin-top: 0 !important;
+        background-size: contain !important;
+
+        end promo styles */
+    }
+
+
+    .b-recommended-item--size &,
+    .b-product-item &,
+    &--quick-view, {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 20px;
+        top: 20px;
+        left: 20px;
+    }
+    .b-product-item &,
+    .b-product-top__label &,
+    .b-recommended & {
+        display: block;
+        position: static;
+    }
+
+    .b-product-item &,
+    .b-recommended & {
+        top: 50px;
+    }
+
+    &--quick-view {
+        top: 5px;
+        left: 105px;
+        z-index: 10;
+    }
+
+    &--cart-item {
+        top: 5px;
+        left: -10px;
+    }
+
+    &--super {
+        width: 54px;
+        height: 42px;
+        top: -10px;
+        left: -10px;
+    }
+
+    .b-product-item--brand & {
+        font-size: 13px;
+        height: 40px;
+        left: 10px;
+        line-height: 40px;
+        top: 10px;
+        width: 40px;
+    }
+
+    .b-product-item &,
+    .b-product-item--brand &,
+    .b-product-top__label &,
+    .b-recommended & {
+        &--image {
+            border-radius: 0;
+            width: auto;
+            height: auto;
+            line-height: 0;
+            text-align: left;
+            margin: 0 0 5px;
+        }
+
+        &--is-super {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+    }
+
+    .b-product-top &{
+        &--vip {
+            margin: 10px 0px 0px 0px;
+        }
+    }
+}
+
+/* promo styles
+.b-recommended-item--size .b-label{
+    line-height: 74px;
+}
+.b-product-item .b-label.b-label--sale {
+    line-height: 70px;
+}
+.b-label.b-label--sale.b-label--quick-view {
+    line-height: 70px;
+}
+end promo styles */

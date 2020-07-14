@@ -1,0 +1,76 @@
+//- ====================
+//- Robinzon: buy-cheaper-popup
+//- 22-06-2018: sashakasha
+//- --------------------
+//- Всплывающее окно buy-cheaper-popup
+//- ====================
+
+mixin buy-cheaper-popup()
+    +b.buy-cheaper-popup
+        +popup_close()
+        include ../ui-kit/title.pug
+        +title('h3', 'Узнать о снижении цены').--login
+        +e('form').form
+            +e.group
+                include ../ui-kit/input-label.pug
+                +input-label('Электронная почта', 'id-buy-cheaper-email')
+                include ../ui-kit/input.pug
+                +input('id-buy-cheaper-email', 'email', '', 'email-buy-cheaper', '').--login.--buy-cheaper.js-email(required="required")
+            +e.group
+                +input-label('Выберите цвет', '')
+                include ../filter-color.pug
+                +filter-color--map({'items':
+                    [{
+                        'name': 'filter-color-popup',
+                        'color': 'gold',
+                        'colorname': ''
+                    },{
+                        'name': 'filter-color-popup',
+                        'color': 'white',
+                        'colorname': ''
+                    },{
+                        'name': 'filter-color-popup',
+                        'color': 'red',
+                        'colorname': ''
+                    },{
+                        'name': 'filter-color-popup',
+                        'color': 'purple',
+                        'colorname': ''
+                    },{
+                        'name': 'filter-color-popup',
+                        'color': 'gray',
+                        'colorname': ''
+                    },{
+                        'name': 'filter-color-popup',
+                        'color': 'blue',
+                        'colorname': ''
+                    },{
+                        'name': 'filter-color-popup',
+                        'color': 'lightblue',
+                        'colorname': ''
+                    },{
+                        'name': 'filter-color-popup',
+                        'color': 'brown',
+                        'colorname': ''
+                    },{
+                        'name': 'filter-color-popup',
+                        'color': 'green',
+                        'colorname': ''
+                    },{
+                        'name': 'filter-color-popup',
+                        'color': 'pink',
+                        'colorname': ''
+                    },{
+                        'name': 'filter-color-popup',
+                        'color': 'turquoise',
+                        'colorname': ''
+                    },{
+                        'name': 'filter-color-popup',
+                        'color': 'black',
+                        'colorname': ''
+                    }
+                ]}).--buy-cheaper
+            include ../ui-kit/button.pug
+            +button('Узнать', '', false).--blue.--buy-cheaper
+            +e.text.--small
+                p Нажимая кнопку &laquo;Узнать&raquo;, я&nbsp;выражаю свое согласие на&nbsp;получение писем от&nbsp;Robinzon.

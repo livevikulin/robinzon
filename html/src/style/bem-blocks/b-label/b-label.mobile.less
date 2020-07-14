@@ -1,0 +1,92 @@
+/* 320 + */
+.b-label {
+    .b-product-item &,
+    .b-recommended & {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        top: 20px;
+        left: 20px;
+    }
+    
+
+    .b-product-item & {
+        top: 0;
+    }
+
+    // Общие
+    &--sale {
+        font-size: 12px;
+        height: 30px;
+        line-height: 30px;
+        width: 30px;
+        margin: 0;
+        left: 17px;
+        top: 17px;
+        margin-left: 10px;
+    }
+    // !Общие
+
+    &--quick-view {
+        left: 0;
+        top: -18px;
+    }
+
+    &--cart-item {
+        height: 40px;
+        width: 40px;
+        top: -22px;
+        left: 0px;
+        line-height: 40px;
+    }
+
+    &--image {
+        .b-product-item &,
+        .b-recommended & {
+            width: 60px;
+            height: 14px;
+            line-height: 18px;
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                font-family: "object-fit: cover";
+            }
+        }
+    }
+
+    &--sale {
+        .b-product-item &,
+        .b-recommended & {
+            margin-top: 10px;
+        }
+    }
+
+    .b-product-item--brand & {
+        font-size: 12px;
+        height: 30px;
+        left: 10px;
+        line-height: 30px;
+        top: 10px;
+        width: 30px;
+    }
+}
+
+/* promo styles
+.b-label--sale {
+    line-height: 44px !important;
+    width: 38px !important;
+    height: 38px !important;
+    &.b-label--cart-item{
+        line-height: 46px!important;
+    }
+}
+.icon-sale_ico_promo{
+    background: url(../images/inhtml/iconNY.svg) no-repeat 50% 50%;
+    background-size: contain;
+    width: 36px !important;
+    height: 36px !important;
+    margin-right: 12px !important;
+}
+end promo styles */

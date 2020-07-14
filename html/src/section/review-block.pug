@@ -1,0 +1,28 @@
+//- ====================
+//- Robinzon: review-block
+//- 18-01-2018: Amedomary
+//- --------------------
+//- Блок отзывов
+//- ====================
+
+mixin review-block()
+    +b.review-block
+        include ui-kit/title.pug
+        +title('h1', 'Отзывы').--block.--review
+
+        +e.column--left
+            +e('a').market-link(href='javascript:void(0)' title='')
+                +e('span').big-text 500+
+                +e('span').middle-text отзывов
+                    br
+                    | на Яндекс.Маркет
+                +e('img').rate(src='images/inhtml/ya-market-stars.jpg', alt='5 звёзд на Яндекс маркете', title='')
+
+        +e.column--right
+            //- Отзыв
+            include content/review-main-content.pug
+            +review-main-content()
+
+        +e('footer').footer
+            include ui-kit/link.pug
+            +link('Все отзывы', '', true).--review-footer

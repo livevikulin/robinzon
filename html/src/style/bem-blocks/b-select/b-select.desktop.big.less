@@ -1,0 +1,106 @@
+/* 1440 + */
+.b-select {
+    border:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    display: inline-block;
+    width: auto;
+
+    &--filter {
+        background-color: @button-transparent-back;
+        padding: 5px 52px 4px 10px;
+        position: relative;
+        .roboto-regular;
+        font-size: 13px;
+        color: @cl-font-main;
+    }
+
+    &--select {
+        border: 1px solid @cl-gray-darker;
+        border-radius: 2px;
+        .roboto-regular;
+        position: relative;
+        background-color: @background-select;
+
+        &:after {
+            .icon-base-pseudo;
+            .icon-char(arrow_small_ico);
+            font-size: 15px;
+            line-height: 15px;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            color: @cl-font-main;
+            margin-top: -7px;
+            pointer-events: none;
+            transform: rotate(90deg);
+        }
+    }
+
+    &--in-shop {
+        border: 1px solid #c4c4c4;
+        border-radius: 0px;
+        width: 100%;
+    }
+
+    &--not-found {
+        display: block;
+        width: 300px;
+        border: 1px solid @cl-gray-darker;
+        border-radius: 2px;
+        .roboto-regular;
+        position: relative;
+        background-color: @background-select;
+
+        &:after {
+            .icon-base-pseudo;
+            .icon-char(arrow_small_ico);
+            font-size: 15px;
+            line-height: 15px;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            color: @cl-font-main;
+            margin-top: -7px;
+            pointer-events: none;
+            transform: rotate(90deg);
+        }
+    }
+
+    &__block {
+        height: 36px;
+        width: 100%;
+        border:none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        outline: none;
+
+        &:-ms-expand {
+            display: none;
+        }
+
+        &--not-found {
+            width: ~"calc(100% + 2px)";
+            background-color: transparent;
+            height: auto;
+            padding: 10px 30px 9px 12px;
+            margin: 0 -1px;
+            line-height: 1.2;
+        }
+    }
+
+    &--product-card {
+        font-size: 13px;
+        height: 38px;
+        line-height: 38px;
+        padding: 0 52px 0 12px;
+        width: 100%;
+
+        &:after {
+            right: 16px;
+        }
+    }
+}

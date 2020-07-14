@@ -1,0 +1,44 @@
+/* 320 + */
+.b-promo {
+    width: 240px;
+
+    &:after {
+        border-right: 120px solid transparent;
+        border-left: 120px solid transparent;
+    }
+
+    &__bigtext {
+        font-size: 15px;
+
+        &--button {
+            padding: 13px 28px;
+        }
+
+        &--desk {
+            display: none;
+        }
+
+        &--mobile {
+            display: block;
+        }
+    }
+
+    &--tab {
+        width: calc(~'100% - 5px');
+        top: 50%;
+        margin: -144px auto 0;
+
+        &:after {
+            border-right: 105px solid transparent;
+        }
+    }
+
+    &--tab {
+        margin-top: -158px;
+    }
+    &--tab & {
+        &__img-wrap {
+            margin: 0;
+        }
+    }
+}

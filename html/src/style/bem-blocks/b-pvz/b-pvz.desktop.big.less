@@ -1,0 +1,41 @@
+/* 1440 + */
+.b-pvz {
+    background-color: @background-section;
+    padding: 23px 30px 17px;
+    margin-bottom: 30px;
+
+    &__list {
+        padding-left: 0;
+    }
+
+    &__item {
+        list-style: none;
+        margin-bottom: 13px;
+    }
+
+    &__link {
+        font-size: 13px;
+        display: inline; // для работы многострочного
+        position: relative;
+        padding-bottom: 3px;
+        line-height: 1.2;
+        background-image: linear-gradient(to right, @link-border 33%, @advice-border-left 0%);
+        background-position: bottom;
+        background-size: 3px 1px;
+        background-repeat: repeat-x;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            background: none;
+        }
+
+        .b-pvz__item.active & {
+            background: none;
+            color: @cl-theme-link-hover;
+        }
+    }
+
+    &__accordion-block {
+        display: none;
+    }
+}

@@ -1,0 +1,20 @@
+//- ====================
+//- Robinzon: buy-cheaper-success-popup
+//- 22-06-2018: sashakasha
+//- --------------------
+//- Всплывающее окно buy-cheaper-success-popup
+//- ====================
+
+mixin buy-cheaper-success-popup()
+    +b.buy-cheaper-popup.--success
+        +popup_close()
+        include ../ui-kit/title.pug
+        +title('h3', 'Заявка принята!').--login
+        +e.text
+            p Как только Чемодан Samsonite 39N*904 Askella Spinner S&nbsp;будет доступен по&nbsp;меньшей цене, мы&nbsp;Вам сообщим.
+        +e.text
+            p Вы&nbsp;можете следить за&nbsp;акциями от&nbsp;Robinzon.ru
+            include ../social.pug
+            +social--login().--buy-cheaper
+        include ../ui-kit/button.pug
+        +button('Закрыть', '', true).--blue.--buy-cheaper.--success.js-close-popup

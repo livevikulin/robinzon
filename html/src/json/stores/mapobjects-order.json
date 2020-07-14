@@ -1,0 +1,160 @@
+{
+	"success":1,
+	"data":{
+		"items":[
+			{
+				"id":"R003",
+				"adress":"мкр-н Жулебино, ул. Генерала Кузнецова, д. 13",
+				"phone":"8 (800) 770-00-22, доб. 1103",
+				"schedule":"10:00 - 21:00",
+				"pickup":"через час",
+				"pickup_full":"сб, 10 фев в 13:00",
+				"pickup_short":"через час",
+				"pickup_short_full":"почти через час",
+				"metroClass":"--green",
+				"order":"parts",
+				"parts_available":[
+					{
+						"name":"Hills для стерилизованных кошек, тунец 300 гр",
+						"quantity":3,
+						"price":4311.65,
+						"weight":300
+					},
+					{
+						"name":"Wellkiss Delice для кошек с индейкой и телятиной, 200 г",
+						"quantity":1,
+						"price":95,
+						"weight":200
+					}
+				],
+				"parts_delayed":[
+					{
+						"name":"Wellkiss Delice для кошек с цыпленком и кроликом, 200 г",
+						"quantity":1,
+						"price":95,
+						"weight":200
+					},
+					{
+						"name":"Wellkiss Delice консервированный корм для кошек, говядина с льняным маслом, 100 г",
+						"quantity":1,
+						"price":75,
+						"weight":100
+					}
+				],
+				"services":[
+					"Птицы и грызуны",
+					"Аквариумистика",
+					"Вет аптека",
+					"Гравировка"
+				],
+				"price":170,
+				"full_price":1006,
+				"gps_n":37.859219171479,
+				"gps_s":55.687502294089
+			},
+			{
+				"id":"R164",
+				"adress":"м. Жулебино, ТЦ «Волжский», Волжский б-р, кв. 113А, корп. 1",
+				"phone":"8 (800) 770-00-22, доб. 1264",
+				"schedule":"10:00 - 22:00",
+				"pickup":"сб, 10 фев в 13:00",
+				"pickup_full":"сб, 10 фев в 13:00",
+				"pickup_short":"через час",
+				"pickup_short_full":"почти через час",
+				"metroClass":"--red",
+				"order":"delay",
+				"parts_available":[],
+				"parts_delayed":[
+					{
+						"name":"Hills для стерилизованных кошек, тунец 300 гр",
+						"quantity":3,
+						"price":4311.65,
+						"weight":300
+					},
+					{
+						"name":"Wellkiss Delice для кошек с цыпленком и кроликом, 200 г",
+						"quantity":1,
+						"price":95,
+						"weight":200
+					},
+					{
+						"name":"Wellkiss Delice для кошек с индейкой и телятиной, 200 г",
+						"quantity":1,
+						"price":95,
+						"weight":200
+					},
+					{
+						"name":"Wellkiss Delice консервированный корм для кошек, говядина с льняным маслом, 100 г",
+						"quantity":1,
+						"price":75,
+						"weight":100
+					}
+				],
+				"services":[
+					"Птицы и грызуны",
+					"Аквариумистика",
+					"Вет аптека",
+					"Гравировка"
+				],
+				"price":1006,
+				"full_price":1006,
+				"gps_n":37.752421470161,
+				"gps_s":55.700053602261
+			},
+			{
+				"id":"R024",
+				"adress":"ул. Чертановская, д. 63/2",
+				"phone":"8 (800) 770-00-22, доб. 1124",
+				"schedule":"10:00 - 21:00",
+				"pickup":"через час",
+				"pickup_full":"через час",
+				"pickup_short":"через час",
+				"pickup_short_full":"почти через час",
+				"metroClass":"",
+				"order":"full",
+				"parts_available":[
+					{
+						"name":"Hills для стерилизованных кошек, тунец 300 гр",
+						"quantity":3,
+						"price":247,
+						"weight":300
+					},
+					{
+						"name":"Wellkiss Delice для кошек с цыпленком и кроликом, 200 г",
+						"quantity":1,
+						"price":95,
+						"weight":200
+					},
+					{
+						"name":"Wellkiss Delice для кошек с индейкой и телятиной, 200 г",
+						"quantity":1,
+						"price":95,
+						"weight":200
+					},
+					{
+						"name":"Wellkiss Delice консервированный корм для кошек, говядина с льняным маслом, 100 г",
+						"quantity":1,
+						"price":75,
+						"weight":100
+					}
+				],
+				"parts_delayed":[],
+				"services":[
+					"Птицы и грызуны",
+					"Аквариумистика",
+					"Вет аптека",
+					"Гравировка"
+				],
+				"price":1006,
+				"full_price":1006,
+				"gps_n":37.588862203571,
+				"gps_s":55.596798157402
+			}
+		],
+		"avg_gps_s":75.467001896807,
+		"avg_gps_n":111.3229027025
+	},
+	"message":"Подгрузка успешна",
+	"reload":false,
+	"redirect":""
+}

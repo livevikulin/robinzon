@@ -1,0 +1,16 @@
+//- ====================
+//- need-help
+//- 28-06-2018: Mell.Blimm
+//- --------------------
+//- блок с ссылками - нужна помощь с ТАБАМИ В ПОПАПЕ
+//- ====================
+
+
+mixin need-help-tab(data)
+    +b.link-block(class!=attributes.class).js-tab-card-wrapper
+        +e('ul').list
+            each item in data.items
+                +e.item
+                    +e('a').link(href='javascript:void(0)' data-tab=item.tab title='').js-tab-link #{item.title}
+        +e('div').line-block
+                +e('div').line-nav.js-line-nav

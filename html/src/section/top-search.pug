@@ -1,0 +1,32 @@
+//- ====================
+//- Project: Top-search / top-search
+//- 29-01-2018: Amedomary / Mell.Blimm
+//- --------------------
+//- Поиск в хедаре / Форма в одну строку
+//- ====================
+
+mixin top-search(input_id, input_type, input_placeholder, error, js, url)
+    +b.top-search( class!=attributes.class )
+        +e('form').form( class=js?js:'', data-url=url, itemscope='', itemtype='http://schema.org/WebSite' )
+
+            //- input(id, type, placeholder, name, value)
+            include ui-kit/input.pug
+            +input(input_id, input_type, input_placeholder, 'search', '').--top-search
+
+            include ui-kit/button.pug
+            +button().--top-search( type='submit')
+                include ui-kit/icon.pug
+                +icon('search').--top-search
+
+        block
+
+
+//- Заготовка микродаты
+//- <div itemscope itemtype="http://schema.org/WebSite">
+//-   <meta itemprop="url" content="https://www.example.com/"/>
+//-   <form itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
+//-     <meta itemprop="target" content="https://query.example.com/search?q={search_term_string}"/>
+//-     <input itemprop="query-input" type="text" name="search_term_string" required/>
+//-     <input type="submit"/>
+//-   </form>
+//- </div>

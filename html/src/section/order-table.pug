@@ -1,0 +1,21 @@
+//- ====================
+//- order-table
+//- 25-05-2018: Mell.Blimm
+//- --------------------
+//- Табличка с инфой о заказе в корзине
+//- ====================
+
+mixin order-table(data)
+    +b.order-table(class!=attributes.class)
+        each item in data.items
+            +e.row
+                +e('span').name(class=item.isDiscount ? '--discount' : '') #{item.name}
+                +e('span').attr(class=item.isDiscount ? '--discount' : '') #{item.attr}
+                    if item.hideRub !== true
+                        +e('span') &nbsp;₽
+        +e.row.--result
+            +e('span').name.--result Итого:
+            +e('span').attr.--result #{data.resultCost} 
+                +e('span').currency ₽
+
+            

@@ -1,0 +1,31 @@
+//- ====================
+//- robinzon: store-item
+//- 13-06-2018: sashakasha
+//- --------------------
+//- Магазины. Адреса магазинов
+//- ====================
+
+mixin store-item(title, src,name, hours, phone, metro)
+    +b.store-item(class!=attributes.class)
+        +e.wrapper
+            +e.name
+                include ui-kit/title.pug
+                +title('h3', title).--store-item
+                +e.metro
+                    p #{metro}
+            +e.image
+                img(src=src, alt=title, title=title)
+            +e.desc
+                +title('h4', 'Адрес магазина:').--store-text
+                +e.text
+                    p #{name}
+                +e.info
+                    +title('h4', 'Режим работы:').--store-text
+                    +e.text
+                        p #{hours}
+                    +title('h4', 'Телефон:').--store-text
+                    +e.text--phone
+                        p #{phone}
+                    +e.button
+                        include ui-kit/button.pug
+                        +button('Подробнее', '', true).--transparent.--store-item

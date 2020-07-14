@@ -1,0 +1,26 @@
+/* 320 + */
+.b-list-of-products {
+    height: 310px;
+
+    &--cart {
+        // margin: 0 -35px;
+        height: auto;
+        padding-bottom: 1px;
+    }
+
+    &--brand {
+        margin-bottom: 19px;
+        overflow-x: auto;
+        // для IE
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar,
+        &::-webkit-scrollbar-track,
+        &::-webkit-scrollbar-thumb  {
+            display: none;
+            background-color: transparent;
+            height: 0;
+            width: 0;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+//- ====================
+//- Project: shop-goods
+//- 16-02-2017:dimasta
+//- --------------------
+//- два блока с ссылкой на магазины в Москве и товары со скидкой
+//- ====================
+mixin shop-goods(data)
+    +b.shop-goods
+        each item in data.items
+            +e('a').link(href='javascript:void(0);', title="", class=item.class)
+                include ui-kit/icon.pug
+                +icon(item.icon).--shop.--goods
+                +e.description !{item.text}

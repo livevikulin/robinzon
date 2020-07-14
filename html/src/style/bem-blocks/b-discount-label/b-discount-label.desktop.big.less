@@ -1,0 +1,36 @@
+/* 1440 + */
+.b-discount-label {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 20px;
+    .roboto-regular;
+    color: @cl-font-white;
+    background-color: @cl-font-orange;
+    padding: 8px 17px;
+    position: relative;
+    border-radius: 2px;
+
+    &:before,
+    &:after{
+        content: '';
+        position: absolute;
+    }
+
+    &:before {
+        border: 19px solid transparent;
+        border-right: 9px solid @cl-font-orange;
+        left: -27px;
+        top: -1px;
+        border-radius: 3px;
+    }
+
+    &:after {
+        width: 3px;
+        height: 3px;
+        border-radius: 100%;
+        background-color: @cl-font-white;
+        top: 16px;
+        left: -4px;
+    }
+}

@@ -1,0 +1,22 @@
+//- ====================
+//- Robinzon: article-list
+//- 18-01-2018: Amedomary
+//- --------------------
+//- Блок рекомендации выбора
+//- ====================
+
+mixin article-list()
+    +b.article-list
+        include ui-kit/title.pug
+        +title('h1', 'Рекомендации по выбору').--block.--review
+
+        +e('ul').wrapper
+            //- article-preview(src, title, video)
+            include article-preview.pug
+            +article-preview('', '5 вещей которые надо знать перед покупкой чемодана', true).--big
+            include article-preview.pug
+            +article-preview('', 'статья', true).--small
+            include article-preview.pug
+            +article-preview('', '5 вещей которые надо знать перед покупкой чемодана', true).--small
+            include article-preview.pug
+            +article-preview('', 'Статья', false).--vertical

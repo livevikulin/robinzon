@@ -1,0 +1,122 @@
+/* 320 + */
+.b-section {
+    padding-top: 25px;
+    padding-bottom: 30px;
+
+    &--review {
+        display: none;
+    }
+
+    &--about-us {
+        display: none;
+    }
+
+    &--whyrobinzon {
+        display: none;
+    }
+
+    &__mobile-scroll,
+    &__tablet-scroll {
+        // overflow-y: hidden;
+        // overflow-x: auto;
+        overflow: hidden;
+        margin: 0 -15px;
+        padding: 10px 15px;
+        white-space: nowrap;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        overflow-x: scroll;
+    }
+
+    &__mobile-scroll {
+        &::after {
+            content: '';
+            height: 36px;
+            width: 50px;
+            background-image: linear-gradient(to left,#ededed -2%,rgba(255,255,255,0));
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            margin-top: -5px;
+        }
+    }
+
+    &__tablet-scroll {
+        &::after {
+            content: '';
+            height: 36px;
+            width: 50px;
+            background-image: linear-gradient(to left,#ffffff -30%,rgba(255,255,255,0.2));
+            pointer-events: none;
+            position: absolute;
+            right: -1px;
+            margin-top: -1px;
+        }
+    }
+
+    &--buy-set {
+        display: none;
+    }
+
+    &--stores {
+        padding-bottom: 0;
+    }
+
+    &--mobile-show {
+        display: block;
+    }
+
+    &--recommended,
+    &--stores  {
+        padding-top: 40px;
+    }
+
+    &--store-card {
+        padding-top: 0;
+    }
+
+    &--brand {
+        padding: 0;
+    }
+
+    &--cart-empty {
+        margin: 0 0 27px;
+        padding: 22px 0;
+    }
+
+    &--visited {
+        margin: 0 0 48px;
+        padding: 0;
+    }
+
+    &--sale-filter {
+        margin: 0 0 13px;
+        padding: 10px 0;
+    }
+
+    &--sale-recommended {
+        padding-bottom: 10px;
+    }
+
+    &--payment {
+        padding: 0;
+        margin-bottom: 50px;
+    }
+    
+    &--corp {
+        padding: 0;
+    }
+    
+    &--review-form {
+        padding-top: 35px;
+        padding-bottom: 40px;
+        margin-bottom: 50px;
+    }
+
+    &--delivery {
+        padding: 26px 0 17px;
+    }
+}

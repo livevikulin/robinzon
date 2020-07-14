@@ -1,0 +1,33 @@
+//- ====================
+//- brand-wrapper
+//- 23-05-2018: sashakasha
+//- --------------------
+//- Бренды
+//- ====================
+
+mixin brand-wrapper()
+    +b.brand-wrapper
+        +e.head
+            +e.alphabet
+                include brand-letter.pug
+                +brand-letter('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z').js-horizontal-scroll
+            +e.filter
+                include ui-kit/title.pug
+                +title('h3', 'Показать бренды со специализацией').--filter
+                +e.tag.js-horizontal-scroll
+                    include tag.pug
+                    +tag--brand('Все', 'Чемоданы', 'Сумки', 'Рюкзаки', 'Аксессуары', 'Товары для детей').--product.--brand
+        +e.body
+            include brand-group-list.pug
+            +brand-group-list('A', true, 'American Tourister')
+            +brand-group-list('B', true, 'Bouncie', 'Brics')
+            +brand-group-list('C', true, 'Bouncie', 'Brics')
+            +brand-group-list('D', true, 'Dakine', 'Delsey', 'Deuter', 'Disney', 'Doppler')
+            +brand-group-list('F', true, 'Hartmann', 'Hedgren', 'Herlitz', 'Herschel', 'Heys', 'High Sierra')
+            +brand-group-list('H', true, 'Hartmann', 'Hedgren', 'Herlitz', 'Herschel', 'Heys', 'High Sierra')
+            +brand-group-list('J', true, 'Bouncie', 'Brics')
+            +brand-group-list('K', true, 'Bouncie', 'Brics')
+            +brand-group-list('L', true, 'American Tourister')
+            +brand-group-list('M', true, 'Bouncie', 'Brics')
+            +brand-group-list('P', true, 'Bouncie', 'Brics')
+            +brand-group-list('S', true, 'Dakine', 'Delsey', 'Deuter', 'Disney', 'Doppler')

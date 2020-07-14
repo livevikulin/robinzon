@@ -1,0 +1,45 @@
+/* 1440 + */
+.b-person {
+    margin-left: 20px;
+    margin-right: -5px;
+    height: 21px;
+    padding: 0;
+
+    &__item {
+        display: inline-block;
+        list-style-type: none;
+
+        &--size {
+            min-width: 149px;
+            text-align: end;
+            line-height: 1;
+        }
+    }
+
+    &__link {
+        padding: 4px;
+        text-decoration: none;
+    }
+
+    &__number {
+        .roboto-regular;
+        color: @cl-font-gray;
+        font-size: 13px;
+        vertical-align: middle;
+        padding-left: 5px;
+    }
+
+    &__account {
+        transition: @animation-time;
+        text-decoration: none;
+        .roboto-bold;
+        color: @cl-font-main;
+        font-size: 13px;
+    }
+
+    &__account-text {
+        .roboto-bold;
+        vertical-align: top;
+        font-size: 13px;
+    }
+}

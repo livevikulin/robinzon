@@ -1,0 +1,51 @@
+//- ====================
+//- Project: main-nav
+//- 31-01-2018: Amedomary
+//- --------------------
+//- main-nav
+//- ====================
+
+mixin main-nav(items)
+    +b('nav').main-nav( class!=attributes.class )
+        +e('ul').list.js-shadow.js-horizontal-scroll
+            each item, index in items
+                
+                - var js = ''
+                if index == 0
+                    - var js = 'js-open-desktop-menu'
+                else if index == 1
+                    - var js = 'js-open-desktop-menu'
+                else if index == 2
+                    - var js = 'js-open-desktop-menu'
+                else if index == 4
+                    - var js = 'js-open-desktop-menu'
+                else if index == 5
+                    - var js = 'js-open-desktop-menu'
+                else
+                    - var js = ''
+
+                +e('li').item( class=(index == 0 ? '-active' : '') class=js )
+                    +e('a').link( href='javascript:void(0)', title=item )
+                        if item == "Скидки"
+                            include ui-kit/icon.pug
+                            +icon('sale_ico').--nav-sale
+                        | #{item}
+
+                    +e.underline
+
+                    //- VD: Блоки десктопного меню
+                    if index == 0
+                        include menu-desktop.pug
+                        +menu-desktop()
+                    else if index == 1
+                        include menu-desktop.pug
+                        +menu-desktop()
+                    else if index == 2
+                        include menu-desktop.pug
+                        +menu-desktop()
+                    else if index == 4
+                        include menu-desktop-brand.pug
+                        +menu-desktop-brand()
+                    else if index == 5
+                        include menu-desktop.pug
+                        +menu-desktop()

@@ -1,0 +1,43 @@
+/* 320 + */
+.b-hr {
+    // Общие
+    &--mobile-show {
+        display: block;
+    }
+
+    &--mobile-hide {
+        display: none;
+    }
+    // Общие end
+
+    .b-header__top-menu + & {
+        position: relative;
+        top: -13px;
+    }
+
+    &--footer {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    &--sale {
+        margin: 0;
+        padding: 0;
+    }
+
+    &--store-card {
+        padding: 5px 0 0;
+        margin: 0 -15px 20px;
+        width: ~'calc(100% + 30px)';
+    }
+
+    &--guarantee {
+        display: none;
+    }
+
+    &--delivery {
+        margin: 0 auto 25px;
+        padding: 10px 0 0;
+        width: ~'calc(100% - 30px)';
+    }
+}

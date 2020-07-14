@@ -1,0 +1,12 @@
+//- ====================
+//- Robinzon: List
+//- 18-01-2018: Amedomary
+//- --------------------
+//- Список
+//- ====================
+
+mixin list(...items)
+    +b('ul').list( class!=attributes.class )
+        each item in items
+            +e('li').item !{item}
+        block

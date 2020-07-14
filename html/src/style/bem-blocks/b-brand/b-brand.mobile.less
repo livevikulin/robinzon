@@ -1,0 +1,30 @@
+/* 320 + */
+.b-brand {
+    padding: 10px 20px;
+    width: 140px;
+    height: 80px;
+
+    &__figure {
+        height: 58px;
+        line-height: 58px;
+    }
+
+    .no-touchevents &:hover,
+    .touchevents &:active {
+        height: 80px;
+    }
+
+    &--product {
+        width: auto;
+        height: auto;
+        margin-bottom: 0;
+        background-color: transparent;
+        padding-left: 0;
+        padding-right: 0;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            height: auto;
+        }
+    }
+}

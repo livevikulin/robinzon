@@ -1,0 +1,26 @@
+//- ====================
+//- RBZ: popup
+//- 16.01.2018: Amedomary
+//- --------------------
+//- Попап
+//- ====================
+
+mixin popup()
+    //- +b('dialog').popup //пока не поддерживается
+    +b.popup&attributes( attributes )
+        +e.content
+            //- ПопАпчики
+            block
+
+//- для использования дат
+mixin popup-data(data)
+    +b.popup&attributes( data.attributes )
+        +e.content( class=data.contentClass )
+            //- ПопАпчики
+            block
+
+//- Крестик
+mixin popup_close()
+    +b('a').popup__close( href='javascript:void(0);', class!=attributes.class ).js-close-popup
+        include icon.pug
+        +icon('close-popup').--close-popup

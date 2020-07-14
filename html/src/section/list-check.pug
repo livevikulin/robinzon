@@ -1,0 +1,36 @@
+//- ====================
+//- 2018: Amedomary
+//- --------------------
+//- list-check
+//- ====================
+
+mixin list-check(data)
+    +b.list-check
+        +e('span').heading Адрес / График работы / Срок доставки
+        +e('ul').list.js-list-check(class=data.listClass)
+            +list-check__item()
+            +list-check__item().-active
+            +list-check__item()
+            +list-check__item()
+            +list-check__item()
+            +list-check__item()
+            +list-check__item()
+            +list-check__item()
+            +list-check__item()
+            +list-check__item()
+            +list-check__item()
+            +list-check__item-scroll-to-top().--to-top
+
+mixin list-check__item()
+    +e('li').item.js-item-check(class!=attributes.class)
+        +e.description-block
+            +e('span').title Ленинградский проспект, д. 40, строение 3
+            +e('p').description Пн-пт: 08.00-20.00, сб-вс: 08.00-19.00, обед: 14.00-14.30 Доставка: 4-6 дней
+        include ui-kit/button.pug
+        +button('Выбрать', '', true).--pvz-popap.--list-check.--mobile-hide.js-item-button
+
+mixin list-check__item-scroll-to-top()
+    +e('li').item(class!=attributes.class)
+        include ui-kit/icon.pug
+        +e('a').link-top(href='javascript:void(0)', title='')
+            +icon('arrow_small_ico').--to-top

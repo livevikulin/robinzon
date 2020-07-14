@@ -1,0 +1,31 @@
+//- ====================
+//- cart-empty
+//- 07-06-2018: sashakasha
+//- --------------------
+//- Корзина пуста
+//- ====================
+
+mixin menu-cart(js, ...items)
+    +b.menu-cart
+        +e('ul').list(class=js)
+            each item in items
+                +e('li').item
+                    +b('a').link(href='javascript:void(0);', title=item).--menu-cart
+                        if item == "Товары со скидками"
+                            include ui-kit/icon.pug
+                            +icon('sale_ico').--nav-sale
+                        span #{item}
+
+//- Результаты поиска
+mixin menu-cart--search(js, data, ...items)
+    +b.menu-cart.--search
+        +e('ul').list(class=js)
+            each item in data.items
+                +e('li').item.--search
+                    if item.name == 'Товары со скидками'
+                        include ui-kit/icon.pug
+                        +icon('sale_ico').--nav-sale
+                    else
+                        +e('img').image(src=item.src, alt='', title='')
+                    +b('a').link(href='javascript:void(0);', title=item).--menu-cart
+                        span #{item.name}

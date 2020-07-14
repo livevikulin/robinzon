@@ -1,0 +1,34 @@
+/* 1440 + */
+.b-goods-picker {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 292px;
+    height: 512px;
+    background-color: @background-picker;
+    border: 1px solid @border-tab;
+    padding-left: 35px;
+    padding-right: 57px;
+
+    &__text {
+        .roboto-regular;
+        font-size: 16px;
+        line-height: 1.38;
+        color: @cl-font-main;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+
+        &--title {
+            color: @cl-font-orange;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__additional-info {
+        .roboto-regular;
+        font-size: 13px;
+        line-height: 1.38;
+        color: @cl-font-light;
+        margin-bottom: 30px;
+    }
+}

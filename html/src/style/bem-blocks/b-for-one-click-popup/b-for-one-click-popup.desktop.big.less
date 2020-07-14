@@ -1,0 +1,42 @@
+/* 1440 + */
+.b-for-one-click-popup {
+    background: @background-section;
+    padding: 40px;
+    position: relative;
+    width: 380px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+    -webkit-overflow-scrolling: auto;
+
+    &__group {
+        margin: 0 0 20px;
+    }
+
+    &__text {
+        margin: 0 0 30px;
+
+        & > p {
+            .roboto-regular;
+            color: @cl-font-main;
+            font-size: 13px;
+            line-height: 19px;
+            margin: 0 0 10px;
+        }
+
+        &--success {
+            margin: 0 0 20px;
+        }
+
+        &--small {
+            margin: 0;
+
+            & > p {
+                color: @cl-font-light;
+                font-size: 11px;
+                line-height: 15px;
+                margin: 0;
+            }
+        }
+    }
+}

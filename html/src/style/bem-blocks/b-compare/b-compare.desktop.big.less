@@ -1,0 +1,266 @@
+/* 1440 + */
+.b-compare {
+    background-color: @compare-back;
+    margin-bottom: 35px;
+
+    &--fixed {
+        display: block;
+        position: fixed;
+        // под поповером (z-15000)
+        z-index: 6500;
+        top: 0;
+        left: -7px;//0;
+        width: 100%;
+        // font-size: 0;
+        background-color: @background-header;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+        // Animation
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .075s;
+        will-change: opacity;
+
+        .no-touchevents &.windows-os {
+            padding-right: 17px;
+        }
+
+        .touchevents & {
+            left: 0;
+        }
+
+        &.active {
+            transition: opacity .25s;
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    &__arrow {
+        position: fixed;
+        top: 50%;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin-top: -30px;
+        z-index: 10;
+        border-radius: 50%;
+        transition: opacity @animation-time;
+
+        &--prev {
+            transform: rotate(180deg);
+            left: 25px;
+        }
+
+        &--next {
+            right: 25px;
+        }
+
+        &.hide {
+            opacity: 0;
+            display: none;
+            pointer-events: none;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: inline-block;
+        vertical-align: top;
+        padding: 10px;
+        line-height: 1;
+        color: @compare-close;
+    }
+
+    &__image {
+        height: 190px;
+        width: 100%;
+        object-fit: contain;
+        font-family: 'object-fit: contain;';
+
+        &--fixed {
+            width: 60px;
+            height: 70px;
+            flex: 0 0 auto;
+        }
+    }
+
+    &__title {
+        text-align: center;
+
+        &--fixed {
+            width: 100%;
+            flex: 1 1 auto;
+        }
+
+        a {
+            display: block;
+        }
+    }
+
+    &__size {
+        // Копия с b-recommended-item__size
+        font-size: 13px;
+        display: -webkit-box;
+        font-weight: 400;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        text-decoration: none;
+        overflow: hidden;
+        color: #666;
+        margin-bottom: 0;
+        -webkit-line-clamp: 1;
+    }
+
+    &__name {
+        font-size: 13px;
+        display: -webkit-box;
+        font-weight: 400;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        text-decoration: none;
+        overflow: hidden;
+        height: 34px;
+        color: #666;
+        line-height: 17px;
+        margin-bottom: -3px;
+        -webkit-line-clamp: 2;
+        white-space: normal;
+    }
+
+    &__name-row {
+        position: absolute;
+        z-index: 5;
+        top: 20px;
+        left: 30px;
+        .roboto-medium;
+        font-size: 15px;
+        line-height: 1;
+        transition: .6s;
+    }
+
+    &__row {
+        position: relative;
+        transition: transform .6s;
+
+        &--hover {
+            .no-touchevents &:hover,
+            .touchevents &:active {
+                .b-compare__cell {
+                    background-color: rgba(0, 0, 0, .05);
+                }
+            }
+        }
+    }
+
+    &__content-row {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        white-space: nowrap;
+    }
+
+    &__cell {
+        position: relative;
+        display: inline-block;
+        // width: 265px;
+        width: 20%;
+        flex: 0 0 auto;
+        padding: 40px 30px 10px 30px;
+        vertical-align: top;
+        white-space: normal;
+        word-wrap: break-word;
+        word-break: break-word;
+        border-left: 1px solid @compare-border;
+        border-bottom: 1px solid @compare-border;
+        .roboto-regular;
+        font-size: 13px;
+        background-color: @compare-back;
+        transition: @animation-time background-color;
+
+        &:last-child {
+            border-right: 1px solid @compare-border;
+        }
+
+        &--heading {
+            padding: 20px;
+            border-bottom: 2px solid @compare-border;
+        }
+
+        &--last {
+            text-align: right;
+            border-bottom: none;
+            padding: 20px 30px 30px 30px;
+        }
+
+        &--fixed {
+            display: inline-flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            padding: 25px 20px 20px;
+            border-bottom: 0;
+
+            .b-compare__close {
+                top: 0;
+                right: 0;
+                opacity: 0;
+                transition: opacity @animation-time;
+            }
+
+            .no-touchevents &:hover,
+            .touchevents &:active {
+                .b-compare__close {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__slider-count {
+        display: none;
+        position: relative;
+        line-height: 1;
+
+        &--fixed {
+            position: absolute;
+            width: 100%;
+            top: 10px;
+        }
+    }
+
+    &__counter-line {
+        color: @cl-font-light;
+        font-size: 11px;
+        margin-right: 10px;
+    }
+
+    &__dot-counter-wrapper {
+        display: inline-block;
+        line-height: 6px;
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+        top: 3px;
+    }
+
+    &__dot-counter {
+        display: inline-block;
+        vertical-align: middle;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        margin: 2px;
+        background-color: @cl-font-light; //т.к. Цвета не по gui
+
+        &.active {
+            background-color: @cl-black; //т.к. Цвета не по gui
+        }
+
+        &.show-scroll {
+            width: 3px;
+            height: 3px;
+        }
+    }
+}

@@ -1,0 +1,62 @@
+//- ====================
+//- Robinzon: basket-popover
+//- 18-01-2018: Amedomary
+//- --------------------
+//- basket-popover
+//- ====================
+
+mixin basket-popover()
+    +b.basket-popover(class!=attributes.class)
+        include ui-kit/title.pug
+        +title('h4', 'Корзина').--basket-popover
+
+        +e('ul').list
+            +e('li').item
+                include product-basket.pug
+                +product-basket({
+                    'src':'images/content/announcement-1.jpg',
+                    'name':'Сумка Hedgren HTMP0',
+                    'quantity':'1',
+                    'cost':'10 000'
+                })
+            +e('li').item
+                include product-basket.pug
+                +product-basket({
+                    'src':'images/content/announcement-3.jpg',
+                    'name':'Чемодан Samsonite',
+                    'quantity':'3',
+                    'cost':'10 000'
+                })
+            +e('li').item
+                include product-basket.pug
+                +product-basket({
+                    'src':'images/content/content-sumka-6.jpg',
+                    'name':'Ручная кладь S Roncato 3132 MODO Sunny 68',
+                    'quantity':'23',
+                    'cost':'10 000'
+                })
+            +e('li').item
+                include product-basket.pug
+                +product-basket({
+                    'src':'images/content/libra.jpg',
+                    'name':'Чемодан Samsonite 39N*904 Askella Spinner S',
+                    'quantity':'3',
+                    'cost':'10 000'
+                })
+            +e('li').item
+                include product-basket.pug
+                +product-basket({
+                    'src':'images/content/product-card-1.png',
+                    'name':'Сумка Hedgren HTMP02 Temptation Business Bail…',
+                    'quantity':'7',
+                    'cost':'10 000'
+                })
+
+        +e.result
+            +e.total Итого
+            +e.total 50 000.-
+        +e('p').add-text Доставка в Обнинск 300 рублей, или добавьте еще товаров на 7667 рублей и мы доставим заказ Бесплатно
+        include ui-kit/button.pug
+        +button('Оформить заказ','', true).--blue.--full-block.--basket-popover
+        include ui-kit/link.pug
+        +link('Перейти в корзину','', true).--basket-popover

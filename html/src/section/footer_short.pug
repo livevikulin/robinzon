@@ -1,0 +1,16 @@
+//- ====================
+//- Robinzon: mixin footer_short
+//- 00-00-2017: Sash
+//- --------------------
+//- Нижняя часть футера
+//- ====================
+mixin footer_short()
+    +e.bottom
+        +e.copyright
+                +e("span").text &copy; 1997&ndash;2018 ООО &laquo;Робинзон.ру&raquo;. Магазин чемоданов сумок и аксессуаров. Доставка товаров по России: Москва, Санкт-Петербург, Новосибирск, Екатеринбург, Нижний Новгород и другие города
+                +e("span").politic-wrap
+                    include ui-kit/link.pug
+                    +link('Политика конфиденциальности', '', true).--politic
+        +e("span").link-wrap
+            include ui-kit/link.pug
+            +link('Разработка сайта: "Четвёртый Рим"', '', true).--bottom

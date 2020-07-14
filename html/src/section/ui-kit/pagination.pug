@@ -1,0 +1,32 @@
+//- ====================
+//- RBZ: pagination
+//- 05-02-2018: VD
+//- --------------------
+//- Пагинация
+//- ====================
+
+mixin catalog-show-more()
+    +b.catalog-show-more
+        +e('a').link(href="javascript:void(0);" title="Показать еще") Показать еще
+
+mixin pagination(data, config)
+    +b('ul').pagination(class!=attributes.class)
+        +e.item.--prev
+            +e('a').page-change.--prev(href="javascript:void(0);", title="Предыдущая страница", class=config.hidePrev)
+
+        - var active = ''
+        each item, index in data.items
+            if (index == `${config.active}`)
+                - var active = '-active'
+            else
+                - var active = ''
+
+            if (item.number == 'dots')
+                +e.item.--dot
+                    +e('span').link.--dot ...
+            else
+                +e.item
+                    +e('a').link(href="javascript:void(0);" title="" class=active) #{item.number}
+
+        +e.item.--next
+            +e('a').page-change.--next(href="javascript:void(0);", title="Следующая страница", class=config.hideNext)

@@ -1,0 +1,26 @@
+//- ====================
+//- Robinzon: payment
+//- 24-05-2018: sashakasha
+//- --------------------
+//- Укажите способ оплаты
+//- ====================
+
+mixin payment()
+    include ui-kit/title.pug
+    +title('h3', 'Укажите способ оплаты').--order.--payment-method
+    +e.content
+        include ui-kit/radio.pug
+        +e.group--payment
+            +radio('Наличными', 'payment-method', 'payment-method-1', true, '').--order.--payment
+                +e.description Оплата наличными при получении заказа
+        +e.group--payment
+            +radio('Банковской картой при получении', 'payment-method', 'payment-method-2', false, '').--order.--payment
+                +e.description Оплата с помощью карт VISA и Mastercard
+                    br
+                    | Возможность оплаты уточняйте у менеджера
+        +e.group--payment
+            +radio('Банковской картой на сайте', 'payment-method', 'payment-method-3', false, '').--order.--payment
+                +e.description Защищенный платеж через Сбербанк
+        +e.group--payment
+            +radio('Безналичный расчет', 'payment-method', 'payment-method-4', false, '').--order.--payment
+                +e.description Для физических и юридических лиц

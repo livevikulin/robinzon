@@ -1,0 +1,47 @@
+//- ====================
+//- Robinzon: Login-popup
+//- 18-01-2018: Amedomary
+//- --------------------
+//- ПопАп авторизации и регистрации
+//- ====================
+
+mixin login-popup()
+    include ../ui-kit/title.pug
+    include ../ui-kit/input-label.pug
+    include ../ui-kit/input.pug
+    include ../ui-kit/button.pug
+    include ../ui-kit/link.pug
+    include ../social.pug
+    include ../list.pug
+    include ../ui-kit/icon.pug
+
+    +b.login-popup
+        //- Крестик
+        include ../ui-kit/popup.pug
+        +popup_close()
+
+        +e.block--half-left
+            +title('h3', 'Войти').--login
+            +e('form').form.js-validation-form.js-authorization
+                +input-label('Логин', 'id-login-email')
+                +input('id-login-email', 'email', 'Введите почту', 'email-login', '').--login.js-email(required="required")
+                    +input-label('Не корректная электронная почта', 'id-login-email').--error
+
+                +input-label('Пароль', 'id-login-password')
+                +input('id-login-password', 'password', 'Введите пароль', 'password-login', '').--login(required="required", minlength="6")
+                    //- +input-label('Не корректный пароль', 'id-login-password').--error
+
+                +e.buttons
+                    +button('Войти', '', false).--blue.--login
+                    +link('Забыл пароль', '', true).--reset.--underline-dot.js-open-popup(data-popup="password-recovery")
+                +title('h4', 'Войти через соцсети').--login-social
+                +social--login().--login
+
+        +e.block--half-right
+            +title('h3', 'Зарегистрироваться').--login.--mobile-hide
+            +e('p').help Впервые на Робинзон? Зарегистрируйтесь и получите скидку 10% уже на первый заказ.
+
+            +title('h4', 'Преимущества регистрация:').--list-heading.--mobile-hide
+            +list('Добавляйте товары в Избранное', 'Персонализированные предложения', 'Отслеживайте статус заказа', 'Сохраняйте историю заказов').--dash.--login
+
+            +button('Зарегистрироваться', '', true).--alpha.--login-registration.js-open-popup(data-popup="registration").js-registration-link

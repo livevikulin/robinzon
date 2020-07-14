@@ -1,0 +1,99 @@
+/* 1440 + */
+.b-stores-banner {
+    height: 370px;
+    position: relative;
+
+    &__background {
+        background: @stores-banner-background;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+    }
+
+    &__image {
+        font-family: 'object-fit: cover;';
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.2;
+        width: 100%;
+    }
+
+    &__wrapper {
+        color: @cl-font-white;
+        font-size: 16px;
+        padding: 70px 0;
+        position: relative;
+        text-align: center;
+        z-index: 2;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 19px;
+        padding: 0;
+    }
+
+    &__item {
+        align-items: flex-start;
+        border: 1px solid @stores-banner-border;
+        display: flex;
+        height: 111px;
+        list-style-type: none;
+        margin: 0 0 8px;
+        padding: 31px 39px;
+        width: calc(~"(100% - 60px) / 3");
+        padding-right: 69px;
+    }
+
+    &__text {
+        color: @cl-font-white;
+        display: inline-block;
+        font-size: 18px;
+        line-height: 22px;
+        vertical-align: top;
+        text-align: left;
+        margin: 0 10px 0 0;
+
+        &:last-child {
+            margin: 0;
+        }
+
+        &--marked {
+            .gotham-bold;
+            color: @cl-font-orange;
+            font-size: 60px;
+            line-height: 40px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        &--pct {
+            img {
+                // TODO если где то сломал то сорян https://take.ms/RnSfl
+                height: 54px;
+            }
+            & > span {
+                .gotham-regular;
+            }
+        }
+
+        &--year {
+            font-size: 50px;
+
+            & > span {
+                font-size: 60px;
+                margin: 0 10px 0 0;
+            }
+        }
+    }
+
+    &__go {
+        font-size: 15px;
+        line-height: 18px;
+        margin: 0;
+    }
+}

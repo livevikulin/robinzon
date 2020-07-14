@@ -1,0 +1,125 @@
+//- ====================
+//- Project: guarantee
+//- 03-07-2018: drtvader
+//- --------------------
+//- Гарантии
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'guarantee'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Гарантия';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    .b-container
+        include section/ui-kit/breadcrumbs.pug
+        +breadcrumbs('Главная', 'Гарантия').--catalog
+        include section/ui-kit/title.pug
+        +title('h1', 'Гарантия').--brand
+    //Гарантия
+    +b('section').section.--white.--brand
+        +b.guarantee
+            .b-container
+                +e.column
+                    +e.wrapper-text
+                        +title('h2', 'На всю продукцию производители предоставляют фирменную гарантию от 6 месяцев до 10 лет в зависимости от коллекции.').--guarantee
+                        p В магазинах Робинзон представлен багаж и аксессуары только известных, проверенных временем торговых марок Samsonite, American Tourister, Roncato, Wenger, Heys, Ricardo, Delsey и других.
+                    include section/brand-guarantee.pug
+                    +brand-guarantee("Бренд", "Срок гарантии", 
+                        {'items':
+                        [{
+                            'name': 'Samsonite',
+                            'time': '2 – 5 лет'
+                        }, {
+                            'name': 'American Tourister',
+                            'time': '2 года'
+                        }, {
+                            'name': 'Bric`s',
+                            'time': '2 года'
+                        }, {
+                            'name': 'Delsey',
+                            'time': '2 года'
+                        }, {
+                            'name': 'Roncato',
+                            'time': '2 года'
+                        }, {
+                            'name': 'Ricardo',
+                            'time': '2 года'
+                        }, {
+                            'name': 'Heys',
+                            'time': '2 года'
+                        }, {
+                            'name': 'March',
+                            'time': '2 года'
+                        }, {
+                            'name': 'Titan',
+                            'time': '2 года'
+                        }, {
+                            'name': 'Travelite',
+                            'time': '2 года'
+                        }, {
+                            'name': 'Wenger',
+                            'time': '2 года'
+                        }, {
+                            'name': 'Hedgren',
+                            'time': '2 года'
+                        }
+                    ]}).--float
+                    +e.wrapper-text
+                        p Гарантия качества, предоставляемая всеми производителями на товар, распространяется только на производственные дефекты, и не распространяется на повреждения, вызванные неправильным использованием изделия, отсутствием надлежащего ухода, несчастными случаями, абразивным износом, воздействием крайне высоких или низких температур, растворителей, кислот, воды, а также на повреждения, полученные в результате неосторожной транспортировки (в т.ч. и при авиаперевозках).
+                        p В случае обнаружения повреждения багажа при транспортировке в авиакомпании рекомендуем получить акт о повреждении PIR на стойке Lost&Found и составить соответствующую претензию компании-перевозчику (которая застрахована на случай повреждения перевозимого багажа) в пункте прибытия. 
+            include section/ui-kit/hr.pug
+            +hr().--guarantee
+            .b-container
+                +title('h2', 'Фирменные сервисные центры').--guarantee
+                +b.brand-guarantee
+                    +e.item.--title
+                        +e.name Бренд
+                            +e('span').mobile / Адрес
+                        +e.time  Адрес
+                    +e('ul').list
+                        +e.item
+                            +e.name Samsonite, American Tourister, Lipault, High Sierra, Tumi
+                            +e.adress
+                                p Москва, Волгоградский проспект, д.21, 
+                                    span(495) 783-32-44 
+                                p Москва, Саввинская набережная, д.3, 
+                                    span (495) 788-39-96
+                                p Санкт-Петербург, ул.Садовая, д.38, 
+                                    span (812) 642-46-48
+                                p Екатеринбург, ул. 8 Марта, д.212, под.3, офис 7, ТДЦ «Астор», цокольный этаж, 
+                                    span +7 (900)200-01-65,  +7 (343) 269-80-08
+                                p Пермь, ул.Космонавта Леонова, д.15, под.3, цокольный этаж 
+                                    span +7 (342) 22-666-22, +7 (342) 299-59-53
+                        +e.item
+                            +e.name Rimowa, Delsey 
+                            +e.adress
+                                p  Москва, ул.Долгоруковская, д.39/6, 
+                                    span (495) 799-34-95 
+                        +e.item
+                            +e.name Wenger, Victorinox
+                            +e.adress
+                                p Москва, Саввинская набережная, д.3, 
+                                    span (495) 788-39-96 
+                                p Москва, Волгоградский проспект, д.21, 
+                                    span (495) 783-32-44
+                +title('h2', 'Негарантийный ремонт').--guarantee
+                +b.brand-guarantee
+                    +e.item.--title
+                        +e.name Бренд
+                            +e('span').mobile / Адрес
+                        +e.time  Адрес
+                    +e('ul').list
+                        +e.item
+                            +e.name Все бренды
+                            +e.adress
+                                p Москва, Волгоградский проспект, д.21, (495) 783-32-44 

@@ -1,0 +1,14 @@
+//- ====================
+//- requisites
+//- 14-12-2018: dimastad
+//- --------------------
+//- таблица реквизитов
+//- ====================
+
+mixin requisites(data, ...items)
+    +b.requisites(class!=attributes.class)
+        +e('ul').list
+            each item in data.items
+                +e.item
+                    +e('span').name #{item.name}
+                    +e('span').information #{item.information}

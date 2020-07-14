@@ -1,0 +1,108 @@
+//- ====================
+//- Project: contacts
+//- 14-12-2018: dimastad
+//- --------------------
+//- контакты
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'contacts'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Контакты';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    .b-container
+        include section/ui-kit/breadcrumbs.pug
+        +breadcrumbs('Главная', 'Контакты').--catalog
+        include section/ui-kit/title.pug
+        +title('h1', 'Контакты').--brand
+    //Контакты 
+    +b('section').section.--white.--brand
+        +b.contacts
+            .b-container
+                +e.wrapper-text
+                    +title('h2', 'Прием заказов и консультации специалистов.').--contacts
+
+                    +e.info-block
+                        +e('span').title Москва
+                        +e('span').phone 8 (495) 648-69-88 
+                        +e('span').worktime c 9 до 21, ежедневно 
+                        +e('span').address Наш адрес: Россия, Москва, Остаповский проезд, дом 5, строение 17
+
+                    +e.info-block
+                        +e('span').title Санкт-Петербург 
+                        +e('span').phone 8 (812) 748-28-85 
+                        +e('span').worktime c 9 до 21, ежедневно 
+
+                    +e.info-block
+                        +e('span').title Пишите нам
+                        +e('a').email(href="mailto:contact@robinzon.ru", title='') contact@robinzon.ru 
+
+                    +e.info-block
+                        +e('a').link(href='javascript:void(0)', title='') Информация для корпоративных клиентов →
+
+                    +e.info-block
+                        +e('span').title Наши реквизиты
+                        include section/requisites.pug
+                        +requisites(
+                            {'items': [
+                                {
+                                    'name' : '',
+                                    'information' : 'ООО "Робинзон.ру"'
+                                },
+                                {
+                                    'name' : 'ИНН',
+                                    'information' : '7722802729'
+                                },
+                                {
+                                    'name' : 'КПП',
+                                    'information' : '772201001'
+                                },
+                                {
+                                    'name' : 'ОГРН',
+                                    'information' : '1137746212339'
+                                },
+                                {
+                                    'name' : 'ОКПО',
+                                    'information' : '17239024'
+                                },
+                                {
+                                    'name' : 'Расчетный счет',
+                                    'information' : '40702810538000015797 в ПАО "Сбербанк России", г. Москва'
+                                },
+                                {
+                                    'name' : 'Корреспондентский счет',
+                                    'information' : '30101810400000000225'
+                                },
+                                {
+                                    'name' : 'БИК',
+                                    'information' : '044525225'
+                                },
+                                {
+                                    'name' : 'Юридический и почтовый адрес',
+                                    'information' : '109316, г. Москва, Остаповский проезд, д. 5, строение 17'
+                                },
+                                {
+                                    'name' : 'Фактический адрес',
+                                    'information' : 'г. Москва, улица Воронцовская, дом 49/28, строение 1, 4 этаж'
+                                },
+                            ]}
+                        )
+
+                    +e.info-block
+                        +e('span').title Самый большой магазин чемоданов "Робинзон" 
+                        +e('span').address Адрес в Москве: метро "Пролетарская" или "Крестьянская застава", улица Воронцовская, дом 49/28, строение 1, 4 этаж (работает лифт).
+                        +e('span').phone Телефон: 8 (495) 662-99-70 
+                        +e('span').worktime Ежедневно - c 10 до 22  
+                
+                    include section/map.pug
+                    +map().--contacts-map#yamap

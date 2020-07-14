@@ -1,0 +1,13 @@
+//- ====================
+//- Robinzon: filter-form
+//- 07-02-2018: Sash
+//- --------------------
+//- Фильтер сортировки товаров
+//- ====================
+mixin filter-form(data)
+    +b.filter-form(class!=attributes.class)
+        +e('label').title(for="filter-form") Сначала показывать
+        +e.wrap
+            +b('select').select--filter(id='filter-form' name='goods-filter')
+                each item in data.items
+                    +e('option')(value=item.value) #{item.text}

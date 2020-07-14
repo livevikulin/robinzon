@@ -1,0 +1,45 @@
+//- ====================
+//- Robinzon: social
+//- 18-01-2018: Amedomary
+//- --------------------
+//- Список соц ссылок
+//- ====================
+
+mixin social()
+    +b.social( class!=attributes.class )
+        +e('a').link(href="javascript:void(0);",title="Facebook")
+            include ui-kit/icon.pug
+            +icon('facebook').--social
+        +e('a').link(href="javascript:void(0);",title="Vk")
+            include ui-kit/icon.pug
+            +icon('vk').--social
+        +e('a').link(href="javascript:void(0);",title="Instagram")
+            include ui-kit/icon.pug
+            +icon('instagram').--social
+        +e('a').link(href="javascript:void(0);", title="Twitter")
+            include ui-kit/icon.pug
+            +icon('twitter').--social
+        +e('a').link(href="javascript:void(0);", title="Youtube")
+            include ui-kit/icon.pug
+            +icon('youtube').--social
+        +e('a').link(href="javascript:void(0);", title="Gplus")
+            include ui-kit/icon.pug
+            +icon('gplus').--social
+
+mixin social--login()
+    +b.social( class!=attributes.class )
+        +e('a').link(href="javascript:void(0);",title="Vk")
+            include ui-kit/icon.pug
+            +icon('vk').--social
+
+        +e('a').link(href="javascript:void(0);",title="Facebook")
+            include ui-kit/icon.pug
+            +icon('facebook').--social
+
+        +e('a').link(href="javascript:void(0);", title="Gplus")
+            include ui-kit/icon.pug
+            +icon('gplus').--social
+
+        +e('a').link(href="javascript:void(0);", title="Twitter")
+            include ui-kit/icon.pug
+            +icon('twitter').--social

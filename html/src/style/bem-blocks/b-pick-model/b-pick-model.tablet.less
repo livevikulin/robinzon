@@ -1,0 +1,27 @@
+/* 768 + */
+.b-pick-model {
+    &--tablet-hide {
+        display: none;
+    }
+
+    &--stretch {
+        font-size: 21px;
+        // height: 243px;
+        line-height: 27px;
+        width: 100%;
+    }
+
+    .b-pick-model-block--brand-list & {
+        width: ~'calc(100% - 30px)';
+    }
+
+    &__description {
+        .b-pick-model-block--brand-list & {
+            width: 200px;
+        }
+    }
+
+    .b-pick-model-block--city-one & {
+        margin: 0 15px;
+    }
+}

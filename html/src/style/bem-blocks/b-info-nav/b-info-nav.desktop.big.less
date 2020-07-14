@@ -1,0 +1,41 @@
+/* 1440 + */
+.b-info-nav {
+    display: inline-block;
+    margin-right: 3px;
+    text-align: left;
+
+
+    &__list {
+        padding: 5px 0px;
+        word-wrap: break-word;
+    }
+
+    &__item {
+        list-style-type: none;
+        font-size: 13px;
+        line-height: 24px;
+        .roboto-regular;
+        color: @cl-font-gray;
+        line-height: 19px;
+        padding: 4px 0px;
+    }
+
+    &__inner {
+        width: 206px;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 14px;
+    }
+
+    &__inner:not(:first-child) {
+        padding-left: 22px;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        .roboto-regular;
+        color: @cl-font-black;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

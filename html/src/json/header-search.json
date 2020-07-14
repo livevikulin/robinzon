@@ -1,0 +1,52 @@
+{
+  "success":1,
+  "data":[
+    {
+      "DETAIL_PAGE_URL":"/product-card.html",
+      "NAME":"Товар 1"
+    },
+    {
+      "DETAIL_PAGE_URL":"/product-card-2-socks.html",
+      "NAME":"Товар 2"
+    },
+    {
+      "DETAIL_PAGE_URL":"/product-card-3-milprazon.html",
+      "NAME":"Товар 3"
+    },
+    {
+      "DETAIL_PAGE_URL":"",
+      "NAME":"Товар 4"
+    },
+    {
+      "DETAIL_PAGE_URL": "",
+      "NAME": "Товар 5"
+    },
+    {
+      "DETAIL_PAGE_URL": "",
+      "NAME": "Товар 6"
+    },
+    {
+      "DETAIL_PAGE_URL":"",
+      "NAME":"Товар 5"
+    },
+    {
+      "DETAIL_PAGE_URL":"",
+      "NAME":"Товар 6"
+    },
+    {
+      "DETAIL_PAGE_URL": "",
+      "NAME": "Товар 5"
+    },
+    {
+      "DETAIL_PAGE_URL": "",
+      "NAME": "Товар 6"
+    },
+    {
+      "DETAIL_PAGE_URL":"",
+      "NAME":"Товар 7"
+    }
+  ],
+  "message":"",
+  "reload":false,
+  "redirect":""
+}

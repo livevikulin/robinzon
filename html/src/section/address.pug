@@ -1,0 +1,16 @@
+//- ====================
+//- Project: Top menu
+//- 16-01-2018: Mia
+//- --------------------
+//- город и Адреса магазинов
+//- ====================
+mixin address()
+    +b.address.js-permutation-city-desktop
+        include ui-kit/link.pug
+        +link('', '', true)(data-popup="city-selection").--city.js-permutation-city.js-open-popup.js-open-two
+            span.js-text Москва
+            include ui-kit/icon.pug
+            +icon('arrow_open').--city-arrow.js-arrow-down
+        +link('', '', true).--shop
+            +icon('geo').--header-top-geo
+            +b('span').address__text-shop Адреса магазинов

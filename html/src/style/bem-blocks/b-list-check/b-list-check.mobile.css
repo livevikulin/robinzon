@@ -1,0 +1,17 @@
+/* 320 + */
+.b-list-check__title {
+  font-size: 14px;
+}
+.b-list-check__description-block {
+  padding: 0;
+}
+.b-list-check__item {
+  padding: 11px 0 12px;
+}
+.b-list-check__description {
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+}
+.b-pvz-popup__column--left .b-list-check__list {
+  overflow-y: auto;
+}

@@ -1,0 +1,56 @@
+//- ====================
+//- robinzon: recommended-item
+//- 16-01-2018: maxzbest
+//- --------------------
+//- Блок b-recommended-item
+//- ====================
+
+mixin recommended-item(data)
+    include ui-kit/label.pug
+    include ui-kit/price.pug
+    include ui-kit/link.pug
+    include ui-kit/icon.pug
+    include ui-kit/link.pug
+    include ui-kit/icon.pug
+    include ui-kit/button.pug
+
+    each item in data.items
+        +b.recommended-item( class=item.classBlock )
+            +e.content( class=item.classContent )
+
+                if item.notice == 'vip'
+                    +label('vip').--vip
+                else if item.notice == 'hit'
+                    +label('хит').--hit
+                else if item.notice == 'new'
+                    +label('new').--new
+                else if item.notice == 'sale'
+                    +label('-25%').--sale
+
+                +e('a').image-link(href='javascript:void(0);', title='', class=item.classImageLink)
+                    +e('img').image(src=item.srclink, alt="", title="").js-image-wrapper
+                +e.description(class=item.classDescription)
+                    +e('a').size(href='javascript:void(0);', title='') #{item.size}
+                    +e('a').name(href='javascript:void(0);', title='') #{item.name}
+
+                //- +price(price, old, oldprice, label, text)
+                +price(item.price, false, '', '', '.-').--recommended(class!=item.classPrice)
+
+                if item.addToCart
+                    +link('', '', true).--add-to-card
+                        +icon("checkbox").--add-to-card 
+                        | #{item.addToCart}
+
+                if item.iconHideFav == true
+                else
+                    +link('', '', true).--recomend-item.--one(class=item.classFavorite)
+                        +icon("favorites").--recomend-item
+
+                if item.iconHideCom == true
+                else
+                    +link('', '', true).--recomend-item.--two
+                        +icon("compare").--recomend-item
+
+                if item.buttonHide == true
+                else
+                    +button('Купить', '', true).--orange.--recomend-item

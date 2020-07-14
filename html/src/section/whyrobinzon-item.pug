@@ -1,0 +1,14 @@
+//- ====================
+//- robinzon: whyrobinzon-item
+//- 16-01-2018: maxzbest
+//- --------------------
+//- Элемент whyrobinzon__item блока "Почему Робинзон" b-whyrobinzon
+//- ====================
+
+mixin whyrobinzon-item(data)
+    each item in data.items
+        +e('li').item(class!=attributes.class)
+            +e('figure').item-figure(class!=attributes.class)
+                +e('span').figure-image
+                    +e('img').image-content(src=item.srclink, alt="", title="")
+                +e('figcaption').figure-description !{item.description}

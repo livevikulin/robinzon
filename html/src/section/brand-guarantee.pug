@@ -1,0 +1,24 @@
+//- ====================
+//- brand-guarantee
+//- 03-07-2018: drtvader
+//- --------------------
+//- таблица гарантии
+//- ====================
+
+mixin brand-guarantee(title, time, data, ...items)
+    +b.brand-guarantee(class!=attributes.class)
+        +e.item.--title
+            +e.name #{title}
+                block
+            +e.time  #{time}
+        +e('ul').list
+            each item in data.items
+                +e.item
+                    +e.name #{item.name}
+                    if item.adress == true
+                        +e.adress
+                            each item, index in items
+                                p #{item.adress_item}
+                    else
+                        +e.time #{item.time}
+                    

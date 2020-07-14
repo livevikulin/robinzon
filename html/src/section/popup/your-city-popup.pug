@@ -1,0 +1,20 @@
+//- ====================
+//- Robinzon: your-city-popup
+//- 18-01-2018: Amedomary
+//- --------------------
+//- ПопАп your-city-popup
+//- ====================
+
+mixin your-city-popup()
+    +b.your-city-popup
+        //- Крестик
+        +popup_close()
+        include ../ui-kit/title.pug
+        +title('h3', 'Ваш город Набережные челны?').--login.js-title-popup
+
+        +e.buttons
+            include ../ui-kit/button.pug
+            +button('Да', '', true)(data-url='json/set_my_city.json', data-code=Math.floor(Math.random() * (15 - 1300) + 1300)).--blue.--your-city-yes.js-close-popup.js-close-mobile-menu.js-set-my-city
+            //- todo Закрытик пересмотреть в скрипе и убрать класс
+            include ../ui-kit/button.pug
+            +button('Другой', '', true)(data-popup='city-selection').--alpha.--your-city-no.js-open-popup.js-open-two

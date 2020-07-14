@@ -1,0 +1,23 @@
+/* 1440 + */
+.b-menu-desktop {
+    display: block;
+    position: absolute;
+    z-index: 1000;
+    background-color: @cl-white;
+    left: 0px;
+    top: 198px;
+    width: 100vw;
+    font-size: 0;
+    padding-bottom: 25px;
+    box-shadow: inset 0px 5px 5px 0px rgba(221, 221, 221, 1);
+    opacity: 0;
+    pointer-events: none;
+    touch-action: none;
+    transition: opacity 0.3s;
+    padding-top: 6px;
+
+    &.show-menu {
+        pointer-events: auto;
+        opacity: 1;
+    }
+}

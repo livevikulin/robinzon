@@ -1,0 +1,11 @@
+//- ====================
+//- textarea
+//- 24.05.2018: Mell.Blimm
+//- --------------------
+//- инпут
+//- ====================
+
+mixin textarea(id, type, placeholder, name, value)
+    +b.textarea(class!=attributes.class)
+        +e('textarea').input-field--textarea&attributes( attributes )(id=id, type=type, placeholder=placeholder, name=name, value=value )
+            block

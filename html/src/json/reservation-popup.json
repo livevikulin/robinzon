@@ -1,0 +1,10 @@
+{
+  "success":1,
+  "data": {
+    "html":"<a class=\"b-popup__close js-close-popup\" href=\"#\"><i class=\"b-icon b-icon--close-popup icon-close-popup\"></i></a><h3 class=\"b-title b-title--login\">Спасибо за заказ</h3><p class=\"b-recall-popup__add-text b-recall-popup__add-text--reservation-done\">Ваш заказ №97058111 от 01.03.2018 13:17:29 оформлен, Вы можете забрать его по адресу: м. Маяковская, ТЦ Европа. ул. Петровка, д.1, Пн–Вс (09:00-22:00). Срок резерва 3 дня.</p>"
+  },
+  "message":"",
+  "reload":false,
+  "redirect":""
+}
+

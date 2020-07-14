@@ -1,0 +1,31 @@
+//- ====================
+//- Project: top-menu
+//- 16-01-2018: Mia
+//- --------------------
+//- Кабинет
+//- ====================
+
+//- Есть состояние с Войти
+
+mixin person()
+    +b('ul').person
+        +e('li').item
+            +e('a').link(href="javascript:void(0);", title="").--top-favorites
+                include ui-kit/icon.pug
+                +icon('favorites').--top-favorites
+                +e('span').number 3
+        +e('li').item
+            +e('a').link(href="javascript:void(0);", title="").--top-compare
+                +icon('compare').--top-compare
+                +e('span').number 4
+
+        // START: Авторизованый пользователь
+        +e('li').item.--size
+            +e('a').link(href="javascript:void(0);", title="").account.js-account-popover
+                +e('span').account-text Константин
+                +icon('arrow_open').--person-arrow
+            //- попвера контент (пермутентится поповером)
+            div.webui-popover-content.js-account-popover-move-desktop
+                include account-popover.pug
+                +account-popover().js-account-popover-element
+        // END: Авторизованый пользователь

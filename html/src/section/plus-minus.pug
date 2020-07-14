@@ -1,0 +1,12 @@
+//- ====================
+//- RST + ADV4 + RBZ: plus-minus
+//- 16-08-2017: Malich + iAmed73
+//- --------------------
+//- Увеличение или уменьшение числа
+//- ====================
+
+mixin plus-minus()
+    +b.plus-minus(class!=attributes.class).js-plus-minus-cont
+        +e('a').minus.js-minus(href="javascript:void(0);" data-url='json/ajax-sale-basket-update.json')
+        +e('input').count.js-plus-minus-count(value="1" name="basket["+(Math.round(Math.random()*10000))+"]" data-cont-max="500" data-one-price="195.56" offerId='12345' data-basketid=(basketId != undefined)?basketId:Math.round(Math.random()*10000))
+        +e('a').plus.js-plus(href="javascript:void(0);" data-url='json/ajax-sale-basket-update.json')

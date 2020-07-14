@@ -1,0 +1,485 @@
+//- ====================
+//- Project: catalog
+//- 25-01-2018: Amed73
+//- --------------------
+//- Карточка товара
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'catalog'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Каталог';
+
+//- Выводим попапы
+block popup
+    //- ПопАпчики
+    include section/ui-kit/popup.pug
+    +popup()(data-popup='filter-mobile').--full
+        include section/filter-mobile.pug
+        +filter-mobile()
+
+//- Выводим content
+block content
+    include section/ui-kit/breadcrumbs.pug
+    include section/ui-kit/title.pug
+    include section/tag-bar.pug
+    include section/tag.pug
+    include section/ui-kit/hr.pug
+    include section/content/filter-catalog.pug
+    include section/ui-kit/hr.pug
+    include section/ui-kit/link.pug
+    include section/product-item.pug
+    include section/whyrobinzon.pug
+    include section/product-item.pug
+    include section/pick-model.pug
+    include section/ui-kit/button.pug
+    include section/ui-kit/pagination.pug
+    include section/hidden-slider.pug
+
+    +b.catalog
+        .b-container
+            +breadcrumbs('Главная', 'Чемоданы', 'Большие чемоданы').--catalog
+            +title('h1', 'Большие чемоданы').--catalog
+
+        .b-container
+            .popular-desk
+                span.popular-desk__title Другие пользователи ищут
+                .popular-desk__block.js-popular-desk
+                    //- блок с тегами и скролом
+                    // BEGIN: Tag-bar. (пермутентится)
+                    +title('h4', 'Популярные запросы').--tag-title.--popup-filter.js-popular-title
+                    +tag-bar().--popup-filter
+                        +tag--radio('Смешные', 'Детские', 'Огромные чемоданы спиннеры', 'Детские', 'Зимние', 'Огромные чемоданы спиннеры', 'Огнеупорные', 'Огромные чемоданы спиннеры', '4 колеса', 'Зимние', 'Летние', 'Огромные чемоданы спиннеры ', 'Синии', 'Красные', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса', 'Синии', 'Красные', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса' ).--white-tag
+                    // END: Tag-bar
+        +hr().--mobile-hide.--tag
+
+        .b-container.b-container--mobile-hide.js-filter-desk
+            // BEGIN: Фильтры. (пермутентится)
+            +filter-catalog().js-prem-filter
+            // END: Фильтры.
+
+        +hr().--filter.--mobile-hide.--tag
+
+        .b-container
+            .catalog
+                .catalog-filter
+                    .filter
+                        .filter-block
+                            span.filter-block__title Цена
+                        .filter-block
+                            span.filter-block__title Рекомендуем
+                            .filter-box
+                                label
+                                    input(type="checkbox", name="")
+                                    span Новинки
+                                label
+                                    input(type="checkbox", name="")
+                                    span Скидки
+                        .filter-block
+                            span.filter-block__title Размер
+                        .filter-block
+                            span.filter-block__title Материал
+                        .filter-block
+                            span.filter-block__title Бренды
+                        .filter-block
+                            span.filter-block__title Цвет
+                        .filter-block
+                            span.filter-block__title Объем
+                        .filter-block
+                            span.filter-block__title Вес
+                        .filter-block
+                            span.filter-block__title Количество колес
+                            
+                        .filter-block
+                            span.filter-block__title Замок
+                        .filter-block
+                            span.filter-block__title Особенности
+                        .filter-block
+                            span.filter-block__title Гарантия
+                .catalog-main
+                    +e.wrapper-top
+                        //- +e.quantity
+                        //-     span 110 товаров
+
+                        //- ссылка открывающайя фильтры на мобилке
+                        +link('Фильтры', '', true).--open-filter.js-open-popup(data-popup='filter-mobile')
+                        .filter-item
+                            .filter-item__box
+                                span Размер: XS
+                                a(href="javascript:void(0);") 
+                                    <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 0.5C4.02823 0.5 0 4.52823 0 9.5C0 14.4718 4.02823 18.5 9 18.5C13.9718 18.5 18 14.4718 18 9.5C18 4.52823 13.9718 0.5 9 0.5ZM13.4129 11.8625C13.5835 12.0331 13.5835 12.3089 13.4129 12.4794L11.9758 13.9129C11.8052 14.0835 11.5294 14.0835 11.3589 13.9129L9 11.5323L6.6375 13.9129C6.46694 14.0835 6.19113 14.0835 6.02056 13.9129L4.5871 12.4758C4.41653 12.3052 4.41653 12.0294 4.5871 11.8589L6.96774 9.5L4.5871 7.1375C4.41653 6.96694 4.41653 6.69113 4.5871 6.52056L6.02419 5.08347C6.19476 4.9129 6.47056 4.9129 6.64113 5.08347L9 7.46774L11.3625 5.0871C11.5331 4.91653 11.8089 4.91653 11.9794 5.0871L13.4165 6.52419C13.5871 6.69476 13.5871 6.97056 13.4165 7.14113L11.0323 9.5L13.4129 11.8625Z" fill="#C1C1C1"/>
+                                    </svg>
+                            .filter-item__box
+                                span Бренды: American tourister
+                                a(href="javascript:void(0);") 
+                                    <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 0.5C4.02823 0.5 0 4.52823 0 9.5C0 14.4718 4.02823 18.5 9 18.5C13.9718 18.5 18 14.4718 18 9.5C18 4.52823 13.9718 0.5 9 0.5ZM13.4129 11.8625C13.5835 12.0331 13.5835 12.3089 13.4129 12.4794L11.9758 13.9129C11.8052 14.0835 11.5294 14.0835 11.3589 13.9129L9 11.5323L6.6375 13.9129C6.46694 14.0835 6.19113 14.0835 6.02056 13.9129L4.5871 12.4758C4.41653 12.3052 4.41653 12.0294 4.5871 11.8589L6.96774 9.5L4.5871 7.1375C4.41653 6.96694 4.41653 6.69113 4.5871 6.52056L6.02419 5.08347C6.19476 4.9129 6.47056 4.9129 6.64113 5.08347L9 7.46774L11.3625 5.0871C11.5331 4.91653 11.8089 4.91653 11.9794 5.0871L13.4165 6.52419C13.5871 6.69476 13.5871 6.97056 13.4165 7.14113L11.0323 9.5L13.4129 11.8625Z" fill="#C1C1C1"/>
+                                    </svg>
+                        include section/filter-form.pug
+                        +filter-form({'items': [{
+                                'value': 'hits',
+                                'text': 'Хиты продаж'
+                            },
+                            {
+                                'value': 'min-price',
+                                'text': 'По возрастанию цены'
+                            },
+                            {
+                                'value': 'max-price',
+                                'text': 'По убыванию цены'
+                            },
+                            {
+                                'value': 'new',
+                                'text': 'Новый товар'
+                            },
+                            {
+                                'value': 'sale',
+                                'text': 'По Товар со скидками'
+                            }
+                        ]})
+                    +e.wrapper-no-result
+                        +e.text
+                            p По заданным условиям ничего не найдено.
+                            p Измените значение фильтра или выберите один из разделов:
+                        +e('ul').section
+                            +e.list-section
+                                +e(href="javascript:void(0);", title="Чемоданы").link-section
+                                    +e.image-wrap
+                                        +e('img').img-section.js-wrapper-image(src="images/content/announcement-1.jpg", alt="Чемоданы")
+                                    +e.name Чемоданы
+                            +e.list-section
+                                +e(href="javascript:void(0);", title="Сумки").link-section
+                                    +e.image-wrap
+                                        +e('img').img-section.js-wrapper-image(src="images/content/announcement-1.jpg", alt="Сумки")
+                                    +e.name Сумки
+                            +e.list-section
+                                +e(href="javascript:void(0);", title="Рюкзаки").link-section
+                                    +e.image-wrap
+                                        +e('img').img-section.js-wrapper-image(src="images/content/announcement-1.jpg", alt="Рюкзаки")
+                                    +e.name Рюкзаки
+                            +e.list-section
+                                +e(href="javascript:void(0);", title="Замки").link-section
+                                    +e.image-wrap
+                                        +e('img').img-section.js-wrapper-image(src="images/content/announcement-1.jpg", alt="Замки")
+                                    +e.name Замки
+                            +e.list-section
+                                +e(href="javascript:void(0);", title="Чемоданы").link-section
+                                    +e.image-wrap
+                                        +e('img').img-section.js-wrapper-image(src="images/content/announcement-1.jpg", alt="Чемоданы")
+                                    +e.name Чемоданы
+                            +e.list-section
+                                +e(href="javascript:void(0);", title="Чемоданы").link-section
+                                    +e.image-wrap
+                                        +e('img').img-section.js-wrapper-image(src="images/content/announcement-1.jpg", alt="Чемоданы")
+                                    +e.name Чемоданы
+                    +b.product-list(itemscope itemtype="http://schema.org/Product")
+                        +product-item("sale20", "American Tourister Sunset Square Spinner 13G*908", "8 490", "Огромный чемодан-спиннер (XL)", "true", "14 900", "images/content/announcement-1.jpg", "images/inhtml/label/label_exclusive.svg",
+                                [],
+                                [{
+                                    'title': 'ШхВхГ',
+                                    'definition': '40x55x20/24 см'
+                                },
+                                {
+                                    'title': 'Объем',
+                                    'definition': '38/43 л'
+                                },
+                                {
+                                    'title': 'Вес',
+                                    'definition': '2,5 кг'
+                                }], "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                        +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", "", "oldprice", "images/content/announcement-1.jpg", "images/inhtml/label/label_hit.svg",
+                                [],
+                                [{
+                                    'title': 'ШхВхГ',
+                                    'definition': '40x55x20/24 см'
+                                },
+                                {
+                                    'title': 'Объем',
+                                    'definition': '38/43 л'
+                                },
+                                {
+                                    'title': 'Вес',
+                                    'definition': '2,5 кг'
+                                }], "", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2", "#926ca7", "#7fd0af", "#0bb8b2", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                        +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", "", "oldprice", "images/content/announcement-1.jpg", "images/inhtml/label/label_new.svg",
+                                "",
+                                [{
+                                    'title': 'ШхВхГ',
+                                    'definition': '40x55x20/24 см'
+                                },
+                                {
+                                    'title': 'Объем',
+                                    'definition': '38/43 л'
+                                },
+                                {
+                                    'title': 'Вес',
+                                    'definition': '5,5 кг'
+                                }], "", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                        +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL) Огромный чемодан-спиннер (XL)", "", "oldprice", "images/content/announcement-1.jpg", "images/inhtml/label/label_plus.svg",
+                                [],
+                                [{
+                                    'title': 'ШхВхГ',
+                                    'definition': '40x55x20/24 см'
+                                },
+                                {
+                                    'title': 'Объем',
+                                    'definition': '38/43 л'
+                                },
+                                {
+                                    'title': 'Вес',
+                                    'definition': '2,5 кг'
+                                }],"", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+
+                        //- скрытый слайдер
+                        //- для работы вставляем под товаром
+                        //- +hidden-slider()
+
+                        +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", "", "oldprice", "images/content/announcement-1.jpg", "images/inhtml/label/label_premium.svg",
+                                [],
+                                [{
+                                    'title': 'ШхВхГ',
+                                    'definition': '40x55x20/24 см'
+                                },
+                                {
+                                    'title': 'Объем',
+                                    'definition': '38/43 л'
+                                },
+                                {
+                                    'title': 'Вес',
+                                    'definition': '2,5 кг'
+                                }], "", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                        +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", "", "oldprice", "images/content/announcement-1.jpg", "images/inhtml/label/label_promo.svg",
+                                [],
+                                [{
+                                    'title': 'ШхВхГ',
+                                    'definition': '40x55x20/24 см'
+                                },
+                                {
+                                    'title': 'Объем',
+                                    'definition': '38/43 л'
+                                },
+                                {
+                                    'title': 'Вес',
+                                    'definition': '2,5 кг'
+                                }], "", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                        +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", "", "oldprice", "images/content/announcement-1.jpg", [{path:"images/inhtml/label/label_promo.svg"},{path:"images/inhtml/label/label_super_price.svg", isSuper: true}],
+                                [],
+                                [{
+                                    'title': 'ШхВхГ',
+                                    'definition': '40x55x20/24 см'
+                                },
+                                {
+                                    'title': 'Объем',
+                                    'definition': '38/43 л'
+                                },
+                                {
+                                    'title': 'Вес',
+                                    'definition': '2,5 кг'
+                                }], "", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                        +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", true, "24 500", "images/content/announcement-1.jpg", [{path:"images/inhtml/label/label_week.svg", isSuper: true}],
+                                [],
+                                [{
+                                    'title': 'ШхВхГ',
+                                    'definition': '40x55x20/24 см'
+                                },
+                                {
+                                    'title': 'Объем',
+                                    'definition': '38/43 л'
+                                },
+                                {
+                                    'title': 'Вес',
+                                    'definition': '2,5 кг'
+                                }],"", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                        +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", true, "24 500", "images/content/announcement-1.jpg", "",
+                                [],
+                                [{
+                                    'title': 'ШхВхГ',
+                                    'definition': '40x55x20/24 см'
+                                },
+                                {
+                                    'title': 'Объем',
+                                    'definition': '38/43 л'
+                                },
+                                {
+                                    'title': 'Вес',
+                                    'definition': '2,5 кг'
+                                }],"", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                        +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", true, "24 500", "images/content/announcement-1.jpg", "",
+                                [],
+                                [{
+                                    'title': 'ШхВхГ',
+                                    'definition': '40x55x20/24 см'
+                                },
+                                {
+                                    'title': 'Объем',
+                                    'definition': '38/43 л'
+                                },
+                                {
+                                    'title': 'Вес',
+                                    'definition': '2,5 кг'
+                                }],"", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                        +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", true, "24 500", "images/content/announcement-1.jpg", "",
+                                [],
+                                [{
+                                    'title': 'ШхВхГ',
+                                    'definition': '40x55x20/24 см'
+                                },
+                                {
+                                    'title': 'Объем',
+                                    'definition': '38/43 л'
+                                },
+                                {
+                                    'title': 'Вес',
+                                    'definition': '2,5 кг'
+                                }],"", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                        +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", true, "24 500", "images/content/announcement-1.jpg", "",
+                                [],
+                                [{
+                                    'title': 'ШхВхГ',
+                                    'definition': '40x55x20/24 см'
+                                },
+                                {
+                                    'title': 'Объем',
+                                    'definition': '38/43 л'
+                                },
+                                {
+                                    'title': 'Вес',
+                                    'definition': '2,5 кг'
+                                }],"", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+
+        //- Секция Почему Робинзон
+        +b('section').section.--whyrobinzon.--incatalog
+            .b-container
+                //- Блок Почему Робинзон
+                +whyrobinzon()
+
+        .b-container
+            +b.product-list(itemscope itemtype="http://schema.org/Product")
+                +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", "", "oldprice", "images/content/announcement-1.jpg", "",
+                    [],
+                    [{
+                        'title': 'ШхВхГ',
+                        'definition': '40x55x20/24 см'
+                    },
+                    {
+                        'title': 'Объем',
+                        'definition': '38/43 л'
+                    },
+                    {
+                        'title': 'Вес',
+                        'definition': '2,5 кг'
+                    }], "", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", "", "oldprice", "images/content/announcement-1.jpg", "",
+                    [],
+                    [{
+                        'title': 'ШхВхГ',
+                        'definition': '40x55x20/24 см'
+                    },
+                    {
+                        'title': 'Объем',
+                        'definition': '38/43 л'
+                    },
+                    {
+                        'title': 'Вес',
+                        'definition': '2,5 кг'
+                    }], "", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                +b.product-item.--image
+                    +pick-model("images/content/anons_big_01.png").--product-item
+                +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", "", "oldprice", "images/content/announcement-1.jpg", "",
+                    [],
+                    [{
+                        'title': 'ШхВхГ',
+                        'definition': '40x55x20/24 см'
+                    },
+                    {
+                        'title': 'Объем',
+                        'definition': '38/43 л'
+                    },
+                    {
+                        'title': 'Вес',
+                        'definition': '2,5 кг'
+                    }], "", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", "", "oldprice", "images/content/announcement-1.jpg", "",
+                    [],
+                    [{
+                        'title': 'ШхВхГ',
+                        'definition': '40x55x20/24 см'
+                    },
+                    {
+                        'title': 'Объем',
+                        'definition': '38/43 л'
+                    },
+                    {
+                        'title': 'Вес',
+                        'definition': '2,5 кг'
+                    }], "", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", "", "oldprice", "images/content/announcement-1.jpg", "",
+                    [],
+                    [{
+                        'title': 'ШхВхГ',
+                        'definition': '40x55x20/24 см'
+                    },
+                    {
+                        'title': 'Объем',
+                        'definition': '38/43 л'
+                    },
+                    {
+                        'title': 'Вес',
+                        'definition': '2,5 кг'
+                    }], "", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL) Огромный чемодан-спиннер (XL)", "", "oldprice", "images/content/announcement-1.jpg", "",
+                    [],
+                    [{
+                        'title': 'ШхВхГ',
+                        'definition': '40x55x20/24 см'
+                    },
+                    {
+                        'title': 'Объем',
+                        'definition': '38/43 л'
+                    },
+                    {
+                        'title': 'Вес',
+                        'definition': '2,5 кг'
+                    }], "", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+                +product-item("", "American Tourister Sunset Square Spinner 13G*908", "22 100", "Огромный чемодан-спиннер (XL)", true, "24 500", "images/content/announcement-1.jpg", "",
+                    [],
+                    [{
+                        'title': 'ШхВхГ',
+                        'definition': '40x55x20/24 см'
+                    },
+                    {
+                        'title': 'Объем',
+                        'definition': '38/43 л'
+                    },
+                    {
+                        'title': 'Вес',
+                        'definition': '2,5 кг'
+                    }], "", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2")
+            +e.add-more
+                +button("ПОКАЗАТЬ ЕЩЕ", "", true).--more-item.js-add-product
+
+            //- // BEGIN: пагинация
+            //- +tag('Показать еще').--show-more
+
+            +pagination({'items': [{
+                'number': '1'
+                }, {
+                    'number': '2'
+                }, {
+                    'number': '3'
+                }]}, {
+                'hidePrev': '-hide',
+                'active': '0'
+            })
+            // END: пагинация
+        .b-container.js-rizer
+
+        //- //- скрытый слайдер
+        //- //- для работы вставляем под товаром
+        //- +hidden-slider()

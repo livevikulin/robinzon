@@ -1,0 +1,172 @@
+//- Project: header
+//- 16-01-2018: Mia // Amedomary
+//- ---------------------
+//- Шапка сайта - главный миксин
+
+mixin header()
+    //- Переменная для мода на главной
+    - var mainPageClass = false;
+
+    if file_name == 'main'
+        - var mainPageClass = '--main-page';
+    //+b.old-browser.-visible
+    //    +e('a').link(href="javascript:void(0);", title="Перейти на старую версию")
+    //        span Перейти
+    //        | на старую версию
+    //    +e('a').link-close.js-close(href="javascript:void(0);", title="Закрыть")
+    +b('header').header.js-page-header
+        //- Верхняя линяя
+        .b-container
+            +e.top-menu
+                +e('a').link( href='javascript:void(0)', title='' ).--tablet-show.--burger.js-hamburger-menu-mobile
+                    include ../../section/ui-kit/icon.pug
+                    +icon('menu').--header-top
+
+                include ../../section/address.pug
+                +address()
+
+                include ../../section/top-menu.pug
+                +top-menu('Доставка', 'Самовывоз', 'Оплата', 'Гарантии', 'О компании')
+
+                include ../../section/top-ya-market.pug
+                +top-ya-market()
+
+                include ../../section/person.pug
+                +person()
+                +e('a').link( href='javascript:void(0)', title='', data-popup='recall').--mobile-show.js-open-popup.js-recall
+                    include ../../section/ui-kit/icon.pug
+                    +icon('smartfon_phone').--header-top
+
+                if file_name == 'main'
+                else
+                    +e('a').link( href='javascript:void(0)', title='' ).--mobile-show.js-search-header-link
+                        include ../../section/ui-kit/icon.pug
+                        +icon('smartfon_search').--header-top
+
+            include ../../section/ui-kit/hr.pug
+            +hr().--none
+
+        //- Центральная линяя
+        .b-container
+            +e.middle
+                include ../../section/header-logo.pug
+                +header-logo()
+
+                //- top-search(input_id, input_type, input_placeholder, error, js, url)
+                include ../../section/top-search.pug
+                +top-search('header-search', 'text', 'Весь багаж находится здесь!', true, 'js-popover-search', "json/header-search.json")(class=mainPageClass).js-search-header-input
+                    +e.autocomplete-wrapper--search#id-header-search-auto
+
+                include ../../section/header-call.pug
+                +header-call()
+
+                include ../../section/basket.pug
+                +basket().js-basket-popover
+                include ../../section/basket-popover.pug
+                +basket-popover().-webui-popover-content
+
+        include ../../section/ui-kit/hr.pug
+        +hr().--none.--mobile-hide
+
+        //- Нижняя линяя
+        .b-container
+            +e.bottom(class=mainPageClass)
+
+                include ../../section/main-nav.pug
+                +main-nav(['Чемоданы', 'Рюкзаки', 'Сумки', 'Аксессуары', 'Бренды', 'Как выбрать?', 'Скидки'])
+
+                //- link(content, add_text, link)
+                include ../../section/ui-kit/link.pug
+                +link('','', true).--geo
+                    include ../../section/ui-kit/icon.pug
+                    +icon('geo').--nav-geo
+                    | Наши магазины
+
+mixin header-short()
+    +b('header').header.js-page-header
+        //- Центральная линяя
+        .b-container
+            +e.middle
+
+                include ../../section/header-logo.pug
+                +header-logo()
+
+                //- top-search(input_id, input_type, input_placeholder, error, js, url)
+                include ../../section/top-search.pug
+                +top-search('header-search', 'text', 'Весь багаж находится здесь!', true, 'icon-search', 'js-popover-search', "json/header-search.json")(class=mainPageClass)
+                    //- +e('a').mobile-search(href='javascript:void(0)' title='').js-hide-open-menu
+                    //-     +icon('icon-search-header', '20', '20').--header-search-mobile
+                    //- +e.autocomplete-wrapper--search#id-header-search-auto
+
+                include ../../section/header-call.pug
+                +header-call()
+
+//- Второе состояние для страницы State
+mixin header--state-2()
+    +b('header').header.js-page-header
+        //- Верхняя линяя
+        .b-container
+            +e.top-menu
+                +e('a').link( href='javascript:void(0)', title='' ).--tablet-show.--burger
+                    +icon('menu').--header-top
+                // удалён js из за дубликата id
+                +b.address
+                    +link('', '', true)(data-popup='your-city').--city
+                        span.js-text Москва
+                        +icon('arrow_open').--city-arrow
+                    +link('', '', true).--shop
+                        +icon('geo').--header-top-geo
+                        +b('span').address__text-shop Адреса магазинов
+                +top-menu('Доставка', 'Самовывоз', 'Оплата', 'Гарантии', 'О компании')
+                +top-ya-market()
+
+                +b('ul').person
+                    +e('li').item
+                        +e('a').link(href="javascript:void(0);", title="").--top-favorites
+                            +icon('favorites').--top-favorites
+                            +e('span').number 3
+                    +e('li').item
+                        +e('a').link(href="javascript:void(0);", title="").--top-compare
+                            +icon('compare').--top-compare
+                            +e('span').number 4
+                    
+                    // START: Не авторизованый пользователь
+                    +e('li').item.--size
+                        +e('a').link(href="javascript:void(0);", title='Войти', data-popup='login').js-open-popup
+                            +e('span').account-text Войти
+                    // END: Не авторизованый пользователь
+
+                +e('a').link( href='javascript:void(0)', title='', data-popup='recall').--mobile-show.js-open-popup.js-recall
+                    +icon('smartfon_phone').--header-top
+                if file_name == 'main'
+                else
+                    +e('a').link( href='javascript:void(0)', title='' ).--mobile-show.js-search-header-link
+                        +icon('smartfon_search').--header-top
+            +hr().--none
+        //- Центральная линяя
+        .b-container
+            +e.middle
+                +header-logo()
+                //- top-search(input_id, input_type, input_placeholder, error, js, url)
+                +top-search('header-search', 'text', 'Весь багаж находится здесь!', true, 'js-popover-search', "json/header-search.json")(class=mainPageClass).js-search-header-input
+                    +e.autocomplete-wrapper--search#id-header-search-auto
+
+                +b('dl').header-call
+                    +e('dt').number
+                        +e('a').link( href='tel:=74956486688', title='Позвонить' ) 8 495 648-66-88 
+                        | / 
+                        +e('a').link( href='tel:+78005553285', title='Позвонить' ) 8 800 555-32-85 
+                    +e('dd').time
+                        a(href='#', data-popup='recall').js-open-popup.js-recall Заказать обратный звонок
+
+                +basket().js-basket-popover
+                +basket-popover().-webui-popover-content
+        +hr().--none.--mobile-hide
+        //- Нижняя линяя
+        .b-container
+            +e.bottom(class=mainPageClass)
+                +main-nav(['Чемоданы', 'Рюкзаки', 'Сумки', 'Аксессуары', 'Бренды', 'Как выбрать?', 'Скидки'])
+                //- link(content, add_text, link)
+                +link('','', true).--geo
+                    +icon('geo').--nav-geo
+                    | Наши магазины

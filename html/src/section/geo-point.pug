@@ -1,0 +1,20 @@
+//- ====================
+//- Robinzon: geo-point
+//- 25-01-2018: drtvader
+//- --------------------
+//- выбор цвета для слайдера
+//- ====================
+
+//- item что бы задать модификатор пишем его через запятую
+mixin geo-point()
+    +b.geo-point(class!=attributes.class)
+        +e.icon-wrapper(class!=attributes.class)
+            include ui-kit/icon.pug
+            +icon("geo").--geo-point
+        +e.content(class!=attributes.class)
+            +b.link.--geo-point(href="javascript:void(0);" title="Этот товар есть в 7 магазинах")
+                +e('span').text-link
+                    | Этот товар есть в 
+                    span 7 
+                    | магазинах
+            +e.text в разных расцветках

@@ -1,0 +1,21 @@
+//- ====================
+//- robinzon: obtainment
+//- 31-01-2018: dimasta
+//- --------------------
+//- Элемент блока "Как получить товар"
+//- ====================
+
+mixin obtainment-item(data)
+    each item in data.items
+        +e('li').item(class!=attributes.class)
+            +e('figure').item-figure
+                +e('span').figure-img
+                    +e('img').img-content(src=item.srclink, alt="", title="")
+                +e('figcaption').figure-description
+                    +e.mark(class=item.classmark) 
+                        +e.num !{item.num}
+                        | 
+                        | !{item.mark}
+                    +e('p').description !{item.description}
+                    if item.descriptionlink
+                        +e('a').description-link(href='javascript:void(0);', title="") !{item.descriptionlink}

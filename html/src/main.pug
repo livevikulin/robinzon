@@ -1,0 +1,188 @@
+//- ====================
+//- Project: main
+//- 00-00-2017:
+//- --------------------
+//- Главная страница.
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'main';
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Главная страница';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    // BEGIN: Главный слайдер
+    include section/main-slider.pug
+    +main-slider().js-main-slider
+    // END: Главный слайдер
+
+
+    // BEGIN: shop-goods
+    include section/shop-goods.pug
+    +shop-goods({'items': [{
+            'class': 'b-shop-goods__link--shop',
+            'icon': 'geo',
+            'text': 'Магазины в&nbsp;Москве'
+        }, {
+            'class': 'b-shop-goods__link--goods',
+            'icon': 'sale_ico',
+            'text': 'Товары со&nbsp;скидками'
+        }
+    ]})
+    // END: shop-goods
+
+
+    // BEGIN: Мобильное место для выбора чемодана
+    +b('section').section.--white.--mobile-show
+        .b-container.js-mobile-permutation-suitcase
+    // END: Мобильное место для выбора чемодана
+
+
+    // BEGIN: main-tabs
+    include section/ui-kit/tab.pug
+    //- +tab('В путешествие', 'Для города', 'В командировку', 'Все лучшее детям', 'В подарок')
+    +tab({'items': 
+        [{
+            'text': 'В путешествие',
+            'data': 'in-travel'
+        }, {
+            'text': 'Для города',
+            'data': 'in-city'
+        }, {
+            'text': 'В командировку',
+            'data': 'business-trip'
+        }, {
+            'text': 'Все лучшее детям',
+            'data': 'best-for-children'
+        }, {
+            'text': 'В подарок',
+            'data': 'present'
+        }],
+        'wrapperClass': 'js-horizontal-scroll'}).--recommended-tab
+        .b-container.b-container--suitcase
+            +b('section').suitcase
+                +b.announcement.--hollow.js-desktop-permutation-suitcase
+                    include section/choice-suitcase.pug
+                    +choice-suitcase().js-permutation-suitcase
+                +b.announcement-wrapper.--hidden-mobile.--suitcase
+                    include section/consultation.pug
+                    +consultation({
+                        'title': 'Сложности с выбором?',
+                        'src': 'images/content/avatar.png',
+                        'name': 'Консультант Константин&#160;Александров',
+                        'secondary': 'Готов ответить на&nbsp;вопросы и&nbsp;помочь в&nbsp;выборе. Звоните!'
+                    })
+                    include section/announcement.pug
+                    +announcement(true, 'images/content/howChoose.jpg', "Как выбрать багаж?", "300", "Читайте об&nbsp;этом в&nbsp;специальном разделе.").--small.--vertical-middle.--full-image
+
+        +e.content.js-tab-content.-active(data-tab-content="in-travel")
+            //- первый таб
+            include section/first-tab.pug
+            +first-tab()
+        +e.content.js-tab-content(data-tab-content="in-city")
+            //- контент таба
+            p Test tab 2
+        +e.content.js-tab-content(data-tab-content="business-trip")
+            //- контент таба
+            p Test tab 3
+        +e.content.js-tab-content(data-tab-content="best-for-children")
+            //- контент таба
+            p Test tab 4
+        +e.content.js-tab-content(data-tab-content="present")
+            //- контент таба
+            p Test tab 5
+    // END: main-tabs
+
+
+    // BEGIN: Наши магазины (в Москве / в Санкт-Петербурге)
+    +b('section').section.--white.--stores
+        .b-container
+            //- Блок Наши магазины
+            include section/stores.pug
+            +stores()            
+            //- Блок Как получить товары
+            include section/obtainment.pug
+            +obtainment()
+    // END: Наши магазины (в Москве / в Санкт-Петербурге)
+
+
+    // BEGIN: Популярных брендов
+    +b('section').section.--gray
+        .b-container
+            include section/popular-brand.pug
+            +popular-brand()
+    // END: Популярных брендов
+
+
+    // BEGIN: Рекомендуемые товары
+    +b('section').section.--white.--recommended
+        .b-container.b-container--recommended
+            include section/ui-kit/title.pug
+            +title('h1', 'Рекомендуемые товары').--block.--recommended-tab
+
+        +tab({'items': [{
+                'text': 'Популярные новинки',
+                'data': 'popular-news'
+            }, {
+                'text': 'Большие чемоданы',
+                'data': 'big-case'
+            }, {
+                'text': 'Самые надежные чемоданы',
+                'data': 'reliable-case'
+            }, {
+                'text': 'Скандинавский стиль',
+                'data': 'nordic-style'
+            }
+        ]}).--recommended-goods
+            +e.content.js-tab-content.-active(data-tab-content="popular-news")
+                //- первый таб
+                .b-container.b-container--recommended
+                    //- Блок Рекомендуемые товары
+                    include section/recommended.pug
+                    +recommended()
+
+            +e.content.js-tab-content(data-tab-content="big-case")
+                //- контент таба
+                +title('h2','Большие чемоданы') 
+            +e.content.js-tab-content(data-tab-content="reliable-case")
+                //- контент таба
+                +title('h2','Самые надежные чемоданы') 
+            +e.content.js-tab-content(data-tab-content="nordic-style")
+                //- контент таба
+                +title('h2','Скандинавский стиль') 
+    // END: Рекомендуемые товары
+
+
+    // BEGIN: Покупать в комплетке выгодно
+    include section/buy-set.pug
+    +b('section').section.--white.--buy-set
+        .b-container
+            +buy-set()
+    // END: Покупать в комплетке выгодно
+
+
+    // BEGIN: Почему Робинзон
+    +b('section').section.--whyrobinzon
+        .b-container
+            //- Блок Почему Робинзон
+            include section/whyrobinzon.pug
+            +whyrobinzon()
+    // END: Почему Робинзон
+
+
+    // BEGIN: О нас
+    +b('section').section--gray.--about-us
+        .b-container
+            //- Блок О нас
+            include section/about-us.pug
+            +about-us()
+    // END: О нас

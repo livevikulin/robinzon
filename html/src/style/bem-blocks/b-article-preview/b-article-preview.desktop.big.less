@@ -1,0 +1,63 @@
+/* 1440 + */
+.b-article-preview {
+    display: inline-block;
+    vertical-align: top;
+    width: ~"calc(25% - 20px)";
+    margin: 0 10px 20px;
+    font-size: 16px;
+    background-color: @product-back;
+
+    box-shadow: 2px 2px 7px 0px #76767629; //test
+
+    &--big {
+        width: ~"calc(50% - 20px)";
+    }
+
+    &--small & {
+        &__image-wrapper {
+            height: 162.5px;
+        }
+        &__figcaption {
+            padding: 10px 5px 5px;
+            height: 67.5px;
+        }
+    }
+
+    &--vertival {}
+
+    &__link {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__figure {
+        margin: 0;
+    }
+
+    &__image-wrapper {
+        height: 335px;
+        width: 100%;
+        position: relative;
+
+        background-color: #999999; //test
+    }
+
+    &__image {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        font-family: 'object-fit: cover;';
+
+        opacity: 0; //test
+    }
+
+    &__figcaption {
+        height: 145px;
+        padding: 30px 20px 10px;
+    }
+}

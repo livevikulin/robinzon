@@ -1,0 +1,42 @@
+//- ====================
+//- Robinzon: fixed-tab-product
+//- 19-01-2018: Amedomary
+//- --------------------
+//- Меню табов которое приклеивается к верху страницы
+//- ====================
+
+mixin fixed-tab-product()
+    +b.fixed-tab-product( class!=attributes.class )
+        .b-container.b-container--fixed-tab
+            +e.column.--content
+                +e.info
+                    +e('span').info-text.--heading Чемодан Samsonite 39N*904 Askella Spinner S 
+                    +e('span').info-text.--dt Размер / Колеса:
+                    +e('span').info-text.--dd M — 49 x 69 x 30 см  /  4 колеса
+                //- копия со страницы
+                include ui-kit/tab.pug
+                +tab({'items': 
+                    [{
+                        'text': 'Описание',
+                        'data': 'description'
+                    },{
+                        'text': 'Отзывы',
+                        'data': 'review'
+                    },{
+                        'text': 'Наличие в 7 магазинах',
+                        'data': 'avaibility-shop'
+                    },{
+                        'text': 'Аксессуары',
+                        'data': 'accessorize'
+                    },{
+                        'text': 'Комплекты',
+                        'data': 'set'
+                    }],
+                    'listClass': '--fixed-top',
+                    'linkClass': '--fixed-top',
+                    'lineClass': '--fixed-top'}
+                ).--fixed-top
+            +e.column.--aside
+                +e('img').image(src='images/content/product-card-1.png', alt='', title='').js-image-wrapper
+                include ui-kit/button.pug
+                +button('Хочу купить','', true).--blue.--fixed-tab-product

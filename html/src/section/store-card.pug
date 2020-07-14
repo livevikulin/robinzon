@@ -1,0 +1,41 @@
+//- ====================
+//- store-card
+//- 19-06-2018: Mell.Blimm
+//- --------------------
+//- Карточка Магазины
+//- ====================
+
+mixin store-card()
+    +b.stores-pvz.--store-card
+        +e.column.--list.js-store-card-desktop
+            +b.store-card
+                +e.info
+                    +e.col
+                        include ui-kit/title.pug
+                        +title('h4', 'Адрес магазина:').--store-card
+                        p метро «Пролетарская» или «Крестьянская застава», ул. Воронцовская, д. 49/28, строение 1, 4 этаж.
+
+                    +e.col
+                        include ui-kit/title.pug
+                        +title('h4', 'Режим работы:').--store-card
+                        p ежедневно с 10 до 22
+
+                        include ui-kit/title.pug
+                        +title('h4', 'Телефон:').--store-card
+                        p 8 (495) 662-99-70
+
+                include ui-kit/hr.pug
+                +hr().--store-card
+
+                +e.desc
+                    +e('img').image(src='images/inhtml/parking.svg', alt='', title='')
+                    +e.text
+                        p Бесплатная наземная парковка.
+                        p Подземная парковка — 1 час бесплатно, далее 100 руб./час
+
+                include map.pug
+                +map().--stores-pvz-few.--store-card.js-store-card-map#id-map-pvz-general
+
+        +e.column.--info.js-store-card-mobile
+            include brand-card-slider.pug
+            +brand-card-slider('images/content/american-tourister-card-1.jpg', 'images/content/american-tourister-card-1.jpg', 'images/content/american-tourister-card-1.jpg').--store-card

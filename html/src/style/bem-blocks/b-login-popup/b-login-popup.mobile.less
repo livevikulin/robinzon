@@ -1,0 +1,38 @@
+/* 320 + */
+.b-login-popup {
+    display: block;
+    max-width: none;
+    width: 100%;
+
+    &__block {
+        display: block;
+        width: 100%;
+        padding: 15px;
+
+        &--half-left {
+            padding-bottom: 0;
+        }
+
+        &--half-right {
+            padding-top: 0;
+            background-color: @background-header;
+            text-align: center;
+            padding-bottom: 28px;
+        }
+    }
+
+    &__help {
+        display: none;
+    }
+
+    &__buttons {
+        margin-top: -5px;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        margin-bottom: 25px;
+
+        &--new {
+            margin: 0;
+        }
+    }
+}

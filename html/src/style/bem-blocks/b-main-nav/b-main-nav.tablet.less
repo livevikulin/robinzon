@@ -1,0 +1,25 @@
+/* 768 + */
+.b-main-nav {
+    width: 100%;
+
+    &__list {
+        display: block;
+        white-space: nowrap;
+        margin: 0 -15px;
+        padding: 0 15px;
+        overflow-x: auto;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        /*overflow: auto;*/
+        user-select: none;
+        
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__item {
+        padding-top: 3px;
+        height: 49px;
+    }
+}

@@ -1,0 +1,12 @@
+//- ====================
+//- Robinzon: discount-label
+//- 25-01-2018: drtvader
+//- --------------------
+//- лейбл скидки
+//- ====================
+
+//- label если есть лейбл со скидосом
+mixin discount-label(label)
+    +b.discount-label(class!=attributes.class)
+        span #{label}
+        | %

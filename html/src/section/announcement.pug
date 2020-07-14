@@ -1,0 +1,23 @@
+//- ====================
+//- robinzon: whyrobinzon-item
+//- 06-02-2018: FedorVinecky
+//- --------------------
+//- Элемент с товаром в табах
+//- ====================
+
+mixin announcement(help, image, name, number, text_secondary)
+    +b.announcement(class!=attributes.class)
+        +e.link(href='javascript:void(0);', title='')
+            +e('img').img.js-image-wrapper(src= image, alt="", title="")
+            if help == false
+                if name
+                    +e.text
+                        span #{name}
+                        +e.nubmer #{number}
+                    if text_secondary
+                        +e.text-secondary #{text_secondary}
+            if help == true
+                +e.text.--other
+                    span #{name}
+                +e.text.--other-min
+                    span !{text_secondary}

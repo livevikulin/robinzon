@@ -1,0 +1,14 @@
+//- ====================
+//- Project: RBZ
+//- 24-05-2018: Amedomary
+//- --------------------
+//- cart-list
+//- ====================
+
+mixin cart-list()
+    +b.cart-list
+        +e.caption
+            +e.cell--info Наименование / Цена / Количество
+            +e.cell--cost Сумма
+        +e.wrapper.js-item-height
+            block

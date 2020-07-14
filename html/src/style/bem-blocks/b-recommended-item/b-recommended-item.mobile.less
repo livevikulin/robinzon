@@ -1,0 +1,116 @@
+/* 320 + */
+.b-recommended-item {
+    width: 50%;
+    height: 285px;
+
+    &--set {
+        width: 100%;
+        height: 150px;
+        margin: 0;
+    }
+
+    &--row-list {
+        width: 225px;
+    }
+
+    &--cart {
+        height: 310px;
+    }
+
+    &__label {
+        left: 0;
+        position: absolute;
+        z-index: 12;
+        text-align: left;
+        top:0;
+    }
+    &__content {
+        padding: 0 5px 15px;
+
+        .b-recommended-item--more & {
+            background-color: @catalog-button;
+            color: @cl-font-main;
+            text-transform: uppercase;
+            font-size: 16px;
+            line-height: 18px;
+            padding: 13px 29px;
+            border: 1px solid @cl-gray-very-light;
+            transition: all @animation-time;
+            position: relative;
+            width: auto;
+            display: inline-block;
+
+            &:active {
+                border: 1px solid @cl-font-orange;
+            }
+        }
+
+        &--set {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            border: none;
+            padding: 15px;
+        }
+
+        &--row-list {
+            border: 1px solid @product-border;
+        }
+
+        &--favorite {
+            border: 1px solid @product-border;
+        }
+    }
+
+    &__image-link {
+        height: 145px;
+        width: 85px;
+        
+        &--set {
+            flex: 1 1 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            padding-right: 15px;
+        }
+
+        &--row-list {
+            width: 100%;
+        }
+    }
+
+    &__description {
+        // width: ~'calc(100% - 85px)';
+        width: 100%;
+        padding: 0 5px;
+
+        &--set {
+            text-align: left;
+            padding: 0;
+            margin-bottom: 10px;
+            height: auto;
+            width: ~'calc(100% - 85px)';
+
+            .b-recommended-item__name {
+                    height: auto;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    display: block;
+            }
+        }
+    }
+
+    &__size {
+        font-size: 12px;
+    }
+
+    &--more {
+        display: inline-flex;
+        margin: 30px 0 0 0;
+        width: auto;
+        text-align: center;
+        height: auto;
+        outline: none;
+    }
+}

@@ -1,0 +1,23 @@
+//- ====================
+//- Robinzon: tag
+//- 18-01-2018: Amedomary
+//- --------------------
+//- tag
+//- ====================
+
+mixin tag(...items)
+    each item, index in items
+        +b.tag( class!=attributes.class )
+            +e('a').link( href='javascript:void(0)', title=item ) #{item}
+
+mixin tag--radio(...items)
+    each item, index in items
+        +b.tag( class!=attributes.class )
+            +e('input').input( type="radio", name='name', id=`'id-popular-tag-${index}'`, checked=false )
+            +e('label').link( for=`'id-popular-tag-${index}'`, class!=attributes.class ) #{item}
+
+
+mixin tag--brand(...items)
+    each item, index in items
+        +b.tag(class!=attributes.class, class=(index == 0 ? '-active': ''))
+            +e('a').link(href='javascript:void(0)', title=item) #{item}

@@ -1,0 +1,13 @@
+//- ====================
+//- Robinzon: registration-popup-done
+//- 18-01-2018: Amedomary
+//- --------------------
+//- ПопАп registration-popup-done
+//- ====================
+
+mixin registration-popup-done()
+    +b.registration-popup.--done
+        +e('img').img-done(alt='', title='', src='images/inhtml/email.svg')
+        +e('p').add-text.--done Спасибо за регистрацию. На вашу почту отправлено письмо со ссылкой на завершение регистрации.
+        include ../ui-kit/button.pug
+        +button('Закрыть', '', true).--blue.js-close-popup

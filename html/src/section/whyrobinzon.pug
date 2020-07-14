@@ -1,0 +1,32 @@
+//- ====================
+//- robinzon: whyrobinzon
+//- 16-01-2018: maxzbest
+//- --------------------
+//- Блок "Почему Робинзон" b-whyrobinzon
+//- ====================
+
+mixin whyrobinzon()
+    include ui-kit/title.pug
+    +title('h1', '').--block.--whyrobinzon
+            | Почему багаж покупают в магазинах &laquo;Робинзон&raquo;?
+    //- begin block b-whyrobinzon
+    +b.whyrobinzon
+        +e('ul').content.js-horizontal-scroll
+            include whyrobinzon-item.pug
+            +whyrobinzon-item({'items': [{
+                                    'srclink': 'images/content/20-years.png',
+                                    'description': 'Более 20&nbsp;лет на&nbsp;рынке, мы&nbsp;&mdash; эксперты по&nbsp;чемоданам'
+                                }, {
+                                    'srclink': 'images/content/shop.png',
+                                    'description': 'Самый большой выбор чемоданов'
+                                }, {
+                                    'srclink': 'images/content/samson.png',
+                                    'description': 'Только оригинальная продукция от известных брендов'
+                                }, {
+                                    'srclink': 'images/content/10-years.png',
+                                    'description': 'До 10 лет гарантии'
+                                }, {
+                                    'srclink': 'images/content/let-me-five.png',
+                                    'description': 'Нас рекомендуют друзьям!'
+                                }
+                            ]})

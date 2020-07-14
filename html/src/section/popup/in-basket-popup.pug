@@ -1,0 +1,44 @@
+//- ====================
+//- Robinzon: in-basket-popup
+//- 23-03-2018: Amedomary
+//- --------------------
+//- ПопАп in-basket-popup
+//- ====================
+
+mixin in-basket-popup()
+    include ../ui-kit/title.pug
+    include ../ui-kit/price.pug
+    include ../ui-kit/button.pug
+    include ../product-basket.pug
+
+    +b.in-basket-popup
+        //- Крестик
+        +popup_close()
+        +e.title
+            +title('h3', 'Товар добавлен в корзину').--in-basket-popup
+
+        +e.box
+            +e.column
+                +e.sell--recomend
+                    +title('h5', 'Рекомендуем').--in-basket
+                    +e('ul').recomend-list
+                        include ../category.pug
+                        +category({
+                            'src': 'images/content/02_samovivoz-min.jpg',
+                            'name_one': 'Аксессуары для&nbsp;путеществия',
+                        })
+                        include ../category.pug
+                        +category({
+                            'src': 'images/inhtml/percent-discount.svg',
+                            'name_one': 'Товары со&nbsp;скидками',
+                        })
+                +e.button-wrapper
+                    +button('Продолжить покупки', '', true).--white-buy
+            +e.product-wrapper
+                +e('img').image(src="images/content/recommended-bag-2.jpg", alt='', title='').js-image-wrapper
+                +e.description
+                    +e('span').des-line Чемодан средний M
+                    +e('span').des-line American Tourister Sunset Square Spinner 13G*908
+                    +price("16 500", true, "", "₽").--in-basket
+                +e.button-wrapper
+                    +button('Оформить заказ', '', true).--orange-buy

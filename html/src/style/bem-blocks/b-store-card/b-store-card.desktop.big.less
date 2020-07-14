@@ -1,0 +1,46 @@
+/* 1440 + */
+.b-store-card {
+    &__info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__col {
+        width: ~'calc(50% - 10px)';
+
+        & > p {
+            font-size: 15px;
+            line-height: 22px;
+            margin: 0 0 10px;
+        }
+    }
+
+    &__logo {
+        max-width: 170px;
+        width: 100%;
+
+        & img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    &__desc {
+        align-items: center;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 0 25px;
+    }
+
+    &__image {
+        margin: 0 20px 0 0;
+    }
+
+    &__text {
+        & > p {
+            font-size: 15px;
+            line-height: 22px;
+            margin: 0;
+        }
+    }
+}

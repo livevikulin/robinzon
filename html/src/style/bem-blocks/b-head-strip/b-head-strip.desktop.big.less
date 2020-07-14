@@ -1,0 +1,88 @@
+/* 1440 + */
+.b-head-strip {
+  min-height: 50px;
+  background-color: #ff015b;
+  position: relative;
+  &.mobile-strip{
+      display: none;
+  }
+  &.desktop-strip{
+      display: none;
+      &.activeStrip{
+		    display: block;
+		  }
+  }
+  &__main-box {
+    width: 100%;
+    min-height: 50px;
+  }
+  &__sub-box {
+    width: 1290px;
+    margin: 0 auto;
+    min-height: 50px;
+    position: relative;
+  }
+  &__text{
+    text-align: center;
+    padding-top: 17px;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    color: #fff;
+  }
+
+  &__text_mobile {
+    display: none;
+  }
+
+  &__left-img,&__right-img {
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+
+    & img {
+      display: block;
+    }
+  }
+  &__right-img {
+    right: 0;
+    text-align: right;
+
+    & img {
+      margin-left: auto;
+    }
+  }
+
+  @btn-close-size: 15px;
+  &__btn-close {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    left: auto;
+    margin: auto;
+    height: @btn-close-size;
+    width: @btn-close-size;
+  }
+  &__btn-close:before, &__btn-close:after {
+    position: absolute;
+    left: 6px;
+    content: ' ';
+    height: @btn-close-size;
+    width: 2px;
+    background-color: #fbfffe;
+  }
+  &__btn-close:before {
+    transform: rotate(45deg);
+  }
+  &__btn-close:after {
+    transform: rotate(-45deg);
+  }
+  &__btn-close:hover:before, &__btn-close:hover:after{
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+  }
+
+}

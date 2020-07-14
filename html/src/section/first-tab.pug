@@ -1,0 +1,70 @@
+//- ====================
+//- Robinzon: choice-suitcase
+//- 23-01-2018: FedorVinecky
+//- --------------------
+//- Первый таб
+//- ====================
+
+mixin first-tab()
+    include choice-suitcase.pug
+    include ui-kit/title.pug
+    include ui-kit/icon.pug
+    include promo.pug
+    include consultation.pug
+    include announcement.pug
+
+    .b-container
+        +b.tab-container--suitcase.js-horizontal-tab
+            +announcement(false, 'images/content/anons_big_01.png').--order-tablet.--length.--full-image
+            +b.announcement-wrapper
+                +announcement(false, 'images/content/pillow.jpg', "Подушки в самолёт", "52", "Перевес вам больше не грозит").--small.--white-font.--full-image
+                +announcement(false, 'images/content/Libra.jpg', "Весы для багажа", "45", "Перевес вам больше не грозит").--small
+            +b.announcement-wrapper.--last-mobile
+                +announcement(false, 'images/content/travelBags.jpg', "Дорожные сумки", "85", "Перевес вам больше не грозит").--small
+                +announcement(false, 'images/content/backpacks.jpg', "Рюкзаки", "80", "Перевес вам больше не грозит").--small.--full-image
+            +announcement(false, 'images/content/announcement-2.jpg', "Чехлы на чемоданы", "300", "Красиво, недорого и очень практично").--last-mobile
+            
+
+mixin first-tab-bred()
+    include choice-suitcase.pug
+    include ui-kit/title.pug
+    include ui-kit/icon.pug
+    include promo.pug
+    include consultation.pug
+    include announcement.pug
+
+    .b-container
+        +b.tab-container.--catalog-bred.js-horizontal-scroll
+            +announcement(false, 'images/content/announcement-1.jpg', "Чемоданы", "5200", "Любые размеры, разнообразные конструкции, с гарантией качества").--order-tablet.--length.--catalog-bred
+            +b.announcement-wrapper
+                +announcement(false, 'images/content/pillow.jpg', "Подушки в самолёт", "52", "Перевес вам больше не грозит").--small.--white-font.--full-image
+                +announcement(false, 'images/content/Libra.jpg', "Весы для багажа", "45", "Перевес вам больше не грозит").--small
+            +announcement(false, 'images/content/case.jpg', "Чемоданы", "5200", "").--order-tablet.--length.--bottom-text.--catalog-bred
+            +b.announcement-wrapper.--last-mobile
+                +announcement(false, 'images/content/travelBags.jpg', "Дорожные сумки", "85", "Перевес вам больше не грозит").--small
+                +announcement(false, 'images/content/backpacks.jpg', "Рюкзаки", "80", "Перевес вам больше не грозит").--small.--full-image
+            +b.announcement.--last-mobile
+                +b.stores.--tab
+                    +e.banner
+                        +e.img-wrap
+                            +e("img").banner-img.--desk(src="images/content/stores-festival.jpg", alt="" title="")
+                            +e("img").banner-img.--mobile(src="images/content/stores-img320.png", alt="" title="")
+                            +promo(
+                                'Посетите наши магазины в Москве',
+                                'Товары в магазинах',
+                                '30% скидка',
+                                'на аксессуары',
+                                '1 год —',
+                                'дополнительная гарантия',
+                                'на товар от «Робинзона»',
+                                'Можно скорректировать',
+                                'заказ на месте'
+                            ).--tab
+            +b.announcement-wrapper.--hidden-mobile
+                +consultation({
+                    'title': 'Сложности с выбором?',
+                    'src': 'images/content/avatar.png',
+                    'name': 'Консультант Константин&#160;Александров',
+                    'secondary': 'Готов ответить на&nbsp;вопросы и&nbsp;помочь в&nbsp;выборе. Звоните!'
+                })
+                +announcement(true, 'images/content/howChoose.jpg', "Как выбрать багаж?", "300", "Читайте об&nbsp;этом в&nbsp;специальном разделе.").--small.--vertical-middle.--full-image.--catalog-bred

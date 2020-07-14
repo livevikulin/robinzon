@@ -1,0 +1,89 @@
+/* 768 + */
+.b-consultation {
+    height: 250px;
+    width: 100%;
+
+    &--description {
+        height: auto;
+    }
+
+    &--stretch {
+        height: auto;
+        padding: 28px 30px;
+    }
+
+    &--main {
+        // height: auto;
+        padding: 28px 20px;
+    }
+
+    &--store {
+        margin: 0 0 30px;
+    }
+
+    &__block-text {
+        width: 188px;
+
+        .b-consultation--stretch & {
+            vertical-align: middle;
+            width: auto;
+        }
+
+        .b-consultation--store & {
+            width: calc(~"100% - 170px");
+        }
+    }
+
+    &__text {
+        .b-consultation--stretch & {
+            font-size: 16px;
+            margin: 8px 0 12px;
+        }
+        .b-consultation--main & {
+            font-size: 16px;
+            margin: 8px 0 12px;
+        }
+    }
+
+    &__phone {
+        font-size: 20px;
+
+        .b-consultation--stretch & {
+            vertical-align: middle;
+        }
+
+        .b-consultation--main & {
+            vertical-align: middle;
+        }
+    }
+
+    &__text-secondary {
+        margin: 0 0 11px;
+
+        .b-consultation--stretch & {
+            margin: 0 0 12px;
+            width: auto;
+        }
+
+        .b-consultation--main & {
+            margin: 0 0 12px;
+            width: auto;
+        }
+
+        &--phone {
+            // margin-left: 33px;
+
+            .b-consultation--stretch & {
+                display: inline-block;
+                margin: 0 0 0 4px;
+                vertical-align: middle;
+            }
+
+            .b-consultation--main & {
+                display: inline-block;
+                margin: 0 0 0 4px;
+                vertical-align: middle;
+            }
+        }
+    }
+}

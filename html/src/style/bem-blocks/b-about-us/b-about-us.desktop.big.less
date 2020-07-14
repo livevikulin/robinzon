@@ -1,0 +1,38 @@
+/* 1440 + */
+.b-about-us {
+    font-size: 0;
+
+    &__column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+
+        &--left {
+            width: ~"calc(100% - 360px)";
+            // width: 800px;
+            margin-bottom: -5px;
+        }
+
+        &--right {
+            // width: ~"calc(100% - 800px)";
+            width: 360px;
+            padding-top: 7px;
+        }
+    }
+
+    &__content {
+        font-size: 14px;
+        column-count: 2;
+        column-gap: 0;
+        line-height: 21px;
+        color: @cl-font-main;
+
+        p {
+            display: inline-block;
+            line-height: 24px;
+            padding-right: 40px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+    }
+}

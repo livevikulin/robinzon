@@ -1,0 +1,54 @@
+//- ====================
+//- Robinzon: choice-suitcase
+//- 22-01-2018: Amedomary
+//- --------------------
+//- Выбор чемодана
+//- ====================
+mixin choice-suitcase()
+    +b('aside').choice-suitcase( class!=attributes.class )
+        +e('form').form(data-url="/json/choice-suitcase.json")
+            include ui-kit/title.pug
+            +title('h3', 'Какой чемодан нужен вам?').--card
+
+            include ui-kit/hr.pug
+            +hr().--choice-suitcase
+
+            +e.section--big-column
+                +title('h4', 'Размер').--block.--category
+                //- Радио: +radio(textLabel, name, id, checked, js)
+                include ui-kit/radio.pug
+                +radio( 'XL', 'size', 'size-type-4', false, 'js-ajax-custom' ).--square
+                +radio( 'L', 'size', 'size-type-3', true, 'js-ajax-custom' ).--square
+                +radio( 'M', 'size', 'size-type-2', false, 'js-ajax-custom' ).--square
+                +radio( 'S', 'size', 'size-type-1', false, 'js-ajax-custom' ).--square
+
+            +e.section--small-column
+                +title('h4', 'Колеса').--block.--category
+                //- Радио: +radio(textLabel, name, id, checked, js)
+                +radio( '4', 'wheel-number', 'wheel-type-2', true, 'js-ajax-custom' ).--square
+                +radio( '2', 'wheel-number', 'wheel-type-1', false, 'js-ajax-custom' ).--square
+
+            +e.section--material
+                +title('h4', 'Материал').--block.--category
+                //- Чекбокс: +checkbox(name, id, title, js)
+                include ui-kit/checkbox.pug
+                +checkbox( 'material', 'material-type-3', 'Пластик', 'js-ajax-custom').--material
+                +checkbox( 'material', 'material-type-2', 'Curv', 'js-ajax-custom').--material
+                +checkbox( 'material', 'material-type-1', 'Ткань', 'js-ajax-custom').--material
+                +checkbox( 'material', 'material-type-4', 'Алюминий', 'js-ajax-custom').--material
+
+            +hr().--choice-suitcase
+
+            +e.section
+                include ui-kit/title.pug
+                +title('h4', 'Цена').--block.--category
+                include ui-kit/range.pug
+                +range().--choice-suitcase.js-filter-input
+
+            //- include ui-kit/icon.pug
+            //- +icon('loader-two')
+
+            include ui-kit/button.pug
+            //- div.button(style)
+            +button('Подобрать чемодан', '', true).--blue.--choice-suitcase.js-button-suitcase
+            i.js-loader(style="display:none; width: 50px; height: 50px; background: url('images/inhtml/loader.svg') no-repeat; background-size: 100%; position:relative; top: -48px; left: -10px;")

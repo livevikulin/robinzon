@@ -1,0 +1,14 @@
+//- ====================
+//- need-help
+//- 18-01-2018:
+//- --------------------
+//- блок с ссылками - нужна помощь
+//- ====================
+
+
+mixin need-help(data)
+    +b.link-block(class!=attributes.class)
+        +e('ul').list
+            each item in data.items
+                +e.item
+                    +b('a').link--underline-dot(href='javascript:void(0)' class=item.linkClass data-popup=item.dataPopup title='') #{item.title}

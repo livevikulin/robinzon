@@ -1,0 +1,33 @@
+/* 320 + */
+.b-characteristic-info {
+
+    &--product-item {
+        min-height: 43px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &--product-item & {
+        &__item {
+            margin-right: 5px;
+            border-right: none;
+            &:first-child {
+                width: 100%;
+                justify-content: center;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__definition,
+    &__title {
+        font-size: 12px;
+        line-height: 14px;
+        text-align: left;
+    }
+}

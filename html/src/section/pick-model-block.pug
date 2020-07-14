@@ -1,0 +1,25 @@
+//- ====================
+//- Robinzon: pick-model-block
+//- 18-01-2018: Amedomary
+//- --------------------
+//- pick-model-block
+//- ====================
+
+mixin pick-model-block()
+    +b.pick-model-block.js-pick-slider( class!=attributes.class )
+        include pick-model.pug
+        //- +pick-model('Чемоданы TITAN. Неповторимый дизайн', 'Выбрать', 'images/content/bag-pick-2.jpg').--wide.--li.--mobile-hide
+        +pick-model('images/content/banner-pick.png').--li
+        //- .--tablet-hide
+        +pick-model('images/content/banner-pick.png').--li
+        +pick-model('images/content/banner-pick.png').--li
+        +pick-model('images/content/banner-pick.png').--li
+
+
+mixin pick-model-block--brand-list()
+    +b.pick-model-block--brand-list.js-pick-slider
+        include pick-model.pug
+        +pick-model('images/content/banner-pick.png').--li
+        +pick-model('images/content/banner-pick.png').--li
+        +pick-model('images/content/banner-pick.png').--li
+        +pick-model('images/content/banner-pick.png').--li

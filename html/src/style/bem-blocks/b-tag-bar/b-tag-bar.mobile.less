@@ -1,0 +1,36 @@
+/* 320 + */
+.b-tag-bar {
+    padding-top: 20px;
+
+    &--popup-filter {
+        padding-top: 12px;
+    }
+    
+    &__list {
+        height: auto;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: auto;
+        // &--popup-filter {
+        //     height: 30px;
+        // }
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__link {
+        &--prev {
+            display: none;
+            &:after {
+                display: none;
+            }
+        }
+
+        &--next {
+            display: none;
+            &:after {
+                display: none;
+            }
+        }
+    }
+}

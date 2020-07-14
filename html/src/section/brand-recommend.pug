@@ -1,0 +1,21 @@
+//- ====================
+//- brand-recommend
+//- 04-06-2018: sashakasha
+//- --------------------
+//- Коллекции бренда
+//- ====================
+
+mixin brand-recommend()
+    +b.brand-recommend
+        +e.wrapper
+            +e.collection
+                include ui-kit/title.pug
+                +title('h2', 'Коллекции бренда').--block.--brand-recommend
+                include brand-recommend-list.pug
+                +brand-recommend-list('Air Force 1', 'AT Work', 'Bon Air', 'City Drift', 'Disney', 'Legends', 'GrabNGo Disney', 'Herolite', 'Hypercube', 'Hyperfly', 'Litewing', 'Locknroll', 'Marvel Legends', 'MWM Summer Fun', 'New Wonder', 'Palm Valley', 'Palm Valley Disney', 'Palm Valley Star Wars', 'Pasadena', 'Pikes Peak', 'Rally', 'Road Quest', 'Sacramento 3.0', 'Skytracer', 'Sonicsurfer', 'Soundbox', 'Star Wars Legends', 'Summer Voyager')
+                +b('a').link(href='javascript:void(0)', title='Показать все').--underline-dot.--brand Показать все
+            +e.banner.js-pick-slider-404
+                include pick-model.pug
+                +pick-model('images/content/banner-pick.png').--brand
+                +pick-model('images/content/banner-pick.png').--brand
+                +pick-model('images/content/banner-pick.png').--brand

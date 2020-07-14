@@ -1,0 +1,41 @@
+.b-rating {
+    &--card {
+        top: 0px;
+        flex: 0 0 76px;
+    }
+
+    &--add-review & {
+        &__star {
+            margin-right: 5px;
+        }
+    }
+    // на 2px больше
+    &--big {
+        .b-rating {
+            &__star-block {
+                width: 12px;
+                height: 12px;
+                margin: 0 3px 0 0;
+
+                & .b-icon,
+                & .b-icon .b-icon__svg {
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+
+            &__star {
+                width: 12px;
+                height: 12px;
+                margin: 0 3px 0 0;
+
+                & .b-icon,
+                & .b-icon .b-icon__svg {
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+        }
+    }
+}
+

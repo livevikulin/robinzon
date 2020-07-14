@@ -1,0 +1,22 @@
+//- ====================
+//- Project: 404
+//- 00-00-2017: 
+//- --------------------
+//- 404 страница.
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = '404'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Страница не найдена';
+
+//- Выводим content
+block content
+    //- Используем page404: mixin page404
+    include section/page404.pug
+    +page404()

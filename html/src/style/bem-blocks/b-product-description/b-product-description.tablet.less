@@ -1,0 +1,43 @@
+/* 768 + */
+.b-product-description {
+    &__full {
+        flex-wrap: wrap;
+        padding-left: 25px;
+    }
+
+    &__full-text {
+        width: 100%;
+        padding: 0 10px 0 0;
+        margin-bottom: 30px;
+        // сворачиваем разворачиваем блока с тектом
+        max-height: 216px;
+        overflow: hidden;
+        padding-bottom: 30px;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+
+        &:not(.open) * {
+            display: inline;
+        }
+
+        &.open {
+            max-height: none;
+            display: block;
+        }
+    }
+
+    &__show-more-wrapper {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    &__help-choose {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+}

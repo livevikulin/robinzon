@@ -1,0 +1,27 @@
+//- ====================
+//- Robinzon: brand
+//- 18-01-2018: Amedomary
+//- --------------------
+//- brand
+//- ====================
+
+mixin brand(src, title, brand)
+    +b('a').brand( href='javascript:void(0)', title='', class!=attributes.class )
+        +e('figure').figure
+            if title
+                +e('img').image(src=`${src}`, alt='', title='')
+                +e('figcaption').figcaption #{title}
+            else
+                +e('img').image(src=`${src}`, alt='', title='' itemprop="logo")
+                +e.brand(itemprop="brand") #{brand}
+
+mixin brand-product-card(src, title, brand)
+    +b.brand-product-card
+        +e.row.js-brand-block
+            +brand(src, title, brand)(class!=attributes.class)
+            +e('img')(src='images/content/flag-italy.png').flag
+        +e.preview
+            span Чемоданы Roncato производятся по новейшим технологиям в соответствии с потребностями современных путешественников.
+            |
+            |
+            a(href='#') Подробнее...

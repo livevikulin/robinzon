@@ -1,0 +1,90 @@
+/* 1440 + */
+.b-plus-minus {
+    display: flex;
+    position: relative;
+    background-color: @counter-back;
+    border-radius: 2px;
+    overflow: hidden;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: auto;
+    width: 104px;
+    height: 40px;
+
+    &--cart-list {
+        margin-left: auto;
+        margin-right: 100px;
+    }
+
+    &__minus,
+    &__plus {
+        // background-color: grey;
+        position: relative;
+        display: inline-block;
+        width: 32px;
+        flex: 0 0 32px;
+        border: 1px solid @counter-border;
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 12px;
+            height: 2px;
+            background: @counter-sign;
+            margin-top: -1px;
+            margin-left: -6px;
+            top: 50%;
+            left: 50%;
+        }
+    }
+
+    &__minus {
+        border-radius: 2px 0 0 2px;
+        border-right: none;
+    }
+
+    &__plus {
+        border-radius: 0  2px 2px 0;
+        border-left: none;
+        &:after {
+            transform: rotate(90deg);
+        }
+    }
+
+    &__count {
+        flex-grow: 1;
+        border: none;
+        border-top: 1px solid @counter-border;
+        border-bottom: 1px solid @counter-border;
+        text-align: center;
+        padding: 2px;
+        color: #333;
+        font-weight: 500;
+        font-size: 21px;
+        line-height: 25px;
+        width: 0px;
+        -webkit-appearance: none;
+        border-radius: 0;
+    }
+
+    //  добавляем серый  + - когда достигнут придел числа
+    &.full & {
+        &__plus {
+            &:before,
+            &:after {
+                background-color: @counter-sign-disable;
+            }
+        }
+    }
+    //  добавляем серый  + - когда самое начало отсчёта
+    &.start & {
+        &__minus {
+            &:before,
+            &:after {
+                background-color: @counter-sign-disable;
+            }
+        }
+    }
+}

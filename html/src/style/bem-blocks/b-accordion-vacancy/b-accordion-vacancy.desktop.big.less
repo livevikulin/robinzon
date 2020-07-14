@@ -1,0 +1,144 @@
+/* 1440 + */
+.b-accordion-vacancy {
+    border-top: 1px solid @cl-font-very-light;
+
+    &:last-child {
+        border-bottom: 1px solid @cl-font-very-light;
+    }
+
+    &__hidden {
+        border-top: 1px solid @cl-gray-very-light;
+        display: none;
+        padding: 12px 20px;
+
+        &--payment {
+            border: none;
+            font-size: 15px;
+            line-height: 24px;
+            padding: 0 0 23px 70px;
+            // margin: -17px 0 0;
+
+            & > p {
+                margin: 0 0 24px;
+
+                &:last-child {
+                    margin: 0;
+                }
+
+                & > a {
+                    .roboto-bold;
+                }
+            }
+        }
+    }
+
+    &__link {
+        position: relative;
+        display: block;
+        padding: 12px 20px;
+    }
+
+    &__title {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    &__date {
+        font-size: 13px;
+        line-height: 24px;
+        color: @cl-font-light;
+        display: block;
+    }
+
+    &__text,
+    &__title-text,
+    ul {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    &__title-text {
+        .roboto-bold();
+    }
+
+    &__text {
+        max-width: 1019px;
+        letter-spacing: 0px;
+        margin-bottom: 24px;
+
+        p {
+            margin: 0 0 0;
+        }
+    }
+
+    ul {
+        padding: 0;
+        margin-bottom: 26px;
+
+        li {
+            list-style-type: none;
+            position: relative;
+            padding-left: 10px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 11px;
+                left: 0;
+                width: 4px;
+                height: 4px;
+                background-color: @cl-font-main;
+                border-radius: 100%;
+            }
+        }
+    }
+
+    &__min {
+        border-bottom: 1px dashed @cl-font-main;
+        font-size: 13px;
+        line-height: 34px;
+    }
+
+    &__group {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        justify-content: flex-start;
+        padding: 20px 10px;
+
+        &--cursor-default {
+            cursor: default;
+        }
+    }
+
+    &__count {
+        border-radius: 100%;
+        border: 2px solid @cl-main-orange;
+        color: @cl-font-orange;
+        display: block;
+        font-size: 18px;
+        height: 40px;
+        line-height: 38px;
+        margin: 0 20px 0 0;
+        text-align: center;
+        width: 40px;
+    }
+
+    &__head {
+        width: ~'calc(100% - 60px)';
+    }
+
+    ol {
+        list-style-type: decimal;
+        margin: 0 0 24px;
+        padding: 0;
+
+        li {
+            list-style-type: decimal;
+        }
+    }
+
+    &__footer {
+        margin: -15px 0 0;
+    }
+}

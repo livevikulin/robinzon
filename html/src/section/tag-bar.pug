@@ -1,0 +1,15 @@
+//- ====================
+//- Robinzon: tag-bar
+//- 18-01-2018: Amedomary
+//- --------------------
+//- tag-bar
+//- ====================
+
+mixin tag-bar()
+    +b.tag-bar( class!=attributes.class )
+        +e('a').link--prev( href='javascript:void(0)', title='', class!=attributes.class ).js-prev-arrow
+
+        +e('ul').list( class!=attributes.class ).js-scroll-tag
+            block
+
+        +e('a').link--next( href='javascript:void(0)', title='', class!=attributes.class ).js-next-arrow.-active

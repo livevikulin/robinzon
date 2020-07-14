@@ -1,0 +1,114 @@
+.ps {
+    &__rail-y,
+    &__rail-x {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        left: auto !important;
+    }
+
+    .b-help-popup &,
+    .b-pvz-popup__column & {
+        &__rail-y {
+            display: block;
+            width: 10px;
+
+            &:before {
+                background-color: @cl-gray;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 2px;
+                width: 3px;
+                height: 100%;
+            }
+        }
+
+        &__thumb-y {
+            position: absolute;
+            left: 0;
+            width: 7px;
+            border-radius: 3px;
+            background-color: @tumb-background;
+        }
+    }
+}
+
+// перфект в скроле ссылок - (бренды)
+// .b-link-list,
+// .b-menu-brands__brand-block, {
+//     .ps__rail-x {
+//       display: none;
+//       opacity: 0;
+//       transition: background-color .2s linear, opacity .2s linear;
+//       -webkit-transition: background-color .2s linear, opacity .2s linear;
+//       height: 6px;
+//       /* there must be 'bottom' or 'top' for ps__rail-x */
+//       bottom: 0px;
+//       /* please don't change 'position' */
+//       position: absolute;
+//     }
+
+//     .ps__rail-y {
+//       display: none;
+//       opacity: 0;
+//       transition: background-color .2s linear, opacity .2s linear;
+//       -webkit-transition: background-color .2s linear, opacity .2s linear;
+//       width: 6px;
+//       /* there must be 'right' or 'left' for ps__rail-y */
+//       right: 0;
+//       /* please don't change 'position' */
+//       position: absolute;
+//     }
+
+//     &.ps--active-x > .ps__rail-x,
+//     & .ps--active-y > .ps__rail-y {
+//       display: block;
+//       background-color: transparent;
+//     }
+
+//     &.ps:hover > .ps__rail-x,
+//     &.ps:hover > .ps__rail-y,
+//     &.ps--focus > .ps__rail-x,
+//     &.ps--focus > .ps__rail-y,
+//     &.ps--scrolling-x > .ps__rail-x,
+//     &.ps--scrolling-y > .ps__rail-y {
+//       opacity: 0.6;
+//     }
+
+//     .ps__rail-x:hover,
+//     .ps__rail-y:hover,
+//     .ps__rail-x:focus,
+//     .ps__rail-y:focus {
+//       background-color: #eee;
+//       opacity: 0.9;
+//     }
+
+//     .ps__thumb-x {
+//       background-color: #aaa;
+//       border-radius: 6px;
+//       transition: background-color .2s linear, height .2s ease-in-out;
+//       -webkit-transition: background-color .2s linear, height .2s ease-in-out;
+//       height: 6px;
+//       /* there must be 'bottom' for ps__thumb-x */
+//       bottom: 2px;
+//       /* please don't change 'position' */
+//       position: absolute;
+//     }
+
+//     .ps__thumb-y {
+//       background-color: #aaa;
+//       border-radius: 6px;
+//       transition: background-color .2s linear, width .2s ease-in-out;
+//       -webkit-transition: background-color .2s linear, width .2s ease-in-out;
+//       width: 6px;
+//       /* there must be 'right' for ps__thumb-y */
+//       right: 2px;
+//       /* please don't change 'position' */
+//       position: absolute;
+//     }
+// }
+
+
+

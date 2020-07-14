@@ -1,0 +1,34 @@
+//- ====================
+//- Project: search-result
+//- 25-06-2018: Sasha Landysheva
+//- --------------------
+//- Результаты поиска
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'search-result'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Результаты поиска';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    .b-container
+        include section/ui-kit/breadcrumbs.pug
+        +breadcrumbs('Главная', 'Поиск')
+        include section/ui-kit/title.pug
+        +title('h1', 'Результаты поиска')
+
+    include section/ui-kit/hr.pug
+    +hr()
+
+    .b-container
+        include section/search-result.pug
+        +search-result()

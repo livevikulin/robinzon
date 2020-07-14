@@ -1,0 +1,45 @@
+//- ====================
+//- Robinzon: reservation-popup
+//- 16-07-2018: Альберт Энштейн
+//- --------------------
+//- ПопАп добавить отзыв
+//- ====================
+
+mixin add-review-popup()
+    +b.add-review-popup
+        +popup_close()
+        +e.form-block
+            include ../ui-kit/title.pug
+            +title('h3', 'Добавить отзыв о товаре').--add-review
+            +e.text-title
+                p Чемодан American Tourister 85A*002 Bon Air Spinner
+            +e('form').form
+                +e.row.--column
+                    +e.column
+                        include ../ui-kit/input-label.pug
+                        +input-label('Ваше имя', 'id-add-name').--add-review
+                        +inputEx({id:'id-add-name',type:'text',placeholder:'',name:'add-name-member',required:true}).--add-review
+                            //- +input-label('Не корректная электронная почта', 'id-login-mail').--error
+                    +e.column
+                        include ../ui-kit/input-label.pug
+                        +input-label('Мобильный телефон', 'id-add-phone').--add-review
+                        +inputEx({id:'id-add-phone',type:'tel',placeholder:'+7 ___ - ___ __ __',name:'add-password-login',required:true}).--add-review
+                            //- include ../ui-kit/input-label.pug
+                            //- +input-label('Не корректно введён номер', 'id-add-phone').--error
+                +e.row.--column
+                    +e.column
+                        include ../ui-kit/input-label.pug
+                        +input-label('Город', 'id-add-city').--add-review
+                        +inputEx({id:'id-add-city',type:'tel',name:'city-add',required:true}).--add-review
+                            //- include ../ui-kit/input-label.pug
+                            //- +input-label('Введите название города', 'id-add-city').--error
+                +e.row
+                    +input-label('Отзыв', 'id-add-review').--add-review
+                    include ../ui-kit/textarea.pug
+                    +textarea('id-add-review', 'text', '', 'comment-order', '').--add-review
+                +e.row.--last
+                    +input-label('Ваша оценка товара', 'id-add-review').--add-review
+                    include ../ui-kit/rating.pug
+                    +radio-rating().--add-review
+                include ../ui-kit/button.pug
+                +button('Оставить отзыв', '', false).--blue.--reservation-popup

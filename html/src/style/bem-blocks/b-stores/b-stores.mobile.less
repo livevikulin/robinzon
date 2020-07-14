@@ -1,0 +1,65 @@
+/* 320 + */
+.b-stores {
+    padding: 0px;
+    &--nopadding {
+        margin-bottom: 0;
+    }
+    
+    &__location-bunch {
+        display: block;
+        max-width: 765px;
+        height: 125px;
+        margin: 0 -15px;
+        padding: 0 15px 80px;
+    }
+
+    &__scroll {
+        white-space: nowrap;
+        overflow-y: hidden;
+        width: 100%;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__location-bunch::-webkit-scrollbar-track, 
+    &__location-bunch::-webkit-scrollbar-thumb, 
+    &__location-bunch::-webkit-scrollbar {
+        display: none;
+        background-color: transparent;
+        height: 0;
+        width: 0;
+    }
+
+    &__banner {
+        width: 100%;
+
+        &-img--desk {
+            display: none;
+        }
+
+        &-img--mobile {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__img-wrap {
+        position: relative;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    &--tab & {
+        &__img-wrap {
+            margin: 0;
+        }
+    }
+
+    &__line--city {
+        background: #fff;
+        margin: 0 -15px;
+        padding: 25px 15px 20px;
+    }
+}

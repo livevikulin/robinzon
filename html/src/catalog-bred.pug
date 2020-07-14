@@ -1,0 +1,134 @@
+//- ====================
+//- Project: catalog
+//- 25-01-2018: Amed73
+//- --------------------
+//- Карточка товара
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'catalog-bred'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Каталог разводящий';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    +b.catalog-bred
+        .b-container
+            include section/ui-kit/breadcrumbs.pug
+            +breadcrumbs('Главная', 'Чемоданы')
+            include section/ui-kit/title.pug
+            +title('h1', 'Чемоданы')
+
+        //- блок с табами и скролом
+        include section/ui-kit/tab.pug
+        +tab({'items': [{
+                    'text': 'В путешествие',
+                    'data': 'in-travel'
+                }, {
+                    'text': 'Чемоданы',
+                    'data': 'suitcase'
+                }, {
+                    'text': 'Сумки дорожныe',
+                    'data': 'travel-bags'
+                }, {
+                    'text': 'В командировку',
+                    'data': 'business-trip'
+                }, {
+                    'text': 'Детские',
+                    'data': 'children-collections'
+                }, {
+                    'text': 'Аксессуары',
+                    'data': 'accessories'
+                }
+            ],
+            'wrapperClass': 'js-horizontal-scroll',
+        }).--bred-top
+            //- ('В путешествие', 'Чемоданы', 'Сумки дорожные', 'В командировку', 'Детские', 'Аксессуары')
+            +e.content.js-tab-content.-active(data-tab-content="in-travel")
+                //- первый таб
+                include section/first-tab.pug
+                +first-tab-bred()
+            +e.content.js-tab-content(data-tab-content="suitcase")
+                //- контент таба
+                p Test tab 2
+            +e.content.js-tab-content(data-tab-content="travel-bags")
+                //- контент таба
+                p Test tab 3
+            +e.content.js-tab-content(data-tab-content="business-trip")
+                //- контент таба
+                p Test tab 4
+            +e.content.js-tab-content(data-tab-content="children-collections")
+                //- контент таба
+                p Test tab 5
+            +e.content.js-tab-content(data-tab-content="accessories")
+                //- контент таба
+                p Test tab 6
+
+        .b-container
+            //- Секция Популярные запросы покупателей
+            +b('section').section.--popular
+                +title('h2', 'Популярные запросы покупателей').--tag
+                +e.mobile-scroll.js-horizontal-scroll
+                    include section/tag.pug
+                    +tag('Огромные чемоданы спиннеры ', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса', 'Огромные чемоданы спиннеры ', '4 колеса', 'Огромные чемоданы спиннеры', '4 колеса', 'Огромные чемоданы спиннеры', '4 колеса', 'Огромные чемоданы спиннеры').--catalog-bred
+
+        //- Секция Рекомендыемы товары
+        +b('section').section.--recommended.--white
+            .b-container
+                +title('h1', 'Рекомендуем товары').--recommended-bred
+            include section/ui-kit/tab.pug
+            +tab({'items': [{
+                        'text': 'Популярные новинки',
+                        'data': 'populat-new'
+                    }, {
+                        'text': 'Выгодная цена',
+                        'data': 'profitable-price'
+                    }, {
+                        'text': 'Актуальные коллекции',
+                        'data': 'topical-collections'
+                    }
+                ],
+                'wrapperClass': 'js-horizontal-scroll',
+            })
+                //- ('Популярные новинки', 'Выгодная цена', 'Актуальные коллекции')
+                +e.content.js-tab-content.-active(data-tab-content="populat-new")
+                    //- контент таба
+                    .b-container.b-container--recommended
+                        //- Блок Рекомендуемые товары
+                        include section/recommended.pug
+                        +recommended()
+
+                +e.content.js-tab-content(data-tab-content="profitable-price")
+                    //- контент таба
+                    p Test tab 2
+                +e.content.js-tab-content(data-tab-content="topical-collections")
+                    //- контент таба
+                    p Test tab 3
+
+            // BEGIN: Покупать в комплетке выгодно
+            include section/buy-set.pug
+            +b('section').section.--white.--buy-set
+                .b-container
+                    +buy-set()
+            // END: Покупать в комплетке выгодно
+
+        //- Секция Почему Робинзон
+        +b('section').section.--whyrobinzon
+            .b-container
+                //- Блок Почему Робинзон
+                include section/whyrobinzon.pug
+                +whyrobinzon()
+
+        //- Секция Популярных брендов
+        +b('section').section.--gray
+            .b-container
+                include section/popular-brand.pug
+                +popular-brand()

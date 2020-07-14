@@ -1,0 +1,23 @@
+require(['./config',], function () {
+    require([
+        'partials/tab',
+        'nouislider',
+        'partials/range',
+        'slick',
+        'partials/main-slider',
+        'partials/brand-slider',
+        'partials/buy-set-slider',
+        'partials/permutation-choice-suitcase-main',
+        'partials/ajax',
+        'partials/update-recomended',
+        'partials/nav-shadow',
+        'partials/permutation-account-popover',
+        'partials/ajax-suitcase',
+        'partials/stores',
+        'partials/city-stores',
+        'partials/scroll-horizontal',
+        'partials/pick-slider',
+        'partials/basket',
+        'partials/sticky-block',
+    ]);
+});

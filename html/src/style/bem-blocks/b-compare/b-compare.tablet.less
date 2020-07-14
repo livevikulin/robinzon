@@ -1,0 +1,30 @@
+/* 768 + */
+.b-compare {
+    &__cell {
+        width: 33.332%;
+    }
+
+    &__arrow {
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        margin-top: -30px;
+        background-color: @compare-arrow-back;
+        opacity: .5;
+
+        &--prev {
+            transform: rotate(180deg);
+            left: 25px;
+        }
+
+        &--next {
+            right: 25px;
+        }
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            opacity: 1;
+            color: @cl-font-main;
+        }
+    }
+}

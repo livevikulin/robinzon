@@ -1,0 +1,541 @@
+//- ====================
+//- Project: Gui
+//- 00-00-2017:
+//- --------------------
+//- Gui
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'gui'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'gui';
+
+//- Выводим попапы
+block popup
+    include section/ui-kit/popup.pug
+    include section/popup/in-basket-popup.pug
+    include section/popup/login-popup-password-recovery.pug
+    include section/popup/login-popup.pug
+    include section/popup/material-popup.pug
+    include section/popup/recall-popup.pug
+    include section/popup/registration-popup-done.pug
+    include section/popup/registration-popup.pug
+    include section/popup/reservation-popup.pug
+    include section/popup/your-city-popup.pug
+    include section/popup/buy-cheaper-popup.pug
+    include section/popup/buy-cheaper-success-popup.pug
+    include section/popup/pvz-popup.pug
+    include section/popup/help-popup.pug
+    include section/popup/for-one-click-popup.pug
+    include section/popup/for-one-click-success-popup.pug
+    include section/popup/for-one-click-cart-popup.pug
+    include section/popup/add-review.pug
+    include section/popup/message-sent.pug
+    include section/popup/buy-in-shop.pug
+
+    +popup()(data-popup='buy-in-shop').--full-mobile
+        +buy-in-shop-popup()
+
+    +popup()(data-popup='in-basket').--full-mobile
+        +in-basket-popup()
+    +popup()(data-popup='material')
+        +material-popup()
+    +popup()(data-popup='reservation')
+        +reservation-popup()
+    +popup-data({
+        'contentClass': '--full-height-tablet',
+        'attributes': {
+                'data-popup': 'pvz-up',
+                'class': '--full-mobile'
+            }
+        }
+    )
+        +pvz-popup()
+    +popup-data({
+        'contentClass': '--full-height-tablet --almost-full-height',
+        'attributes': {
+                'data-popup': 'help-up',
+                'class': '--full-mobile'
+            }
+        }
+        )
+        +help-popup()
+
+    +popup()(data-popup='add-review')
+        +add-review-popup()
+    +popup()(data-popup='message-sent')
+        +message-sent()
+    //- ПопАпчики
+    //- include section/ui-kit/popup.pug
+    //- +popup()(data-popup='test')
+    //-     div(style='background-color: white; height: 999px; width: 400px;') Тестовый текст
+    //-         br
+    //-         a.link.js-close-popup( href='#', style='font-size: 25px;' ) Закрыть ПопАп
+
+    //- include section/ui-kit/popup.pug
+    //- +popup()(data-popup='test2')
+    //-     div(style='background-color: white; height: 229px; width: 150px;') Тестовый текст 2
+    //-         br
+    //-         a.link.js-close-popup( href='#', style='font-size: 25px;' ) Закрыть ПопАп
+
+//- Выводим content
+block content
+    .b-container
+        h1 Gui
+
+        +hr()
+        h2 Попапы
+        include section/ui-kit/text-block.pug
+        +text-block()
+            p
+                a.link.js-open-popup( href='#', data-popup='buy-in-shop' ) Купить в магазине
+            p
+                a.link.js-open-popup( href='#', data-popup='in-basket' ) ТОВАР ДОБАВЛЕН В КОРЗИНУ
+            p
+                a.link.js-open-popup( href='#', data-popup='password-recovery' ) НОВЫЙ ПАРОЛЬ
+            p
+                a.link.js-open-popup( href='#', data-popup='login' ) ВОЙТИ
+            p
+                a.link.js-open-popup( href='#', data-popup='material' ) МАТЕРИАЛ
+            p
+                a.link.js-open-popup.js-recall( href='#', data-popup='recall' ) ОБРАТНЫЙ ЗВОНОК / УСПЕШНО
+            p
+                a.link.js-open-popup( href='#', data-popup='registration' ) РЕГИСТРАЦИЯ
+            p
+                a.link.js-open-popup( href='#', data-popup='registration-done' ) Спасибо за регистрацию.
+            p
+                a.link.js-open-popup( href='#', data-popup='reservation' ) ЗАБРОНИРОВАТЬ
+            p
+                a.link.js-open-popup( href='#', data-popup='your-city' ) Ваш город
+            p
+                a.link.js-open-popup( href='#', data-popup='city-selection' ) СПИСОК ГОРОДОВ
+            p
+                a.link.js-open-popup(href='#', data-popup='buy-cheaper') УЗНАТЬ О СНИЖЕНИИ ЦЕНЫ
+            p
+                a.link.js-open-popup(href='#', data-popup='buy-cheaper-success') ЗАЯВКА ПРИНЯТА!
+            p
+                a.link.js-open-popup(href='#', data-popup='pvz-up') Выбор пунктов самовывоза
+            p
+                a.link.js-open-popup(href='#', data-popup='help-up') Нужна помощь?
+            p
+                a.link.js-open-popup(href='#', data-popup='for-one-click') КУПИТЬ В 1 КЛИК
+            p
+                a.link.js-open-popup(href='#', data-popup='for-one-click-success') КУПИТЬ В 1 КЛИК. ЗАКАЗ ОФОРМЛЕН!
+            p
+                a.link.js-open-popup(href='#', data-popup='for-one-click-cart') КУПИТЬ В 1 КЛИК. КОРЗИНА
+            p
+                a.link.js-open-popup(href='#', data-popup='add-review') Оставить отзыв
+            p
+                a.link.js-open-popup(href='#', data-popup='message-sent') Сообщение отправлено
+
+        +hr()
+        include section/recommended-item.pug
+        +recommended-item({'items': [{
+                                        'classBlock': '--size',
+                                        'classContent': '--hover',
+                                        'notice': 'sale',
+                                        'srclink': 'images/content/recommended-bag-2.jpg',
+                                        'size': 'Чемодан средний M',
+                                        'name': 'American Tourister Sunset Square Spinner 13G*908',
+                                        'price': '14 590'
+                                    }
+                                ]})
+        include section/recommended-item.pug
+        +recommended-item({'items': [{
+                                        'classBlock': '',
+                                        'classContent': '--hover',
+                                        'notice': 'sale',
+                                        'srclink': 'images/content/recommended-bag-2.jpg',
+                                        'size': 'Чемодан средний M',
+                                        'name': 'American Tourister Sunset Square Spinner 13G*908',
+                                        'price': '14 590'
+                                    }
+                                ]})
+        include section/advice.pug
+        +advice({
+                'title': 'А знаете ли вы?',
+                'content': 'Четыре колеса на чемодане гораздо удобнее двух. Небольшими усилиями можно толкать чемодан, при этом руки остаются свободными.',
+                'link': 'Ещё совет'
+                })
+
+        include section/goods-picker.pug
+        +goods-picker()
+
+        include section/ui-kit/hr.pug
+        +hr()
+
+        include section/filter-color.pug
+        +filter-color({'items': [{
+                'name': 'filter-color',
+                'color': 'black',
+                'colorname': 'Чёрный'
+                },{
+                'name': 'filter-color',
+                'color': 'blue',
+                'colorname': 'Синий'
+                },{
+                'name': 'filter-color',
+                'color': 'red',
+                'colorname': 'Красный'
+                },{
+                'name': 'filter-color',
+                'color': 'green',
+                'colorname': 'Зеленый'
+                },{
+                'name': 'filter-color',
+                'color': 'gray',
+                'colorname': 'Серый'
+                },{
+                'name': 'filter-color',
+                'color': 'pink',
+                'colorname': 'Розовый'
+                },{
+                'name': 'filter-color',
+                'color': 'brown',
+                'colorname': 'Коричневый'
+                },{
+                'name': 'filter-color',
+                'color': 'orange',
+                'colorname': 'Оранжевый'
+                },{
+                'name': 'filter-color',
+                'src': 'images/content/brics-logo.jpg',
+                'colorname': 'Мультиколор'
+                },{
+                'name': 'filter-color',
+                'color': 'purple',
+                'colorname': 'Фиолетовый'
+                },{
+                'name': 'filter-color',
+                'color': 'gold',
+                'colorname': 'Золотой'
+                },{
+                'name': 'filter-color',
+                'color': 'silver',
+                'colorname': 'Серебристый'
+                },{
+                'name': 'filter-color',
+                'color': 'yellow',
+                'colorname': 'Желтый'
+                },{
+                'name': 'filter-color',
+                'color': 'lightblue',
+                'colorname': 'Голубой'
+                },{
+                'name': 'filter-color',
+                'color': 'beige',
+                'colorname': 'Бежевый'
+                },{
+                'name': 'filter-color',
+                'color': 'turquoise',
+                'colorname': 'Бирюзовый'
+                }
+        ]})
+
+        include section/ui-kit/hr.pug
+        +hr()
+        //- Текстовые ссылки
+        include section/ui-kit/link.pug
+        +link('text', 'add-text', true).--test(data-url="atribute")
+        include section/ui-kit/link.pug
+        +link('text', '', false).js-class.-active(data-popup="open-test")
+
+
+        include section/ui-kit/hr.pug
+        +hr()
+        //- Кнопки похожие на кнопки
+        include section/ui-kit/button.pug
+        +button('text', 'add-text', true).--test(data-url="atribute")
+        include section/ui-kit/button.pug
+        +button('text', '', false).js-class.-active(data-popup="open-test")
+
+
+        include section/ui-kit/hr.pug
+        +hr()
+        include section/ui-kit/text-block.pug
+        +text-block()
+            p Параграф  
+                b толстый  
+                | текст
+            ul
+                li первый
+                li второй
+                li элемент списка
+
+
+        include section/ui-kit/hr.pug
+        +hr()
+        //- Подключаем иконочки icon-{НАЗВАНИЕ SVG ФАЙЛА}
+        include section/ui-kit/icon.pug
+        +icon('sort').--test
+        include section/ui-kit/icon.pug
+        +icon('sort')
+
+
+        include section/ui-kit/hr.pug
+        +hr()
+        //- Табы с анимацией
+        include section/ui-kit/tab.pug
+        //- +tab('В путешествие', 'Для города', 'В командировку', 'Все лучшее детям', 'В подарок')
+        +tab({'items': [{
+                'text': 'В путешествие',
+                'data': 'in-travel'
+            }, {
+                'text': 'Для города',
+                'data': 'in-city'
+            }, {
+                'text': 'В командировку',
+                'data': 'business-trip'
+            }, {
+                'text': 'Все лучшее детям',
+                'data': 'best-for-children'
+            }, {
+                'text': 'В подарок',
+                'data': 'present'
+            }
+        ]})
+            +e.content.js-tab-content.-active(data-tab-content="in-travel")
+                //- контент таба
+                p Test tab
+            +e.content.js-tab-content(data-tab-content="in-city")
+                //- контент таба
+                p Test tab 2
+            +e.content.js-tab-content(data-tab-content="business-trip")
+                //- контент таба
+                p Test tab 3
+            +e.content.js-tab-content(data-tab-content="best-for-children")
+                //- контент таба
+                p Test tab 4
+            +e.content.js-tab-content(data-tab-content="present")
+                //- контент таба
+                p Test tab 5
+
+
+        include section/ui-kit/hr.pug
+        +hr()
+        //- Инпут: +input(id, type, placeholder, name, value)
+        include section/ui-kit/input.pug
+        +input('id-test', 'password', 'write inside me', 'name-test', 'value-test').-active(data-input="input-test")
+        include section/ui-kit/input.pug
+        +input('id-test2', 'text', '', 'name-test', 'value-test').--test
+
+
+        include section/ui-kit/hr.pug
+        +hr()
+        //- Хлебные крошки
+        include section/ui-kit/breadcrumbs.pug
+        +breadcrumbs('Главная', 'неГлавная', 'другая')
+
+
+        include section/ui-kit/hr.pug
+        +hr()
+        //- Чекбокс: +checkbox(name, id, title)
+        include section/ui-kit/checkbox.pug
+        +checkbox( 'box-test', 'box-test-1', 'Значение 1', 'js-class' )
+        include section/ui-kit/checkbox.pug
+        +checkbox( 'box-test', 'box-test-2', 'Значение 2', '' ).--class
+
+
+        include section/ui-kit/hr.pug
+        +hr()
+        //- Радио: +radio(textLabel, name, id, checked, js)
+        include section/ui-kit/radio.pug
+        +radio( 'textLabel-1', 'radio-test', 'id-test-3', false, '' )
+        include section/ui-kit/radio.pug
+        +radio( 'textLabel-2', 'radio-test', 'id-test-4', true, '' )
+
+
+        include section/ui-kit/hr.pug
+        +hr()
+        //- Заголовок
+        include section/ui-kit/title.pug
+        +title("h1", 'Отзывы').--mod
+        include section/ui-kit/title.pug
+        +title("h2", 'title')
+
+        include section/ui-kit/hr.pug
+        +hr()
+        include section/choice-suitcase.pug
+        +choice-suitcase()
+
+        //- Секция Рекомендаций по выбору
+        +b('section').section.--gray
+            .b-container
+                //- Блок рекомендации по выбору
+                include section/article-list.pug
+                +article-list()
+
+        //- Секция Отзывов
+        +b('section').section.--white.--review
+            .b-container
+
+                //- Блок Отзывы
+                include section/review-block.pug
+                +review-block()
+
+        //- VD: таб для карточки
+        +hr()
+        //- TODO: сам миксин обернуть в общий блок для табов - это контент таба "описание"
+        include section/product-description.pug
+        +product-description()
+
+        //- VD: Пагинация
+        +hr()
+        include section/ui-kit/pagination.pug
+
+        div.gui-pagination-desktop
+            //- 1
+            +pagination({'items': [{
+                    'number': '1'
+                }, {
+                    'number': '2'
+                }, {
+                    'number': '3'
+                }, {
+                    'number': '4'
+                }, {
+                    'number': '5'
+                }, {
+                    'number': 'dots'
+                }, {
+                    'number': '89'
+                }]}, {
+                    'hidePrev': '-hide',
+                    'active': '0'
+                })
+
+            //- 2
+            +pagination({'items': [{
+                    'number': '1'
+                }, {
+                    'number': '2'
+                }, {
+                    'number': '3'
+                }, {
+                    'number': '4'
+                }, {
+                    'number': '5'
+                }, {
+                    'number': '6'
+                }, {
+                    'number': '7'
+                }, {
+                    'number': 'dots'
+                }, {
+                    'number': '89'
+                }]}, {
+                    'active': '4'
+                })
+            //- 3
+            +pagination({'items': [{
+                    'number': '1'
+                }, {
+                    'number': 'dots'
+                }, {
+                    'number': '4'
+                }, {
+                    'number': '5'
+                }, {
+                    'number': '6'
+                }, {
+                    'number': '7'
+                }, {
+                    'number': '8'
+                }, {
+                    'number': 'dots'
+                }, {
+                    'number': '89'
+                }]}, {
+                    'active': '4'
+                })
+
+            //- 4
+            +pagination({'items': [{
+                    'number': '1'
+                }, {
+                    'number': 'dots'
+                }, {
+                    'number': '85'
+                }, {
+                    'number': '86'
+                }, {
+                    'number': '87'
+                }, {
+                    'number': '88'
+                }, {
+                    'number': '89'
+                }]}, {
+                    'active': '6',
+                    'hideNext': '-hide'
+                })
+
+        //- div.gui-pagination-mobile
+        //-     //- 1
+        //-     +pagination({'items': [{
+        //-             'number': '1'
+        //-         }, {
+        //-             'number': '2'
+        //-         }, {
+        //-             'nimber': '3'
+        //-         }, {
+        //-             'number': 'dots'
+        //-         }, {
+        //-             'number': '89'
+        //-         }]}, {
+        //-             'hidePrev': '-hide',
+        //-             'active': '0'
+        //-         })
+
+        //-     //- 2
+        //-     +pagination({'items': [{
+        //-             'number': '4'
+        //-         }, {
+        //-             'number': '5'
+        //-         }, {
+        //-             'number': 'dots'
+        //-         }, {
+        //-             'number': '89'
+        //-         }]}, {
+        //-             'active': '1'
+        //-         })
+        //-     //- 3
+        //-     +pagination({'items': [{
+        //-             'number': '5'
+        //-         }, {
+        //-             'number': '6'
+        //-         }, {
+        //-             'number': '7'
+        //-         }, {
+        //-             'number': '8'
+        //-         }, {
+        //-             'number': 'dots'
+        //-         }, {
+        //-             'number': '89'
+        //-         }]}, {
+        //-             'active': '4'
+        //-         })
+
+        //-     //- 4
+        //-     +pagination({'items': [{
+        //-             'number': '1'
+        //-         }, {
+        //-             'number': 'dots'
+        //-         }, {
+        //-             'number': '85'
+        //-         }, {
+        //-             'number': '86'
+        //-         }, {
+        //-             'number': '87'
+        //-         }, {
+        //-             'number': '88'
+        //-         }, {
+        //-             'number': '89'
+        //-         }]}, {
+        //-             'active': '6',
+        //-             'hideNext': '-hide'
+        //-         })

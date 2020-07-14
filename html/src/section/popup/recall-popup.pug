@@ -1,0 +1,49 @@
+//- ====================
+//- Robinzon: recall-popup
+//- 18-01-2018: Amedomary
+//- --------------------
+//- ПопАп авторизации и регистрации
+//- ====================
+
+mixin recall-popup()
+    include ../ui-kit/popup.pug
+    include ../ui-kit/title.pug
+    include ../ui-kit/input-label.pug
+    include ../ui-kit/input.pug
+    include ../ui-kit/button.pug
+    include ../ui-kit/hr.pug
+
+    +b.recall-popup.js-cont-recall
+        //- Крестик
+        +popup_close()
+        +title('h3', 'Обратный звонок').--login.--mobile-hide
+
+        +title('h3', 'Контакты').--login.--mobile-show
+        +e('a').phone( href='tel:+78005553285', title='Позвонить' ) 8 800 555–32–85/
+        +e('a').phone( href='tel:+74956486988 ', title='Позвонить' ) 8 495 648-6988
+        +e('p').add-text.--time.--mobile-show Заказы по телефону с 9 до 21, без выходных дней и перерыва на обед.
+        +e('a').link-phone( href='tel:+78005553285', title='Позвонить' ) Позвонить
+
+        +hr().--recall-popup.--mobile-show
+
+        +e('form').form.js-ajax-form.js-validation-form(data-method="get", data-url="/json/recall.json", data-events="ajax.recall")
+            +title('h3', 'Оставьте свои контактные данные и мы Вам перезвоним').--login-social.--mobile-show
+            +input-label('Имя', 'id-recall-name')
+            +input('id-recall-name', 'text', 'Ваше имя', 'name-member', '').--recall-popup(required="required")
+                //- +input-label('Не корректная электронная почта', 'id-login-mail').--error
+            +input-label('Телефон', 'id-recall-phone')
+            +input('id-recall-phone', 'tel', '+7 ___ - ___ __ __', 'password-login', '').--recall-popup.-last(required="required", class="js-phone")
+                //- +input-label('Не корректный пароль', 'id-login-password').--error
+            +button('Жду звонка', '', false).--blue.--full-block.--recall
+            +e('p').add-text.--small Нажимая кнопку «Зарегистрироваться», я выражаю свое согласие на получение информации об оформлении и получении заказа, согласие на обработку персональных данных в соответствии с указанным здесь текстом.
+
+
+    include ../ui-kit/popup.pug
+    include ../ui-kit/title.pug
+    include ../ui-kit/button.pug
+
+    +b.recall-popup.js-message-recall
+        +popup_close()
+        +title('h3', 'Успешно!').--login
+        +e('p').add-text Спасибо, Дмитрий за то что оставили заявку. Обычно мы перезваниеваем в течении 5 минут в рабочее время, с 09.00 – 22.00 по Московскому времени.
+        +button('Закрыть', '', true).--blue.--full-block.js-close-popup

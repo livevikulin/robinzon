@@ -1,0 +1,28 @@
+//- ====================
+//- 25-01-2018: drtvader
+//- --------------------
+//- Наличие
+//- ====================
+
+mixin promo-code(data)
+    +b.promo-code(class!=attributes.class)
+        +e.block
+            include ui-kit/link.pug
+            +link--type('Есть промокод? вводите!', 'a').--underline-dot.js-promo-code-open
+
+
+
+mixin promo-code-form(isShow = false)
+    +b.promo-code-form(class!=attributes.class class=!isShow ? '-hide' : '').js-promo-code-form
+        +e.title
+            include ui-kit/title.pug
+            +title('h3', 'Промокод').--promo-code
+        include ui-kit/hr.pug
+        +hr().--none.--way-get
+        +e('form').box(method="post" action="/personal/cart/" name="promocode_form" class="js-ajax-form" data-events="updateBasket")
+            +e('label').label
+                +e('span') Помокод
+                include ui-kit/input.pug
+                +input('id-promo-code', 'text', '', 'name-promo-code', '').--promo-code
+            include ui-kit/button.pug
+            +button('Подтверждаю', '', false).--orange.--promo-code

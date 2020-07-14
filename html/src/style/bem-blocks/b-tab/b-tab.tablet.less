@@ -1,0 +1,107 @@
+/* 768 + */
+.b-tab {
+    &--recommended-tab {
+        min-height: 1300px;
+    }
+
+    &--recommended-tab {
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 63px;
+            padding-left: 23px;
+            box-shadow: inset -81px 0 42px -53px @cl-section-gray;
+        }
+    }
+
+    &--recommended-goods {
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 63px;
+            padding-left: 23px;
+            box-shadow: inset -70px 0 35px -50px @cl-white;
+        }
+    }
+
+    &--material-popup & {
+        &__tab-nav-wrapper {
+            padding: 0px 20px;
+        }
+    }
+
+    &--bred-top {
+        padding-top: 3px;
+    }
+
+    &--fixed-top {
+        padding-top: 0;
+    }
+
+    &--cart {
+        padding-top: 10px;
+    }
+
+    &__tab-nav-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        flex: 0 0 auto;
+        position: relative;
+        border-bottom: solid 1px @border-tab;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        overflow-x: scroll;
+        user-select: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__tab-nav-list {
+        justify-content: flex-start;
+        // flex: 0 0 auto;
+        border: 0;
+        flex-wrap: nowrap;
+        &--card {
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__line-block {
+        flex: 1 1 100%;
+        height: 2px;
+        margin-top: -4px;
+
+        &--underline {
+            height: 4px;
+            border: 0;
+        }
+
+        &--fixed-top {
+            margin-top: -4px;
+        }
+    }
+
+    &__tab-nav-item {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    &__link {
+        &--fixed-top {
+            padding-bottom: 25px;
+        }
+    }
+}

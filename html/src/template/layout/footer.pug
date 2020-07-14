@@ -1,0 +1,79 @@
+//- Robinzon: mixin footer_main
+//- 06.02.2018: Sash
+//- ---------------------
+//- Основной шаблон футера + e-mail подписка
+
+mixin footer()
+    +b("footer").footer(class!=attributes.class)
+        if ((file_name == 'cart-step1') || (file_name == 'cart-step2') || (file_name == 'cart-step3') || (file_name == 'order') || (file_name == 'order-done') || (file_name == 'cart-empty'))
+        else
+            +e.subscribe
+                .b-container
+                    +b.subscribe
+                        +e.text Хотите получать бонусы, привилегии, полезную информацию?
+                        +e('form').form.js-validation-form
+                            include ../../section/ui-kit/input.pug
+                            +input('subscribe', 'email', 'Ваш e-mail', 'name-test', '').--subscribe.js-email(required="required")
+                            include ../../section/ui-kit/button.pug
+                            +button('Подписаться', '', false).--subscribe
+        .b-container
+            include ../../section/ui-kit/hr.pug
+            +e.info
+                +e.wrap
+                    +b("nav").info-nav
+                        include ../../section/footer_nav.pug
+                        +footer_nav('Компания','Вакансии', 'Сотрудничество', 'Отзывы', 'Новости','Пресса о нас')
+                        include ../../section/footer_nav.pug
+                        +footer_nav('Каталог','Чемоданы', 'Рюкзаки', 'Сумки', 'Аксессуары','Отзывы о товарах')
+                        include ../../section/footer_nav.pug
+                        +footer_nav('Сервис','Магазины', 'Доставка', 'Пункты самовывоза', 'Оплата','Гарантия', 'Ответы на вопросы')
+                    +b.comunication
+                        +e.wrap
+                            +e('a').title-link(href="tel:88005553285",title="8-800 555-3285") 8&ndash;800&nbsp;555&ndash;3285
+                            +e("span").text Бесплатный звонок по&nbsp;России, с&nbsp;9 до&nbsp;21, без выходных
+                            include ../../section/ui-kit/link.pug
+                            +link('Заказать обратный звонок', '', true)(data-popup='recall').--comunication.js-open-popup.js-recall
+                            +e.city
+                                +e.city-number
+                                    +e('span').call Москва:&ensp;
+                                    +e('a').link(href="tel:84956486988",title="8(495) 648-6988") 8(495) 648&ndash;6988
+                                +e.city-number
+                                    +e('span').call Санкт-Петербург:&ensp;
+                                    +e('a').link(href="tel:88127482885",title="8(812) 748-2885") 8(812) 748&ndash;2885
+                        +e("a").ya-market(href="javascript:void(0);", alt="YandexMarket")
+                            +e("img").yandex(src="images/inhtml/ya-market-stars.jpg" , title="YandexMarket" , alt="YandexMarket")
+                +e.column
+                    +e('dl').social
+                        +e('dt').title Робинзон в&nbsp;соцсетях
+                        +e('dd').icons
+                            +b.social
+                                +e('a').link(href="javascript:void(0);",title="Facebook")
+                                    include ../../section/ui-kit/icon.pug
+                                    +icon('facebook').--social
+                                +e('a').link(href="javascript:void(0);",title="Vk")
+                                    include ../../section/ui-kit/icon.pug
+                                    +icon('vk').--social
+                                +e('a').link(href="javascript:void(0);",title="Instagram")
+                                    include ../../section/ui-kit/icon.pug
+                                    +icon('instagram').--social
+                                +e('a').link(href="javascript:void(0);", title="Twitter")
+                                    include ../../section/ui-kit/icon.pug
+                                    +icon('twitter').--social
+                                +e('a').link(href="javascript:void(0);", title="Youtube")
+                                    include ../../section/ui-kit/icon.pug
+                                    +icon('youtube').--social
+                                +e('a').link(href="javascript:void(0);", title="Gplus")
+                                    include ../../section/ui-kit/icon.pug
+                                    +icon('gplus').--social
+                    +e('dl').pay
+                        +e('dt').title Принимаем к&nbsp;оплате
+                        +e('dd').icons
+                            +b.pay
+                                +e('a').link(href="javascript:void(0);",title="Visa")
+                                    +e('img').visa(src="images/inhtml/visa_ico.svg", alt="Visa", title="Visa")
+                                +e('a').link(href="javascript:void(0);", title="Master_card")
+                                    +e('img').mastercard(src="images/inhtml/master_card_ico.svg", alt="Master_card", title="Master_card")
+            include ../../section/ui-kit/hr.pug
+            +hr().--none
+            include ../../section/footer_short.pug
+            +footer_short()

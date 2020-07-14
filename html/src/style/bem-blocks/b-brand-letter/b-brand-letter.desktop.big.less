@@ -1,0 +1,38 @@
+/* 1440 + */
+.b-brand-letter {
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-start;
+
+    &__list {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        max-width: 450px;
+        padding: 0;
+    }
+
+    &__item {
+        list-style-type: none;
+    }
+
+    &__link {
+        display: block;
+        font-size: 24px;
+        line-height: 24px;
+        padding: 10px 8px;
+
+        &--all {
+            margin: 0 6px 0 0;
+            padding: 10px 0;
+        }
+
+        &.active,
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            color: @cl-font-orange;
+        }
+    }
+}

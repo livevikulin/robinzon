@@ -1,0 +1,25 @@
+//- ====================
+//- Robinzon: size-popover
+//- 18-01-2018: Amedomary
+//- --------------------
+//- size-popover
+//- ====================
+
+mixin size-popover()
+    +b.size-popover(class!=attributes.class).-webui-popover-content
+        +e.column
+            +e('ul').list
+                +e('li').element 
+                    +e('a').link(href='javascript:void(0)', title='').js-size-link.-active M — 49 x 5 x 5 см  /  4 колеса
+                +e('li').element 
+                    +e('a').link(href='javascript:void(0)', title='').js-size-link M — 69 x 30 x 30 см  /  4 колеса
+                +e('li').element 
+                    +e('a').link(href='javascript:void(0)', title='').js-size-link M — 89 x 75 x 35 см  /  4 колеса
+                +e('li').element 
+                    +e('a').link(href='javascript:void(0)', title='').js-size-link M — 100 x 150 x 130 см  /  4 колеса
+        +e.column
+            +e('ul').list
+                +e('li').element 
+                    +e('a').link(href='javascript:void(0)', title='').js-size-link M — 49 x 69 x 30 см  /  2 колеса
+                +e('li').element 
+                    +e('a').link(href='javascript:void(0)', title='').js-size-link M — 49 x 69 x 30 см  /  2 колеса

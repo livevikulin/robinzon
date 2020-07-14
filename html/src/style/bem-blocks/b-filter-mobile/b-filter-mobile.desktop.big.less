@@ -1,0 +1,184 @@
+/* 1440 + */
+.b-filter-mobile {
+    background-color: @background-header;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    // Осветляшка скрола контента
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 110px;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 38%);
+        z-index: 10;
+        // transform: translate(-102%);
+        transition: transform @double-animation;
+    }
+
+    &__header {
+        flex: 0 0 auto;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid @hr-popup;
+    }
+
+    &__link {
+        line-height: 13px;
+        padding: 15px;
+        flex: 1 1 auto;
+        text-align: right;
+
+        &--back {
+            transform-origin: center;
+            text-align: left;
+            pointer-events: none;
+            transition: opacity @animation-time;
+            opacity: 0;
+            pointer-events: none;
+
+            &.active {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+    }
+
+    &__main {
+        flex: 1 1 auto;
+        position: relative;
+        padding: 0 15px 120px;
+        overflow-y: auto;
+
+        // Затемняшка неактивного меню
+        &:before {
+            content: '';
+            position: absolute;
+            z-index: 3;
+            height: 100%;
+            top: 0;
+            width: 100%;
+            left: 0;
+            background-color: rgba(51, 51, 51, 1);
+            transform: translate(-102%)
+        }
+
+        // // Осветляшка скрола контента
+        // &:after {
+        //     content: '';
+        //     position: absolute;
+        //     width: 100%;
+        //     left: 0;
+        //     right: 0;
+        //     bottom: 0;
+        //     height: 120px;
+        //     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 38%);
+        //     z-index: 10;
+        //     transform: translate(-102%);
+        //     transition: transform @double-animation;
+        // }
+
+        &.active {
+
+            overflow: hidden;
+            
+            // Затемняшка неактивного меню
+            &:before {
+                animation: shadowMenu @double-animation;
+                animation-fill-mode: forwards;
+            }
+            // // Осветляшка скрола контента
+            // &:after {
+            //     transform: translate(0);
+            // }
+        }
+
+        // Затемняшка неактивного меню
+        &.close:before {
+            animation-name: shadowMenuBack;
+            animation-duration: @double-animation;
+            animation-fill-mode: forwards;
+        }
+    }
+    // Анимации затемнения
+    @keyframes shadowMenu {
+          0% {transform: translate(-102%); opacity: 0;}
+          1% {transform: translate(0); opacity: 0;}
+        100% {transform: translate(0); opacity: .6;}
+    }
+    @keyframes shadowMenuBack {
+          0% {transform: translate(0); opacity: .6;}
+        99% {transform: translate(0); opacity: 0;}
+        100% {transform: translate(-102%); opacity: 0;}
+    }
+
+    &__main-list {
+        padding: 0;
+    }
+
+    &__main-item {
+        list-style-type: none;
+        border-bottom: 1px solid @hr-light;
+    }
+
+    &__main-link {
+        .roboto-regular;
+        font-size: 13px;
+        padding: 13px 0 12px 0;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+
+        &:after {
+            display: inline-block;
+            margin-left: auto;
+            content: '';
+            .icon-base-pseudo;
+            .icon-char(arrow_small_ico2);
+            transition: transform @animation-time;
+        }
+
+        &.active:after {
+            transform: translateX(25px);
+        }
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            color: @cl-font-main;
+        }
+    }
+
+    &__second-wrapper {
+        background-color: @background-header;
+        width: 100%;
+        position: absolute;
+        z-index: 5;
+        height: 100%;
+        top: 0;
+        left: 0;
+        padding: 0 15px;
+        overflow-y: auto;
+        transform: translateX(-102%);
+        transition: transform @double-animation;
+
+        // border-right: 1px solid red;
+        // box-shadow: 0px 0px 10px 0px @hr-popup;
+        padding-bottom: 120px;
+
+        &.active {
+            transform: translateX(0);
+            // transform: translateX(-50%);
+        }
+    }
+}

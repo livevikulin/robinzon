@@ -1,0 +1,35 @@
+/* 768 + */
+.b-link-block {
+
+    &--popup-tab &__list {
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+        max-width: 648px;
+    }
+
+    &--popup-tab &__item {
+        width: 50%;//auto;
+        font-size: 13px;
+        line-height: 16px;
+        .roboto-regular();
+        border-bottom:0;//-style: dotted;
+        margin-bottom: 9px;
+
+        &.active {
+            &:after {
+                display: none;
+            }
+
+            .b-link-block__link {
+                border-bottom-color: @cl-font-gold;
+            }
+        }
+    }
+
+    &--popup-tab &__link {
+        border-bottom: 1px dotted @border-tab;
+        width: auto;
+        display: inline-block;
+    }
+}

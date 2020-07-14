@@ -1,0 +1,14 @@
+//- ====================
+//- brand-letter
+//- 23-05-2018: sashakasha
+//- --------------------
+//- Бренды. Список брендов
+//- ====================
+
+mixin brand-letter(...items)
+    +b.brand-letter.js-horizontal-scroll(class!=attributes.class)
+        +e('a').link.--all.-active(href='javascript:void(0);', title='Все') Все
+        +e('ul').list
+            each item in items
+                +e('li').item
+                    +e('a').link(href='javascript:void(0);', title=item) #{item}

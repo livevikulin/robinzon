@@ -1,0 +1,119 @@
+/* 1440 + */
+.b-review {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    font-size: 14px;
+    padding: 0 30px;
+    margin-bottom: 40px;
+
+    &--review-popup {
+        width: 100%;
+        padding: 0;
+    }
+
+    &__link-heading {
+        color: @cl-font-main;
+
+        // .no-touchevents &:hover,
+        // .touchevents &:active {
+        //     color: @cl-main-orange;
+        // }
+    }
+    &__name,
+    &__date {
+        display: block;
+        font-size: 13px;
+        line-height: 22px;
+        color: @cl-font-light;
+        margin-bottom: 10px;
+
+        &--review-page {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__name {
+        &--review-page {
+            margin-bottom: 0;
+        }
+    }
+
+    &__content {
+        font-size: 15px;
+        line-height: 21px;
+        color: @cl-font-main;
+        // обрезка
+        max-height: 125px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+
+        &--review-popup {
+            max-height: 100%;
+        }
+
+        &--review-page {
+            // max-height: 166px;
+            transition: all .3s ease;
+
+            .js-review-element.active & {
+                transition: all .3s ease;
+            }
+        }
+
+        p {
+            margin: 0;
+            height: 100%;
+        }
+    }
+
+    &__item-wrapper {
+        position: relative;
+        padding: 32px 30px 32px 21px;
+        background-color: @cl-font-white;
+        transition: z-index @animation-time, box-shadow .3s;
+        z-index: 2;
+
+        .no-touchevents &:hover,
+        .touchevents &:active,
+        &.active {
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            z-index: 3;
+            transition: z-index @animation-time, box-shadow .3s;
+
+            // & .b-review__content--review-page {
+            //     max-height: 100%;
+            //     transition: max-height .3s;
+            // }
+        }
+
+        &.active {
+            z-index: 5;
+        }
+    }
+
+    &__wrapper-text {
+        margin-bottom: 20px;
+    }
+
+    &__link-more {
+        display: inline;
+        color: @cl-font-light;
+        font-size: 14px;
+        // margin-top: 5px;
+    }
+
+    &--review-page {
+        display: block;
+        width: auto;
+        margin-bottom: 27px;
+        padding: 0;
+        max-height: 392px;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+}

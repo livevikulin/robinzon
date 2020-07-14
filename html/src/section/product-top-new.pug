@@ -1,0 +1,146 @@
+//- ====================
+//- Robinzon: product-top-new
+//- 30-03-2020
+//- --------------------
+//- Верхняя часть Карточки товара в новом дизайне
+//- ====================
+
+mixin product-top-new(isSale = false, isNotAvailable = false)
+    +b.product-top(itemscope itemtype="http://schema.org/Product" class!=attributes.class)
+        .b-container
+            +e.slider
+                +e.label
+                    +b.label.--image
+                        +e('img').image(src="images/inhtml/label/label_exclusive.svg", alt)
+                    include ui-kit/label.pug
+                    +label('vip').--vip.--quick-view
+                //- вводим ссылки на изображения
+                include product-slider.pug
+                +product-slider('images/content/product-card-1.png', 'images/content/product-card-1.png')
+                +e.name(itemprop="name") American Tourister 85A*002 Bon Air Spinner
+                +e.tablet-brand.js-tablet-brand
+                +e.icon-block
+                    +e.slider-link(href="javascript:void(0);" title="")
+                        include ui-kit/icon.pug
+                        +icon('favorites').--product-slider
+                        +e.tooltip Добавить в избранное
+                    +e.slider-link(href="javascript:void(0);" title="")
+                        +icon('compare').--product-slider
+                        +e.tooltip Добавить в сравнение
+                +e.zoom.js-open-popup(data-popup='product')
+                    +icon('zoom-in-card')
+            +e.info
+                +e.block
+                    +e.basic-info
+                        //- Размер товара и количество колёс
+                        +e.characteristic
+                            +e.title-characteristic Размер / Колеса
+                            //- TODO: изменить js на другой клас поповера
+                            +b('a').button(href="javascript:void(0);" title='' ).--select.js-size-popover M — 49 x 5 x 5 см / 4 колеса
+                            include popover/size-popover.pug
+                            +size-popover()
+                        +e.characteristic
+                            +e.title-characteristic Цвет
+                            //- TODO: почему ссылки? (уже есть миксин с радто цветами) Amedomary
+                            include select-color.pug
+                            +select-color("", "#f3e222", "transparent", "#926ca7", "#926ca7", "#7fd0af", "#0bb8b2").--product-card
+
+                        +e.characteristic.--available
+                            +e.aviability.js-default-aviability
+                                include availability-card.pug
+                                +availability-card(isNotAvailable).js-product-aviability
+
+                        +e.characteristic
+                            include characteristic-info.pug
+                            +characteristic-info(
+                                [
+                                    {
+                                        'title': 'Габариты',
+                                        'tooltip': 'Компания Bayer — мировой лидер в области производства полимерного пластика, выпустила новый вид поликарбонатных полотен под брендом Мakrolon. Высококачественные листы этой марки обладают устойчивостью к химико-физическим воздействиям, которые сохраняются весь период эксплуатации. Но это далеко не все, чем известен поликарбонат Макролон, как сотовый, так и монолитный вид этого материала.',
+                                        'definition': '40 x 55 x 25 см.'
+                                    },
+                                    {
+                                        'title': 'Количество колес',
+                                        'definition': '4 колеса'
+                                    },
+                                    {
+                                        'title': 'Объём',
+                                        'definition': '94л'
+                                    },
+                                    {
+                                        'title': 'Вес',
+                                        'definition': '4,2кг'
+                                    },
+                                    {
+                                        'title': 'Материал',
+                                        'tooltip': 'Компания Bayer — мировой лидер в области производства полимерного пластика, выпустила новый вид поликарбонатных полотен под брендом Мakrolon. Высококачественные листы этой марки обладают устойчивостью к химико-физическим воздействиям, которые сохраняются весь период эксплуатации. Но это далеко не все, чем известен поликарбонат Макролон, как сотовый, так и монолитный вид этого материала.',
+                                        'definition': 'Поликарбонат Makrolon'
+                                    }
+                                ]).--product
+                        +e.characteristic
+                            include feature
+                            +feature
+
+                    +e.other-info
+                        +e.default-brand.js-brand-default
+                            include brand.pug
+                            +brand-product-card('images/content/travelite-logo.jpg', "", "travelite").--product
+                        +e.vendor-code
+                            +e.code Артикул:
+                                +e('span').number(itemprop="sku" content="85A-31003") 85A-31003
+                            +e.code Коллекция:
+                                +e('span').number Bon Air
+
+
+                        if !isNotAvailable
+                            //- price вводим цену
+                            //- old если есть старая цена то true
+                            //- oldprice старая цена
+                            include ui-kit/price-pc.pug
+                            +price-pc("22 320", isSale, "27 900", "₽").--product-card
+
+                            +e.characteristic
+                                +b('a').link.--offer-price(href="javascript:void(0);" title="Предложить свою цену") Предложить свою цену
+
+                            +e.characteristic.--price-up
+                                +e.price-up Ожидается повышение цен с 24 марта
+                            +e.buttons
+                                include ui-kit/button.pug
+                                +button("Купить", "", true).--orange-buy(data-popup='in-basket').js-open-popup
+                                +button("Купить в 1 клик", "", true).--white-buy(class='button-1click buy_one_click_popup js_buy_1_click_open', data-id="296981", data-offer-id="296985")
+                        else
+                            +button("Сообщить о поступлении", "", true).--orange-buy(data-popup='item-subscribe' data-itemId='123').js-open-popup.js-subscribe-button
+                +e.block
+                    +e.basic-info
+                        +e.delivery.js-delivery-default
+                            +e.aviability.js-delivery-list-top
+                                +e.aviability-title Доставка
+                                +e.aviability-item
+                                    +e('span').aviability-icon
+                                        +icon('lightning').--lightning
+                                    +e('span').aviability-text Экспресс доставка (до 3х часов),
+                                        |
+                                        br
+                                        b сегодня
+                                +e.aviability-item
+                                    +e('span').aviability-icon
+                                        +icon('truck').--truck
+                                    +e('span').aviability-text Доставка курьером
+                                        br
+                                        b.free (бесплатно)
+                                +e.aviability-item
+                                    +e('span').aviability-icon
+                                        +icon('box').--box
+                                    +e('span').aviability-text В пункте выдачи,
+                                        |
+                                        |
+                                        b завтра
+                                        br
+                                        b.free (бесплатно)
+
+                    +e.other-info
+                        include product-shops.pug
+                        +product-shops()
+                +e.full
+                    include advantage.pug
+                    +advantage

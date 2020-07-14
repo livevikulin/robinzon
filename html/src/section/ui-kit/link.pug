@@ -1,0 +1,31 @@
+//- ====================
+//- RBZ: link inline
+//- 16.01.2018: Amedomary
+//- --------------------
+//- Строчная ссылка
+//- ====================
+
+//- if <a>        link = true
+//- if <button>   link = false
+//- add_text - если есть доп текст, для мобилки например
+
+//- Вызов
+//- +link('text', 'add-text', false).js-class.-active(data-popup="open-test")
+
+//- TODO: не использовать add_text в миксине - выпилить 
+mixin link(content, add_text, link)
+    if link == true
+        +b('a').link( href="javascript:void(0);" title=`${content}` )&attributes(attributes) !{content}
+            if add_text
+                +e.add-text(class!=attributes.class) !{add_text}
+            block
+
+    else
+        +b('button').link&attributes( attributes ) !{content}
+            if add_text
+                +e.add-text( class!=attributes.class ) !{add_text}
+            block
+
+mixin link--type(content, type)
+    +b(type).link( href="javascript:void(0);" title=`${content}` )&attributes( attributes ) !{content}
+        block

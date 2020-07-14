@@ -1,0 +1,30 @@
+//- ====================
+//- Robinzon: filter-color
+//- 07-02-2018: dimasta
+//- --------------------
+//- Фильтр с выбором цвета
+//- ====================
+
+mixin filter-color(data)
+    +b('ul').filter-color(class!=attributes.class)
+        each item, index in data.items
+            +e('li').item(class!=attributes.class)
+                //- radio(textLabel, name, id, checked, js)
+                include ui-kit/radio.pug
+                +radio(item.label, item.name, id=`id-${item.name}-${index}`, false, item.js).--filter-color.js-filter-field
+                    +e.circle(style=item.color)
+                        if item.src
+                            +e.img.js-image-wrapper(src=item.src)
+                    +e('span').colorname #{item.colorname}
+
+mixin filter-color--map(data)
+    +b('ul').filter-color(class!=attributes.class).js-color-list
+        each item, index in data.items
+            +e('li').item(class!=attributes.class)
+                //- radio(textLabel, name, id, checked, js)
+                include ui-kit/radio.pug
+                +radio--label(item.label, item.name, id=`id-${item.name}-${index}`, false, item.js, item.colorname).--map-color( class=data.jsRadioClass ).js-shop-color
+                    +e.circle.--map-card(data-color=item.color)
+                        if item.src
+                            +e.img.js-image-wrapper(src=item.src)
+                    //- +e('span').colorname #{item.colorname}

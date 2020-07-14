@@ -1,0 +1,115 @@
+/* 768 + */
+.b-cart-page {
+    &__column {
+        width: 100%;
+        padding: 0;
+
+        &--left {}
+
+        &--right {
+            margin-left: 0;
+        }
+
+        &--step-one-right {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+        }
+
+        &--half {
+            width: 50%;
+        }
+    }
+
+    &__group {
+        &--payment {
+            margin: 0 60px 12px 0;
+            padding: 24px 0 0;
+            width: ~'calc(50% - 30px)';
+
+            &:nth-child(2n) {
+                margin: 0 0 12px 0;
+            }
+        }
+
+        &--button-order {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        &--short {
+            padding-top: 0;
+            padding-right: 200px;
+            width: 100%;
+        }
+
+        &--full-width {
+            width: 100%;
+        }
+
+        &--comment {
+            width: 100%;
+        }
+
+        &--city {
+            margin-bottom: 60px;
+        }
+
+        &--inline {
+            margin: 0;
+        }
+    }
+
+    &__wrapper {
+        &--order {
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+            margin-right: 25px;
+        }
+        &--order-step-2 {
+            padding: 28px 33px 17px;
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        &--way-get {
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        &--tablet-hide {
+            display: none;
+        }
+
+        &--cart-help {
+            margin-top: 30px;
+        }
+    }
+
+    &__wrap {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+
+        &--order-left {
+            padding-right: 25px;   
+        }
+        &--order-right {
+            padding-left: 25px;
+        }
+    }
+
+    &__paragraph {
+        &--confidential {
+            border-bottom: 0;
+        }
+    }
+
+    &__order-delivery {
+        padding-top: 12px;
+    }
+}

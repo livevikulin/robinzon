@@ -1,0 +1,44 @@
+//- ====================
+//- Robinzon: product-basket
+//- 18-01-2018: Amedomary
+//- --------------------
+//- Продукт в поповере корзины
+//- ====================
+
+mixin product-basket(data)
+    +b('a').product-basket(href='javascript:void(0)', title=data.name)
+        +e.column--image
+            +e('img')(src=data.src, alt='', title='').image
+            include ui-kit/label.pug
+            +label('15%').--sale.--cart-item
+        +e.column--content
+            +e('span').name #{data.name}
+            +e('span').quantity Количество: #{data.quantity}
+        +e.column--cost
+            +e('span').cost(class=data.classCost) #{data.cost}.–
+
+mixin product-basket--in(data)
+    +b.product-basket(class!=attributes.class)
+        +e.column--image
+            +e('img')(src=data.src, alt='', title='').image
+            include ui-kit/label.pug
+            +label('15%').--sale.--cart-item
+        +e.column--content
+            +e('span').name #{data.name}
+            +e('span').name #{data.mark}
+            +e.footer
+                if data.quantity
+                    +e('span').quantity #{data.quantity} шт. &mdash; 
+                    +e('span').costOld(class=data.classCostOld) #{data.costOld} ₽
+                +e('span').cost(class=data.classCost) #{data.cost} ₽
+
+                if !(data.quantity)
+                    +e('a').add(href='javascript:void(0)', title='')
+                        include ui-kit/icon.pug
+                        +icon('checkbox').--add-basket
+                        | Добавить в заказ
+
+            //- +e('span').quantity Количество: #{data.quantity}
+
+        //- +e.column--cost
+        //-     +e('span').cost #{data.cost}.–

@@ -1,0 +1,13 @@
+//- ====================
+//- Robinzon: basket
+//- 18-01-2018: Amedomary
+//- --------------------
+//- basket
+//- ====================
+
+mixin basket(src, title)
+    +b('a').basket( class!=attributes.class, href='javascript:void(0)', title='' )
+        +e.label Корзина
+        include ui-kit/icon.pug
+        +icon('cart').--basket
+        +e('i').number 3

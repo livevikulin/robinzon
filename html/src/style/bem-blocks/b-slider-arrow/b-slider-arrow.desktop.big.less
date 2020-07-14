@@ -1,0 +1,215 @@
+/* 1440 + */
+.b-slider-arrow {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-top: -30px;
+    top: 50%;
+    z-index: 10;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 14px;
+
+    &.slick-disabled {
+        color: @cl-light-gray;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            color: @cl-light-gray;
+            border-color: transparent;
+        }
+    }
+
+    &--main-next {
+        right: 15px;
+    }
+    &--main-prev {
+        left: 15px;
+        transform: rotate(180deg);
+    }
+
+    // бренды
+    &--brand-prev,
+    &--brand-next {
+        width: 38px;
+        height: 38px;
+        margin-top: 0;
+        top: 33px;
+        border: 2px solid transparent;
+        background-image: none;
+        transition: @animation-time;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            border-color: @arrow-border-hover;
+        }
+    }
+    &--brand-next {
+        right: -43px;
+    }
+    &--brand-prev {
+        left: -43px;
+        transform: rotate(180deg);
+    }
+
+    &--similar-prev,
+    &--similar-next,
+    &--brand-card-prev,
+    &--brand-card-next {
+        width: 38px;
+        height: 38px;
+        margin-top: -19px;
+        top: 145px;
+        border: 2px solid transparent;
+        background-image: none;
+        transition: @animation-time;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            border-color: @arrow-border-hover;
+        }
+    }
+
+    &--similar-next {
+        right: -45px;
+    }
+
+    &--similar-prev {
+        left: -45px;
+        transform: rotate(180deg);
+    }
+
+    &--brand-card-next {
+        right: 11px;
+    }
+
+    &--brand-card-prev {
+        left: 11px;
+        transform: rotate(180deg);
+    }
+
+    &--brand-card-next,
+    &--brand-card-prev {
+        background: @cl-alpha-white-brand-transparent;
+        margin: -13px 0 0;
+        top: 50%;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            background: @arrow-brand;
+            border-color: @arrow-brand;
+        }
+    }
+
+    &--buy-set {
+        width: 38px;
+        height: 38px;
+        margin-top: -14px;
+        top: 43%;
+        border: 2px solid transparent;
+        background-image: none;
+        transition: @animation-time;
+        margin-top: -18px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 38px;
+        font-size: 15px;
+
+        &.next {
+            right: -20px;
+        }
+        &.prev {
+            transform: rotate(180deg);
+            transform-origin: center;
+            left: -20px;
+        }
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            border-color: @arrow-border-hover;
+        }
+    }
+
+    // карточка товара слайдер товара
+    &--product {
+        width: 20px;
+        height: 20px;
+        // position: static;
+        color: @product-slider;
+        font-size: 15px;
+        margin: 0;
+        left: 50%;
+        margin-left: -10px;
+    }
+
+    &--product&--prev {
+        top: 0;
+        transform: rotate(-90deg);
+    }
+
+    &--product&--next {
+        top: auto;
+        bottom: 0;
+        transform: rotate(90deg);
+    }
+
+    &--hidden-slider {
+        top: auto;
+        bottom: -63px;
+        width: auto;
+        height: auto;
+        margin: 0;
+
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 13px;
+            line-height: 15px;
+            color: @cl-font-main;
+            .roboto-regular;
+        }
+    }
+
+    &--hidden-slider.prev {
+        left: 0;//17px;
+    }
+
+    &--hidden-slider.next {
+        left: auto;
+        right: 0;//17px;
+    }
+
+    .b-pick-model-block & {
+        top: 50%;
+        margin-top: -15px;
+
+        &--brand-prev {
+            left: -25px;
+        }
+
+        &--brand-next {
+            right: -25px;
+        }
+    }
+    .b-brand-recommend__banner & {
+        top: 50%;
+        margin-top: -45px;
+
+        &--brand-prev {
+            left: -25px;
+        }
+
+        &--brand-next {
+            right: -25px;
+        }
+    }
+}
+
+// VD: Отключаем стрелки на 1280 так как не влезают у слайдера брендов стрелки навигации
+@media (max-width: 1279px) {
+    .b-brand-slider--menu-desktop {
+        .b-slider-arrow {
+            display: none!important;
+        }
+    }
+}

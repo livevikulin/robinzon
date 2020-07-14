@@ -1,0 +1,9 @@
+//- ====================
+//- 1-06-2018: Amed
+//- --------------------
+//- circle-image
+//- ====================
+
+mixin circle-image(data)
+    +b.circle-image(class!=attributes.class)
+        +e('img').img(src=data.src, alt='', title='')

@@ -1,0 +1,12 @@
+//- ====================
+//- brand-group-list
+//- 23-05-2018: sashakasha
+//- --------------------
+//- Бренды. Список брендов
+//- ====================
+
+mixin brand-group-list(letter, info,...items)
+    +b.brand-group-list
+        +e('span').letter #{letter}
+        include brand-list.pug
+        +brand-list(info, ...items)

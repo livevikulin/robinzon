@@ -1,0 +1,154 @@
+//- ====================
+//- Project: delivery
+//- 16-05-2019: Альберт
+//- --------------------
+//- ПОДАРОЧНЫЙ СЕРТИФИКАТ
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'gift'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'ПОДАРОЧНЫЙ СЕРТИФИКАТ';
+
+//- Выводим попапы
+block popup
+
+//- Выводим content
+block content
+    .b-container.gift-certificate
+        section.section-certificate.gift-certificate__wrapper
+            .gift-certificate__header
+                h1.gift-certificate__title Подарочный сертификат
+                .gift-certificate__photo
+                    img(src='https://robinzon.ru/giftcard/images/certificate.png', alt='', width='467', height='330')
+            // .gift-certificate__header
+            .gift-certificate__desc
+                p
+                    | Все мы хотим вручить подарок и увидеть радость в глазах получателя. Но предугадать желания сложно. Подарочный сертификат от ROBINZON – идеальный способ проявить заботу, подарить выбор родным, друзьям и коллегам.
+            // .gift-certificate__desc
+            .gift-certificate__main
+                h2.gift-certificate__heading
+                    span Бренды
+                p
+                    | Подарочный сертификат от ROBINZON – это более 10 000 товаров от мировых брендов: Samsonite, Bric’s, Roncato, Thule, Kipling, Eastpak, Herschel, Hedgren, Guess, Mandarina Duck, Coccinelle и других.
+                ul.gift-certificate__features
+                    li.gift-certificate__features-item
+                        .gift-certificate__features-thumb
+                            img(src='https://robinzon.ru/giftcard/images/features-1.svg', alt='', width='139', height='104')
+                        .gift-certificate__features-desc
+                            p
+                                | Путешественники выберут безупречный чемодан среди массы различных размеров, расцветок и конструкций, идеальную дорожную сумку и полезные тревел-аксессуары для приятных поездок.
+                    // .gift-certificate__features-item
+                    li.gift-certificate__features-item
+                        .gift-certificate__features-thumb
+                            img(src='https://robinzon.ru/giftcard/images/features-2.svg', alt='', width='118', height='102')
+                        .gift-certificate__features-desc
+                            p
+                                | Деловые люди найдут всё для продуктивной работы. Функциональные портфели и сумки, мобильные офисы для документов и девайсов, портпледы для защиты одежды от складок.
+                    // .gift-certificate__features-item
+                    li.gift-certificate__features-item
+                        .gift-certificate__features-thumb
+                            img(src='https://robinzon.ru/giftcard/images/features-3.svg', alt='', width='90', height='103')
+                        .gift-certificate__features-desc
+                            p
+                                | Сумочки разных форм и расцветок, стильные шарфы, перчатки, колоритные зонты помогут милым дамам создать неповторимый образ. Каждая найдет свою идеальную косметичку или бьюти-кейс.
+                    // .gift-certificate__features-item
+                    li.gift-certificate__features-item
+                        .gift-certificate__features-thumb
+                            img(src='https://robinzon.ru/giftcard/images/features-4.svg', alt='', width='83', height='111')
+                        .gift-certificate__features-desc
+                            p
+                                | Дети будут в восторге от ярких чемоданчиков с необыкновенным дизайном, красочных ранцев, рюкзаков и школьных принадлежностей.
+                    // .gift-certificate__features-item
+                    li.gift-certificate__features-item.gift-certificate__features-item_wide
+                        .gift-certificate__features-thumb
+                            img(src='https://robinzon.ru/giftcard/images/features-5.svg', alt='', width='114', height='109')
+                        .gift-certificate__features-desc
+                            p
+                                | Для людей, у которых есть всё, найдутся статусные подарки от брендов Rimowa, Tumi, Victorinox, Piquadro и других. Их порадует разнообразие роскошных сумок, кожаных портмоне и ремней.
+                            .gift-certificate__brands
+                                img(src='https://robinzon.ru/giftcard/images/brand-tumi.png', alt='tumi', width='88', height='24')
+                                img(src='https://robinzon.ru/giftcard/images/brand-victorinox.png', alt='victorinox', width='157', height='17')
+                                img(src='https://robinzon.ru/giftcard/images/brand-rimowa.png', alt='rimowa', width='94', height='24')
+                                img(src='https://robinzon.ru/giftcard/images/brand-piquadro.png', alt='piquadro', width='208', height='12')
+            // .gift-certificate__brands
+            // .gift-certificate__features-item
+            // .gift-certificate__features
+            // .gift-certificate__main
+            .gift-certificate__types
+                .gift-certificate__types-desc Подарочный сертификат Robinzon представлен в номиналах
+                ul.gift-certificate__nominals
+                    li 1 000 р.
+                    li 3 000 р.
+                    li 5 000 р.
+                    li 10 000 р.
+                    li 15 000 р.
+                    li 25 000 р.
+            // .gift-certificate__types
+            
+                // .gift-certificate__docs
+                // .gift-certificate__terms-use
+        section.section7.gift-certificate__wrapper
+            h2.section_title.gift-certificate__heading
+                span Адреса наших магазинов
+            p
+                | Приобрести или забронировать Подарочный Сертификат возможно в фирменных магазинах Robinzon.
+            .tabs-container
+                .tabs
+                    #tab-1.active
+                        .shop
+                            span.shop_name РОБИНЗОН НА ПРОЛЕТАРСКОЙ
+                            span.shop_description м. "Пролетарская", ул. Воронцовская, д.49/28,стр.1, ТЦ «Сотый», 4 этаж
+                    #tab-2
+                        .shop
+                            span.shop_name ROBINZON PREMIER
+                            span.shop_description м. "Смоленская", Смоленская площадь, д.3, ТДК "Смоленский Пассаж", 3 этаж
+                    #tab-3
+                        .shop
+                            span.shop_name РОБИНЗОН ГАГАРИНСКИЙ
+                            span.shop_description м. "Ленинский проспект", ул. Вавилова, д.3, ТРЦ "Гагаринский", 1 этаж
+                    #tab-4
+                        .shop
+                            span.shop_name РОБИНЗОН ФЕСТИВАЛЬ
+                            span.shop_description
+                                | м. "Юго-Западная", Мичуринский пр-т, Олимпийская деревня, д.3, корп.1., ТРЦ "Фестиваль", 1 этаж
+                    #tab-5
+                        .shop
+                            span.shop_name РОБИНЗОН ОДИНЦОВО
+                            span.shop_description г. Одинцово, Можайское шоссе, 71, ТЦ "Дубрава", 1 этаж
+                .tab_content
+                    .content_1(data='tab-1')
+                        script(type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=gmbA2XwARITnmJ4mcY7TexKzdrV1eOGK&width=100%&height=396&lang=ru_RU&sourceType=constructor&scroll=true")
+                    .content_2(data='tab-2')
+                        script(type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae43b6d8b54b0a6fbc3b033efd361e09a9facdc4dfa1d1f78d9ee9a77459ed2a3&amp;width=100%&amp;height=396&amp;lang=ru_RU&amp;scroll=true")
+                    .content_3(data='tab-3')
+                        script(type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad7b60b595015bc65fb26b3781234e44962490ca8ac65402e26bfe560a15172e4&amp;width=100%&amp;height=396&amp;lang=ru_RU&amp;scroll=true")
+                    .content_4(data='tab-4')
+                        script(type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac9091257c0eb450c7fff8a8552e31977a35b4a930232f93e27271a266852557d&amp;width=800&amp;height=396&amp;lang=ru_RU&amp;scroll=true")
+                    .content_5(data='tab-5')
+                        script(type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ab7b9a9cea4404fcd94254ad2f4f713dc98b9339a111699242228dd8e4a1ce4c4&amp;width=100%&amp;height=396&amp;lang=ru_RU&amp;scroll=true")
+            .gift-certificate__terms-use
+                h2.gift-certificate__heading
+                    span Правила использования
+                .gift-certificate__docs
+                    a.gift-certificate__download-link(href='/giftcard/pravila.pdf')
+                        img(src='https://robinzon.ru/giftcard/images/icon-pdf.png', alt='', width='88', height='93')
+                        span
+                            | Правила использования
+                            br
+                            |  Подарочного Сертификата
+                            br
+                            |  в формате PDF
+                    a.gift-certificate__download-link(href='/giftcard/pravila.docx')
+                        img(src='https://robinzon.ru/giftcard/images/icon-doc.png', alt='', width='88', height='93')
+                        span
+                            | Правила использования
+                            br
+                            |  Подарочного Сертификата
+                            br
+                            |  в формате doc

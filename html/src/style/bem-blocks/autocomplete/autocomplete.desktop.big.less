@@ -1,0 +1,66 @@
+//  1440+
+// default
+.autocomplete-suggestions {
+    overflow-y: auto;
+    background-color: @background-header;
+    border-radius: 2px;
+    font-size: 13px;
+    .roboto-regular;
+    transition: .3s;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.autocomplete-suggestion {
+    display: block;
+
+    &--show-all {
+        font-size: 13px;
+        margin-top: 5px;
+        color: @cl-font-light;
+    }
+}
+
+.autocomplete-selected {
+    background-color: @button-main-back;
+    color: @cl-font-white;
+}
+
+
+// Блок поиска города
+.b-city-selection__autocomplete-wrapper,
+.b-cart-page__autocomplete-wrapper {
+    .autocomplete-suggestions {
+        padding: 6px 0;
+        border-radius: 0 0 2px 2px;
+        border-color: @border-tab;
+        border-right: 1px solid @border-tab;
+        border-left: 1px solid @border-tab;
+        border-bottom: 1px solid @border-tab;
+        border-top: none;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .autocomplete-suggestion {
+        padding: 7px 12px;
+    }
+}
+
+
+// авто в шапке
+.b-top-search__autocomplete-wrapper--search {
+    .autocomplete-suggestions {
+        padding: 6px 0;
+        border-radius: 0 0 2px 2px;
+        border-color: @border-tab;
+        border-right: 1px solid @border-tab;
+        border-left: 1px solid @border-tab;
+        border-bottom: 1px solid @border-tab;
+        border-top: none;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .autocomplete-suggestion {
+        padding: 7px 12px;
+    }
+}

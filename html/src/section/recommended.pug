@@ -1,0 +1,143 @@
+//- ====================
+//- robinzon: recommended
+//- 16-01-2018: maxzbest
+//- --------------------
+//- Блок "Рекомендованные товары" b-recommended
+//- ====================
+
+mixin recommended(title)
+    //- Begin block b-recommended
+    +b.recommended(class!=attributes.class)
+        include ui-kit/title.pug
+        if title
+            +title-link('h1', title).--block.--link-heading.--about-us
+        else
+            +title-link('h1', 'Популярные новинки').--block.--link-heading.--about-us
+        
+        +e.content.js-recommend-content
+            +e.content-main.js-recommend-main
+                //- Begin block b-recommended-item
+                include recommended-item.pug
+                +recommended-item({'items':
+                        [{
+                            'classBlock': '--size js-recommended-item',
+                            'classContent': '--hover',
+                            'notice': 'new',
+                            'srclink': 'images/content/recommended-bag-2.jpg',
+                            'size': 'Чемодан средний L',
+                            'name': 'Tumi 36869BL 19 Degree Aluminium Extended Trip',
+                            'price': '3 500.-'
+                        }, {
+                            'classBlock': 'js-recommended-item',
+                            'classContent': '--hover',
+                            'notice': 'sale',
+                            'srclink': 'images/content/recommended-bag-2.jpg',
+                            'size': 'Чемодан очень большой XL',
+                            'name': 'American Tourister Sunset Square Spinner 13G*908',
+                            'price': '14 590.-'
+                        }
+                    ]})
+                include advice.pug
+                +advice({
+                    'title': 'А знаете ли вы?',
+                    'content': 'Четыре колеса на чемодане гораздо удобнее двух. Небольшими усилиями можно толкать чемодан, при этом руки остаются свободными.',
+                    'link': 'Ещё совет'
+                })
+
+            //- +e.content-secondary
+            //- Begin block b-recommended-item
+            +e.content-slave.js-recommend-slave
+                include recommended-item.pug
+                +recommended-item({'items':
+                            [{
+                                'classBlock': 'js-recommended-item',
+                                'classContent': '--hover',
+                                'notice': 'sale',
+                                'srclink': 'images/content/recommended-bag-2.jpg',
+                                'size': 'Чемодан средний M',
+                                'name': 'American Tourister Sunset Square Spinner 13G*908',
+                                'price': '14 590.-'
+                            }, {
+                                'classBlock': 'js-recommended-item',
+                                'classContent': '--hover',
+                                'notice': '',
+                                'srclink': 'images/content/recommended-bag-2.jpg',
+                                'size': 'Ручная кладь S',
+                                'name': 'Roncato 3132 MODO Sunny 68',
+                                'price': '9 700.-'
+                            }, {
+                                'classBlock': 'js-recommended-item',
+                                'classContent': '--hover',
+                                'notice': '',
+                                'srclink': 'images/content/recommended-bag-2.jpg',
+                                'size': 'Ручная кладь S',
+                                'name': 'Roncato 3132 MODO Sunny 68',
+                                'price': '9 700.-'
+                            }, {
+                                'classBlock': 'js-recommended-item',
+                                'classContent': '--hover',
+                                'notice': '',
+                                'srclink': 'images/content/recommended-bag-2.jpg',
+                                'size': 'Ручная кладь S',
+                                'name': 'Roncato 3132 MODO Sunny 68',
+                                'price': '9 700.-'
+                            }, {
+                                'classBlock': 'js-recommended-item',
+                                'classContent': '--hover',
+                                'notice': '',
+                                'srclink': 'images/content/recommended-bag-2.jpg',
+                                'size': 'Ручная кладь S',
+                                'name': 'Roncato 3132 MODO Sunny 68',
+                                'price': '9 700.-'
+                            }, {
+                                'classBlock': 'js-recommended-item',
+                                'classContent': '--hover',
+                                'notice': '',
+                                'srclink': 'images/content/recommended-bag-2.jpg',
+                                'size': 'Ручная кладь S',
+                                'name': 'Roncato 3132 MODO Sunny 68',
+                                'price': '9 700.-'
+                            }, {
+                                'classBlock': '',
+                                'classContent': '--hover',
+                                'notice': '',
+                                'srclink': 'images/content/recommended-bag-2.jpg',
+                                'size': 'Ручная кладь S',
+                                'name': 'Roncato 3132 MODO Sunny 68',
+                                'price': '9 700.-'
+                            }, {
+                                'classBlock': '',
+                                'classContent': '--hover',
+                                'notice': '',
+                                'srclink': 'images/content/recommended-bag-2.jpg',
+                                'size': 'Ручная кладь S',
+                                'name': 'Roncato 3132 MODO Sunny 68',
+                                'price': '9 700.-'
+                            }, {
+                                'classBlock': '',
+                                'classContent': '--hover',
+                                'notice': '',
+                                'srclink': 'images/content/recommended-bag-2.jpg',
+                                'size': 'Ручная кладь S',
+                                'name': 'Roncato 3132 MODO Sunny 68',
+                                'price': '9 700.-'
+                            }, {
+                                'classBlock': '',
+                                'classContent': '--hover',
+                                'notice': '',
+                                'srclink': 'images/content/recommended-bag-2.jpg',
+                                'size': 'Ручная кладь S',
+                                'name': 'Roncato 3132 MODO Sunny 68',
+                                'price': '9 700.-'
+                            }
+                        ]})
+
+                //- +b('a').recommended-item--more(href='javascript:void(0);' data-target='.b-recommended__content-slave' title='Показать ещё' data-url="/json/recommended.json" data-events='updateRecomended').js-ajax-link
+                    +e.content()
+                        +e.more-text
+                            +e('span').link-word Показать ещё?
+                +b('a').recommended-item--more(href='javascript:void(0);' data-url="/json/recommended.json" title='Показать ещё' data-events='recommendedShowMore').js-ajax-link
+                    +e.content()
+                        +e.more-text
+                            +e('span').link-word.js-replaced-text Показать ещё?
+    //- +b.support-block

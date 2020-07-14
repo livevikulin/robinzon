@@ -1,0 +1,19 @@
+//- ====================
+//- RBZ: characteristic-info
+//- 01-02-2018: drtvader
+//- --------------------
+//- characteristic-info
+//- ====================
+
+mixin characteristic-info(info)
+    +b.characteristic-info(class!=attributes.class)
+        each item, index in info
+            +e('dl').item
+                +e('dt').title #{item.title}:
+                +e('dd').definition 
+                    if item.tooltip
+                        include ui-kit/question.pug
+                        +question().--product
+                        +b.tooltip.-webui-popover-content
+                            p #{item.tooltip}
+                    a(href='javascript:void(0)', title='', data-popup="material").js-open-popup #{item.definition}

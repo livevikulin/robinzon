@@ -1,0 +1,14 @@
+//- ====================
+//- Robinzon: mixin footer_nav
+//- 06-02-2018: Sash
+//- --------------------
+//- Навигация по футеру
+//- ====================
+mixin footer_nav(header, ...items)
+    +e.inner
+        +e("h4").title
+            +e("a").title-link(href="javascript:void(0);",title=header) #{header}
+        +e("ul").list
+            each item in items
+                +e("li").item
+                    +e("a").link(href="javascript:void(0);",title=item) #{item}

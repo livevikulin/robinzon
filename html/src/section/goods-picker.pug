@@ -1,0 +1,14 @@
+//- ====================
+//- RBZ: goods-picker
+//- 05-02-2018: VD
+//- --------------------
+//- подборщик
+//- ====================
+mixin goods-picker()
+    +b.goods-picker
+        +e.text.--question Все еще не определились с выбором?
+        +e.text.--title Попробуйте подборщик
+        +e.additional-info Расскажите, для чего Вам чемодан, и мы подберем подходящий!
+
+        include ui-kit/button.pug
+        +button('Подобрать', '', true).--blue.--goods-picker

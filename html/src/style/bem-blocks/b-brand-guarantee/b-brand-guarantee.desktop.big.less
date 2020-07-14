@@ -1,0 +1,66 @@
+/* 1440 + */
+.b-brand-guarantee {
+    margin-bottom: 46px;
+    &--float {
+        float: right;
+        width: 50%;
+        padding-left: 14px;
+        margin: -12px 0 0;
+    }
+
+    &__list {
+        padding: 0;
+    }
+
+    &__item {
+        display: flex;
+        border-bottom: 1px solid @cl-gray-very-light;
+        padding: 0 20px;
+
+        &--title {
+            border-bottom-color: @cl-font-very-light;
+        }
+    }
+
+    &__name,
+    &__time,
+    &__adress {
+        width: 50%;
+        font-size: 15px;
+        line-height: 30px;
+        padding: 7px 0;
+        .b-brand-guarantee__item--title & {
+            color: @brand-text;
+        }
+    }
+
+    &__time,
+    &__adress {
+        padding-left: 15px;
+
+        p {
+            line-height: 30px;
+            margin: 0 0 6px;
+        }
+    }
+
+    &__adress {
+        // margin-top: 5px;
+        max-width: 462px;
+    }
+
+    &__mobile {
+        display: none;
+    }
+
+    &--float & {
+
+        &__item {
+            margin-bottom: 0;
+        }
+        &__time,
+        &__adress {
+            padding-left: 0;
+        }
+    }
+}

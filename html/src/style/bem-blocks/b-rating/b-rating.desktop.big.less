@@ -1,0 +1,185 @@
+.b-rating {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+
+
+    &--product {
+        display: block;
+    }
+
+    &__star-block {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 2px;
+    }
+
+    &__input {
+        display: none;
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+
+    &__group input:checked ~ &__star,
+    &__group input + &__star:hover ~ &__star,
+    &__group input + &__star:hover {
+        display: inline-block;
+        .b-icon {
+            color: @cl-beige;
+        }
+    }
+
+    &__group:hover > input + &__star {
+        display: inline-block;
+    }
+    &__group:hover > input + &__star:hover ~ &__star,
+    &__group:hover > input + &__star:hover {
+        display: inline-block;
+    }
+
+    &__star {
+        width: 12px;
+        height: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        margin: 0 1px 0 0;
+        float: right;
+        display: inline-block;
+
+        & .b-icon {
+            width: 12px;
+            height: 12px;
+            color: @cl-font-light;
+        }
+    }
+
+    // звёздочки полупрозрачные с анимацией
+    &--form-review {
+        margin-bottom: 10px;
+
+        .b-rating__group input:checked ~ .b-rating__star,
+        .b-rating__group input + .b-rating__star:hover ~ .b-rating__star,
+        .b-rating__group input + .b-rating__star:hover {
+            .b-icon__svg {
+                stroke: @cl-beige;
+            }
+        }
+
+        .b-rating__star {
+            & .b-icon {
+                transition: .25s;
+                fill: transparent;
+                // stroke: @cl-4p-blue-grey;
+                stroke-width: 1.5px;
+                stroke-linejoin: round;
+            }
+        }
+    }
+
+    &--add-review & {
+        &__star {
+            width: 47px;
+            height: 47px;
+            position: relative;
+            margin-right: 14px;
+
+            & .b-icon--main {
+                width: 47px;
+                height: 47px;
+                color: @cl-font-very-light;
+
+                &::before {
+                    font-size: 47px;
+                    line-height: 47px;
+                }
+            }
+
+            & .b-icon--white {
+                position: absolute;
+                width: 37px;
+                height: 37px;
+                top: 5px;
+                left: 5px;
+                color: @cl-font-white;
+                z-index: 1;
+
+                &:before {
+                    font-size: 37px;
+                    line-height: 37px;
+                }
+            }
+        }
+    }
+
+    // // на 2px больше
+    // &--big {
+    //     width: auto;
+    //     height: auto;
+
+    //     .b-rating {
+    //         &__star-block {
+    //             width: 16px;
+    //             height: 16px;
+    //             margin: 0 3px 0 0;
+
+    //             & .b-icon,
+    //             & .b-icon .b-icon__svg {
+    //                 width: 16px;
+    //                 height: 16px;
+    //             }
+    //         }
+
+    //         &__star {
+    //             width: 16px;
+    //             height: 16px;
+    //             margin: 0 3px 0 0;
+
+    //             & .b-icon,
+    //             & .b-icon .b-icon__svg {
+    //                 width: 16px;
+    //                 height: 16px;
+    //             }
+    //         }
+    //     }
+    // }
+
+    // // на 6 больше
+    // &--large {
+    //     width: auto;
+    //     height: auto;
+
+    //     .b-rating {
+    //         &__star-block {
+    //             width: 21px;
+    //             height: 22px;
+    //             margin: 0 5px 0 0;
+
+    //             & .b-icon,
+    //             & .b-icon .b-icon__svg {
+    //                 width: 21px;
+    //                 height: 22px;
+    //             }
+    //         }
+
+    //         &__star {
+    //             width: 21px;
+    //             height: 22px;
+    //             margin: 0 5px 0 0;
+
+    //             & .b-icon,
+    //             & .b-icon .b-icon__svg {
+    //                 width: 21px;
+    //                 height: 22px;
+    //             }
+    //         }
+    //     }
+    // }
+}
+

@@ -1,0 +1,33 @@
+/* 320 + */
+.b-head-strip {
+    min-height: auto;
+    width: calc( 100% + 40px );
+    margin: -10px -20px 0;
+    &.desktop-strip{
+        display: none !important;
+    }
+    &__sub-box, &__main-box {
+        min-height: 40px;
+    }
+    &__text {
+        display: none;
+    }
+    &__text_mobile {
+        display: block;
+        padding-top: 10px;
+        font-size: 13.5px;
+        font-weight: normal;
+    }
+}
+
+/* Окно просмотра находится в альбомной ориентации, то есть ширина больше высоты. */
+@media (orientation: landscape) {
+    .b-head-strip {
+        &__text {
+            display: block;
+        }
+        &__text_mobile {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+//- ====================
+//- Robinzon: account-popover
+//- 18-01-2018: Amedomary
+//- --------------------
+//- account-popover
+//- ====================
+
+mixin account-popover()
+    +b.account-popover(class!=attributes.class)
+        +e('ul').list
+            +e('li').item
+                +e('a').link(href='javascript:void(0)', title='') История заказов
+            +e('li').item
+                +e('a').link(href='javascript:void(0)', title='') Настройки
+            +e('li').item
+                +e('a').link(href='javascript:void(0)', title='') Выход

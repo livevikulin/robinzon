@@ -1,0 +1,26 @@
+/* 1440 + */
+.b-availability-card {
+    .roboto-regular;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #66BC10;
+    margin: 30px 0;
+
+    &--not-available {
+        color: @cl-font-main;
+    }
+
+    &__text {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 23px;
+        color: #66BC10
+    }
+
+    &--not-available  &__text {
+        color: @cl-font-main;
+    }
+}

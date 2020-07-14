@@ -1,0 +1,97 @@
+//- ====================
+//- Robinzon: product-description
+//- 30-01-2018: VD
+//- --------------------
+//- Собираем блок таба в карточке товара - таб "описание"
+//- ====================
+
+mixin product-description()
+    // BEGIN: контент таба "Описание"
+    +b('section').product-description
+        include ui-kit/title.pug
+        +title('h3', 'Описание товара').--product-tab
+
+        +e.brief
+            +product-recomendation('images/content/content-sumka-1.jpg', 'Robinzon Reкомендует! «Мы ручаемся за эту модель. Она надежнее, чем многие другие.»')
+            //- TODO: Добавить иконки как пришлет клиент
+            +list-characteristic({'items': [
+                {
+                    'img': 'images/content/tsa.gif',
+                    'text': 'Кодовый замок с функцией TSA'
+                }, {
+                    'img': 'images/content/arrows.png',
+                    'text': 'Чемодан-spinner (4 колеса)'
+                }, {
+                    'img': 'images/content/tsa.gif',
+                    'text': 'Перекрещивающиеся ремни'
+                }, {
+                    'img': 'images/content/arrows.png',
+                    'text': 'Перегородка'
+                }
+            ]})
+
+            include geo-point.pug
+            +geo-point().--product-description
+
+        +e.full
+            +e.full-text.js-description-text
+                p Большой чемодан на колесах Roncato 3401 MODO Starlight 2.0 79 выполнен из ультралегкого полипропилена. Этот современный материал отличается особой прочностью и длительным сроком службы, при этом в отличие от чемодана из обычного пластика, чемодан из данного материала не обязательно заполнять до конца: даже в полупустом состоянии он способен равномерно распределять нагрузку и не боится повреждений. Поэтому он прекрасно подойдёт для шоппинг-туров. 
+                p Модель имеет два внутренних отделения с перегородкой на молнии, а также два кармана на молнии и перекрестные ремни с зажимом для одежды. Выдвижная ручка имеет фиксатор в двух положениях. Сдвоенные колеса вращаются на 360 градусов, что облегчает транспортировку, а также делает чемодан маневренным и устойчивым на различных поверхностях. Кодовый замок TSA защищает содержимое от взлома. На задней стороне модели расположена именная бирка.
+                +e.show-more-wrapper.js-show-more-product-description-wrapper
+                    +link('Посмотреть полностью', '', true).--underline-dot.--show-more.js-show-more-product-description
+            +e.help-choose
+                include consultation.pug
+                +consultation({
+                    'title': 'Сложности с выбором?',
+                    'src': 'images/content/avatar.png',
+                    'name': 'Консультант Анна&#160;Петрова',
+                    'secondary': 'Готов ответить на&nbsp;вопросы и&nbsp;помочь в&nbsp;выборе. Звоните!',
+                    'question': true,
+                    'classAvatar': '--description'
+                }).--description
+
+        +b('section').product-review
+            include ui-kit/title.pug
+            +title('h3', 'Отзывы о товаре').--product-tab-big-top
+            +review-text('Невероятно удобный чемодан. Яркий, легкий, надежный. То что нужно для краткосрочной поездки к морю')
+            +e.footer
+                +e.whose-tip
+                    span Анастасия Решетова
+                    | , 
+                    span Москва
+                include ui-kit/link.pug
+                +link('Посмотреть все отзывы', '', true).--underline-dot.--product-review
+
+                include ui-kit/button.pug
+                +button('Добавить отзыв').--transparent.--product-review
+    // END: контент таба "Описание"
+
+
+//- TODO: миксины распределить по папкам
+//- data - массив объектов для заполнения списка, в который входят следующие ключ:значение
+    //- item.icon - название иконки
+    //- item.text - текст для описания характеристики
+mixin list-characteristic(data)
+    +b('ul').list-characteristic
+        each item in data.items
+            +e('li').item
+                +e.icon-wrap
+                    //- include ui-kit/icon.pug
+                    //- +icon(item.icon)
+                    +e.img(src=item.img alt="" title="")
+                +e('span').text #{item.text}
+
+//- src -  путь к картинке
+//- text - текст описания
+mixin product-recomendation(src, text)
+    +b.product-recomendation(class!=attributes.class)
+        //- +e('span').image-wrap
+        +e('img').image(src=src, alt="").js-image-wrapper
+        +e('span').text #{text}
+
+//- text - текст отзыва
+mixin review-text(text)
+    +b.review-text
+        +e.arrow
+        +e.content
+            p #{text}

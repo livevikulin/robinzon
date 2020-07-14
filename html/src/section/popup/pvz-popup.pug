@@ -1,0 +1,22 @@
+//- ====================
+//- Robinzon: pvz-popup
+//- 18-01-2018: Amedomary
+//- --------------------
+//- ПопАп pvz-popup
+//- ====================
+
+mixin pvz-popup()
+    +b.pvz-popup
+        //- Крестик
+        +popup_close()
+        include ../ui-kit/title.pug
+        +title('h3', 'Выбор пунктов самовывоза в городе Каменск-Шахтинский').--block.--login.--pickup-point
+
+        +e.column.--left
+            include ../list-check.pug
+            +list-check({
+                'listClass': 'js-list-check-scroll'
+            })
+
+        +e.column.--right
+            +e.map#id-map-pvz-popup-7492716

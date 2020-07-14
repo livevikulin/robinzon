@@ -1,0 +1,36 @@
+//- ====================
+//- Project: filter-mobile
+//- 07-02-2018: Amedomary
+//- --------------------
+//- мобильное меню
+//- ====================
+
+mixin filter-mobile()
+    include ui-kit/icon.pug
+    include ui-kit/title.pug
+    include ui-kit/button.pug
+    include tag.pug
+    include tag-bar.pug
+
+    +b.filter-mobile.js-menu-in-popup-cont
+        +e('header').header
+            +e('a').link.--back.js-menu-in-popup-back(href='javascript:void(0)', title='')
+                +icon('arrow_small_ico').--filter-back
+            +title('h2', 'Фильтры').--mobile-popup
+            +e('a').link.js-close-popup.js-close-filter-mobile(href='javascript:void(0)', title='')
+                +icon('close').--filter-close
+
+        +e.main.js-menu-in-popup-main
+            +e('ul').main-list.js-filter-mobile
+                +filter__main-item('Популярные запросы')
+                    // BEGIN: Tag-bar. (пермутентится сюда)
+
+                // BEGIN: Фильтры. (пермутентится сюда)
+
+        +button('Показать товары', '', true).--blue.--block.--filter-mobile.js-close-popup.js-close-filter-mobile
+
+mixin filter__main-item(title)
+    +e('li').main-item
+        +e('a').main-link.js-menu-in-popup-link(data-submenu="filter-mobile", href='javascript:void(0)', title='') #{title}
+        +e.second-wrapper.js-menu-in-popup-submenu.js-popular-mobile(data-submenu-id="filter-mobile")
+            block

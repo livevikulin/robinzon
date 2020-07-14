@@ -1,0 +1,33 @@
+/* 320 + */
+.b-city-selection {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    &__form {
+        flex: 0 0 auto;
+        margin-bottom: 10px;
+        position: static;
+        margin-bottom: 0;
+    }
+
+    &__list {
+        padding: 0 20px;
+        flex: 1 1 auto;
+        overflow: auto;
+        column-count: auto;
+        padding-top: 20px;
+    }
+
+    &__autocomplete-wrapper {
+        bottom: 0;
+        top: 45px;
+        width: 100%;
+        touch-action: none;
+        pointer-events: none;
+    }
+}    

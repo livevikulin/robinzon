@@ -1,6 +1,6 @@
 require.config({
     waitSeconds: 0,
-    baseUrl: '/html/build/js',
+    baseUrl: 'js',
     urlArgs: 'bust=2020052011858',
     paths: {
         jquery: 'jquery/jquery.min',

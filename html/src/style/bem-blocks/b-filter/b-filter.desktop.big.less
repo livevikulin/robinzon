@@ -264,7 +264,7 @@
         font-size: 18px;
         line-height: 21px;
         color: #333333;
-        margin-bottom: 12px;
+        margin-bottom: 18px;
     }
 }
 
@@ -273,7 +273,7 @@
         margin-bottom: 14px;
         cursor: pointer;
 
-        span {
+        p {
             display: block;
             font-family: 'Roboto';
             font-style: normal;
@@ -282,8 +282,13 @@
             line-height: 15px;
             color: #333333;
             padding-left: 28px;
+            margin: 0;
             position: relative;
-
+            span {
+                position: absolute;
+                left: 58px;
+                color: #7D7D7D;
+            }
             &:hover {
                 &:before {
                     border-color: #F58220;
@@ -313,6 +318,9 @@
                 display: block;
                 width: 20px;
                 height: 20px;
+                background: url("../images/inhtml/on-check.svg");
+                opacity: 0;
+                transition: 0.2s ease;
             }
         }
 
@@ -323,5 +331,8 @@
 
     input {
         display: none;
+        &:checked + p:after {
+            opacity: 1;
+        }
     }
 }

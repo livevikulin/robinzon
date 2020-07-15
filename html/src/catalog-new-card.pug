@@ -71,6 +71,7 @@ block content
                     .filter
                         .filter-block
                             span.filter-block__title Цена
+                            +range()
                         .filter-block
                             span.filter-block__title Рекомендуем
                             .filter-box
@@ -94,6 +95,35 @@ block content
                                     p Супер цена
                         .filter-block
                             span.filter-block__title Размер
+                            .filter-extra
+                                .filter-extra-top
+                                    span Ручная кладь
+                                    label
+                                        input(type="checkbox", name="")
+                                        span
+                                .filter-extra-block
+                                    span.filter-extra-block__title Выбрать авиакомпанию
+                                    .filter-extra-box
+                                        label
+                                            input(type="checkbox", name="")
+                                            p Победа
+                                        label
+                                            input(type="checkbox", name="")
+                                            p Аэрофлот
+                                        label
+                                            input(type="checkbox", name="")
+                                            p S7
+                                        label
+                                            input(type="checkbox", name="")
+                                            p Ural Airlines
+                                        label
+                                            input(type="checkbox", name="")
+                                            p Россия
+                                    .filter-extra-btns
+                                        a(href="#").filter-extra-open Показать все
+                                        a(href="#").filter-extra-close Скрыть
+
+
                             .filter-box
                                 label
                                     input(type="checkbox", name="")
@@ -123,6 +153,21 @@ block content
                                     input(type="checkbox", name="")
                                     p XL
                                         span Очень большой чемодан
+                            .filter-extra
+                                .filter-extra-top
+                                    span Подобрать по габаритам
+                                    label
+                                        input(type="checkbox", name="")
+                                        span
+                                .filter-extra-block
+                                    span Высота
+                                        +range()
+                                    span Ширина
+                                        +range()
+                                    span Глубина
+                                        +range()
+                                    a.b-button.b-button--more-item.js-add-product(href="javascript:void(0);" title="Подобрать") Подобрать
+
                         .filter-block
                             span.filter-block__title Материал
                         .filter-block
@@ -131,6 +176,7 @@ block content
                             span.filter-block__title Цвет
                         .filter-block
                             span.filter-block__title Объем
+                            +range()
                         .filter-block
                             span.filter-block__title Вес
                         .filter-block

@@ -251,6 +251,27 @@
     border: 1px solid #C3C3C3;
     box-sizing: border-box;
     border-radius: 2px;
+
+    .b-question--product {
+        &:before {
+            color: #7D7D7D;
+        }
+        margin-left: 8px;
+    }
+
+    .b-button {
+        display: block;
+        width: 116px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 12px;
+        text-transform: none;
+    }
 }
 .filter-block {
     padding: 12px 24px;
@@ -274,6 +295,17 @@
     margin-bottom: 12px;
     padding: 12px 24px;
     background: rgba(245,130,32,0.05);
+
+    &__value-title {
+        display: block;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+        color: #333333;
+        margin-bottom: 12px;
+    }
 }
 
 .filter-extra-top {
@@ -434,6 +466,7 @@
 }
 
 .filter-box {
+    margin-bottom: 12px;
     label {
         margin-bottom: 14px;
         cursor: pointer;
@@ -494,6 +527,30 @@
         }
     }
 
+    .brands-bold {
+        p {
+            font-weight: bold;
+        }
+    }
+
+    .filter-color {
+        margin-bottom: 21px;
+        position: relative;
+        span {
+            display: block;
+            width: 29px;
+            height: 29px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 33px;
+            transform: translateY(-50%);
+        }
+        p {
+            padding-left: 67px;
+        }
+    }
+
     input {
         display: none;
         &:checked + p:after {
@@ -501,3 +558,4 @@
         }
     }
 }
+

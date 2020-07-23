@@ -178,7 +178,56 @@ define(['jquery', 'webui-popover', './is-mobile'], function ($, popover, isMobil
             } else {
                 return $('.js-popover[data-target="' + $this.parents('.webui-popover').attr('id') + '"]');
             }
-        }
+		}
+	}
 
-    }
+	let $check = $('.js-check');
+
+	$check.on('change', function() {
+		if (this.checked) {
+			$(this).closest('.filter-extra').find('.filter-extra-block').slideDown()
+		} else {
+			$(this).closest('.filter-extra').find('.filter-extra-block').slideUp()
+		}
+	});
+
+	let blockCompany = $('.js-company'),
+		blockColor = $('.js-color'),
+		blockBrands = $('.js-brands'),
+		extraOpen = $('.filter-extra-open'),
+		extraClose = $('.filter-extra-close');
+
+	extraOpen.on('click', function(e) {
+		e.preventDefault();
+		$(this).closest('.filter-block').find(blockCompany).css('height', 'auto')
+	});
+	extraClose.on('click', function(e) {
+		e.preventDefault();
+		$(this).closest('.filter-block').find(blockCompany).css('height', '155px')
+	});
+
+	extraOpen.on('click', function(e) {
+		e.preventDefault();
+		$(this).closest('.filter-block').find(blockColor).css({
+			'height': 'auto',
+			'overflow': 'visible'
+		})
+	});
+
+	extraOpen.on('click', function(e) {
+		e.preventDefault();
+		$(this).closest('.filter-block').find(blockBrands).css({
+			'height': 'auto',
+			'overflow': 'visible'
+		})
+	});
+
+	let btnOpenMobileFilterBlock = $('.js-filter-btn'),
+		mobileFilterBlock = $('.js-filter-block');
+
+	btnOpenMobileFilterBlock.on('click', function() {
+		$(this).closest('.filter-block').find(mobileFilterBlock).slideToggle();
+	})
+
 });
+

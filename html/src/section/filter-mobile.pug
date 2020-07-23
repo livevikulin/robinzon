@@ -6,31 +6,321 @@
 //- ====================
 
 mixin filter-mobile()
-    include ui-kit/icon.pug
-    include ui-kit/title.pug
-    include ui-kit/button.pug
-    include tag.pug
-    include tag-bar.pug
+	include ui-kit/icon.pug
+	include ui-kit/title.pug
+	include ui-kit/button.pug
+	include tag.pug
+	include tag-bar.pug
 
-    +b.filter-mobile.js-menu-in-popup-cont
-        +e('header').header
-            +e('a').link.--back.js-menu-in-popup-back(href='javascript:void(0)', title='')
-                +icon('arrow_small_ico').--filter-back
-            +title('h2', 'Фильтры').--mobile-popup
-            +e('a').link.js-close-popup.js-close-filter-mobile(href='javascript:void(0)', title='')
-                +icon('close').--filter-close
+	+b.filter-mobile.js-menu-in-popup-cont
+		+e('header').header
+			+e('a').link.--back.js-menu-in-popup-back(href='javascript:void(0)', title='')
+				+icon('arrow_small_ico').--filter-back
+			+title('h2', 'Фильтры').--mobile-popup
+			+e('a').link.js-close-popup.js-close-filter-mobile(href='javascript:void(0)', title='')
+				+icon('close').--filter-close
 
-        +e.main.js-menu-in-popup-main
-            +e('ul').main-list.js-filter-mobile
-                +filter__main-item('Популярные запросы')
-                    // BEGIN: Tag-bar. (пермутентится сюда)
+		+e.main.js-menu-in-popup-main
+			//- +e('ul').main-list.js-filter-mobile
+			//-     +filter__main-item('Популярные запросы')
+			//-         // BEGIN: Tag-bar. (пермутентится сюда)
 
-                // BEGIN: Фильтры. (пермутентится сюда)
+			//-     // BEGIN: Фильтры. (пермутентится сюда)
+			.catalog-filter
+				.filter
+					.filter-block
+						span.filter-block__title.js-filter-btn Цена
+						.filter-mobile-block.js-filter-block
+							+range()
+					.filter-block
+						span.filter-block__title.js-filter-btn Рекомендуем
+						.filter-mobile-block.js-filter-block
+							.filter-box
+								label
+									input(type="checkbox", name="")
+									p Новинки
+								label
+									input(type="checkbox", name="")
+									p Скидки
+								label
+									input(type="checkbox", name="")
+									p Товар недели
+								label
+									input(type="checkbox", name="")
+									p Премиум
+								label
+									input(type="checkbox", name="")
+									p Эксклюзив
+								label
+									input(type="checkbox", name="")
+									p Супер цена
+					.filter-block
+						span.filter-block__title.js-filter-btn Размер
+							a.b-question.b-question--product.js-open-popup(data-popup="" href="javascript:void(0);" title="") ?
+						.filter-mobile-block.js-filter-block
+							.filter-extra
+								.filter-extra-top
+									span Ручная кладь
+									label
+										input.js-check(type="checkbox", name="")
+										span
+								.filter-extra-block
+									span.filter-extra-block__title Выбрать авиакомпанию
+										a.b-question.b-question--product.js-open-popup(data-popup="" href="javascript:void(0);" title="") ?
+									.filter-extra-box.js-company
+										label
+											input(type="checkbox", name="")
+											p Победа
+										label
+											input(type="checkbox", name="")
+											p Аэрофлот
+										label
+											input(type="checkbox", name="")
+											p S7
+										label
+											input(type="checkbox", name="")
+											p Ural Airlines
+										label
+											input(type="checkbox", name="")
+											p Россия
+										label
+											input(type="checkbox", name="")
+											p S7
+										label
+											input(type="checkbox", name="")
+											p Ural Airlines
+										label
+											input(type="checkbox", name="")
+											p Россия
+									.filter-extra-btns
+										a(href="#").filter-extra-open Показать все
+										a(href="#").filter-extra-close Скрыть
+							.filter-box
+								label
+									input(type="checkbox", name="")
+									p XS
+										span В ручную кладь
+								label
+									input(type="checkbox", name="")
+									p S
+										span В ручную кладь
+								label
+									input(type="checkbox", name="")
+									p S+
+										span Маленький чемодан
+								label
+									input(type="checkbox", name="")
+									p M
+										span Средний чемодан
+								label
+									input(type="checkbox", name="")
+									p M+
+										span Средний чемодан
+								label
+									input(type="checkbox", name="")
+									p L
+										span Большой чемодан
+								label
+									input(type="checkbox", name="")
+									p XL
+										span Очень большой чемодан
+							.filter-extra
+								.filter-extra-top
+									span Подобрать по габаритам
+									label
+										input.js-check(type="checkbox", name="")
+										span
+								.filter-extra-block
+									span.filter-extra__value-title Высота
+									+range()
+									span.filter-extra__value-title Ширина
+									+range()
+									span.filter-extra__value-title Глубина
+									+range()
+									a.b-button.b-button--more-item.js-add-product(href="javascript:void(0);" title="Подобрать") Подобрать
 
-        +button('Показать товары', '', true).--blue.--block.--filter-mobile.js-close-popup.js-close-filter-mobile
+					.filter-block
+						span.filter-block__title.js-filter-btn Материал
+							a.b-question.b-question--product.js-open-popup(data-popup="" href="javascript:void(0);" title="") ?
+						.filter-mobile-block.js-filter-block
+							.filter-box
+								label
+									input(type="checkbox", name="")
+									p Пластик
+								.filter-box.filter-box-nesting
+									label
+										input(type="checkbox", name="")
+										p ABS
+									label
+										input(type="checkbox", name="")
+										p Полипропилен
+									label
+										input(type="checkbox", name="")
+										p Поликарбонат
+									label
+										input(type="checkbox", name="")
+										p Композит
+								label
+									input(type="checkbox", name="")
+									p Ткань
+								label
+									input(type="checkbox", name="")
+									p Металл
+								label
+									input(type="checkbox", name="")
+									p Кожа
+					.filter-block
+						span.filter-block__title.js-filter-btn Бренды
+						.filter-mobile-block.js-filter-block
+							.filter-box.filter-extra-brands.js-brands
+								label.brands-bold
+									input(type="checkbox", name="")
+									p American Tourister
+								label.brands-bold
+									input(type="checkbox", name="")
+									p BY Brics
+								label.brands-bold
+									input(type="checkbox", name="")
+									p Brics
+								label.brands-bold
+									input(type="checkbox", name="")
+									p Delsey
+								label.brands-bold
+									input(type="checkbox", name="")
+									p Mandarina Duck
+								label.brands-bold
+									input(type="checkbox", name="")
+									p Movion
+								label.brands-bold
+									input(type="checkbox", name="")
+									p Roncato
+								label.brands-bold
+									input(type="checkbox", name="")
+									p Mandarina Duck
+								label.brands-bold
+									input(type="checkbox", name="")
+									p Movion
+								label.brands-bold
+									input(type="checkbox", name="")
+									p Roncato
+							.filter-extra-btns
+								a(href="#").filter-extra-open Показать все
+					.filter-block
+						span.filter-block__title.js-filter-btn Цвет
+						.filter-mobile-block.js-filter-block
+							.filter-box.filter-extra-color.js-color
+								label.filter-color
+									span(style="background-color: #333333")
+									input(type="checkbox", name="")
+									p Черный
+								label.filter-color
+									span(style="background-color: #0047FF")
+									input(type="checkbox", name="")
+									p Синий
+								label.filter-color
+									span(style="background-color: #76D947")
+									input(type="checkbox", name="")
+									p Зеленый
+								label.filter-color
+									span(style="background-color: #FF8A1F")
+									input(type="checkbox", name="")
+									p Оранжевый
+								label.filter-color
+									span(style="background-color: #B631B9")
+									input(type="checkbox", name="")
+									p Фиолетовый
+								label.filter-color
+									span(style="background-color: #76D947")
+									input(type="checkbox", name="")
+									p Зеленый
+								label.filter-color
+									span(style="background-color: #FF8A1F")
+									input(type="checkbox", name="")
+									p Оранжевый
+								label.filter-color
+									span(style="background-color: #B631B9")
+									input(type="checkbox", name="")
+									p Фиолетовый
+							.filter-extra-btns
+								a(href="#").filter-extra-open Показать все
+					.filter-block
+						span.filter-block__title.js-filter-btn Объем
+						.filter-mobile-block.js-filter-block
+							+range()
+					.filter-block
+						span.filter-block__title.js-filter-btn Вес
+							a.b-question.b-question--product.js-open-popup(data-popup="" href="javascript:void(0);" title="") ?
+						.filter-mobile-block.js-filter-block
+							.filter-box
+								label
+									input(type="checkbox", name="")
+									p Обычный
+								label
+									input(type="checkbox", name="")
+									p Легкий
+								label
+									input(type="checkbox", name="")
+									p Сверхлегкий
+					.filter-block
+						span.filter-block__title.js-filter-btn Количество колес
+							a.b-question.b-question--product.js-open-popup(data-popup="" href="javascript:void(0);" title="") ?
+						.filter-mobile-block.js-filter-block
+							.filter-box
+								label
+									input(type="checkbox", name="")
+									p 2 колеса
+								label
+									input(type="checkbox", name="")
+									p 4 колеса
+					.filter-block
+						span.filter-block__title.js-filter-btn Замок
+							a.b-question.b-question--product.js-open-popup(data-popup="" href="javascript:void(0);" title="") ?
+						.filter-mobile-block.js-filter-block
+							.filter-box
+								label
+									input(type="checkbox", name="")
+									p Кодовый
+								label
+									input(type="checkbox", name="")
+									p Кодовый с TSA
+					.filter-block
+						span.filter-block__title.js-filter-btn Особенности
+						.filter-mobile-block.js-filter-block
+							.filter-box
+								label
+									input(type="checkbox", name="")
+									p Двойные колеса
+								label
+									input(type="checkbox", name="")
+									p Увеличение объема
+								label
+									input(type="checkbox", name="")
+									p Наличие рамы
+								label
+									input(type="checkbox", name="")
+									p Сделано в Европе
+								label
+									input(type="checkbox", name="")
+									p Молния защищенная
+								label
+									input(type="checkbox", name="")
+									p Молния водостойкая
+								label
+									input(type="checkbox", name="")
+									p Эко-материалы
+										a.b-question.b-question--product.js-open-popup(data-popup="" href="javascript:void(0);" title="") ?
+					.filter-block
+						span.filter-block__title.js-filter-btn Гарантия
+						.filter-mobile-block.js-filter-block
+							.filter-box
+								label
+									input(type="checkbox", name="")
+									p 2-10 лет
+					
+		+button('Показать товары', '', true).--blue.--block.--filter-mobile.js-close-popup.js-close-filter-mobile
 
-mixin filter__main-item(title)
-    +e('li').main-item
-        +e('a').main-link.js-menu-in-popup-link(data-submenu="filter-mobile", href='javascript:void(0)', title='') #{title}
-        +e.second-wrapper.js-menu-in-popup-submenu.js-popular-mobile(data-submenu-id="filter-mobile")
-            block
+//- mixin filter__main-item(title)
+//-     +e('li').main-item
+//-         +e('a').main-link.js-menu-in-popup-link(data-submenu="filter-mobile", href='javascript:void(0)', title='') #{title}
+//-         +e.second-wrapper.js-menu-in-popup-submenu.js-popular-mobile(data-submenu-id="filter-mobile")
+//-             block

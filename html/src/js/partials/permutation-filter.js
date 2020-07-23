@@ -24,6 +24,6 @@ define(['jquery'], function ($) {
                 adaptiveFilter();
             }
         });
-    }
+	}
 
 });

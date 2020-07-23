@@ -114,5 +114,5 @@ define(['jquery', 'webui-popover', './is-mobile'], function ($) {
     function showPopUp(e) {
         e.stopPropagation();
         $(this).webuiPopover('show');
-    }
+	}
 });

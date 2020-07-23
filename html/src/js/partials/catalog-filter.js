@@ -226,6 +226,7 @@ define(['jquery', 'webui-popover', './is-mobile'], function ($, popover, isMobil
 		mobileFilterBlock = $('.js-filter-block');
 
 	btnOpenMobileFilterBlock.on('click', function() {
+		$(this).toggleClass('filter-block-open');
 		$(this).closest('.filter-block').find(mobileFilterBlock).slideToggle();
 	})
 

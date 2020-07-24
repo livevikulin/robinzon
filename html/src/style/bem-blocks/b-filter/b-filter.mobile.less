@@ -173,14 +173,14 @@
 	&:before {
 		position: absolute;
 		content: '';
+		border-bottom: 3px solid #333;
+		border-right: 3px solid #333;
+		right: 12px;
 		top: 50%;
-		right: 0;
-		display: block;
-		width: 15px;
-		height: 9px;
-		padding: 0;
-		background: url('../../../images/inhtml/arrow-filter.png') no-repeat;
-		transform: translateY(-50%);
+		width: 6px;
+		height: 6px;
+		-ms-transform: rotate(45deg);
+		transform: translateY(-50%) rotate(45deg);
 		transition: 0.3s ease;
 	}
 }
@@ -195,7 +195,7 @@
 
 .filter-block-open {
 	&:before {
-		transform: translateY(-50%) rotate(180deg);
+		transform: translateY(-50%) rotate(225deg);
 	}
 }
 

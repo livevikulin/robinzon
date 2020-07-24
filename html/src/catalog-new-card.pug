@@ -72,7 +72,7 @@ block content
 					.filter
 						.filter-block
 							span.filter-block__title Цена
-							+range()
+							+range('₽')
 						.filter-block
 							span.filter-block__title Рекомендуем
 							.filter-box
@@ -171,11 +171,11 @@ block content
 										span
 								.filter-extra-block
 									span.filter-extra__value-title Высота
-									+range()
+									+range('см')
 									span.filter-extra__value-title Ширина
-									+range()
+									+range('см')
 									span.filter-extra__value-title Глубина
-									+range()
+									+range('см')
 									a.b-button.b-button--more-item.js-add-product(href="javascript:void(0);" title="Подобрать") Подобрать
 
 						.filter-block
@@ -281,7 +281,7 @@ block content
 								a(href="#").filter-extra-open Показать все
 						.filter-block
 							span.filter-block__title Объем
-							+range()
+							+range('л')
 						.filter-block
 							span.filter-block__title Вес
 								a.b-question.b-question--product.js-open-popup(data-popup="" href="javascript:void(0);" title="") ?

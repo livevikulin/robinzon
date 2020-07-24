@@ -5,12 +5,15 @@
 //- Ползунок для цены
 //- ====================
 
-mixin range()
+mixin range(type)
     +b.range(class!=attributes.class)
         +e.price-block
-            +e('span').line-input от
-            +b('input').input__input-field--price.--min.js-price-min.js-ajax-custom(type="text" data-min="0" value="1000" name="price-min")
-            +e('span').line-input до
-            +b('input').input__input-field--price.--max.js-price-max.js-ajax-custom(type="text" data-max="10000" value="8569"  name="price-max")
-            +e('span').line-input Руб.
+            .price-box
+                +e('span').line-input.line-input-left от
+                +b('input').input__input-field--price.--min.js-price-min.js-ajax-custom(type="text" data-min="0" value="1000" name="price-min")
+                +e('span').line-input.line-input-right=type || 'Р'
+            .price-box
+                +e('span').line-input.line-input-left до
+                +b('input').input__input-field--price.--max.js-price-max.js-ajax-custom(type="text" data-max="10000" value="8569"  name="price-max")
+                +e('span').line-input.line-input-right=type || 'Р'
         +e.line.js-slider-range
